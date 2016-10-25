@@ -1,6 +1,5 @@
 
 
-
 What's Open for iOS
 ===
 
@@ -36,12 +35,12 @@ To get started, you'll need the following installed:
 
 * The latest **public** release of Swift. *Currently Swift 3.0* (bundled with Xcode)
 
-* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) continue to use **[Cocoapods](https://cocoapods.org)**. *Currently Cocoapods 1.1*. Since 1.0, Cocoapods supports the traditional command line interface, and the new GUI interface. They both operate the same, so the choice is yours. 
+* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Git-submodules. I've never personally used these in a shipping application, so theres no better time to start! 
 
-* Other language or framework-specific items
+* Other language or framework-specific items  
   Open a terminal window and type in the following commands. (If you're on Windows, use [Cygwin](http://www.cygwin.com/). This will create a local, workable copy of the project.
-  ``bash``
-  ``git clone git@git.gmu.edu:pmurray8/WhatsOpeniOS.git``
+  ``bash``  
+  ``git clone git@git.gmu.edu:pmurray8/WhatsOpeniOS.git``  
 
   To-do
 ---
