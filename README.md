@@ -1,5 +1,6 @@
 
 
+
 What's Open for iOS
 ===
 
@@ -35,7 +36,7 @@ To get started, you'll need the following installed:
 
 * The latest **public** release of Swift. *Currently Swift 3.0* (bundled with Xcode)
 
-* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Git-submodules. I've never personally used these in a shipping application, so theres no better time to start! 
+* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Cocoapods. It's not the best, but it's the pseudo standard for now 
 
 * Other language or framework-specific items  
   Open a terminal window and type in the following commands. (If you're on Windows, use [Cygwin](http://www.cygwin.com/). This will create a local, workable copy of the project.
