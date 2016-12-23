@@ -1,0 +1,45 @@
+[
+  {
+    "main_schedule": {
+      "open_times": [
+        {
+          "id": 556,
+          "last_modified": "DATE_FORMAT=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+          "schedule": 101,
+          "start_day": 0,
+          "start_time": "DATE_FORMAT=HH:mm:ss",
+          "end_day": 0,
+          "end_time": "DATE_FORMAT=HH:mm:ss"
+        }
+      ],
+      "id": 101,
+      "last_modified": "DATE_FORMAT=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+      "name": "Auntie Anne's",
+      "valid_start": "DATE_FORMAT=yyyy-MM-dd",
+      "valid_end": "DATE_FORMAT=yyyy-MM-dd"
+    },
+    "special_schedules": {
+      "open_times": [
+        {
+          "id": 556,
+          "last_modified": "DATE_FORMAT=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+          "schedule": 101,
+          "start_day": 0,
+          "start_time": "DATE_FORMAT=HH:mm:ss",
+          "end_day": 0,
+          "end_time": "DATE_FORMAT=HH:mm:ss"
+        }
+      ],
+      "id": 101,
+      "last_modified": "DATE_FORMAT=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+      "name": "Auntie Anne's",
+      "valid_start": "DATE_FORMAT=yyyy-MM-dd",
+      "valid_end": "DATE_FORMAT=yyyy-MM-dd"
+    },
+    "id": 100,
+    "last_modified": "DATE_FORMAT=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "name": "Auntie Anne's",
+    "category": null,
+    "location": "Johnson Center"
+  }
+]
