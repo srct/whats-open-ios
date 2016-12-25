@@ -42,8 +42,11 @@ To get started, you'll need the following installed:
   Open a terminal window and type in the following commands. (If you're on Windows, use [Cygwin](http://www.cygwin.com/). This will create a local, workable copy of the project.
   ``bash``  
   ``git clone git@git.gmu.edu:pmurray8/WhatsOpeniOS.git``  
-* Open ``WhatsOpen.xcworkspace`` *NOT* ``WhatsOpen.xcodeproj`` or else the compiler will throw errors.
 
+Troubleshooting
+---
+If you recieve and error similar to ``ld: framework not found Pods
+clang: error: linker command failed with exit code 1 (use -v to see invocation)`` then check to make sure you opened ``WhatsOpen.xcworkspace`` and not ``WhatsOpen.xcodeproj``
   To-do
 ---
 Note-- this should also be on the wiki
