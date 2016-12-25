@@ -4,7 +4,7 @@
 What's Open for iOS
 ===
 
-Simple iOS app to ingest the What's Open API, cache its contents in a local datastore and display it in a user friendly way. Plans to take advantage of iPhone specific technologies not available to the web. 
+Simple iOS app to ingest the What's Open API, cache its contents in a local datastore and display it in a user friendly way. Plans to take advantage of iPhone specific technologies not available to the web.
 
 
 
@@ -16,7 +16,7 @@ Simple iOS app to ingest the What's Open API, cache its contents in a local data
 On Contributing
 ---
 
-WhatsOpeniOS welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers. 
+WhatsOpeniOS welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers.
 
 There are many things that can be done with this project (see the "To Do" section), but sometimes it's the small things that count, so don't be afraid of contributing just a small spelling mistake.
 
@@ -36,12 +36,13 @@ To get started, you'll need the following installed:
 
 * The latest **public** release of Swift. *Currently Swift 3.0* (bundled with Xcode)
 
-* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Cocoapods. It's not the best, but it's the pseudo standard for now 
+* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Cocoapods. It's not the best, but it's the pseudo standard for now
 
 * Other language or framework-specific items  
   Open a terminal window and type in the following commands. (If you're on Windows, use [Cygwin](http://www.cygwin.com/). This will create a local, workable copy of the project.
   ``bash``  
   ``git clone git@git.gmu.edu:pmurray8/WhatsOpeniOS.git``  
+* Open ``WhatsOpen.xcworkspace`` *NOT* ``WhatsOpen.xcodeproj`` or else the compiler will throw errors.
 
   To-do
 ---
