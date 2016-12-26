@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62C83AD91AF879227B0E6F76 /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6465D077C7E63538B5736D27 /* Pods_WhatsOpen.framework */; };
-		7F47431B1E11C7D100E6E3D1 /* WhatsOpenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47431A1E11C7D100E6E3D1 /* WhatsOpenTests.swift */; };
+		7F4743231E11C9C900E6E3D1 /* SRCTSimpleTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743221E11C9C900E6E3D1 /* SRCTSimpleTableViewCellTests.swift */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
 		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
@@ -48,8 +48,8 @@
 		58C880B5AD2FFF2665B14E21 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		6465D077C7E63538B5736D27 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F47431A1E11C7D100E6E3D1 /* WhatsOpenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsOpenTests.swift; sourceTree = "<group>"; };
 		7F47431C1E11C7D100E6E3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F4743221E11C9C900E6E3D1 /* SRCTSimpleTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTSimpleTableViewCellTests.swift; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
 		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		7F4743191E11C7D100E6E3D1 /* WhatsOpenTests */ = {
 			isa = PBXGroup;
 			children = (
-				7F47431A1E11C7D100E6E3D1 /* WhatsOpenTests.swift */,
 				7F47431C1E11C7D100E6E3D1 /* Info.plist */,
+				7F4743221E11C9C900E6E3D1 /* SRCTSimpleTableViewCellTests.swift */,
 			);
 			path = WhatsOpenTests;
 			sourceTree = "<group>";
@@ -208,6 +208,7 @@
 					7F4743171E11C7D100E6E3D1 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = HQSN7HX89U;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CD81F5181DC0334600009FBD;
 					};
@@ -310,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F47431B1E11C7D100E6E3D1 /* WhatsOpenTests.swift in Sources */,
+				7F4743231E11C9C900E6E3D1 /* SRCTSimpleTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = HQSN7HX89U;
 				INFOPLIST_FILE = WhatsOpenTests/Info.plist;
@@ -368,6 +370,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iameyad.WhatsOpenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsOpen.app/WhatsOpen";
 			};
@@ -377,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = HQSN7HX89U;
 				INFOPLIST_FILE = WhatsOpenTests/Info.plist;
