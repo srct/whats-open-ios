@@ -26,7 +26,7 @@ class Utilities: NSObject {
     static func getDayOfWeek()->Int? {
         let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
+        let myComponents = myCalendar?.components(.weekday, from: todayDate as Date)
         let weekDay = myComponents?.weekday
         return weekDay
     }
