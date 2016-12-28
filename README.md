@@ -45,7 +45,7 @@ To get started, you'll need the following installed:
 
 Troubleshooting
 ---
-If you recieve and error similar to ``ld: framework not found Pods
+* If you recieve and error similar to ``ld: framework not found Pods
 clang: error: linker command failed with exit code 1 (use -v to see invocation)`` then check to make sure you opened ``WhatsOpen.xcworkspace`` and not ``WhatsOpen.xcodeproj``
   To-do
 ---
