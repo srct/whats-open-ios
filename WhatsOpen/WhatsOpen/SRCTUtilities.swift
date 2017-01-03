@@ -14,14 +14,12 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         
-        let date = getDayOfWeek()
-        // Swift has Sunday = 1, Python has Monday = 0.
-        // This fixes the issue, thanks to rhitt, should be incorporated into the function, but that's hard.
-        let pyDate = (5 + date!) % 7
+        let date = Date()
+        let result = getDayOfWeek()
         
         
         
-        print (pyDate)
+        print (result)
         //Testing
         /**
         print(facility.mainSchedule.openTimes[0].startTime)
@@ -40,7 +38,8 @@ class Utilities: NSObject {
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let myComponents = myCalendar?.components(.weekday, from: todayDate as Date)
         let weekDay = myComponents?.weekday
-        return weekDay
+        let pyweekDay = (5 + weekDay!) % 7
+        return pyweekDay
     }
     
 }
