@@ -54,6 +54,15 @@ class MainTableViewController: UITableViewController {
         let facility = facilitiesArray[indexPath.row]
         cell.nameLabel.text = facility.name
         
+        let open = Utilities.isOpen(facility: facility);
+        if(open == true)
+        {
+            // Label change is just for testing, we can adjust it later.
+            cell.openClosedLabel.text = "OPEN"
+        }else{
+            cell.openClosedLabel.text = "CLOSED"
+        }
+        
 
         return cell
     }

@@ -11,7 +11,7 @@ import UIKit
 class SRCTNetworkController: NSObject {
     
     
-    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
+   public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
         let requestURL: NSURL = NSURL(string: "https://whatsopen.gmu.edu/api/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -22,22 +22,23 @@ class SRCTNetworkController: NSObject {
             let statusCode = httpResponse.statusCode
             
             if (statusCode == 200) {
-
-                if let dataN = data {
+               
+               if let dataN = data {
 
                     
                     let json = try! JSONSerialization.jsonObject(with: dataN, options: []) as! Array<Any>
                     
-                    var facilities = Array<Facility>()
                     
+                    var facilities = Array<Facility>()
+                   
                     for f in json  {
                         let fJson = f as! [String: Any]
                         if let facility = Facility(json: fJson) {
                             facilities.append(facility)
                         }
-                    }
+                 }
 
-                    print(facilities)
+                    //print(facilities)
                     completion(facilities)
                     
                 }

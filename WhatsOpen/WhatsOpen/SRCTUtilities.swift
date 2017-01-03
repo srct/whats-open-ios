@@ -14,14 +14,26 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         
-        let date = Date()
+        let date = getDayOfWeek()
+        // Swift has Sunday = 1, Python has Monday = 0.
+        // This fixes the issue, thanks to rhitt, should be incorporated into the function, but that's hard.
+        let pyDate = (5 + date!) % 7
         
         
-        facility.mainSchedule.openTimes
+        
+        print (pyDate)
+        //Testing
+        /**
+        print(facility.mainSchedule.openTimes[0].startTime)
+        print(facility.mainSchedule.openTimes[0].endTime)
+        print(facility.mainSchedule.openTimes[0].endDay)
+        print(facility.mainSchedule.openTimes[0].startDay)
+        **/
+        
+        
         
         return true;
     }
-    
     
     static func getDayOfWeek()->Int? {
         let todayDate = NSDate()
