@@ -14,23 +14,15 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         
-        let date = Date()
-        let result = getDayOfWeek()
+        let currentDay = getDayOfWeek()
+        var time = getCurrentTime()
+        let closedOpen = open(weekDay: currentDay!, facility: facility)
         
+        //print(time!)
+        //print (currentDay!)
+        //print(facility.mainSchedule.openTimes[currentDay!].startDay)
         
-        
-        print (result)
-        //Testing
-        /**
-        print(facility.mainSchedule.openTimes[0].startTime)
-        print(facility.mainSchedule.openTimes[0].endTime)
-        print(facility.mainSchedule.openTimes[0].endDay)
-        print(facility.mainSchedule.openTimes[0].startDay)
-        **/
-        
-        
-        
-        return true;
+        return closedOpen
     }
     
     static func getDayOfWeek()->Int? {
@@ -40,6 +32,27 @@ class Utilities: NSObject {
         let weekDay = myComponents?.weekday
         let pyweekDay = (5 + weekDay!) % 7
         return pyweekDay
+    }
+    
+    static func getCurrentTime() -> Date {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let convertedDate = dateFormatter.string(from: date)
+        let currentDay = dateFormatter.date(from: convertedDate)
+        return currentDay!
+    }
+    
+    static func open(weekDay: Int, facility: Facility) -> Bool{
+        let start = facility.mainSchedule.openTimes[weekDay].startTime
+        let end = facility.mainSchedule.openTimes[weekDay].endTime
+        let time = getCurrentTime()
+        if(time >= start && time <= end){
+            return true
+        }else{
+            return false
+        }
     }
     
 }
