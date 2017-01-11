@@ -13,26 +13,25 @@ class Utilities: NSObject {
     
     
     static func isOpen(facility: Facility) -> Bool {
-        
-        let currentDay = getDayOfWeek()
-        let time = getCurrentTime()
-        let currentTime = time
-        let day = currentDay
         var open:Bool = false
         if(!facility.mainSchedule.openTimes.isEmpty){
-            for i in 0 ..< facility.mainSchedule.openTimes.count{
-                
-                if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay){
-                    
-                    if(currentTime >= facility.mainSchedule.openTimes[i].startTime && currentTime <= facility.mainSchedule.openTimes[i].endTime){
+                let now = today(facility: facility)
+                if(now == true){
+                    let nowTime = time(facility: facility)
+                    if(nowTime == true){
+                        print(facility.mainSchedule.name ," open")
                         open = true
-                        return open
                     }else{
                         open = false
                     }
+                    print("Same Day")
+                } else {
+                    open = false
                 }
-            }
+            
        
+        }else{
+            open = false
         }
         return open
     }
@@ -56,4 +55,31 @@ class Utilities: NSObject {
         return currentDay!
     }
     
+    static func today(facility: Facility) -> Bool?{
+        var today: Bool = false
+        let currentDay = getDayOfWeek()
+        let day = currentDay
+        
+        for i in 0 ..< facility.mainSchedule.openTimes.count{
+            if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay){
+                today = true
+            }
+        }
+        
+        return today
+    }
+    
+    static func time(facility: Facility) -> Bool?{
+        var time: Bool = false
+        let currentTime = getCurrentTime()
+        let nowTime = currentTime
+        
+        for i in 0 ..< facility.mainSchedule.openTimes.count{
+            if(nowTime >= facility.mainSchedule.openTimes[i].startTime && nowTime <= facility.mainSchedule.openTimes[i].endTime){
+                time = true
+            }
+        }
+        
+        return time
+    }
 }

@@ -57,6 +57,7 @@ class MainTableViewController: UITableViewController {
         let open = Utilities.isOpen(facility: facility);
             if(open == true){
                 cell.openClosedLabel.text="Open"
+                cell.openClosedLabel.backgroundColor=UIColor.green
             }else{
                 cell.openClosedLabel.text="Closed"
             }
