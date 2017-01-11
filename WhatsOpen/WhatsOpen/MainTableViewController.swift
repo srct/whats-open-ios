@@ -53,7 +53,7 @@ class MainTableViewController: UITableViewController {
 
         let facility = facilitiesArray[indexPath.row]
         cell.nameLabel.text = facility.name
-        
+        //TODO: Organize based on if a location is open.
         let open = Utilities.isOpen(facility: facility);
             if(open == true){
                 cell.openClosedLabel.text="Open"
