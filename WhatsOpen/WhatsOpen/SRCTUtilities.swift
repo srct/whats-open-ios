@@ -15,14 +15,16 @@ class Utilities: NSObject {
     static func isOpen(facility: Facility) -> Bool {
         
         let currentDay = getDayOfWeek()
-        var time = getCurrentTime()
-        let closedOpen = open(weekDay: currentDay!, facility: facility)
+        let time = getCurrentTime()
         
-        //print(time!)
-        //print (currentDay!)
-        //print(facility.mainSchedule.openTimes[currentDay!].startDay)
-        
-        return closedOpen
+        if(facility.mainSchedule.openTimes.isEmpty || facility.mainSchedule.openTimes.count < currentDay!){
+            return false
+        } else {
+            if(time >= facility.mainSchedule.openTimes[currentDay!].startTime && time <= facility.mainSchedule.openTimes[currentDay!].endTime){
+                return true
+            }
+        }
+            return true
     }
     
     static func getDayOfWeek()->Int? {
@@ -42,17 +44,6 @@ class Utilities: NSObject {
         let convertedDate = dateFormatter.string(from: date)
         let currentDay = dateFormatter.date(from: convertedDate)
         return currentDay!
-    }
-    
-    static func open(weekDay: Int, facility: Facility) -> Bool{
-        let start = facility.mainSchedule.openTimes[weekDay].startTime
-        let end = facility.mainSchedule.openTimes[weekDay].endTime
-        let time = getCurrentTime()
-        if(time >= start && time <= end){
-            return true
-        }else{
-            return false
-        }
     }
     
 }
