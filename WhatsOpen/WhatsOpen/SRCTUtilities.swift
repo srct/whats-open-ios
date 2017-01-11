@@ -16,15 +16,25 @@ class Utilities: NSObject {
         
         let currentDay = getDayOfWeek()
         let time = getCurrentTime()
-        
-        if(facility.mainSchedule.openTimes.isEmpty || facility.mainSchedule.openTimes.count < currentDay!){
-            return false
-        } else {
-            if(time >= facility.mainSchedule.openTimes[currentDay!].startTime && time <= facility.mainSchedule.openTimes[currentDay!].endTime){
-                return true
+        let currentTime = time
+        let day = currentDay
+        var open:Bool = false
+        if(!facility.mainSchedule.openTimes.isEmpty){
+            for i in 0 ..< facility.mainSchedule.openTimes.count{
+                
+                if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay){
+                    
+                    if(currentTime >= facility.mainSchedule.openTimes[i].startTime && currentTime <= facility.mainSchedule.openTimes[i].endTime){
+                        open = true
+                        return open
+                    }else{
+                        open = false
+                    }
+                }
             }
+       
         }
-            return true
+        return open
     }
     
     static func getDayOfWeek()->Int? {
@@ -39,7 +49,7 @@ class Utilities: NSObject {
     static func getCurrentTime() -> Date {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.locale = Locale(identifier: "ET")
         dateFormatter.dateFormat = "HH:mm:ss"
         let convertedDate = dateFormatter.string(from: date)
         let currentDay = dateFormatter.date(from: convertedDate)

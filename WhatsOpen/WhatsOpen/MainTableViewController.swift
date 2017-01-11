@@ -55,13 +55,12 @@ class MainTableViewController: UITableViewController {
         cell.nameLabel.text = facility.name
         
         let open = Utilities.isOpen(facility: facility);
-        if(indexPath.row >= 0){
             if(open == true){
                 cell.openClosedLabel.text="Open"
             }else{
                 cell.openClosedLabel.text="Closed"
             }
-        }
+        
         self.reloadInputViews()
         return cell
     }
