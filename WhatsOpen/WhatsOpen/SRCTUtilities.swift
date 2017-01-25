@@ -82,5 +82,9 @@ class Utilities: NSObject {
         
         return time
     }
+    
+    static func specialSchedule(facility: Facility) -> Bool?{
+        return true
+    }
     // TODO: Function to check for special schedules?
 }
