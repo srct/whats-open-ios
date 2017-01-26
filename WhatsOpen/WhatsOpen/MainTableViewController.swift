@@ -46,12 +46,31 @@ class MainTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return facilitiesArray.count
     }
+	
+	//Returns an array which has the open locations listed first
+	//Could be improved in the future because currently this means you're checking
+	//open status twice per cell
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
+		var open = [Facility]()
+		var closed = [Facility]()
 
+		for i in facilitiesArray {
+			if(Utilities.isOpen(facility: i)) {
+				open.append(i)
+			}
+			else {
+				closed.append(i)
+			}
+		}
+		
+		return open + closed
+	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SRCTSimpleTableViewCell
 
-        let facility = facilitiesArray[indexPath.row]
+		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
+        let facility = dataArray[indexPath.row]
         cell.nameLabel.text = facility.name
         //TODO: Organize based on if a location is open.
         let open = Utilities.isOpen(facility: facility);
