@@ -60,8 +60,9 @@ class MainTableViewController: UITableViewController {
                 cell.openClosedLabel.backgroundColor=UIColor.green
             }else{
                 cell.openClosedLabel.text="Closed"
+				cell.openClosedLabel.backgroundColor=UIColor.red
             }
-        
+		
         self.reloadInputViews()
         return cell
     }
