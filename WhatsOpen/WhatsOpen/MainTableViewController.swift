@@ -72,7 +72,6 @@ class MainTableViewController: UITableViewController {
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
         let facility = dataArray[indexPath.row]
         cell.nameLabel.text = facility.name
-        //TODO: Organize based on if a location is open.
         let open = Utilities.isOpen(facility: facility);
             if(open == true){
                 cell.openClosedLabel.text="Open"
