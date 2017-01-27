@@ -94,9 +94,17 @@ class Utilities: NSObject {
 			return nil
 		}
 	}
-    
+	
     static func specialSchedule(facility: Facility) -> Bool? {
-        return true
+        var special: Bool = false
+        
+        if(!(facility.specialSchedules?.openTimes.isEmpty)!) {
+            special = true
+        } else {
+            special = false
+        }
+        
+        return special
     }
     // TODO: Function to check for special schedules?
 }
