@@ -89,7 +89,7 @@ class Utilities: NSObject {
         if(!(facility.specialSchedules?.openTimes.isEmpty)!){
             special = true
         } else {
-            special =false
+            special = false
         }
         
         return special
