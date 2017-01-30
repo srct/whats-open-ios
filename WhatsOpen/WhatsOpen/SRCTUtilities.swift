@@ -14,13 +14,18 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         var open:Bool = false
+        
         if(!facility.mainSchedule.openTimes.isEmpty){
+            
                 let now = today(facility: facility)
+            
                 if(now == true){
+                    
                     let nowTime = time(facility: facility)
                     if(nowTime == true){
                         print(facility.mainSchedule.name ," open")
                         open = true
+                        
                     }else{
                         open = false
                     }
