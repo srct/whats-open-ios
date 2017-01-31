@@ -13,35 +13,30 @@ class Utilities: NSObject {
     
     
     static func isOpen(facility: Facility) -> Bool {
-        var open:Bool = false
-        
-        if(!facility.mainSchedule.openTimes.isEmpty){
-            
-                let now = today(facility: facility)
-            
-                if(now == true){
-                    
-                    let nowTime = time(facility: facility)
-                    if(nowTime == true){
-                        print(facility.mainSchedule.name ," open")
-                        open = true
-                        
-                    }else{
-                        open = false
-                    }
-                    print("Same Day")
+        var open = false
+        if(!facility.mainSchedule.openTimes.isEmpty) {
+            let now = today(facility: facility)
+            if(now == true) {
+                let nowTime = time(facility: facility)
+                if(nowTime == true) {
+                    print(facility.mainSchedule.name ," open")
+                    open = true
                 } else {
                     open = false
                 }
+                print("Same Day")
+            } else {
+                open = false
+            }
             
-       
-        }else{
+            
+        } else {
             open = false
         }
         return open
     }
     
-    static func getDayOfWeek()->Int? {
+    static func getDayOfWeek() -> Int? {
         let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let myComponents = myCalendar?.components(.weekday, from: todayDate as Date)
@@ -60,13 +55,13 @@ class Utilities: NSObject {
         return currentDay!
     }
     
-    static func today(facility: Facility) -> Bool?{
-        var today: Bool = false
+    static func today(facility: Facility) -> Bool {
+        var today = false
         let currentDay = getDayOfWeek()
         let day = currentDay
         
-        for i in 0 ..< facility.mainSchedule.openTimes.count{
-            if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay){
+        for i in 0 ..< facility.mainSchedule.openTimes.count {
+            if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay) {
                 today = true
             }
         }
@@ -74,13 +69,13 @@ class Utilities: NSObject {
         return today
     }
     
-    static func time(facility: Facility) -> Bool?{
-        var time: Bool = false
+    static func time(facility: Facility) -> Bool {
+        var time = false
         let currentTime = getCurrentTime()
         let nowTime = currentTime
         
-        for i in 0 ..< facility.mainSchedule.openTimes.count{
-            if(nowTime >= facility.mainSchedule.openTimes[i].startTime && nowTime <= facility.mainSchedule.openTimes[i].endTime){
+        for i in 0 ..< facility.mainSchedule.openTimes.count {
+            if(nowTime >= facility.mainSchedule.openTimes[i].startTime && nowTime <= facility.mainSchedule.openTimes[i].endTime) {
                 time = true
             }
         }
@@ -88,16 +83,20 @@ class Utilities: NSObject {
         return time
     }
     
-    static func specialSchedule(facility: Facility) -> Bool?{
-        var special: Bool = false
-        
-        if(!(facility.specialSchedules?.openTimes.isEmpty)!){
-            special = true
-        } else {
-            special = false
+    //TODO
+    static func timeUntilCloseOfFacility(_ facility: Facility) -> (hours: Int, minutes: Int)? {
+        //var currentTime = getCurrentTime()
+        if(Utilities.isOpen(facility: facility)) {
+            
+            return (hours: 0, minutes: 0)
         }
-        
-        return special
+        else {
+            return nil
+        }
+    }
+    
+    static func specialSchedule(facility: Facility) -> Bool? {
+        return true
     }
     // TODO: Function to check for special schedules?
 }
