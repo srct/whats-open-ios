@@ -14,6 +14,10 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         var open = false
+        
+        if(specialSchedule(facility: facility) == true) {
+        }
+        
         if(!facility.mainSchedule.openTimes.isEmpty) {
             let now = today(facility: facility)
             if(now == true) {
@@ -61,7 +65,7 @@ class Utilities: NSObject {
         let day = currentDay
         
         for i in 0 ..< facility.mainSchedule.openTimes.count {
-            if(day! >= facility.mainSchedule.openTimes[i].startDay || day! <= facility.mainSchedule.openTimes[i].endDay) {
+            if(day! >= facility.mainSchedule.openTimes[i].startDay && day! <= facility.mainSchedule.openTimes[i].endDay) {
                 today = true
             }
         }
@@ -95,8 +99,16 @@ class Utilities: NSObject {
         }
     }
     
-    static func specialSchedule(facility: Facility) -> Bool? {
-        return true
-    }
-    // TODO: Function to check for special schedules?
+     // TODO: Function to check for special schedules? 
+    //================== PAT LOOK HERE ==================
+   /** static func specialSchedule(facility: Facility) -> Bool {
+        var special = false
+        if(!(facility.specialSchedules!.openTimes.isEmpty)){
+            special = true
+            
+        }
+        return special
+    } ================== PAT LOOK HERE ==================**/
+    
+   
 }
