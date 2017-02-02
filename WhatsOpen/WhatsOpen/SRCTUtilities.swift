@@ -27,7 +27,7 @@ class Utilities: NSObject {
         } else {
             open = false
         }
-        print(facility.mainSchedule.name ," is ", open)
+//        print(facility.mainScheduleprint.name ," is ", open)
         return open
     }
     
@@ -75,15 +75,21 @@ class Utilities: NSObject {
     }
     
     //TODO
-    static func timeUntilCloseOfFacility(_ facility: Facility) -> (hours: Int, minutes: Int)? {
+    static func timeUntilFacility(_ facility: Facility) -> String? {
         //var currentTime = getCurrentTime()
+        let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
+        dateComponentsFormatter.maximumUnitCount = 1
+        dateComponentsFormatter.unitsStyle = .full
+        
         if(Utilities.isOpen(facility: facility)) {
-            
-            return (hours: 0, minutes: 0)
+            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.endTime)!)
+            return "Open for \(time!)."
+        } else {
+            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!)
+            return "Opens in \(time!)."
         }
-        else {
-            return nil
-        }
+
     }
     
     // TODO: Function to check for special schedules?
