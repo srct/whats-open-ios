@@ -5,6 +5,37 @@ import Foundation
 //
 // MARK: - Data Model
 //
+
+struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
+    let endDay: Int
+    let endTime: Date
+    let id: Int
+    let lastModified: Date
+    let schedule: Int
+    let startDay: Int
+    let startTime: Date
+    init(endDay: Int, endTime: Date, id: Int, lastModified: Date, schedule: Int, startDay: Int, startTime: Date) {
+        self.endDay = endDay
+        self.endTime = endTime
+        self.id = id
+        self.lastModified = lastModified
+        self.schedule = schedule
+        self.startDay = startDay
+        self.startTime = startTime
+    }
+    init?(json: [String: Any]) {
+        guard let endDay = json["end_day"] as? Int else { return nil }
+        guard let endTime = Date(json: json, key: "end_time", format: "HH:mm:ss") else { return nil }
+        guard let id = json["id"] as? Int else { return nil }
+        guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
+        guard let schedule = json["schedule"] as? Int else { return nil }
+        guard let startDay = json["start_day"] as? Int else { return nil }
+        guard let startTime = Date(json: json, key: "start_time", format: "HH:mm:ss") else { return nil }
+        self.init(endDay: endDay, endTime: endTime, id: id, lastModified: lastModified, schedule: schedule, startDay: startDay, startTime: startTime)
+    }
+}
+
+
 struct Facility: CreatableFromJSON { // TODO: Rename this struct
     let category: Any?
     let id: Int
@@ -56,34 +87,7 @@ struct Facility: CreatableFromJSON { // TODO: Rename this struct
             guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
             self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
         }
-        struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
-            let endDay: Int
-            let endTime: Date
-            let id: Int
-            let lastModified: Date
-            let schedule: Int
-            let startDay: Int
-            let startTime: Date
-            init(endDay: Int, endTime: Date, id: Int, lastModified: Date, schedule: Int, startDay: Int, startTime: Date) {
-                self.endDay = endDay
-                self.endTime = endTime
-                self.id = id
-                self.lastModified = lastModified
-                self.schedule = schedule
-                self.startDay = startDay
-                self.startTime = startTime
-            }
-            init?(json: [String: Any]) {
-                guard let endDay = json["end_day"] as? Int else { return nil }
-                guard let endTime = Date(json: json, key: "end_time", format: "HH:mm:ss") else { return nil }
-                guard let id = json["id"] as? Int else { return nil }
-                guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-                guard let schedule = json["schedule"] as? Int else { return nil }
-                guard let startDay = json["start_day"] as? Int else { return nil }
-                guard let startTime = Date(json: json, key: "start_time", format: "HH:mm:ss") else { return nil }
-                self.init(endDay: endDay, endTime: endTime, id: id, lastModified: lastModified, schedule: schedule, startDay: startDay, startTime: startTime)
-            }
-        }
+        
     }
     struct SpecialSchedules: CreatableFromJSON { // TODO: Rename this struct
         let id: Int
@@ -109,34 +113,6 @@ struct Facility: CreatableFromJSON { // TODO: Rename this struct
             guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
             self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
         }
-        struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
-            let endDay: Int
-            let endTime: Date
-            let id: Int
-            let lastModified: Date
-            let schedule: Int
-            let startDay: Int
-            let startTime: Date
-            init(endDay: Int, endTime: Date, id: Int, lastModified: Date, schedule: Int, startDay: Int, startTime: Date) {
-                self.endDay = endDay
-                self.endTime = endTime
-                self.id = id
-                self.lastModified = lastModified
-                self.schedule = schedule
-                self.startDay = startDay
-                self.startTime = startTime
-            }
-            init?(json: [String: Any]) {
-                guard let endDay = json["end_day"] as? Int else { return nil }
-                guard let endTime = Date(json: json, key: "end_time", format: "HH:mm:ss") else { return nil }
-                guard let id = json["id"] as? Int else { return nil }
-                guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-                guard let schedule = json["schedule"] as? Int else { return nil }
-                guard let startDay = json["start_day"] as? Int else { return nil }
-                guard let startTime = Date(json: json, key: "start_time", format: "HH:mm:ss") else { return nil }
-                self.init(endDay: endDay, endTime: endTime, id: id, lastModified: lastModified, schedule: schedule, startDay: startDay, startTime: startTime)
-            }
-        }
     }
 }
 
@@ -155,14 +131,14 @@ extension CreatableFromJSON {
         guard let jsonDictionary = json[key] as? [String: Any] else { return nil }
         self.init(json: jsonDictionary)
     }
-
+    
     /// Attempts to produce an array of instances of the conforming type based on an array in the JSON dictionary.
     /// - Returns: `nil` if the JSON array is missing or if there is an invalid/null element in the JSON array.
     static func createRequiredInstances(from json: [String: Any], arrayKey: String) -> [Self]? {
         guard let jsonDictionaries = json[arrayKey] as? [[String: Any]] else { return nil }
         return createRequiredInstances(from: jsonDictionaries)
     }
-
+    
     /// Attempts to produce an array of instances of the conforming type based on an array of JSON dictionaries.
     /// - Returns: `nil` if there is an invalid/null element in the JSON array.
     static func createRequiredInstances(from jsonDictionaries: [[String: Any]]) -> [Self]? {
@@ -173,14 +149,14 @@ extension CreatableFromJSON {
         }
         return array
     }
-
+    
     /// Attempts to produce an array of instances of the conforming type, or `nil`, based on an array in the JSON dictionary.
     /// - Returns: `nil` if the JSON array is missing, or an array with `nil` for each invalid/null element in the JSON array.
     static func createOptionalInstances(from json: [String: Any], arrayKey: String) -> [Self?]? {
         guard let array = json[arrayKey] as? [Any] else { return nil }
         return createOptionalInstances(from: array)
     }
-
+    
     /// Attempts to produce an array of instances of the conforming type, or `nil`, based on an array.
     /// - Returns: An array of instances of the conforming type and `nil` for each invalid/null element in the source array.
     static func createOptionalInstances(from array: [Any]) -> [Self?] {
@@ -205,17 +181,17 @@ extension Date {
         formatter.dateFormat = format
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)! // UTC is assumed, but won't interfere with a format-specified time zone.
+        formatter.timeZone = TimeZone(secondsFromGMT: NSTimeZone.local.secondsFromGMT())! // changed to be the user's local time.
         formatterCache[format] = formatter
         return formatter
     }
-
+    
     static func parse(string: String, format: String) -> Date? {
         var formatter: DateFormatter!
         cacheQueue.sync { formatter = dateFormatter(with: format) }
         return formatter.date(from: string)
     }
-
+    
     init?(json: [String: Any], key: String, format: String) {
         guard let string = json[key] as? String else { return nil }
         guard let date = Date.parse(string: string, format: format) else { return nil }
@@ -256,12 +232,12 @@ extension Array where Element: CustomStringConvertible {
         }
         return dateArray
     }
-
+    
     func toURLArray() -> [URL]? {
         var urlArray = [URL]()
         for string in self {
-           guard let url = URL(string: String(describing: string)) else { return nil }
-           urlArray.append(url)
+            guard let url = URL(string: String(describing: string)) else { return nil }
+            urlArray.append(url)
         }
         return urlArray
     }
@@ -271,21 +247,21 @@ extension Array where Element: Any {
     func toOptionalValueArray<Value>() -> [Value?] {
         return map { ($0 is NSNull) ? nil : ($0 as? Value) }
     }
-
+    
     func toOptionalDateArray(withFormat format: String) -> [Date?] {
         return map { item in
             guard let string = item as? String else { return nil }
             return Date.parse(string: string, format: format)
         }
     }
-
+    
     func toOptionalDoubleArray() -> [Double?] {
         return map { item in
             guard let nsNumber = item as? NSNumber else { return nil }
             return nsNumber.doubleValue
         }
     }
-
+    
     func toOptionalURLArray() -> [URL?] {
         return map { item in
             guard let string = item as? String else { return nil }

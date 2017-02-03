@@ -18,25 +18,20 @@ class Utilities: NSObject {
         //if(specialSchedule(facility: facility) == true) {
         //}
         
+
         if(!facility.mainSchedule.openTimes.isEmpty) {
-            let now = today(facility: facility)
-            if(now == true) {
-                let nowTime = time(facility: facility)
+            if let openDay = today(facility: facility) {
+                let nowTime = time(openTime: openDay)
                 if(nowTime == true) {
-                    print(facility.mainSchedule.name ," open")
                     open = true
                 } else {
                     open = false
                 }
-                print("Same Day")
-            } else {
-                open = false
             }
-            
-            
         } else {
             open = false
         }
+//        print(facility.mainScheduleprint.name ," is ", open)
         return open
     }
     
@@ -59,55 +54,59 @@ class Utilities: NSObject {
         return currentDay!
     }
     
-    static func today(facility: Facility) -> Bool {
-        var today = false
+    static func today(facility: Facility) -> OpenTimes? {
         let currentDay = getDayOfWeek()
         let day = currentDay
         
-        for i in 0 ..< facility.mainSchedule.openTimes.count {
-            if(day! >= facility.mainSchedule.openTimes[i].startDay && day! <= facility.mainSchedule.openTimes[i].endDay) {
-                today = true
+        for openTime in facility.mainSchedule.openTimes {
+            if(day! >= openTime.startDay && day! <= openTime.endDay) {
+                return openTime
             }
         }
         
-        return today
+        return nil
     }
     
-    static func time(facility: Facility) -> Bool {
+    static func time(openTime: OpenTimes) -> Bool {
         var time = false
-        let currentTime = getCurrentTime()
-        let nowTime = currentTime
+        let nowTime = getCurrentTime()
         
-        for i in 0 ..< facility.mainSchedule.openTimes.count {
-            if(nowTime >= facility.mainSchedule.openTimes[i].startTime && nowTime <= facility.mainSchedule.openTimes[i].endTime) {
-                time = true
-            }
+        if(openTime.startTime >= openTime.endTime || nowTime >= openTime.startTime && nowTime <= openTime.endTime) {
+            time = true
         }
         
         return time
     }
     
     //TODO
-    static func timeUntilCloseOfFacility(_ facility: Facility) -> (hours: Int, minutes: Int)? {
+    static func timeUntilFacility(_ facility: Facility) -> String? {
         //var currentTime = getCurrentTime()
+        let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
+        dateComponentsFormatter.maximumUnitCount = 1
+        dateComponentsFormatter.unitsStyle = .full
+        
         if(Utilities.isOpen(facility: facility)) {
-            
-            return (hours: 0, minutes: 0)
+            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.endTime)!)
+            return "Open for \(time!)."
+        } else {
+            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!)
+            return "Opens in \(time!)."
         }
-        else {
-            return nil
-        }
+
     }
     
 
-    /**static func specialSchedule(facility: Facility) -> Bool {
-        var special = false
-        if(!(facility.specialSchedules?.openTimes.)){
-            special = true
-            
-        }
-        return special
-    }**/
+    // TODO: Function to check for special schedules?
+    //================== PAT LOOK HERE ==================
+    /** static func specialSchedule(facility: Facility) -> Bool {
+     var special = false
+     if(!(facility.specialSchedules!.openTimes.isEmpty)){
+     special = true
+     
+     }
+     return special
+     } ================== PAT LOOK HERE ==================**/
     
-   
+    
 }

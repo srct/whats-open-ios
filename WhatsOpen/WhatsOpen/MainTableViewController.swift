@@ -26,7 +26,11 @@ class MainTableViewController: UITableViewController {
         
         SRCTNetworkController.performDownload { (facilities) in
             self.facilitiesArray = facilities
-            self.tableView.reloadData()
+//            print(self.facilitiesArray)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
 
@@ -80,6 +84,8 @@ class MainTableViewController: UITableViewController {
                 cell.openClosedLabel.text="Closed"
 				cell.openClosedLabel.backgroundColor=UIColor.red
             }
+        
+        cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
 		
         self.reloadInputViews()
         return cell
