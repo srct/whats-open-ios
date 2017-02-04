@@ -89,7 +89,7 @@ class Utilities: NSObject {
 			//Eventually add more detailled text here, allowing for more custom
 			//messages as it gets closer to closing time
         } else {
-            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!)
+			let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!) //This line doesn't work pls fix
             return "Opens in \(time!)."
         }
 
