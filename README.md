@@ -1,6 +1,5 @@
 
 
-
 What's Open for iOS
 ===
 
@@ -24,19 +23,30 @@ Please visit the [SRCT Wiki](http://wiki.srct.gmu.edu/) for more information on 
 
 Setup
 ---
+
+Requirements: 
+
 To get started, you'll need the following installed:
 * [Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
-* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 8*
+* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 8* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
 
 * The latest **public** release of Swift. *Currently Swift 3.0* (bundled with Xcode)
 
-* This project also contains many dependancies. Due to the shifting nature of dependency management in Cocoa development, this project will (for the foreseeable future) use Cocoapods. It's not the best, but it's the pseudo standard for now
+* Cocoapods, for dependency management. You can install this by running `sudo gem install cocoapods` in your terminal. (Dependency management may change in the future)
 
-* Other language or framework-specific items  
-  Open a terminal window and type in the following commands. (If you're on Windows, use [Cygwin](http://www.cygwin.com/). This will create a local, workable copy of the project.
+
+Open a terminal window and type in the following commands. This will create a local, workable copy of the project.
   ``bash``  
-  ``git clone git@git.gmu.edu:pmurray8/WhatsOpeniOS.git``  
+  ``git clone [url]`` where the URL is the one listed at the top of the git repository for this project (preferrably using SSH)
+  
+Install the needed dependencies by running
+  ``pod install``
+inside the the WhatsOpen directory.
+
+To work on the project, you will need to make sure to use the WhatsOpen.xcworkspace file, and NOT the .xcodeproj file. This allows us to use the dependencies that you installed.
+
+You may need to choose your personal development team inside of Xcode on the project settings page. If you are not a registered Apple developer, you can do so at [developer.apple.com](https://developer.apple.com/)
 
 Troubleshooting
 ---
