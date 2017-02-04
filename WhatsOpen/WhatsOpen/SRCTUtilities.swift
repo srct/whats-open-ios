@@ -15,9 +15,6 @@ class Utilities: NSObject {
     static func isOpen(facility: Facility) -> Bool {
         var open = false
         
-        //if(specialSchedule(facility: facility) == true) {
-        //}
-        
 
         if(!facility.mainSchedule.openTimes.isEmpty) {
             if let openDay = today(facility: facility) {
@@ -99,16 +96,6 @@ class Utilities: NSObject {
     }
     
 
-    // TODO: Function to check for special schedules?
-    //================== PAT LOOK HERE ==================
-    /** static func specialSchedule(facility: Facility) -> Bool {
-     var special = false
-     if(!(facility.specialSchedules!.openTimes.isEmpty)){
-     special = true
-     
-     }
-     return special
-     } ================== PAT LOOK HERE ==================**/
-    
+    // TODO: Function to check for special schedules.
     
 }
