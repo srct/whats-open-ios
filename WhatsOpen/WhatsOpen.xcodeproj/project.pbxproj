@@ -500,7 +500,7 @@
 				);
 				INFOPLIST_FILE = WhatsOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patmurraydev.WhatsOpen;
+				PRODUCT_BUNDLE_IDENTIFIER = io.srct.WhatsOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -520,7 +520,7 @@
 				);
 				INFOPLIST_FILE = WhatsOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patmurraydev.WhatsOpen;
+				PRODUCT_BUNDLE_IDENTIFIER = io.srct.WhatsOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
