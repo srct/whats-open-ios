@@ -84,13 +84,20 @@ class Utilities: NSObject {
         dateComponentsFormatter.unitsStyle = .full
         
         if(Utilities.isOpen(facility: facility)) {
+            // Might be a better way of doing this, but for now, this works.
+            if(!facility.mainSchedule.openTimes.isEmpty) {
             let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.endTime)!)
             return "Closes in \(time!)."
+            
 			//Eventually add more detailled text here, allowing for more custom
 			//messages as it gets closer to closing time
         } else {
 			let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!) //This line doesn't work pls fix
             return "Opens in \(time!)."
+        }
+            
+        } else {
+            return "Closed"
         }
 
     }
