@@ -88,7 +88,9 @@ class Utilities: NSObject {
         
         if(Utilities.isOpen(facility: facility)) {
             let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.endTime)!)
-            return "Open for \(time!)."
+            return "Closes in \(time!)."
+			//Eventually add more detailled text here, allowing for more custom
+			//messages as it gets closer to closing time
         } else {
             let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!)
             return "Opens in \(time!)."

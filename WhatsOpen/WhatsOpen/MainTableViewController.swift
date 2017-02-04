@@ -43,6 +43,8 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+		//Will want to have two sections (for some parts) eventually, to add headings
+		//for open and closed
         return 1
     }
 
