@@ -8,11 +8,6 @@ Simple iOS app to ingest the What's Open API, cache its contents in a local data
 
 
 
-**THIS PROJECT IS BRAND NEW. PLEASE STANBY WHILE IT IS SET UP**
-
-
-
-
 On Contributing
 ---
 
@@ -22,7 +17,7 @@ There are many things that can be done with this project (see the "To Do" sectio
 
 If you need help at all please contact and SRCT member. We want people to contribute, so if you are struggling, or just want to learn we are more than willing to help.
 
-The project lead for this project is **Pat Murray**. *pmurray8@gmu.edu*
+The project lead for this project is **Eyad Hasan**. *ehasan3@gmu.edu*
 
 Please visit the [SRCT Wiki](http://wiki.srct.gmu.edu/) for more information on this and other SRCT projects, along with other helpful links and tutorials.
 
@@ -47,9 +42,12 @@ Troubleshooting
 ---
 * If you recieve and error similar to ``ld: framework not found Pods
 clang: error: linker command failed with exit code 1 (use -v to see invocation)`` then check to make sure you opened ``WhatsOpen.xcworkspace`` and not ``WhatsOpen.xcodeproj``
-  To-do
+
+To-do
 ---
+
 Note-- this should also be on the wiki
+
 About GMU SRCT
 ---
 **S**tudent - **R**un **C**omputing and **T**echnology (*SRCT*, pronounced "circuit") is a student organization at George Mason University which enhances student computing at Mason. SRCT establishes and maintains systems which provide specific services for Mason's community.
