@@ -68,7 +68,7 @@ class MainTableViewController: UITableViewController {
 				closed.append(i)
 			}
 		}
-		
+		// Test
 		return open + closed
 	}
     
