@@ -12,6 +12,12 @@ class MainTableViewController: UITableViewController {
     
     var facilitiesArray = Array<Facility>()
     
+	@IBOutlet var mainNavigationBar: UINavigationItem!
+	
+	override func viewWillAppear(_ animated: Bool) {
+		
+		mainNavigationBar.titleView = UIImageView(image: UIImage(named: "Navigation Bar TitleView"))
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
