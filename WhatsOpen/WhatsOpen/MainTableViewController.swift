@@ -106,12 +106,12 @@ class MainTableViewController: UITableViewController {
         let facility = dataArray[indexPath.row]
         cell.nameLabel.text = facility.name
         let open = Utilities.isOpen(facility: facility);
-            if(open == true) {
+            if(open == true){
                 cell.openClosedLabel.text = "Open"
-                cell.openClosedLabel.backgroundColor=UIColor.green
-            } else{
+                cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+            }else{
                 cell.openClosedLabel.text = "Closed"
-				cell.openClosedLabel.backgroundColor=UIColor.red
+				cell.openClosedLabel.backgroundColor = UIColor.red
             }
         
         cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
