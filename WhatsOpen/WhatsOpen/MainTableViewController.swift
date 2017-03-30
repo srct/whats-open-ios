@@ -50,12 +50,18 @@ class MainTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
 		//Will want to have two sections (for some parts) eventually, to add headings
 		//for open and closed
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return facilitiesArray.count
+		let count = countForOpenAndClosedFacilities(facilitiesArray)
+		if(section == 1) {
+			return count.open
+		}
+		else {
+			return count.closed
+		}
     }
 	
 	//Returns an array which has the open locations listed first
@@ -76,7 +82,23 @@ class MainTableViewController: UITableViewController {
 		// Test
 		return open + closed
 	}
-    
+	
+	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
+		var open = 0
+		var closed = 0
+	
+		for i in facilitiesArray {
+			if(Utilities.isOpen(facility: i)) {
+				open += 1
+			}
+			else {
+				closed += 1
+			}
+		}
+		
+		return (open, closed)
+	}
+	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SRCTSimpleTableViewCell
 
@@ -84,11 +106,11 @@ class MainTableViewController: UITableViewController {
         let facility = dataArray[indexPath.row]
         cell.nameLabel.text = facility.name
         let open = Utilities.isOpen(facility: facility);
-            if(open == true){
-                cell.openClosedLabel.text="Open"
+            if(open == true) {
+                cell.openClosedLabel.text = "Open"
                 cell.openClosedLabel.backgroundColor=UIColor.green
-            }else{
-                cell.openClosedLabel.text="Closed"
+            } else{
+                cell.openClosedLabel.text = "Closed"
 				cell.openClosedLabel.backgroundColor=UIColor.red
             }
         
@@ -97,7 +119,12 @@ class MainTableViewController: UITableViewController {
         self.reloadInputViews()
         return cell
     }
-    
+	
+	
+	@IBAction func SearchButton(_ sender: Any) {
+		print("Hello")
+	}
+	
 
     /*
     // Override to support conditional editing of the table view.
