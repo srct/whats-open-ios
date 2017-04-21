@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hUU-na-lag" id="Ctl-yf-TXC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOSED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="096-jU-K7m">
@@ -125,20 +125,62 @@
                                     <constraint firstAttribute="height" constant="559" id="axR-ti-h1V"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eqw-AF-DSB">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="197" height="107"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="7" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6qn-VX-mZx">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CollectionCell" id="6qn-VX-mZx" customClass="SRCTSimpleCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                        <rect key="frame" x="63" y="7" width="250" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QR-8Q-n4s">
+                                                    <rect key="frame" x="0.0" y="7" width="250" height="69"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69" id="68j-Da-sqF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-BH-Fun">
+                                                    <rect key="frame" x="0.0" y="122" width="250" height="28"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="ZVT-gM-BCd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closes in 2 hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-To-w50">
+                                                    <rect key="frame" x="0.0" y="93" width="250" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="o7N-To-w50" firstAttribute="leading" secondItem="DEx-BH-Fun" secondAttribute="leading" id="1iR-X8-3Tc"/>
+                                            <constraint firstItem="o7N-To-w50" firstAttribute="top" secondItem="6QR-8Q-n4s" secondAttribute="bottom" constant="17" id="6Dm-lj-ixJ"/>
+                                            <constraint firstItem="o7N-To-w50" firstAttribute="trailing" secondItem="6QR-8Q-n4s" secondAttribute="trailing" id="CeJ-2L-nZf"/>
+                                            <constraint firstItem="DEx-BH-Fun" firstAttribute="top" secondItem="o7N-To-w50" secondAttribute="bottom" constant="8" symbolic="YES" id="GIx-Yj-VIh"/>
+                                            <constraint firstItem="o7N-To-w50" firstAttribute="leading" secondItem="6QR-8Q-n4s" secondAttribute="leading" id="Kw3-EP-Rtm"/>
+                                            <constraint firstItem="DEx-BH-Fun" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" id="YdV-fZ-wRX"/>
+                                            <constraint firstAttribute="bottom" secondItem="DEx-BH-Fun" secondAttribute="bottom" id="jCj-ri-ltB"/>
+                                            <constraint firstItem="o7N-To-w50" firstAttribute="trailing" secondItem="DEx-BH-Fun" secondAttribute="trailing" id="u5F-EQ-YWT"/>
+                                            <constraint firstAttribute="trailing" secondItem="DEx-BH-Fun" secondAttribute="trailing" id="x1c-dz-ZRS"/>
+                                        </constraints>
+                                        <size key="customSize" width="250" height="150"/>
                                         <connections>
+                                            <outlet property="DescriptionLabel" destination="o7N-To-w50" id="3gG-u7-Nv1"/>
+                                            <outlet property="LocationLabel" destination="6QR-8Q-n4s" id="0nB-ts-GYO"/>
+                                            <outlet property="OpenLabel" destination="DEx-BH-Fun" id="nmH-Gb-jwC"/>
                                             <segue destination="bKW-v9-6dS" kind="showDetail" id="0bG-wa-jMg"/>
                                         </connections>
                                     </collectionViewCell>
@@ -175,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-T4-yZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="841"/>
+            <point key="canvasLocation" x="1080.8" y="840.62968515742136"/>
         </scene>
         <!--Location Detail View Controller-->
         <scene sceneID="O6o-IK-A4J">

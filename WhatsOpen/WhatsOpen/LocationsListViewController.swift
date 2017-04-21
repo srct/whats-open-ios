@@ -75,8 +75,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SRCTSimpleCollectionViewCell
-		//REMINDER TO ME THIS DOESNT EXIST YET PLEASE MAKE IT K THX -zmknox
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollecitonCell", for: indexPath) as! SRCTSimpleCollectionViewCell
 		
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
