@@ -32,7 +32,6 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		let layout = UICollectionViewFlowLayout()
 		
 		LocationsList = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-		
 		LocationsList.dataSource = self
 		LocationsList.delegate = self
 		
