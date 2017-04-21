@@ -35,28 +35,20 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		LocationsList.dataSource = self
 		LocationsList.delegate = self
-		self.view.addSubview(LocationsList)
 		
-		
-		//Yes I could just run the code inside these in here
-		//I want to be both more modular and more organized
-		setupDataSourceForList(LocationsList)
-		setupDelegateForList(LocationsList)
+		SRCTNetworkController.performDownload { (facilities) in
+			self.facilitiesArray = facilities
+			//            print(self.facilitiesArray)
+			DispatchQueue.main.async {
+				self.LocationsList.reloadData()
+			}
+		}
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-	func setupDataSourceForList(_ list: UICollectionView) {
-		var dataSource = list.dataSource
-		
-	}
-	
-	func setupDelegateForList(_ list: UICollectionView) {
-		var delegate = list.delegate
-	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 2
