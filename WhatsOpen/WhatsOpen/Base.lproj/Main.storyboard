@@ -71,7 +71,6 @@
                                     <outlet property="nameLabel" destination="UvO-Lp-vwb" id="X0e-1G-yNd"/>
                                     <outlet property="openClosedLabel" destination="096-jU-K7m" id="OC4-19-ja6"/>
                                     <outlet property="timeDescriptionLabel" destination="DPA-Nu-eyP" id="0jY-sT-X2U"/>
-                                    <segue destination="bKW-v9-6dS" kind="showDetail" id="rAW-YH-b1U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -172,7 +171,7 @@
                                             <outlet property="nameLabel" destination="6QR-8Q-n4s" id="Nbh-eh-fDp"/>
                                             <outlet property="openClosedLabel" destination="DEx-BH-Fun" id="9dP-3e-Hcy"/>
                                             <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
-                                            <segue destination="bKW-v9-6dS" kind="showDetail" id="0bG-wa-jMg"/>
+                                            <segue destination="bKW-v9-6dS" kind="show" id="0bG-wa-jMg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -186,10 +185,11 @@
                                 <items>
                                     <barButtonItem title="Settings" id="MHZ-t0-Moj">
                                         <connections>
-                                            <segue destination="Uxx-wt-GfY" kind="presentation" id="3zr-0o-7IB"/>
+                                            <segue destination="Uxx-wt-GfY" kind="presentation" modalPresentationStyle="pageSheet" id="3zr-0o-7IB"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,12 +205,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="lS5-pu-Adr">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="v4j-oA-7Fa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="LeftButton:" destination="aaB-Go-aWd" id="bIr-rA-LER"/>
                                 <segue destination="rWC-pl-Jtu" kind="presentation" id="Yri-Go-bK8"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="vtX-VZ-RB4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
                             </connections>
@@ -315,12 +317,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Order Now with Tapingo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-Qo-7Qk">
-                                        <rect key="frame" x="8" y="231" width="359" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -328,7 +324,6 @@
                                     <constraint firstItem="XpV-B3-ImX" firstAttribute="centerX" secondItem="iGy-3K-QIj" secondAttribute="centerX" id="C6J-9I-wJF"/>
                                     <constraint firstAttribute="bottom" secondItem="kyi-CE-cIZ" secondAttribute="bottom" id="DnA-fW-Nyi"/>
                                     <constraint firstItem="9Xe-b0-NMC" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="topMargin" id="Eh8-yx-O8W"/>
-                                    <constraint firstItem="3Nn-Qo-7Qk" firstAttribute="centerX" secondItem="iGy-3K-QIj" secondAttribute="centerX" id="M95-MM-2th"/>
                                     <constraint firstItem="qpW-cd-yEQ" firstAttribute="leading" secondItem="9Xe-b0-NMC" secondAttribute="leading" id="NrH-q9-6il"/>
                                     <constraint firstItem="kyi-CE-cIZ" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" id="OeV-J8-ZZa"/>
                                     <constraint firstItem="qpW-cd-yEQ" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leadingMargin" id="QPc-sp-I5n"/>
@@ -349,13 +344,12 @@
                         <outlet property="CurrentStatusLabel" destination="9Xe-b0-NMC" id="G6u-oh-UUw"/>
                         <outlet property="OpenTimesList" destination="N1f-XR-xpn" id="8WA-Q4-slc"/>
                         <outlet property="PlaceLabel" destination="XpV-B3-ImX" id="5TH-c0-eUm"/>
-                        <outlet property="TapingoLinkLabel" destination="3Nn-Qo-7Qk" id="7bH-y0-RFC"/>
                         <outlet property="UpcomingStatusLabel" destination="qpW-cd-yEQ" id="YGB-wR-D6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn4-Px-X4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984.8000000000002" y="117.39130434782609"/>
+            <point key="canvasLocation" x="2052" y="841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WBs-Vx-0Yx">
@@ -417,7 +411,4 @@
             <point key="canvasLocation" x="1080.8" y="118.29085457271366"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="0bG-wa-jMg"/>
-    </inferredMetricsTieBreakers>
 </document>
