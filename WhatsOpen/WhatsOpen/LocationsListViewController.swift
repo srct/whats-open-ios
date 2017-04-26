@@ -71,11 +71,12 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
 		cell.nameLabel.text = facility.name
-		let open = Utilities.isOpen(facility: facility);
-		if(open == true){
+		
+		let open = Utilities.isOpen(facility: facility)
+		if(open == true) {
 			cell.openClosedLabel.text = "Open"
 			cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-		}else{
+		} else {
 			cell.openClosedLabel.text = "Closed"
 			cell.openClosedLabel.backgroundColor = UIColor.red
 		}
