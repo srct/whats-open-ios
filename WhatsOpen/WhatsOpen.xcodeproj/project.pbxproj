@@ -385,6 +385,7 @@
 		};
 		CD81F5291DC0334600009FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DB5444E9F9F99CD88E3CD9B /* Pods-WhatsOpen.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -436,6 +437,7 @@
 		};
 		CD81F52A1DC0334600009FBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E84816FC1499635C0E3EE4DC /* Pods-WhatsOpen.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
