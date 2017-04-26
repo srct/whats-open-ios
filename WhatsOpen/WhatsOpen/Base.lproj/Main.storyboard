@@ -116,21 +116,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eqw-AF-DSB">
-                                    <size key="itemSize" width="197" height="107"/>
+                                    <size key="itemSize" width="327" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="7" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CollectionCell" reuseIdentifier="CollectionCell" id="6qn-VX-mZx" customClass="SRCTSimpleCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
-                                        <rect key="frame" x="63" y="7" width="250" height="150"/>
+                                        <rect key="frame" x="24" y="7" width="327" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="327" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QR-8Q-n4s">
-                                                    <rect key="frame" x="79" y="0.0" width="92" height="76"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="wordWrap" minimumScaleFactor="0.59999999999999998" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6QR-8Q-n4s">
+                                                    <rect key="frame" x="117.5" y="0.0" width="92" height="76"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="76" id="0fb-6g-ynv"/>
                                                     </constraints>
@@ -139,7 +139,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-BH-Fun">
-                                                    <rect key="frame" x="0.0" y="122" width="250" height="28"/>
+                                                    <rect key="frame" x="0.0" y="100" width="327" height="28"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="ZVT-gM-BCd"/>
@@ -149,13 +149,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closes in 2 hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-To-w50">
-                                                    <rect key="frame" x="0.0" y="93" width="250" height="21"/>
+                                                    <rect key="frame" x="0.0" y="71" width="327" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.92640516493055558" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="centerX" secondItem="6qn-VX-mZx" secondAttribute="centerX" id="4mU-i9-YbC"/>
                                             <constraint firstItem="o7N-To-w50" firstAttribute="trailing" secondItem="DEx-BH-Fun" secondAttribute="trailing" id="Itj-na-59B"/>
@@ -166,7 +167,7 @@
                                             <constraint firstAttribute="bottom" secondItem="DEx-BH-Fun" secondAttribute="bottom" id="jCj-ri-ltB"/>
                                             <constraint firstAttribute="trailing" secondItem="DEx-BH-Fun" secondAttribute="trailing" id="x1c-dz-ZRS"/>
                                         </constraints>
-                                        <size key="customSize" width="250" height="150"/>
+                                        <size key="customSize" width="327" height="128"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="6QR-8Q-n4s" id="Nbh-eh-fDp"/>
                                             <outlet property="openClosedLabel" destination="DEx-BH-Fun" id="9dP-3e-Hcy"/>
@@ -203,13 +204,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lS5-pu-Adr">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="v4j-oA-7Fa">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="v4j-oA-7Fa">
                             <connections>
                                 <action selector="LeftButton:" destination="aaB-Go-aWd" id="bIr-rA-LER"/>
                                 <segue destination="rWC-pl-Jtu" kind="presentation" id="Yri-Go-bK8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="vtX-VZ-RB4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="vtX-VZ-RB4">
                             <connections>
                                 <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
                             </connections>
