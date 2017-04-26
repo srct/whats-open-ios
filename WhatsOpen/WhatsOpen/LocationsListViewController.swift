@@ -27,15 +27,6 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-
-        // Do any additional setup after loading the view.
-		//let layout = UICollectionViewFlowLayout()
-		
-		//LocationsList = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-		//LocationsList.dataSource = self
-		//LocationsList.delegate = self
-		//LocationsList.register(SRCTSimpleCollectionViewCell, forCellWithReuseIdentifier: "CollectionCell")
-		
 		SRCTNetworkController.performDownload { (facilities) in
 			self.facilitiesArray = facilities
 			//            print(self.facilitiesArray)
@@ -67,8 +58,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = SRCTSimpleCollectionViewCell()
-		//let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollecitonCell", for: indexPath) as! SRCTSimpleCollectionViewCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! SRCTSimpleCollectionViewCell
 		
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
