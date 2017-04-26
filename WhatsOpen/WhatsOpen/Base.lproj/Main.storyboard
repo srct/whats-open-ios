@@ -185,10 +185,17 @@
                                             <outlet property="DescriptionLabel" destination="o7N-To-w50" id="3gG-u7-Nv1"/>
                                             <outlet property="LocationLabel" destination="6QR-8Q-n4s" id="0nB-ts-GYO"/>
                                             <outlet property="OpenLabel" destination="DEx-BH-Fun" id="nmH-Gb-jwC"/>
+                                            <outlet property="nameLabel" destination="6QR-8Q-n4s" id="Nbh-eh-fDp"/>
+                                            <outlet property="openClosedLabel" destination="DEx-BH-Fun" id="9dP-3e-Hcy"/>
+                                            <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
                                             <segue destination="bKW-v9-6dS" kind="showDetail" id="0bG-wa-jMg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aaB-Go-aWd" id="bX7-L2-MmS"/>
+                                    <outlet property="delegate" destination="aaB-Go-aWd" id="dre-Tj-BHj"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,7 +241,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uHy-SO-4Zr">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHy-SO-4Zr" id="fwy-U7-SfD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -415,6 +422,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rAW-YH-b1U"/>
+        <segue reference="0bG-wa-jMg"/>
     </inferredMetricsTieBreakers>
 </document>
