@@ -219,6 +219,7 @@
                     <connections>
                         <outlet property="LeftButton" destination="v4j-oA-7Fa" id="EdI-if-QoB"/>
                         <outlet property="LocationsList" destination="naC-sZ-bcy" id="Wk4-kY-TeR"/>
+                        <outlet property="LocationsListLayout" destination="eqw-AF-DSB" id="kLH-bz-bdn"/>
                         <outlet property="RightButton" destination="vtX-VZ-RB4" id="iv8-Xb-WoJ"/>
                     </connections>
                 </viewController>
@@ -236,7 +237,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uHy-SO-4Zr">
-                                <rect key="frame" x="0.0" y="55" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHy-SO-4Zr" id="fwy-U7-SfD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>

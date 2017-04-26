@@ -23,9 +23,12 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	@IBOutlet var LocationsList: UICollectionView!
 	
+	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 		
 		SRCTNetworkController.performDownload { (facilities) in
 			self.facilitiesArray = facilities
