@@ -13,6 +13,7 @@
 		92182EC41E95C38400192ABA /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* LocationDetailViewController.swift */; };
 		924840F81EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
+		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
 		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
@@ -58,6 +59,7 @@
 		92182EC31E95C38400192ABA /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTSimpleCollectionViewCell.swift; sourceTree = "<group>"; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
 		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				CD81F5301DC03AA700009FBD /* DataModel */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
+				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
 				CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */,
 				CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */,
 				CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */,
@@ -215,7 +218,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Patrick Murray";
+				ORGANIZATIONNAME = SRCT;
 				TargetAttributes = {
 					7F4743171E11C7D100E6E3D1 = {
 						CreatedOnToolsVersion = 8.2;
@@ -336,6 +339,7 @@
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
 				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift in Sources */,
+				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
 				CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */,

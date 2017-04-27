@@ -15,8 +15,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	@IBAction func LeftButton(_ sender: Any) {
 	}
 	@IBOutlet var LeftButton: UIBarButtonItem!
-	
-	
+		
 	@IBAction func RightButton(_ sender: Any) {
 	}
 	@IBOutlet var RightButton: UIBarButtonItem!
@@ -24,6 +23,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	@IBOutlet var LocationsList: UICollectionView!
 	
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
+	
+	@IBOutlet var favoritesControl: UISegmentedControl!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
