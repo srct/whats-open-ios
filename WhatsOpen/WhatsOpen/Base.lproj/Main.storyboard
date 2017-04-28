@@ -288,7 +288,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lS5-pu-Adr">
-                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="v4j-oA-7Fa">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -306,6 +305,9 @@
                                 <segment title="Favorites"/>
                             </segments>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="favoritesControlChanges:" destination="aaB-Go-aWd" eventType="valueChanged" id="5Ij-Z9-Gsa"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="vtX-VZ-RB4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

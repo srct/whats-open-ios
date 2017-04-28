@@ -25,6 +25,20 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
 	
 	@IBOutlet var favoritesControl: UISegmentedControl!
+	var showFavorites = false
+
+	@IBAction func favoritesControlChanges(_ sender: Any) {
+		switch (self.favoritesControl.selectedSegmentIndex)
+		{
+		case 0:
+			showFavorites = false
+		case 1:
+			showFavorites = true
+		default:
+			showFavorites = false
+		}
+		self.LocationsList.reloadData()
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +64,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = countForOpenAndClosedFacilities(facilitiesArray)
+		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray))
+		
 		if(section == 1) {
 			return count.open
 		}
@@ -81,6 +96,17 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		self.reloadInputViews()
 		return cell
+	}
+	
+	func getLocationArray(_ facilitiesArray: [Facility]) -> [Facility] {
+		if(!showFavorites) {
+			return placeOpenFacilitiesFirstInArray(facilitiesArray)
+		}
+		else {
+			return [] //TODO - INCOMPLETE
+		}
+		
+		
 	}
 	
 	//Returns an array which has the open locations listed first
