@@ -14,6 +14,13 @@ class FiltersTableViewController: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	@IBAction func showOpenSwitch(_ sender: Any, forEvent event: UIEvent) {
+		print("tick1")
+	}
+	@IBAction func showClosedSwitch(_ sender: Any, forEvent event: UIEvent) {
+		print("tick2")
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,23 +40,29 @@ class FiltersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+		let cell: UITableViewCell
+		switch indexPath.row {
+		  case 0:
+			cell = tableView.dequeueReusableCell(withIdentifier: "ShowOpen", for: indexPath)
+		  case 1:
+			cell = tableView.dequeueReusableCell(withIdentifier: "ShowClosed", for: indexPath)
+		  default:
+			cell = UITableViewCell() //this is bad don't let this happen
+		}
 
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
