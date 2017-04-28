@@ -40,7 +40,7 @@ class FiltersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,14 +50,24 @@ class FiltersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UITableViewCell
-		switch indexPath.row {
+		switch indexPath.section {
 		  case 0:
-			cell = tableView.dequeueReusableCell(withIdentifier: "ShowOpen", for: indexPath)
+			switch indexPath.row {
+			  case 0:
+				cell = tableView.dequeueReusableCell(withIdentifier: "ShowOpen", for: indexPath)
+				cell.textLabel!.text = "Show Open Locations"
+			  case 1:
+				cell = tableView.dequeueReusableCell(withIdentifier: "ShowClosed", for: indexPath)
+				cell.textLabel!.text = "Show Closed Locations"
+			  default:
+				cell = UITableViewCell() //this is bad don't let this happen
+			}
 		  case 1:
-			cell = tableView.dequeueReusableCell(withIdentifier: "ShowClosed", for: indexPath)
+			cell = tableView.dequeueReusableCell(withIdentifier: "Checkbox Filter", for: indexPath)
 		  default:
 			cell = UITableViewCell() //this is bad don't let this happen
 		}
+
 
         // Configure the cell...
 

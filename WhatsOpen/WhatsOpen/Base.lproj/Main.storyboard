@@ -121,17 +121,8 @@
                                                 <action selector="showOpenSwitch:forEvent:" destination="jkQ-vu-LQa" eventType="valueChanged" id="Rst-1e-uCb"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Open Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-rB-GeK">
-                                            <rect key="frame" x="8" y="11" width="267" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="v4a-rB-GeK" firstAttribute="centerY" secondItem="SM7-SZ-S5h" secondAttribute="centerY" id="AFg-fS-Vfm"/>
-                                        <constraint firstItem="KxM-rM-vzf" firstAttribute="leading" secondItem="v4a-rB-GeK" secondAttribute="trailing" constant="43" id="E6T-1u-eJk"/>
-                                        <constraint firstItem="v4a-rB-GeK" firstAttribute="leading" secondItem="SM7-SZ-S5h" secondAttribute="leadingMargin" id="Nmt-wY-go2"/>
                                         <constraint firstItem="KxM-rM-vzf" firstAttribute="trailing" secondItem="SM7-SZ-S5h" secondAttribute="trailingMargin" id="rbu-a9-rod"/>
                                         <constraint firstItem="KxM-rM-vzf" firstAttribute="top" secondItem="SM7-SZ-S5h" secondAttribute="topMargin" id="t7L-Po-NU7"/>
                                     </constraints>
@@ -150,20 +141,28 @@
                                                 <action selector="showClosedSwitch:forEvent:" destination="jkQ-vu-LQa" eventType="valueChanged" id="0dP-rb-4bl"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Closed Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-K2-T9U">
-                                            <rect key="frame" x="8" y="11" width="267" height="21"/>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="I0H-wK-NZE" firstAttribute="trailing" secondItem="1tH-zY-hLb" secondAttribute="trailingMargin" id="XaP-gO-2ac"/>
+                                        <constraint firstItem="I0H-wK-NZE" firstAttribute="top" secondItem="1tH-zY-hLb" secondAttribute="topMargin" id="vPD-AE-h4q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Checkbox Filter" textLabel="rYu-5q-2u8" style="IBUITableViewCellStyleDefault" id="x5H-BH-cVX">
+                                <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x5H-BH-cVX" id="xf1-yc-ynP">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rYu-5q-2u8">
+                                            <rect key="frame" x="15" y="0.0" width="321" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="I0H-wK-NZE" firstAttribute="trailing" secondItem="1tH-zY-hLb" secondAttribute="trailingMargin" id="XaP-gO-2ac"/>
-                                        <constraint firstItem="9uh-K2-T9U" firstAttribute="centerY" secondItem="1tH-zY-hLb" secondAttribute="centerY" id="a2R-Pa-ct0"/>
-                                        <constraint firstItem="9uh-K2-T9U" firstAttribute="leading" secondItem="1tH-zY-hLb" secondAttribute="leadingMargin" id="qLf-bl-Jgx"/>
-                                        <constraint firstItem="I0H-wK-NZE" firstAttribute="top" secondItem="1tH-zY-hLb" secondAttribute="topMargin" id="vPD-AE-h4q"/>
-                                        <constraint firstItem="I0H-wK-NZE" firstAttribute="leading" secondItem="9uh-K2-T9U" secondAttribute="trailing" constant="43" id="vdZ-G6-GRn"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
