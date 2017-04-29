@@ -40,10 +40,16 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		self.LocationsList.reloadData()
 	}
 	
+	let refreshControl = UIRefreshControl()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+		
+		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+		LocationsList.addSubview(refreshControl)
+		LocationsList.alwaysBounceVertical = true
 		
 		SRCTNetworkController.performDownload { (facilities) in
 			self.facilitiesArray = facilities
@@ -53,7 +59,13 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 			}
 		}
     }
-
+	
+	func refresh(_ sender: Any) {
+		refreshControl.beginRefreshing()
+		LocationsList.reloadData()
+		refreshControl.endRefreshing()
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,7 +76,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray))
+		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray)) //TODO could be better optimized
 		
 		if(section == 1) {
 			return count.open
