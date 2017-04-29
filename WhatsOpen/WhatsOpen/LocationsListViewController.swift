@@ -3,7 +3,7 @@
 //  WhatsOpen
 //
 //  Created by Zach Knox on 4/5/17.
-//  Copyright © 2017 Patrick Murray. All rights reserved.
+//  Copyright © 2017 SRCT. Some rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,6 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 
 	var facilitiesArray = Array<Facility>()
 	
-	@IBAction func LeftButton(_ sender: Any) {
-	}
 	@IBOutlet var LeftButton: UIBarButtonItem!
 		
 	@IBAction func RightButton(_ sender: Any) {

@@ -3,7 +3,7 @@
 //  WhatsOpen
 //
 //  Created by Zach Knox on 4/26/17.
-//  Copyright © 2017 SRCT. All rights reserved.
+//  Copyright © 2017 SRCT. Some rights reserved.
 //
 
 import UIKit
@@ -14,16 +14,12 @@ class FiltersTableViewController: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction func showOpenSwitch(_ sender: Any, forEvent event: UIEvent) {
-		print("tick1")
-	}
-	@IBAction func showClosedSwitch(_ sender: Any, forEvent event: UIEvent) {
-		print("tick2")
-	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +31,7 @@ class FiltersTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,10 +50,10 @@ class FiltersTableViewController: UITableViewController {
 		  case 0:
 			switch indexPath.row {
 			  case 0:
-				cell = tableView.dequeueReusableCell(withIdentifier: "ShowOpen", for: indexPath)
+				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath)
 				cell.textLabel!.text = "Show Open Locations"
 			  case 1:
-				cell = tableView.dequeueReusableCell(withIdentifier: "ShowClosed", for: indexPath)
+				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath)
 				cell.textLabel!.text = "Show Closed Locations"
 			  default:
 				cell = UITableViewCell() //this is bad don't let this happen
