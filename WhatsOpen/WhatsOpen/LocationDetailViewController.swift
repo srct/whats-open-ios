@@ -8,16 +8,20 @@
 
 import UIKit
 
-class LocationDetailViewController: UIViewController {
+class LocationDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-	@IBOutlet var CurrentStatusLabel: UILabel!
-	@IBOutlet var UpcomingStatusLabel: UILabel!
 	@IBOutlet var PlaceLabel: UILabel!
-	@IBOutlet var TapingoLinkLabel: UILabel!
-	
-	@IBOutlet var NavBar: UINavigationItem!
+	@IBOutlet var openLabel: UILabel!
+
 	@IBOutlet var OpenTimesList: UITableView!
 	
+	@IBOutlet var detailStackView: UIStackView!
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		//SET STACK VIEW DISTRIBUTION HERE
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +35,26 @@ class LocationDetailViewController: UIViewController {
     
 	@IBAction func MiddleButton(_ sender: Any) {
 	}
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		// #warning Incomplete implementation, return the number of sections
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		// #warning Incomplete implementation, return the number of rows
+		return 7
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = OpenTimesList.dequeueReusableCell(withIdentifier: "LocationDetailCell", for: indexPath)
+		
+		
+		// Configure the cell...
+		
+		return cell
+	}
 
-	@IBOutlet var TopButton: UIBarButtonItem!
     /*
     // MARK: - Navigation
 

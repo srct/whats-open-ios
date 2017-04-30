@@ -27,6 +27,8 @@ class SwitchingTableViewCell: UITableViewCell {
 
 	func toggleSwitch(_ sender: Any) {
 		print("toggle")
+		dump(sender)
+		//LocationsListViewController.checkForReload(sander, switchControl.isOn)
 	}
 	
 }
