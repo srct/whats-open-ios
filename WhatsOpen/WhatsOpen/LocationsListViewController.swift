@@ -91,6 +91,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
+		cell.facility = facility
 		cell.nameLabel.text = facility.name
 		
 		let open = Utilities.isOpen(facility: facility)
@@ -155,15 +156,21 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	}
 	
 	
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+	//In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
+		if(segue.identifier == "toDetailView") {
+			let destination = segue.destination as! LocationDetailViewController
+			let tapped = sender as! SRCTSimpleCollectionViewCell //this is probably a bad idea just FYI future me
+			destination.facility = tapped.facility
+			
+		}
+
+		
         // Pass the selected object to the new view controller.
     }
-    */
 	
 }
 

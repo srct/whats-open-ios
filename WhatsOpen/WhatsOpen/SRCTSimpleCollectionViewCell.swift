@@ -12,6 +12,7 @@ class SRCTSimpleCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var timeDescriptionLabel: UILabel!
 	@IBOutlet var openClosedLabel: UILabel!
+	var facility: Facility!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()

@@ -17,6 +17,8 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	@IBOutlet var detailStackView: UIStackView!
 	
+	var facility: Facility!
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		
