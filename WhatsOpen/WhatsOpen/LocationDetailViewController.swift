@@ -10,8 +10,9 @@ import UIKit
 
 class LocationDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+	@IBOutlet var NameLabel: UILabel!
 	@IBOutlet var PlaceLabel: UILabel!
-	@IBOutlet var openLabel: UILabel!
+	@IBOutlet var OpenLabel: UILabel!
 
 	@IBOutlet var OpenTimesList: UITableView!
 	
@@ -27,6 +28,17 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		NameLabel.text = facility.name
+		PlaceLabel.text = facility.location
+		var open = Utilities.isOpen(facility: facility)
+		if(open) {
+			OpenLabel.text = "OPEN"
+			OpenLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+		}
+		else {
+			OpenLabel.text = "CLOSED"
+			OpenLabel.backgroundColor = UIColor.red
+		}
         // Do any additional setup after loading the view.
     }
 

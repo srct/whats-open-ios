@@ -441,6 +441,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Favorite" id="a5L-D5-WuL"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="NameLabel" destination="W3q-KN-OAm" id="hKO-vT-1Py"/>
                         <outlet property="OpenTimesList" destination="N1f-XR-xpn" id="8WA-Q4-slc"/>
                         <outlet property="PlaceLabel" destination="XpV-B3-ImX" id="5TH-c0-eUm"/>
                         <outlet property="detailStackView" destination="gDU-gJ-J9N" id="foM-vS-5Nb"/>
