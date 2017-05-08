@@ -15,7 +15,18 @@ struct Filters {
 	var showClosed = true
 	var sortBy = SortMethod.alphabetical
 	var allAllFacilities = true
-	var facilitiesToShow: [Facility]
+	var facilitiesShown: [Int: Bool] = [:]
+	var facilities: [Facility]
+	
+	init(facilities: [Facility]) {
+		self.facilities = facilities
+		var count = 0
+		for _ in facilities {
+			facilitiesShown[count] = true
+			count += 1
+		}
+	}
+	
 	
 }
 

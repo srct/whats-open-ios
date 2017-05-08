@@ -11,6 +11,7 @@ import UIKit
 class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 	var facilitiesArray = Array<Facility>()
+	var filters = Filters()
 	
 	@IBOutlet var LeftButton: UIBarButtonItem!
 		
