@@ -16,6 +16,8 @@ class SRCTSimpleCollectionViewCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		
+		self.layer.cornerRadius = 10
 		// Initialization code
 	}
 }
