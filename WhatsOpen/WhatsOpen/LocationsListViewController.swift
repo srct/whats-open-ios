@@ -44,6 +44,12 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		//This code makes it look good on an iPhone SE
+		let windowWidth = self.view.frame.size.width
+		if(windowWidth <= 320) {
+			LocationsListLayout.itemSize.width = 300
+		}
+		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 		
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -89,6 +95,13 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! SRCTSimpleCollectionViewCell
+		/*
+		let windowRect = self.view.window!.frame
+		let windowWidth = windowRect.size.width
+		if(windowWidth <= 320) {
+			cell.frame.size.width = 280
+		}
+		*/
 		
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]

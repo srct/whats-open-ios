@@ -19,16 +19,6 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var detailStackView: UIStackView!
 	
 	
-	@IBOutlet var OrderButton: UIButton!
-	@IBAction func orderButton(_ sender: Any) {
-		
-	}
-	
-	@IBOutlet var NotifyButton: UIButton!
-	@IBAction func notifyButton(_ sender: Any) {
-	}
-	
-	
 	var facility: Facility!
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +28,6 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
-		/*
-		OrderButton.layer.cornerRadius = 10
-		NotifyButton.layer.cornerRadius = 10
-		OrderButton.layer.borderWidth = 5
-		NotifyButton.layer.borderWidth = 5
-		*/
 
 		NameLabel.text = facility.name
 		PlaceLabel.text = facility.location
