@@ -181,7 +181,10 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 			destination.facility = tapped.facility
 			
 		}
-
+		else if(segue.identifier == "toFilters") {
+			let destination = segue.destination as! FiltersTableViewController
+			destination.filters = self.filters
+		}
 		
         // Pass the selected object to the new view controller.
     }

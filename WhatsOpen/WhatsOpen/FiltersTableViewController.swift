@@ -14,6 +14,7 @@ class FiltersTableViewController: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	var filters: Filters!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,14 +106,19 @@ class FiltersTableViewController: UITableViewController {
     }
     */
 
-    /*
+	
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
+		
+		if(segue.identifier == "toFilters") {
+			let destination = segue.destination as! LocationsListViewController
+			destination.filters = self.filters
+		}
+		
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

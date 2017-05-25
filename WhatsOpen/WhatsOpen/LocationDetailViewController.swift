@@ -24,11 +24,10 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		
-		//SET STACK VIEW DISTRIBUTION HERE
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
 		NameLabel.text = facility.name
 		PlaceLabel.text = facility.location
 		let open = Utilities.isOpen(facility: facility)
@@ -47,9 +46,6 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-	@IBAction func MiddleButton(_ sender: Any) {
-	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		// #warning Incomplete implementation, return the number of sections
