@@ -26,6 +26,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
+	@IBOutlet var LastUpdatedLabel: UIBarButtonItem!
+	
 	@IBAction func favoritesControlChanges(_ sender: Any) {
 		switch (self.favoritesControl.selectedSegmentIndex)
 		{
@@ -58,6 +60,14 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 	}
 	
+	@IBAction func RefreshButton(_ sender: Any) {
+		refresh(sender)
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		LastUpdatedLabel.isEnabled = false
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -69,11 +79,14 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		LocationsList.addSubview(refreshControl)
 		LocationsList.alwaysBounceVertical = true
 		
+		
 		SRCTNetworkController.performDownload { (facilities) in
 			self.facilitiesArray = facilities
 			//            print(self.facilitiesArray)
 			DispatchQueue.main.async {
 				self.LocationsList.reloadData()
+				let date = Date()
+				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
 			}
 		}
     }
@@ -81,7 +94,18 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	func refresh(_ sender: Any) {
 		refreshControl.beginRefreshing()
 		LocationsList.reloadData()
+		let date = Date()
+		LastUpdatedLabel.title = "Updated: " + shortDateFormat(date)
 		refreshControl.endRefreshing()
+	}
+	func shortDateFormat(_ date: Date) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .short
+		dateFormatter.timeStyle = .short
+
+		// US English Locale (en_US)
+		dateFormatter.locale = Locale(identifier: "en_US")
+		return dateFormatter.string(from: date)
 	}
 	
     override func didReceiveMemoryWarning() {
