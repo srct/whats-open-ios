@@ -41,14 +41,27 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	let refreshControl = UIRefreshControl()
 	
+	override func viewWillLayoutSubviews() {
+		let windowWidth = self.view.frame.size.width
+		
+		if(windowWidth > 320 && windowWidth < 640) {
+			LocationsListLayout.itemSize.width = windowWidth - 20
+		}
+		else if(windowWidth >= 640 && windowWidth < 1024) {
+			LocationsListLayout.itemSize.width = (windowWidth / 2) - 15
+		}
+		else if(windowWidth >= 1024) {
+			LocationsListLayout.itemSize.width = (windowWidth / 3) - 15
+		}
+		
+		LocationsListLayout.invalidateLayout()
+		
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		//This code makes it look good on an iPhone SE
-		let windowWidth = self.view.frame.size.width
-		if(windowWidth <= 320) {
-			LocationsListLayout.itemSize.width = 300
-		}
+		LocationsListLayout.invalidateLayout()
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 		
