@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -364,8 +364,7 @@
                                         <rect key="frame" x="290" y="6" width="77" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="TwG-5f-uLv"/>
-                                            <constraint firstAttribute="width" constant="77" id="ULx-QL-qIV"/>
+                                            <constraint firstAttribute="width" constant="77" id="IXe-qI-n2o"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -374,7 +373,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnson Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpV-B3-ImX">
                                         <rect key="frame" x="8" y="39" width="274" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="85o-8T-jPI"/>
+                                            <constraint firstAttribute="height" constant="21" id="Ph8-4u-hQf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -383,16 +382,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="6" id="3sp-4B-IbP"/>
-                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="4EL-X5-V6c"/>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="trailing" constant="8" id="Hf6-IO-bNT"/>
-                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="leading" id="LzB-Y6-ZH4"/>
-                                    <constraint firstItem="XpV-B3-ImX" firstAttribute="width" secondItem="W3q-KN-OAm" secondAttribute="width" id="RTL-CY-9Zh"/>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="baseline" secondItem="XpV-B3-ImX" secondAttribute="baseline" id="jA6-wo-fuk"/>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="W3q-KN-OAm" secondAttribute="trailing" constant="8" id="qdD-KS-Tcq"/>
-                                    <constraint firstAttribute="trailing" secondItem="BoH-CV-Nfo" secondAttribute="trailing" constant="8" id="vSu-Mc-8zE"/>
-                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="top" secondItem="BoH-CV-Nfo" secondAttribute="top" id="wEU-uU-Gd9"/>
-                                    <constraint firstItem="XpV-B3-ImX" firstAttribute="top" secondItem="W3q-KN-OAm" secondAttribute="bottom" constant="2" id="x09-Ah-EW9"/>
+                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leadingMargin" id="3eK-yY-EJm"/>
+                                    <constraint firstItem="XpV-B3-ImX" firstAttribute="top" secondItem="W3q-KN-OAm" secondAttribute="bottom" constant="2" id="CTb-6C-egP"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="centerY" secondItem="iGy-3K-QIj" secondAttribute="centerY" id="PrG-ZA-E2o"/>
+                                    <constraint firstItem="XpV-B3-ImX" firstAttribute="baseline" secondItem="BoH-CV-Nfo" secondAttribute="baseline" id="S6b-f8-6Au"/>
+                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="leading" id="U4w-A9-fFg"/>
+                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="6" id="WuH-gP-vxM"/>
+                                    <constraint firstItem="W3q-KN-OAm" firstAttribute="top" secondItem="BoH-CV-Nfo" secondAttribute="top" id="Yj7-cM-qOX"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="trailing" constant="8" symbolic="YES" id="jtI-aR-DDH"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="trailing" secondItem="iGy-3K-QIj" secondAttribute="trailingMargin" id="rw2-Gt-rcl"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="W3q-KN-OAm" secondAttribute="trailing" constant="8" symbolic="YES" id="vZu-zQ-ZbX"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N1f-XR-xpn">
@@ -414,7 +413,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="12:00 AM - 11:59 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fSJ-Gc-VIw">
-                                                    <rect key="frame" x="201" y="13" width="159" height="20"/>
+                                                    <rect key="frame" x="201" y="13" width="159" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -430,13 +429,10 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="6Rj-zF-6m7" firstAttribute="top" secondItem="N1f-XR-xpn" secondAttribute="bottom" id="6wD-rS-YRw"/>
-                            <constraint firstItem="N1f-XR-xpn" firstAttribute="top" secondItem="al7-z8-0L5" secondAttribute="bottom" constant="67" id="Nhx-pg-ahN"/>
-                        </constraints>
                     </stackView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="kb3-As-PSk">
+                        <barButtonItem key="backBarButtonItem" title="What's Open?" id="JgH-WQ-EUA"/>
                         <barButtonItem key="rightBarButtonItem" title="Favorite" id="a5L-D5-WuL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -482,7 +478,7 @@
             <objects>
                 <navigationController title="Settings Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Uxx-wt-GfY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U3x-0f-mCs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U3x-0f-mCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -519,7 +515,7 @@
             <objects>
                 <navigationController title="Filters Navigation" automaticallyAdjustsScrollViewInsets="NO" id="pCI-LX-8uh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xE0-uq-wTP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xE0-uq-wTP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
