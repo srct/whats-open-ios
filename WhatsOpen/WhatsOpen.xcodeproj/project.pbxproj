@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D58D8D61391ACF51F6CA539 /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6055C82C71D47E26A6E5E34 /* Pods_WhatsOpen.framework */; };
+		7F08ADC71F02C61C00D53B2F /* Facilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08ADC61F02C61C00D53B2F /* Facilities.swift */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
-		7F7FA3BE1E9EF7EC00DCAC99 /* SRCTRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FA3BD1E9EF7EC00DCAC99 /* SRCTRealm.swift */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
 		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
@@ -33,10 +33,10 @@
 
 /* Begin PBXFileReference section */
 		3DB5444E9F9F99CD88E3CD9B /* Pods-WhatsOpen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.debug.xcconfig"; sourceTree = "<group>"; };
+		7F08ADC61F02C61C00D53B2F /* Facilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facilities.swift; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F47431C1E11C7D100E6E3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
-		7F7FA3BD1E9EF7EC00DCAC99 /* SRCTRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTRealm.swift; sourceTree = "<group>"; };
 		C6055C82C71D47E26A6E5E34 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
 		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 			children = (
 				CD763A791DE24EF100ADFD6B /* examplejson.swift */,
 				CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */,
-				7F7FA3BD1E9EF7EC00DCAC99 /* SRCTRealm.swift */,
+				7F08ADC61F02C61C00D53B2F /* Facilities.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -311,9 +311,9 @@
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
 				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */,
-				7F7FA3BE1E9EF7EC00DCAC99 /* SRCTRealm.swift in Sources */,
 				CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */,
 				CD763A7C1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift in Sources */,
+				7F08ADC71F02C61C00D53B2F /* Facilities.swift in Sources */,
 				CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

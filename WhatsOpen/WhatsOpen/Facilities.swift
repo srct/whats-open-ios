@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Dining : Object {
+    dynamic var name = ""
+}

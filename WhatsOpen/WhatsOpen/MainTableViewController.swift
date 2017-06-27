@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainTableViewController: UITableViewController {
     
+    let realm = try! Realm()
+    lazy var dining: OpenTimes<Dining> = { self.realm.objects(Dining) }()
     var facilitiesArray = Array<Facility>()
     
 
