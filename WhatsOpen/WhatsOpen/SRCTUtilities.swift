@@ -3,7 +3,7 @@
 //  WhatsOpen
 //
 //  Created by Patrick Murray on 20/11/2016.
-//  Copyright © 2016 Patrick Murray. All rights reserved.
+//  Copyright © 2016 SRCT. All rights reserved.
 //
 
 import UIKit
