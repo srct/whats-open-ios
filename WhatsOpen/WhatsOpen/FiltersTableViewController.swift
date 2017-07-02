@@ -1,131 +1,96 @@
 //
-//  MainTableViewController.swift
+//  FiltersTableViewController.swift
 //  WhatsOpen
 //
-//  Created by Patrick Murray on 25/10/2016.
-//  Copyright © 2016 SRCT. Some rights reserved.
+//  Created by Zach Knox on 4/26/17.
+//  Copyright © 2017 SRCT. Some rights reserved.
 //
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
-    
-    var facilitiesArray = Array<Facility>()
-    
-	@IBOutlet var mainNavigationBar: UINavigationItem!
+class FiltersTableViewController: UITableViewController {
+
+	@IBAction func doneButton(_ sender: Any) {
+		self.dismiss(animated: true, completion: nil)
+	}
+	
+	var filters: Filters!
+	
+	var showOpen, showClosed: SwitchingTableViewCell!
+	var sortOptions: [CheckingTableViewCell] = []
+	var onlyOne: OnlyOneChecked!
 	
 	override func viewWillAppear(_ animated: Bool) {
-		mainNavigationBar.titleView = UIImageView(image: #imageLiteral(resourceName: "Navigation Bar TitleView"))
+		onlyOne = OnlyOneChecked(tableView: self, tableCellChecked: -1)
 	}
-
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-
-        
-        SRCTNetworkController.performDownload { (facilities) in
-            self.facilitiesArray = facilities
-//            print(self.facilitiesArray)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-		//Will want to have two sections (for some parts) eventually, to add headings
-		//for open and closed
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		let count = countForOpenAndClosedFacilities(facilitiesArray)
-		if(section == 1) {
-			return count.open
+		if(section == 0) {
+			return 2
+		}
+		else if(section == 1) {
+			return 4
 		}
 		else {
-			return count.closed
+			return 0
 		}
     }
-	
-	//Returns an array which has the open locations listed first
-	//Could be improved in the future because currently this means you're checking
-	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
-		var open = [Facility]()
-		var closed = [Facility]()
 
-		for i in facilitiesArray {
-			if(Utilities.isOpen(facility: i)) {
-				open.append(i)
-			}
-			else {
-				closed.append(i)
-			}
-		}
-		// Test
-		return open + closed
-	}
-	
-	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
-		var open = 0
-		var closed = 0
-	
-		for i in facilitiesArray {
-			if(Utilities.isOpen(facility: i)) {
-				open += 1
-			}
-			else {
-				closed += 1
-			}
-		}
-		
-		return (open, closed)
-	}
-	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SRCTSimpleTableViewCell
+		switch indexPath.section {
+		  case 0:
+			let cell: SwitchingTableViewCell
+			switch indexPath.row {
+			  case 0:
+				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
+				cell.textLabel!.text = "Show Open Locations"
+				self.showOpen = cell 
+			  case 1:
+				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
+				cell.textLabel!.text = "Show Closed Locations"
+				self.showClosed = cell 
+			  default:
+				cell = UITableViewCell() as! SwitchingTableViewCell //this is bad don't let this happen
+			}
+		  case 1:
+			let cell: CheckingTableViewCell
+			cell = tableView.dequeueReusableCell(withIdentifier: "Checkbox Filter", for: indexPath) as! CheckingTableViewCell
+			cell.onlyOne = self.onlyOne
+			cell.cellIndex = indexPath.row
+			sortOptions.append(cell)
+			return cell
+		  default:
+			let cell = UITableViewCell() //this is bad don't let this happen
+			return cell
+		}
 
-		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-        let facility = dataArray[indexPath.row]
-        cell.nameLabel.text = facility.name
-        let open = Utilities.isOpen(facility: facility);
-            if(open == true){
-                cell.openClosedLabel.text = "Open"
-                cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-            }else{
-                cell.openClosedLabel.text = "Closed"
-				cell.openClosedLabel.backgroundColor = UIColor.red
-            }
-        
-        cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
-		
-        self.reloadInputViews()
-        return cell
+		return UITableViewCell() //shouldn't come to this
+        // Configure the cell...
     }
 	
-	
-	@IBAction func SearchButton(_ sender: Any) {
-		print("Hello")
-	}
-	
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -161,14 +126,23 @@ class MainTableViewController: UITableViewController {
     }
     */
 
-    /*
+	
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
+		
+		//Using this code means there won't be live updates, but that only matters on the iPad with a popover
+		filters.showOpen = showOpen.switchControl.isOn
+		filters.showClosed = showClosed.switchControl.isOn
+		
+		if(segue.identifier == "toFilters") {
+			let destination = segue.destination as! LocationsListViewController
+			destination.filters = self.filters
+		}
+		
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

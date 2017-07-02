@@ -1,23 +1,19 @@
 //
-//  MainTableViewController.swift
+//  SettingsTableViewController.swift
 //  WhatsOpen
 //
-//  Created by Patrick Murray on 25/10/2016.
-//  Copyright © 2016 SRCT. Some rights reserved.
+//  Created by Zach Knox on 4/25/17.
+//  Copyright © 2017 SRCT. Some rights reserved.
 //
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
-    
-    var facilitiesArray = Array<Facility>()
-    
-	@IBOutlet var mainNavigationBar: UINavigationItem!
-	
-	override func viewWillAppear(_ animated: Bool) {
-		mainNavigationBar.titleView = UIImageView(image: #imageLiteral(resourceName: "Navigation Bar TitleView"))
-	}
+class SettingsTableViewController: UITableViewController {
 
+	@IBAction func doneButton(_ sender: Any) {
+		self.dismiss(animated: true, completion: nil)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,17 +22,6 @@ class MainTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-
-        
-        SRCTNetworkController.performDownload { (facilities) in
-            self.facilitiesArray = facilities
-//            print(self.facilitiesArray)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,83 +33,23 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-		//Will want to have two sections (for some parts) eventually, to add headings
-		//for open and closed
-        return 2
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		let count = countForOpenAndClosedFacilities(facilitiesArray)
-		if(section == 1) {
-			return count.open
-		}
-		else {
-			return count.closed
-		}
+        return 0
     }
-	
-	//Returns an array which has the open locations listed first
-	//Could be improved in the future because currently this means you're checking
-	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
-		var open = [Facility]()
-		var closed = [Facility]()
 
-		for i in facilitiesArray {
-			if(Utilities.isOpen(facility: i)) {
-				open.append(i)
-			}
-			else {
-				closed.append(i)
-			}
-		}
-		// Test
-		return open + closed
-	}
-	
-	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
-		var open = 0
-		var closed = 0
-	
-		for i in facilitiesArray {
-			if(Utilities.isOpen(facility: i)) {
-				open += 1
-			}
-			else {
-				closed += 1
-			}
-		}
-		
-		return (open, closed)
-	}
-	
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SRCTSimpleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-        let facility = dataArray[indexPath.row]
-        cell.nameLabel.text = facility.name
-        let open = Utilities.isOpen(facility: facility);
-            if(open == true){
-                cell.openClosedLabel.text = "Open"
-                cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-            }else{
-                cell.openClosedLabel.text = "Closed"
-				cell.openClosedLabel.backgroundColor = UIColor.red
-            }
-        
-        cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
-		
-        self.reloadInputViews()
+        // Configure the cell...
+
         return cell
     }
-	
-	
-	@IBAction func SearchButton(_ sender: Any) {
-		print("Hello")
-	}
-	
+    */
 
     /*
     // Override to support conditional editing of the table view.
