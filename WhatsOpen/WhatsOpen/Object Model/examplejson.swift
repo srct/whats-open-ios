@@ -7,16 +7,6 @@ import RealmSwift
 //
 
 
-class OpenTimes: Object{
-    dynamic var endDay = 0
-    dynamic var endTime = NSDate()
-    dynamic var id = 0
-    dynamic var lastModified = NSDate()
-    dynamic var schedule = 0
-    dynamic var startDay = 0
-    dynamic var startTime = 0
-    dynamic var dining: Dining!
-}
 struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
     let endTime: Date
