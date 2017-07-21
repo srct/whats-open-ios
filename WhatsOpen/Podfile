@@ -6,6 +6,7 @@ use_frameworks!
 target 'WhatsOpen' do
 
 pod 'RealmSwift'
+
 #pod 'ObjectMapper+Realm', '~> 0.2'
 
 #pod 'Segmentio', '~> 2.1'
