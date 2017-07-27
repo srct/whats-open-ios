@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -33,23 +35,60 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+		if(section == 0) {
+			return 1
+		}
+		else if(section == 1) {
+			return 2
+		}
+		else {
+			return 0
+		}
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 
+		switch indexPath.section {
+		case 0:
+			cell.textLabel!.text = "Are Our Hours Wrong?"
+		case 1:
+			if indexPath.row == 0 {
+				cell.textLabel!.text = "About SRCT"
+				cell.linkURL = URL(string: "https://srct.gmu.edu")
+			}
+			else if indexPath.row == 1 {
+				cell.textLabel!.text = "About What's Open"
+			}
+		default:
+			break
+		}
         // Configure the cell...
 
         return cell
     }
-    */
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let cell = self.tableView(tableView, cellForRowAt: indexPath)
+		
+		if let settingcell = cell as? SettingTableViewCell {
+			if settingcell.linkURL != nil {
+				self.showDetailViewController(SFSafariViewController(url: settingcell.linkURL!), sender: settingcell)
+			}
+			else if settingcell.textLabel?.text == "Are Our Hours Wrong?" {
+				let mailto = settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
+				print(mailto)
+			}
+		}
+		else {
+			return
+		}
+	}
 
     /*
     // Override to support conditional editing of the table view.
