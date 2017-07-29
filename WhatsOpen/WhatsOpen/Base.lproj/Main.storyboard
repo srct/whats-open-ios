@@ -300,6 +300,7 @@
                         <outlet property="LocationsListLayout" destination="eqw-AF-DSB" id="kLH-bz-bdn"/>
                         <outlet property="RightButton" destination="vtX-VZ-RB4" id="iv8-Xb-WoJ"/>
                         <outlet property="favoritesControl" destination="9BX-Nz-NN6" id="94S-gq-Nni"/>
+                        <outlet property="settingsButton" destination="MHZ-t0-Moj" id="nyC-iO-GTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-T4-yZv" userLabel="First Responder" sceneMemberID="firstResponder"/>

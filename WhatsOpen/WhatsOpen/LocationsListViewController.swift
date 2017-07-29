@@ -19,6 +19,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	}
 	@IBOutlet var RightButton: UIBarButtonItem!
 	
+	@IBOutlet var settingsButton: UIBarButtonItem!
+	
 	@IBOutlet var LocationsList: UICollectionView!
 	
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
@@ -73,6 +75,9 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		LocationsListLayout.invalidateLayout()
 		
+		settingsButton.accessibilityLabel = "Settings"
+		LastUpdatedLabel.accessibilityHint = ""
+		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 		
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -89,7 +94,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
 			}
 		}
-    }
+		
+	}
 	
 	func refresh(_ sender: Any) {
 		refreshControl.beginRefreshing()
@@ -155,6 +161,10 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		}
 		
 		cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
+		
+		cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
+		cell.accessibilityHint = "Double Tap to view details"
+
 		
 		self.reloadInputViews()
 		return cell

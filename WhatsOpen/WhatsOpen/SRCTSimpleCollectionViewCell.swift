@@ -16,6 +16,9 @@ class SRCTSimpleCollectionViewCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+	
+		isAccessibilityElement = true
+		shouldGroupAccessibilityChildren = true
 		
 		self.layer.cornerRadius = 8
 		// Initialization code
