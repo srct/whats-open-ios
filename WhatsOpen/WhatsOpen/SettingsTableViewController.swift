@@ -44,7 +44,7 @@ class SettingsTableViewController: UITableViewController {
 			return 1
 		}
 		else if(section == 1) {
-			return 2
+			return 3
 		}
 		else {
 			return 0
@@ -58,12 +58,22 @@ class SettingsTableViewController: UITableViewController {
 		case 0:
 			cell.textLabel!.text = "Are Our Hours Wrong?"
 		case 1:
-			if indexPath.row == 0 {
+			switch indexPath.row {
+			case 0:
+				cell.textLabel!.text = "Review on the App Store"
+			case 1:
 				cell.textLabel!.text = "About SRCT"
 				cell.linkURL = URL(string: "https://srct.gmu.edu")
+			case 2:
+				cell.textLabel!.text = "About What's Open"
+			default:
+				cell.textLabel!.text = "rip"
+			}
+			if indexPath.row == 0 {
+
 			}
 			else if indexPath.row == 1 {
-				cell.textLabel!.text = "About What's Open"
+
 			}
 		default:
 			break
@@ -81,8 +91,11 @@ class SettingsTableViewController: UITableViewController {
 				self.showDetailViewController(SFSafariViewController(url: settingcell.linkURL!), sender: settingcell)
 			}
 			else if settingcell.textLabel?.text == "Are Our Hours Wrong?" {
-				let mailto = settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
-				print(mailto)
+				settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
+			}
+			else if settingcell.textLabel!.text == "About What's Open" {
+				let avc = self.storyboard?.instantiateViewController(withIdentifier: "about")
+				self.show(avc!, sender: settingcell)
 			}
 		}
 		else {

@@ -14,6 +14,7 @@
 		92182EC41E95C38400192ABA /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* LocationDetailViewController.swift */; };
 		924840F81EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift */; };
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
+		9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
 		9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
@@ -64,6 +65,7 @@
 		92182EC31E95C38400192ABA /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTSimpleCollectionViewCell.swift; sourceTree = "<group>"; };
 		9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingTableViewCell.swift; sourceTree = "<group>"; };
 		9270A4DC1EC0010300DFBDA3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				924840F71EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
 				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
+				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
 				92182EC31E95C38400192ABA /* LocationDetailViewController.swift */,
 				92182EBF1E95BD2C00192ABA /* LocationsListViewController.swift */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
@@ -350,6 +353,7 @@
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* LocationsListViewController.swift in Sources */,
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
+				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
 				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* SRCTSimpleCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
