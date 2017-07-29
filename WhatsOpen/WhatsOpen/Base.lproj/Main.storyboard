@@ -235,7 +235,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="8FA-yc-q3z">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="S" id="MHZ-t0-Moj">
+                                    <barButtonItem image="Gear" id="MHZ-t0-Moj">
                                         <connections>
                                             <segue destination="Uxx-wt-GfY" kind="presentation" identifier="toSettings" modalPresentationStyle="pageSheet" id="3zr-0o-7IB"/>
                                         </connections>
@@ -380,7 +380,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vNs-gw-3rv" id="SMa-15-IiV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -612,6 +612,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gear" width="25" height="25"/>
         <image name="WO_Black_TextLight" width="2355" height="692"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
