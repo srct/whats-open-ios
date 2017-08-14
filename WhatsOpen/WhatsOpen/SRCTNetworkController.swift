@@ -11,7 +11,7 @@ import Foundation
 
 class SRCTNetworkController: NSObject {
     //Use this for testing with the new API, might make it possible to get stuff moving pre official release 
-    //https://whatsopen.dhaynes.xyz/api/schedules/?format=json
+    //https://whatsopen.dhaynes.xyz/api/facilities/?format=json
     //Official SRCT link.
     //https://whatsopen.gmu.edu/api/facilities/?format=json
     

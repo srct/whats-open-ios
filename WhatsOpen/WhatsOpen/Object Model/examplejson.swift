@@ -9,7 +9,6 @@ import RealmSwift
 
 
 
-
 struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
     let endTime: Date
