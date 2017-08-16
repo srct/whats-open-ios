@@ -42,7 +42,7 @@ class SRCTNetworkController: NSObject {
                         }
                  }
 
-                    print(facilities)
+                   print(facilities)
                     completion(facilities)
                     
                 }
