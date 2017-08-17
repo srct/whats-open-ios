@@ -16,7 +16,7 @@ class SRCTNetworkController: NSObject {
     //https://whatsopen.gmu.edu/api/facilities/?format=json
     
    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
-        let requestURL: NSURL = NSURL(string: "https://whatsopen.dhaynes.xyz/api/facilities/?format=json")!
+    let requestURL: NSURL = NSURL(string: "https://whatsopen.dhaynes.xyz/api/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
@@ -24,23 +24,15 @@ class SRCTNetworkController: NSObject {
             
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
-            
             if (statusCode == 200) {
                
-               if let dataN = data {
-
-                    
-                    let json = try! JSONSerialization.jsonObject(with: dataN, options: []) as! Array<Any>
+                if let dataN = data {
                     
                     
-                    var facilities = Array<Facility>()
-                   
-                    for f in json  {
-                        let fJson = f as! [String: Any]
-                        if let facility = Facility(json: fJson) {
-                            facilities.append(facility)
-                        }
-                 }
+                    
+                    
+                    
+                }
 
                    print(facilities)
                     completion(facilities)
@@ -49,7 +41,7 @@ class SRCTNetworkController: NSObject {
 
             }
         }
-        
+        print(Facility.MainSchedule.self)
         task.resume()
     }
 
