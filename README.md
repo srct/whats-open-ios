@@ -16,7 +16,7 @@ There are many things that can be done with this project (see the "To Do" sectio
 
 If you need help at all please contact and SRCT member. We want people to contribute, so if you are struggling, or just want to learn we are more than willing to help.
 
-The project lead for this project is **Eyad Hasan**. *ehasan3@gmu.edu*
+The project manager for this project is **Eyad Hasan**. *ehasan3@gmu.edu*
 
 Please visit the [SRCT Wiki](http://wiki.srct.gmu.edu/) for more information on this and other SRCT projects, along with other helpful links and tutorials.
 
