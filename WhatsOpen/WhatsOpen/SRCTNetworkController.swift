@@ -27,23 +27,26 @@ class SRCTNetworkController: NSObject {
             if (statusCode == 200) {
                
                 if let dataN = data {
+                    let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
+                    if let schedule = json as? [String: Any]{
+                        if let Array: currentSchedule = schedule["main_schedule"] as? Array {
+                            
+                        }
                     
                     
-                    
-                    
-                    
+                    }
                 }
-
-                   print(facilities)
-                    completion(facilities)
+                
                     
-                }
-
+                    
+                    
             }
-        }
-        print(Facility.MainSchedule.self)
-        task.resume()
+            
     }
 
+    }
+        print(Facility.MainSchedule.self)
+        task.resume()
 }
+
 
