@@ -27,9 +27,13 @@ class SRCTNetworkController: NSObject {
             if (statusCode == 200) {
                
                 if let dataN = data {
+
+                    //var schedules = Array
+                    //Finish this, and fix the function
                     let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
                     if let schedule = json as? [String: Any]{
-                        if let Array: currentSchedule = schedule["main_schedule"] as? Array {
+                        if let currentSchedule = schedule["main_schedule"] as? Array{
+                            schedules.append(currentSchedule)
                             
                         }
                     
@@ -43,10 +47,12 @@ class SRCTNetworkController: NSObject {
             }
             
     }
+    
+    print(schedules)
+    task.resume()
 
     }
-        print(Facility.MainSchedule.self)
-        task.resume()
+    
 }
 
 
