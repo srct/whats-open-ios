@@ -91,7 +91,8 @@ class SettingsTableViewController: UITableViewController {
 				self.showDetailViewController(SFSafariViewController(url: settingcell.linkURL!), sender: settingcell)
 			}
 			else if settingcell.textLabel?.text == "Are Our Hours Wrong?" {
-				settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
+				let mailvc = settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
+				self.showDetailViewController(mailvc, sender: cell)
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
 				let avc = self.storyboard?.instantiateViewController(withIdentifier: "about")
