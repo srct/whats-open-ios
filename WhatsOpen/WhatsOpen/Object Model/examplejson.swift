@@ -8,8 +8,47 @@ import RealmSwift
 
 
 
+final class Facility: CreatableFromJSON {
+    dynamic var slug: String = ""
+    dynamic var name: String = ""
+    dynamic var location: Any?
+    dynamic var category: Any?
+    dynamic var tags: Array<Any>
+    let mainSchedule = List<MainSchedule>()
+    
+    
+    
+}
 
-struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
+final class MainSchedule: CreatableFromJSON {
+    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
+    init?(json: [String : Any]) {
+        <#code#>
+    }
+
+    dynamic var id: String = ""
+    dynamic var openTimes = [OpenTimes]()
+
+}
+
+final class OpenTimes: CreatableFromJSON {
+    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
+    init?(json: [String : Any]) {
+        <#code#>
+    }
+
+    dynamic var schedule: Int
+    dynamic var modified: String
+    dynamic var startDay: Int
+    dynamic var endDay: Int
+    dynamic var startTime: String
+    dynamic var endTime: String
+}
+
+
+
+
+/**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
     let endTime: Date
     let id: Int
@@ -118,7 +157,7 @@ struct Facility: CreatableFromJSON { // TODO: Rename this struct
         }
     }
 }
-
+**/
 //
 // MARK: - JSON Utilities
 //
