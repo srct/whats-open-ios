@@ -9,6 +9,11 @@ import RealmSwift
 
 
 final class Facility: CreatableFromJSON {
+    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
+    init?(json: [String : Any]) {
+        <#code#>
+    }
+
     dynamic var slug: String = ""
     dynamic var name: String = ""
     dynamic var location: Any?
