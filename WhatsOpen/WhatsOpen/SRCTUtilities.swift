@@ -17,7 +17,7 @@ class Utilities: NSObject {
         if (isSpecialSchedule(facility) == true) {
             
        
-        if (!(facility.specialSchedules?.openTimes.isEmpty)!) {
+        if (!(facility.specialSchedule.openTimes.isEmpty)) {
             if let openDay = today(facility: facility) {
                 let nowTime = time(openTime: openDay)
                 if(nowTime == true){

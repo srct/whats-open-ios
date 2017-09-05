@@ -105,7 +105,7 @@ class MainTableViewController: UITableViewController {
 
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
         let facility = dataArray[indexPath.row]
-        cell.nameLabel.text = facility.name
+        cell.nameLabel.text = facility.facilityName
         let open = Utilities.isOpen(facility: facility);
             if(open == true){
                 cell.openClosedLabel.text = "Open"

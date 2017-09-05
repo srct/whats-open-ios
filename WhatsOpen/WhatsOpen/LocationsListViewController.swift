@@ -143,7 +143,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
 		cell.facility = facility
-		cell.nameLabel.text = facility.name
+		cell.nameLabel.text = facility.facilityName
 		
 		let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
