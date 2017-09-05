@@ -15,6 +15,7 @@ class Facility: Object {
     dynamic var category = Categories()
     let facilityTags = List<FacilityTags>()
     dynamic var mainSchedule = MainSchedule()
+    dynamic var specialSchedule = SpecialSchedule()
     
     
     
@@ -56,6 +57,18 @@ class MainSchedule: Object {
     
 }
 
+class SpecialSchedule: Object {
+    dynamic var id = 0
+    let openTimes = List<OpenTimes>()
+    dynamic var lastModified = ""
+    dynamic var name = ""
+    dynamic var validStart = ""
+    dynamic var validEnd = ""
+    dynamic var twentyFourHours = false
+    
+}
+
+
 class OpenTimes: Object {
     dynamic var schedule = 0
     dynamic var lastModified = ""
@@ -64,6 +77,8 @@ class OpenTimes: Object {
     dynamic var startTime = ""
     dynamic var endTime = ""
 }
+
+
 
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct

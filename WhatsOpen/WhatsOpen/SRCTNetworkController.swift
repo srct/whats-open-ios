@@ -8,11 +8,14 @@
 
 import UIKit
 import Foundation
+import RealmSwift
 
 class SRCTNetworkController: NSObject {
     //Use this for testing with the new API, might make it possible to get stuff moving pre official release 
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json    
    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
+    
+    let realm = try! Realm()
     let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -27,15 +30,13 @@ class SRCTNetworkController: NSObject {
 
                     //var schedules = Array
                     //Finish this, and fix the function
+                    try! realm.write{
                     let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
-                    if let schedule = json as? [String: Any]{
-                        if let currentSchedule = schedule["main_schedule"] as? Array{
-                            schedule.append(currentSchedule)
-                            
-                        }
-                    
-                    
+                        
+                        realm.create(Facility.self, value: json!, update: true)
                     }
+                
+                
                 }
                 
                     
@@ -45,7 +46,7 @@ class SRCTNetworkController: NSObject {
             
     }
     
-    print(schedules)
+    print(Facility.self)
     task.resume()
 
     }
