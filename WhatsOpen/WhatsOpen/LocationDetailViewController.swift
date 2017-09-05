@@ -28,8 +28,8 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		NameLabel.text = facility.name
-		PlaceLabel.text = facility.location
+		NameLabel.text = facility.slug
+		PlaceLabel.text = facility.facilityLocation
 		let open = Utilities.isOpen(facility: facility)
 		if(open) {
 			OpenLabel.text = "OPEN"
