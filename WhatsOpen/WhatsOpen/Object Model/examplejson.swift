@@ -8,49 +8,62 @@ import RealmSwift
 
 
 
-final class Facility: CreatableFromJSON {
-    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
-    init?(json: [String : Any]) {
-        <#code#>
-    }
-
-    dynamic var slug: String = ""
-    dynamic var name: String = ""
-    dynamic var location: Any?
-    dynamic var category: Any?
-    dynamic var tags: Array<Any>
-    let mainSchedule = List<MainSchedule>()
+class Facility: Object {
+    dynamic var slug = ""
+    dynamic var facilityName = ""
+    dynamic var facilityLocation = Locations()
+    dynamic var category = Categories()
+    let facilityTags = List<FacilityTags>()
+    dynamic var mainSchedule = MainSchedule()
     
     
     
 }
 
-final class MainSchedule: CreatableFromJSON {
-    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
-    init?(json: [String : Any]) {
-        <#code#>
-    }
-
-    dynamic var id: String = ""
-    dynamic var openTimes = [OpenTimes]()
-
+class Locations: Object {
+    dynamic var id = 0
+    dynamic var created = ""
+    dynamic var lastmodified = ""
+    dynamic var building = ""
+    dynamic var address = ""
+    dynamic var campus = ""
+    dynamic var onCampus = false
+    
 }
 
-final class OpenTimes: CreatableFromJSON {
-    /// Attempts to configure a new instance of the conforming type with values from a JSON dictionary.
-    init?(json: [String : Any]) {
-        <#code#>
-    }
-
-    dynamic var schedule: Int
-    dynamic var modified: String
-    dynamic var startDay: Int
-    dynamic var endDay: Int
-    dynamic var startTime: String
-    dynamic var endTime: String
+class Categories: Object {
+    dynamic var id = 0
+    dynamic var created = ""
+    dynamic var modified = ""
+    dynamic var categoryName = ""
+    
 }
 
+class FacilityTags: Object {
+    dynamic var tags = ""
+    
+}
 
+class MainSchedule: Object {
+    dynamic var id = 0
+    let openTimes = List<OpenTimes>()
+    dynamic var lastModified = ""
+    dynamic var name = ""
+    dynamic var validStart = ""
+    dynamic var validEnd = ""
+    dynamic var twentyFourHours = false
+    
+    
+}
+
+class OpenTimes: Object {
+    dynamic var schedule = 0
+    dynamic var lastModified = ""
+    dynamic var startDay = 0
+    dynamic var endDay = 0
+    dynamic var startTime = ""
+    dynamic var endTime = ""
+}
 
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct

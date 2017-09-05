@@ -30,7 +30,7 @@ class SRCTNetworkController: NSObject {
                     let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
                     if let schedule = json as? [String: Any]{
                         if let currentSchedule = schedule["main_schedule"] as? Array{
-                            schedules.append(currentSchedule)
+                            schedule.append(currentSchedule)
                             
                         }
                     
