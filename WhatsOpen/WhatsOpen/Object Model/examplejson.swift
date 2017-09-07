@@ -6,6 +6,18 @@ import Foundation
 // MARK: - Data Model
 //
 
+enum Day: Int {
+	case Monday = 0
+	case Tuesday = 1
+	case Wednesday = 2
+	case Thursday = 3
+	case Friday = 4
+	case Saturday = 5
+	case Sunday = 6
+	
+	// Add functions here later if we need them
+}
+
 struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
     let endTime: Date
