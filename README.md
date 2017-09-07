@@ -10,7 +10,7 @@ Simple iOS app to ingest the What's Open API, cache its contents in a local data
 On Contributing
 ---
 
-WhatsOpeniOS welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers.
+Whats Open iOS  welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers.
 
 There are many things that can be done with this project (see the "To Do" section), but sometimes it's the small things that count, so don't be afraid of contributing just a small spelling mistake.
 
@@ -55,7 +55,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)`
 
 To-do
 ---
-
 Note-- this should also be on the wiki
 
 About GMU SRCT
