@@ -3,16 +3,20 @@
 //  WhatsOpen
 //
 //  Created by Patrick Murray on 26/10/2016.
-//  Copyright © 2016 Patrick Murray. All rights reserved.
+//  Copyright © 2016 SRCT. All rights reserved.
 //
 
 import UIKit
+import Foundation
+import RealmSwift
 
 class SRCTNetworkController: NSObject {
-    
-    
+    //Use this for testing with the new API, might make it possible to get stuff moving pre official release 
+    //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json    
    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
-        let requestURL: NSURL = NSURL(string: "https://whatsopen.gmu.edu/api/facilities/?format=json")!
+    
+    let realm = try! Realm()
+    let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
@@ -20,33 +24,33 @@ class SRCTNetworkController: NSObject {
             
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
-            
             if (statusCode == 200) {
                
-               if let dataN = data {
+                if let dataN = data {
 
-                    
-                    let json = try! JSONSerialization.jsonObject(with: dataN, options: []) as! Array<Any>
-                    
-                    
-                    var facilities = Array<Facility>()
-                   
-                    for f in json  {
-                        let fJson = f as! [String: Any]
-                        if let facility = Facility(json: fJson) {
-                            facilities.append(facility)
-                        }
-                 }
-
-                    //print(facilities)
-                    completion(facilities)
-                    
+                    //var schedules = Array
+                    //Finish this, and fix the function
+                    try! realm.write{
+                    let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
+                        
+                        realm.create(Facility.self, value: json!, update: true)
+                    }
+                
+                
                 }
-
+                
+                    
+                    
+                    
             }
-        }
-        
-        task.resume()
+            
     }
+    
+    print(Facility.self)
+    task.resume()
 
+    }
+    
 }
+
+

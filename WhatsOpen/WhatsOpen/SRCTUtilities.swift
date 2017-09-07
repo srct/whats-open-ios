@@ -3,7 +3,7 @@
 //  WhatsOpen
 //
 //  Created by Patrick Murray on 20/11/2016.
-//  Copyright © 2016 Patrick Murray. All rights reserved.
+//  Copyright © 2016 SRCT. Some rights reserved.
 //
 
 import UIKit
@@ -14,13 +14,27 @@ class Utilities: NSObject {
     
     static func isOpen(facility: Facility) -> Bool {
         var open = false
+        if (isSpecialSchedule(facility) == true) {
+            
+       
+        if (!(facility.specialSchedule.openTimes.isEmpty)) {
+            if let openDay = today(facility: facility) {
+                let nowTime = time(openTime: openDay)
+                if(nowTime == true){
+                    open = true
+                } else {
+                    open = false
+                }
+            }
+            }
+        } else {
         
-
         if(!facility.mainSchedule.openTimes.isEmpty) {
             if let openDay = today(facility: facility) {
                 let nowTime = time(openTime: openDay)
                 if(nowTime == true) {
                     open = true
+                    
                 } else {
                     open = false
                 }
@@ -28,6 +42,8 @@ class Utilities: NSObject {
         } else {
             open = false
         }
+        }
+    
 //        print(facility.mainScheduleprint.name ," is ", open)
         return open
     }
@@ -104,5 +120,16 @@ class Utilities: NSObject {
     
 
     // TODO: Function to check for special schedules.
-    
+    static func isSpecialSchedule(_ facility: Facility) -> Bool? {
+        var isSpecial = false
+        if (facility.specialSchedules == nil) {
+            isSpecial = false
+            
+        }
+        else {
+            isSpecial = true
+        }
+        return isSpecial
+    }
 }
+
