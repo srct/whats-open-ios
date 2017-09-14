@@ -31,6 +31,9 @@ std::function<bool (size_t)>
 CollectionNotifier::get_modification_checker(TransactionChangeInfo const& info,
                                              Table const& root_table)
 {
+    if (info.schema_changed)
+        set_table(root_table);
+
     // First check if any of the tables accessible from the root table were
     // actually modified. This can be false if there were only insertions, or
     // deletions which were not linked to by any row in the linking table
@@ -90,9 +93,13 @@ bool DeepChangeChecker::check_outgoing_links(size_t table_ndx,
     // Check if we're already checking if the destination of the link is
     // modified, and if not add it to the stack
     auto already_checking = [&](size_t col) {
-        for (auto p = m_current_path.begin(); p < m_current_path.begin() + depth; ++p) {
-            if (p->table == table_ndx && p->row == row_ndx && p->col == col)
-                return true;
+        auto end = m_current_path.begin() + depth;
+        auto match = std::find_if(m_current_path.begin(), end, [&](auto& p) {
+            return p.table == table_ndx && p.row == row_ndx && p.col == col;
+        });
+        if (match != end) {
+            for (; match < end; ++match) match->depth_exceeded = true;
+            return true;
         }
         m_current_path[depth] = {table_ndx, row_ndx, col, false};
         return false;
@@ -127,7 +134,7 @@ bool DeepChangeChecker::check_row(Table const& table, size_t idx, size_t depth)
     if (depth >= m_current_path.size()) {
         // Don't mark any of the intermediate rows checked along the path as
         // not modified, as a search starting from them might hit a modification
-        for (size_t i = 1; i < m_current_path.size(); ++i)
+        for (size_t i = 0; i < m_current_path.size(); ++i)
             m_current_path[i].depth_exceeded = true;
         return false;
     }
