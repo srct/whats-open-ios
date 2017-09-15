@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
 	var facilitiesArray = Array<Facility>()
 	var filters = Filters()
@@ -72,6 +72,10 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		if( traitCollection.forceTouchCapability == .available){
+			registerForPreviewing(with: self, sourceView: self.LocationsList!)
+		}
 		
 		LocationsListLayout.invalidateLayout()
 		
@@ -239,6 +243,31 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
         // Pass the selected object to the new view controller.
     }
+	
+	// MARK: - Peek and Pop
+	
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		
+		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
+		
+		let cell = LocationsList?.cellForItem(at: indexPath) as! SRCTSimpleCollectionViewCell
+		
+		guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? LocationDetailViewController else { return nil }
+		
+		detailView.facility = cell.facility
+		
+		
+		print("peek")
+		
+		
+		return detailView
+	}
+	
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		self.navigationController?.show(viewControllerToCommit, sender: Any?.self)
+		
+		print("pop")
+	}
 	
 }
 
