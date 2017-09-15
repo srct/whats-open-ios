@@ -247,26 +247,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	// MARK: - Peek and Pop
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-		
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
-		
 		let cell = LocationsList?.cellForItem(at: indexPath) as! FacilityCollectionViewCell
-		
 		guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
 		
 		detailView.facility = cell.facility
-		
-		
-		print("peek")
-		
-		
+
 		return detailView
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
 		self.navigationController?.show(viewControllerToCommit, sender: Any?.self)
-		
-		print("pop")
 	}
 	
 }
