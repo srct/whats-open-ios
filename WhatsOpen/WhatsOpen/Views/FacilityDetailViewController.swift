@@ -18,12 +18,16 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	@IBOutlet var detailStackView: UIStackView!
 	
+	override var previewActionItems: [UIPreviewActionItem] {
+		var favoritePreviewItem = UIPreviewAction(title: "Mark as Favorite", style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
+	    return [favoritePreviewItem]
+	}
 	
 	var facility: Facility!
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		
+
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,5 +79,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
         // Pass the selected object to the new view controller.
     }
     */
-
+			
+	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
+		
+	}
 }

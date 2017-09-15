@@ -111,6 +111,18 @@
 			path = WhatsOpenTests;
 			sourceTree = "<group>";
 		};
+		920D17961F6C5CD200D63295 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
+				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
+				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
+				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
+				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A3AD62AE7C55A9F11823740C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +157,6 @@
 			children = (
 				CD81F5301DC03AA700009FBD /* DataModel */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
-				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
 				9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */,
 				9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */,
@@ -155,10 +166,7 @@
 				CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */,
 				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
-				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
-				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
-				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
-				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
+				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
 				CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */,
 				CD81F5281DC0334600009FBD /* Info.plist */,
