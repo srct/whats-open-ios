@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SRCTSimpleCollectionViewCell: UICollectionViewCell {
+class FacilityCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var timeDescriptionLabel: UILabel!
 	@IBOutlet var openClosedLabel: UILabel!

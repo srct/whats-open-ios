@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="-8599" y="-349"/>
         </scene>
-        <!--Locations List View Controller-->
+        <!--Facilities List View Controller-->
         <scene sceneID="w5e-Fb-rsR">
             <objects>
-                <viewController id="aaB-Go-aWd" customClass="LocationsListViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aaB-Go-aWd" customClass="FacilitiesListViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="byY-tw-rv4"/>
                         <viewControllerLayoutGuide type="bottom" id="ie3-PF-tB5"/>
@@ -174,7 +174,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="7" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CollectionCell" reuseIdentifier="CollectionCell" id="6qn-VX-mZx" customClass="SRCTSimpleCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CollectionCell" reuseIdentifier="CollectionCell" id="6qn-VX-mZx" customClass="FacilityCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
                                         <rect key="frame" x="37.5" y="7" width="300" height="131"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -422,6 +422,10 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="WT6-Th-cbL">
                                 <rect key="frame" x="16" y="174" width="343" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="5xu-tD-Fqa"/>
+                                    <constraint firstAttribute="width" constant="343" id="nAs-Xy-cBU"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Version 1.0 (10)">
                                         <attributes>
@@ -436,16 +440,27 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FR0-qX-jnd" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leading" id="03B-JT-efa"/>
-                            <constraint firstItem="FR0-qX-jnd" firstAttribute="top" secondItem="WT6-Th-cbL" secondAttribute="bottom" constant="8" symbolic="YES" id="1Ls-kB-eGL"/>
-                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leadingMargin" id="Dwi-j1-MJu"/>
-                            <constraint firstItem="tzw-Ro-L8p" firstAttribute="leading" secondItem="WT6-Th-cbL" secondAttribute="leading" id="KhP-Sg-VNL"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="trailing" secondItem="VoZ-nV-Wve" secondAttribute="trailingMargin" id="4VR-vb-1yM"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="tzw-Ro-L8p" secondAttribute="leading" id="6T6-Ms-3zj"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="centerX" secondItem="tzw-Ro-L8p" secondAttribute="centerX" id="734-wx-G9y"/>
+                            <constraint firstItem="FR0-qX-jnd" firstAttribute="top" secondItem="WT6-Th-cbL" secondAttribute="bottom" constant="8" id="Aoh-1f-3Hb"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="top" secondItem="RHc-Uq-40O" secondAttribute="bottom" constant="110" id="DdI-ql-ren"/>
+                            <constraint firstItem="FR0-qX-jnd" firstAttribute="top" secondItem="WT6-Th-cbL" secondAttribute="bottom" constant="8" symbolic="YES" id="HBv-AK-RmX"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="top" secondItem="VoZ-nV-Wve" secondAttribute="top" constant="174" id="IAf-Bs-UqK"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="trailing" secondItem="tzw-Ro-L8p" secondAttribute="trailing" id="IBz-Au-hMS"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="centerX" secondItem="VoZ-nV-Wve" secondAttribute="centerX" id="JiH-A1-Mt5"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leadingMargin" id="KoC-Le-vuH"/>
                             <constraint firstItem="FR0-qX-jnd" firstAttribute="bottom" secondItem="xIs-Se-pN8" secondAttribute="top" id="MgS-Df-onW"/>
                             <constraint firstItem="FR0-qX-jnd" firstAttribute="top" secondItem="tzw-Ro-L8p" secondAttribute="bottom" constant="42" id="MnP-iC-wV7"/>
-                            <constraint firstItem="WT6-Th-cbL" firstAttribute="top" secondItem="RHc-Uq-40O" secondAttribute="bottom" constant="110" id="RU4-rS-uLl"/>
-                            <constraint firstItem="tzw-Ro-L8p" firstAttribute="trailing" secondItem="WT6-Th-cbL" secondAttribute="trailing" id="Sdr-wJ-TzH"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leading" constant="16" id="Nte-kk-d1Y"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leading" constant="16" id="PUT-sA-c7X"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="top" secondItem="VoZ-nV-Wve" secondAttribute="top" constant="174" id="Rax-Sc-nea"/>
                             <constraint firstAttribute="trailing" secondItem="FR0-qX-jnd" secondAttribute="trailing" id="Sxh-yE-N5L"/>
                             <constraint firstItem="tzw-Ro-L8p" firstAttribute="top" secondItem="RHc-Uq-40O" secondAttribute="bottom" constant="8" symbolic="YES" id="ZGe-ml-5d1"/>
                             <constraint firstItem="tzw-Ro-L8p" firstAttribute="centerX" secondItem="FR0-qX-jnd" secondAttribute="centerX" id="cs6-s4-1Tf"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="centerX" secondItem="FR0-qX-jnd" secondAttribute="centerX" id="h6i-El-57t"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="leading" secondItem="VoZ-nV-Wve" secondAttribute="leadingMargin" id="iNo-VZ-1qP"/>
+                            <constraint firstItem="WT6-Th-cbL" firstAttribute="trailing" secondItem="VoZ-nV-Wve" secondAttribute="trailingMargin" id="u8L-D4-xnh"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -457,16 +472,16 @@
             </objects>
             <point key="canvasLocation" x="-6852" y="-349.47526236881561"/>
         </scene>
-        <!--Location Detail View Controller-->
+        <!--Facility Detail View Controller-->
         <scene sceneID="O6o-IK-A4J">
             <objects>
-                <viewController storyboardIdentifier="detailView" id="bKW-v9-6dS" customClass="LocationDetailViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailView" id="bKW-v9-6dS" customClass="FacilityDetailViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="al7-z8-0L5"/>
                         <viewControllerLayoutGuide type="bottom" id="6Rj-zF-6m7"/>
                     </layoutGuides>
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="gDU-gJ-J9N">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGy-3K-QIj">

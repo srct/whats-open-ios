@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	@IBOutlet var NameLabel: UILabel!
 	@IBOutlet var PlaceLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
+class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
 	var facilitiesArray = Array<Facility>()
 	var filters = Filters()
@@ -141,7 +141,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! SRCTSimpleCollectionViewCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
 		/*
 		let windowRect = self.view.window!.frame
 		let windowWidth = windowRect.size.width
@@ -230,8 +230,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
 		if(segue.identifier == "toDetailView") {
-			let destination = segue.destination as! LocationDetailViewController
-			let tapped = sender as! SRCTSimpleCollectionViewCell //this is probably a bad idea just FYI future me
+			let destination = segue.destination as! FacilityDetailViewController
+			let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
 			destination.facility = tapped.facility
 			
 		}
@@ -250,9 +250,9 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
 		
-		let cell = LocationsList?.cellForItem(at: indexPath) as! SRCTSimpleCollectionViewCell
+		let cell = LocationsList?.cellForItem(at: indexPath) as! FacilityCollectionViewCell
 		
-		guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? LocationDetailViewController else { return nil }
+		guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
 		
 		detailView.facility = cell.facility
 		

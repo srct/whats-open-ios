@@ -138,7 +138,7 @@ class FiltersTableViewController: UITableViewController {
 		filters.showClosed = showClosed.switchControl.isOn
 		
 		if(segue.identifier == "toFilters") {
-			let destination = segue.destination as! LocationsListViewController
+			let destination = segue.destination as! FacilitiesListViewController
 			destination.filters = self.filters
 		}
 		
