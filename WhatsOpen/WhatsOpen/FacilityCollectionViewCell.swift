@@ -17,6 +17,9 @@ class FacilityCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 	
+		openClosedLabel.layer.cornerRadius = 12
+		openClosedLabel.layer.masksToBounds = true
+		
 		isAccessibilityElement = true
 		shouldGroupAccessibilityChildren = true
 		

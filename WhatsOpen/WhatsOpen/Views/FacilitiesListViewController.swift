@@ -158,11 +158,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
 			cell.openClosedLabel.text = "Open"
-			cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+			cell.openClosedLabel.textColor = UIColor.black
+			cell.openClosedLabel.backgroundColor = UIColor.white
+			//cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 			cell.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		} else {
 			cell.openClosedLabel.text = "Closed"
-			cell.openClosedLabel.backgroundColor = UIColor.red
+			cell.openClosedLabel.textColor = UIColor.white
+			cell.openClosedLabel.backgroundColor = UIColor.black
+			//cell.openClosedLabel.backgroundColor = UIColor.red
 			cell.backgroundColor = UIColor.red
 
 		}
