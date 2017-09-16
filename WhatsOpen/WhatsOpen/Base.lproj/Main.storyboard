@@ -305,6 +305,7 @@
                         <outlet property="LocationsListLayout" destination="eqw-AF-DSB" id="kLH-bz-bdn"/>
                         <outlet property="RightButton" destination="vtX-VZ-RB4" id="iv8-Xb-WoJ"/>
                         <outlet property="favoritesControl" destination="9BX-Nz-NN6" id="94S-gq-Nni"/>
+                        <outlet property="navigationItem" destination="lS5-pu-Adr" id="4tw-ID-qgg"/>
                         <outlet property="settingsButton" destination="MHZ-t0-Moj" id="nyC-iO-GTe"/>
                     </connections>
                 </viewController>
@@ -588,8 +589,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ulx-sh-XJ1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>

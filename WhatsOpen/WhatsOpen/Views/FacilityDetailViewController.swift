@@ -27,7 +27,6 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +41,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		else {
 			OpenLabel.text = "CLOSED"
 			OpenLabel.backgroundColor = UIColor.red
+		}
+		
+		if #available(iOS 11.0, *) {
+			navigationItem.largeTitleDisplayMode = .never
 		}
         // Do any additional setup after loading the view.
     }

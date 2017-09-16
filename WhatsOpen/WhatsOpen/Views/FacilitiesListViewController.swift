@@ -46,20 +46,25 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	let refreshControl = UIRefreshControl()
 	
 	override func viewWillLayoutSubviews() {
+		LocationsListLayout.itemSize.width = getCellWidth()
+		LocationsListLayout.invalidateLayout()
+
+	}
+	
+	func getCellWidth() -> CGFloat {
 		let windowWidth = self.view.frame.size.width
 		
-		if(windowWidth > 320 && windowWidth < 640) {
-			LocationsListLayout.itemSize.width = windowWidth - 20
+		if(windowWidth < 640) {
+			return windowWidth - 20
 		}
 		else if(windowWidth >= 640 && windowWidth < 1024) {
-			LocationsListLayout.itemSize.width = (windowWidth / 2) - 15
+			return (windowWidth / 2) - 15
 		}
 		else if(windowWidth >= 1024) {
-			LocationsListLayout.itemSize.width = (windowWidth / 3) - 15
+			return (windowWidth / 3) - 15
 		}
 		
-		LocationsListLayout.invalidateLayout()
-		
+		return 0
 	}
 	
 	@IBAction func RefreshButton(_ sender: Any) {
@@ -68,6 +73,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
+		
+		navigationItem.title = "What's Open?"
+
+
 	}
 	
     override func viewDidLoad() {
@@ -75,6 +84,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		if( traitCollection.forceTouchCapability == .available){
 			registerForPreviewing(with: self, sourceView: self.LocationsList!)
+		}
+		
+		let searchController = UISearchController(searchResultsController: nil) //TODO: ADD SEARCH
+		if #available(iOS 11, *) {
+			navigationController?.navigationBar.prefersLargeTitles = true
+			navigationItem.searchController = searchController
+			navigationItem.hidesSearchBarWhenScrolling = false
+			navigationItem.searchController?.searchBar.barTintColor = UIColor.white
+			navigationItem.searchController?.searchBar.barStyle = .default
 		}
 		
 		LocationsListLayout.invalidateLayout()

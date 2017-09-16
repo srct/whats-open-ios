@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class FacilityCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var nameLabel: UILabel!
@@ -17,13 +18,25 @@ class FacilityCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 	
+		self.layer.cornerRadius = 8
+		self.layer.borderWidth = 1.0
+		self.layer.borderColor = UIColor.clear.cgColor
+
+		/*
+		self.layer.shadowColor = UIColor.darkGray.cgColor
+		self.layer.shadowOffset = CGSize(width: 0, height: 0)
+		self.layer.shadowRadius = 3.0
+		self.layer.shadowOpacity = 1.0
+		self.layer.masksToBounds = false
+		self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+		*/
+
 		openClosedLabel.layer.cornerRadius = 12
 		openClosedLabel.layer.masksToBounds = true
 		
 		isAccessibilityElement = true
 		shouldGroupAccessibilityChildren = true
 		
-		self.layer.cornerRadius = 8
 		// Initialization code
 	}
 }
