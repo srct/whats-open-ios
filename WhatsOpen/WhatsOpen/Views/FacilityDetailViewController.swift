@@ -19,8 +19,12 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var detailStackView: UIStackView!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
-		var favoritePreviewItem = UIPreviewAction(title: "Mark as Favorite", style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
+		let favoritePreviewItem = UIPreviewAction(title: "Mark as Favorite", style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
 	    return [favoritePreviewItem]
+	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
 	}
 	
 	var facility: Facility!

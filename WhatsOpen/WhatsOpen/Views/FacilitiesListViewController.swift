@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DeckTransition
 
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
@@ -79,7 +80,32 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
-    override func viewDidLoad() {
+	@IBAction func tapRecognizer(_ sender: UITapGestureRecognizer) {
+		
+		let tapLocation = sender.location(in: LocationsList)
+		let indexPath = LocationsList.indexPathForItem(at: tapLocation)
+		if((indexPath) != nil) {
+			let destination = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
+			let tapped = LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
+			destination!.facility = tapped.facility
+			presentDetailView(destination!)
+		}
+	}
+	
+	func presentDetailView(_ destination: FacilityDetailViewController) {
+		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
+			//do a popover here for the iPad
+			//iPads are cool right?
+		}
+		else {
+			let destDelegate = DeckTransitioningDelegate()
+			destination.modalPresentationStyle = .custom
+			destination.transitioningDelegate = destDelegate
+			present(destination, animated: true, completion: nil)
+		}
+	}
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 		
 		if( traitCollection.forceTouchCapability == .available){
@@ -90,7 +116,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		if #available(iOS 11, *) {
 			navigationController?.navigationBar.prefersLargeTitles = true
 			navigationItem.searchController = searchController
-			navigationItem.hidesSearchBarWhenScrolling = false
+			navigationItem.hidesSearchBarWhenScrolling = true
 			navigationItem.searchController?.searchBar.barTintColor = UIColor.white
 			navigationItem.searchController?.searchBar.barStyle = .default
 		}
@@ -253,9 +279,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         // Get the new view controller using segue.destinationViewController.
 		if(segue.identifier == "toDetailView") {
 			let destination = segue.destination as! FacilityDetailViewController
+			let destDelegate = DeckTransitioningDelegate()
+			destination.transitioningDelegate = destDelegate
 			let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
 			destination.facility = tapped.facility
-			
+			present(destination, animated: true, completion: nil)
 		}
 		else if(segue.identifier == "toFilters") {
 			let destination = segue.destination as! UINavigationController
@@ -279,7 +307,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-		self.navigationController?.show(viewControllerToCommit, sender: Any?.self)
+		let destDelegate = DeckTransitioningDelegate()
+		viewControllerToCommit.modalPresentationStyle = .custom
+		viewControllerToCommit.transitioningDelegate = destDelegate
+		//If one day 3D touch comes to the iPad, this is no longer good.
+		present(viewControllerToCommit, animated: true, completion: nil)
 	}
 	
 }

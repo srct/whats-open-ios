@@ -1,3 +1,12 @@
-PODFILE CHECKSUM: 3830d742aafcddf8897f50d296bb6ba37c44dc91
+PODS:
+  - DeckTransition (1.2.0)
 
-COCOAPODS: 1.2.0
+DEPENDENCIES:
+  - DeckTransition (~> 1.0)
+
+SPEC CHECKSUMS:
+  DeckTransition: 23a2c7bdb24bf740a460da72cbb25f9dd28d0a51
+
+PODFILE CHECKSUM: 0d945be0cf7bfa1e45899bb7bbb3730c684345e0
+
+COCOAPODS: 1.2.1

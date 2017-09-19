@@ -164,6 +164,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naC-sZ-bcy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eqw-AF-DSB">
                                     <size key="itemSize" width="300" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -210,6 +211,7 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="uhu-6U-8Tx" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" constant="4" id="8Lg-T1-huk"/>
                                             <constraint firstItem="o7N-To-w50" firstAttribute="top" secondItem="6QR-8Q-n4s" secondAttribute="bottom" id="AfM-FF-jYa"/>
@@ -227,16 +229,17 @@
                                             <outlet property="nameLabel" destination="6QR-8Q-n4s" id="Nbh-eh-fDp"/>
                                             <outlet property="openClosedLabel" destination="DEx-BH-Fun" id="9dP-3e-Hcy"/>
                                             <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
-                                            <segue destination="bKW-v9-6dS" kind="show" identifier="toDetailView" id="0bG-wa-jMg"/>
+                                            <outletCollection property="gestureRecognizers" destination="nBx-MW-HhP" appends="YES" id="50g-h6-wdr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aaB-Go-aWd" id="bX7-L2-MmS"/>
                                     <outlet property="delegate" destination="aaB-Go-aWd" id="dre-Tj-BHj"/>
+                                    <outletCollection property="gestureRecognizers" destination="nBx-MW-HhP" appends="YES" id="47R-R2-9Tc"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="8FA-yc-q3z">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FA-yc-q3z">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                 <items>
                                     <barButtonItem image="Gear" id="MHZ-t0-Moj">
@@ -246,7 +249,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VZM-tF-lkq"/>
                                     <barButtonItem title="Last Updated: never" style="plain" id="y4Z-i6-UYu">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NJ5-TN-F4n"/>
                                     <barButtonItem systemItem="refresh" id="YxN-nx-PTc">
@@ -255,7 +258,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -272,7 +275,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lS5-pu-Adr">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="v4j-oA-7Fa">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="pCI-LX-8uh" kind="popoverPresentation" identifier="toFilters" popoverAnchorBarButtonItem="v4j-oA-7Fa" id="6D3-G7-Qyd">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -286,13 +289,13 @@
                                 <segment title="All"/>
                                 <segment title="Favorites"/>
                             </segments>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="favoritesControlChanges:" destination="aaB-Go-aWd" eventType="valueChanged" id="5Ij-Z9-Gsa"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="vtX-VZ-RB4">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="vtX-VZ-RB4">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
                             </connections>
@@ -310,6 +313,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-T4-yZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nBx-MW-HhP">
+                    <connections>
+                        <action selector="tapRecognizer:" destination="aaB-Go-aWd" id="f3y-Nf-sIn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-8151.1999999999998" y="-1884.1079460269866"/>
         </scene>
@@ -456,37 +464,37 @@
             <objects>
                 <viewController storyboardIdentifier="detailView" id="bKW-v9-6dS" customClass="FacilityDetailViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="gDU-gJ-J9N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGy-3K-QIj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Panera Bread" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="W3q-KN-OAm">
-                                        <rect key="frame" x="8" y="18" width="359" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Johnson Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpV-B3-ImX">
-                                        <rect key="frame" x="8" y="59" width="359" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="RESTAURANT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-Me-tgL">
-                                        <rect key="frame" x="8" y="8" width="359" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                                        <color key="textColor" white="0.1303982204861111" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-Ak-BGa">
                                         <rect key="frame" x="296" y="111" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Get Directions"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Panera Bread" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="W3q-KN-OAm">
+                                        <rect key="frame" x="8" y="24.5" width="359" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnson Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpV-B3-ImX">
+                                        <rect key="frame" x="8" y="66.5" width="359" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESTAURANT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-Me-tgL">
+                                        <rect key="frame" x="8" y="12" width="359" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                        <color key="textColor" white="0.1303982204861111" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoH-CV-Nfo">
-                                        <rect key="frame" x="8" y="83" width="359" height="38"/>
+                                        <rect key="frame" x="8" y="87" width="359" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="359" id="0gt-6q-O5J"/>
@@ -502,25 +510,26 @@
                                     <constraint firstItem="jN2-Me-tgL" firstAttribute="leading" secondItem="W3q-KN-OAm" secondAttribute="leading" id="1bC-oQ-ps6"/>
                                     <constraint firstItem="XpV-B3-ImX" firstAttribute="top" secondItem="W3q-KN-OAm" secondAttribute="bottom" constant="-7" id="4OC-Nd-n02"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="top" secondItem="jN2-Me-tgL" secondAttribute="bottom" constant="-7" id="7Jg-7u-U9T"/>
-                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" constant="4" id="7oP-Gu-bwQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" id="7oP-Gu-bwQ"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="centerX" secondItem="iGy-3K-QIj" secondAttribute="centerX" id="Eun-PC-ZhH"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="G4x-mF-Mkj"/>
-                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" constant="4" id="KN9-mj-yqu"/>
+                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" id="KN9-mj-yqu"/>
                                     <constraint firstAttribute="trailing" secondItem="W3q-KN-OAm" secondAttribute="trailing" constant="8" id="Lvv-8h-XlP"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leadingMargin" id="Mlo-Ux-Pkw"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="OgW-CL-tnu"/>
+                                    <constraint firstItem="jN2-Me-tgL" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="12" id="P4A-OA-oPg"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="width" secondItem="jN2-Me-tgL" secondAttribute="width" id="VWS-Im-Q5B"/>
                                     <constraint firstAttribute="trailing" secondItem="BoH-CV-Nfo" secondAttribute="trailing" constant="8" id="cm2-Fd-03J"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="trailing" secondItem="iGy-3K-QIj" secondAttribute="trailingMargin" id="kYt-5A-J7x"/>
                                     <constraint firstItem="XpV-B3-ImX" firstAttribute="width" secondItem="W3q-KN-OAm" secondAttribute="width" id="ogF-Oz-euc"/>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="83" id="uw6-cw-Ojt"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="87" id="uw6-cw-Ojt"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="wfU-XJ-9YM"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="leading" id="xKh-GM-PQn"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="ylN-rR-4f8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N1f-XR-xpn">
-                                <rect key="frame" x="0.0" y="125" width="375" height="478"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationDetailCell" textLabel="dvE-Be-8y6" detailTextLabel="fSJ-Gc-VIw" style="IBUITableViewCellStyleValue1" id="bCL-Iy-li3">
@@ -578,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn4-Px-X4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7181.6000000000004" y="-1885.0074962518743"/>
+            <point key="canvasLocation" x="-6372" y="-1886"/>
         </scene>
         <!--Root Navigation-->
         <scene sceneID="WBs-Vx-0Yx">
@@ -586,11 +595,10 @@
                 <navigationController title="Root Navigation" automaticallyAdjustsScrollViewInsets="NO" id="DGD-49-9Ue" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ulx-sh-XJ1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ulx-sh-XJ1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>

@@ -10,6 +10,7 @@ target 'WhatsOpen' do
 
 # pod 'Segmentio', '~> 2.1'
 
+  pod 'DeckTransition', '~> 1.0'
 end
 
 
