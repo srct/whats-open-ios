@@ -229,14 +229,12 @@
                                             <outlet property="nameLabel" destination="6QR-8Q-n4s" id="Nbh-eh-fDp"/>
                                             <outlet property="openClosedLabel" destination="DEx-BH-Fun" id="9dP-3e-Hcy"/>
                                             <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
-                                            <outletCollection property="gestureRecognizers" destination="nBx-MW-HhP" appends="YES" id="50g-h6-wdr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aaB-Go-aWd" id="bX7-L2-MmS"/>
                                     <outlet property="delegate" destination="aaB-Go-aWd" id="dre-Tj-BHj"/>
-                                    <outletCollection property="gestureRecognizers" destination="nBx-MW-HhP" appends="YES" id="47R-R2-9Tc"/>
                                 </connections>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FA-yc-q3z">
@@ -294,7 +292,7 @@
                                 <action selector="favoritesControlChanges:" destination="aaB-Go-aWd" eventType="valueChanged" id="5Ij-Z9-Gsa"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="vtX-VZ-RB4">
+                        <barButtonItem key="rightBarButtonItem" title=" " id="vtX-VZ-RB4">
                             <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
@@ -313,11 +311,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-T4-yZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="nBx-MW-HhP">
-                    <connections>
-                        <action selector="tapRecognizer:" destination="aaB-Go-aWd" id="f3y-Nf-sIn"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-8151.1999999999998" y="-1884.1079460269866"/>
         </scene>
@@ -468,7 +461,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGy-3K-QIj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="153"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-Ak-BGa">
                                         <rect key="frame" x="296" y="111" width="22" height="22"/>
@@ -494,7 +487,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoH-CV-Nfo">
-                                        <rect key="frame" x="8" y="87" width="359" height="38"/>
+                                        <rect key="frame" x="8" y="98" width="359" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="359" id="0gt-6q-O5J"/>
@@ -510,10 +503,10 @@
                                     <constraint firstItem="jN2-Me-tgL" firstAttribute="leading" secondItem="W3q-KN-OAm" secondAttribute="leading" id="1bC-oQ-ps6"/>
                                     <constraint firstItem="XpV-B3-ImX" firstAttribute="top" secondItem="W3q-KN-OAm" secondAttribute="bottom" constant="-7" id="4OC-Nd-n02"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="top" secondItem="jN2-Me-tgL" secondAttribute="bottom" constant="-7" id="7Jg-7u-U9T"/>
-                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" id="7oP-Gu-bwQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" constant="17" id="7oP-Gu-bwQ"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="centerX" secondItem="iGy-3K-QIj" secondAttribute="centerX" id="Eun-PC-ZhH"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="G4x-mF-Mkj"/>
-                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" id="KN9-mj-yqu"/>
+                                    <constraint firstAttribute="bottom" secondItem="BoH-CV-Nfo" secondAttribute="bottom" constant="17" id="KN9-mj-yqu"/>
                                     <constraint firstAttribute="trailing" secondItem="W3q-KN-OAm" secondAttribute="trailing" constant="8" id="Lvv-8h-XlP"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leadingMargin" id="Mlo-Ux-Pkw"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="OgW-CL-tnu"/>
@@ -522,14 +515,14 @@
                                     <constraint firstAttribute="trailing" secondItem="BoH-CV-Nfo" secondAttribute="trailing" constant="8" id="cm2-Fd-03J"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="trailing" secondItem="iGy-3K-QIj" secondAttribute="trailingMargin" id="kYt-5A-J7x"/>
                                     <constraint firstItem="XpV-B3-ImX" firstAttribute="width" secondItem="W3q-KN-OAm" secondAttribute="width" id="ogF-Oz-euc"/>
-                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="87" id="uw6-cw-Ojt"/>
+                                    <constraint firstItem="BoH-CV-Nfo" firstAttribute="top" secondItem="iGy-3K-QIj" secondAttribute="top" constant="98" id="uw6-cw-Ojt"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="wfU-XJ-9YM"/>
                                     <constraint firstItem="W3q-KN-OAm" firstAttribute="leading" secondItem="XpV-B3-ImX" secondAttribute="leading" id="xKh-GM-PQn"/>
                                     <constraint firstItem="BoH-CV-Nfo" firstAttribute="leading" secondItem="iGy-3K-QIj" secondAttribute="leading" constant="8" id="ylN-rR-4f8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N1f-XR-xpn">
-                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationDetailCell" textLabel="dvE-Be-8y6" detailTextLabel="fSJ-Gc-VIw" style="IBUITableViewCellStyleValue1" id="bCL-Iy-li3">
@@ -587,7 +580,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn4-Px-X4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6372" y="-1886"/>
+            <point key="canvasLocation" x="-6372" y="-1886.8065967016494"/>
         </scene>
         <!--Root Navigation-->
         <scene sceneID="WBs-Vx-0Yx">

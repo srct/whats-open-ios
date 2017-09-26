@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/CardViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:WhatsOpen.xcodeproj">
    </FileRef>
    <FileRef

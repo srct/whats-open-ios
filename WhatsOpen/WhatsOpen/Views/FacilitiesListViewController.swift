@@ -14,6 +14,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	var facilitiesArray = Array<Facility>()
 	var filters = Filters()
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
 	@IBOutlet var LeftButton: UIBarButtonItem!
 		
 	@IBAction func RightButton(_ sender: Any) {
@@ -80,7 +84,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
-	@IBAction func tapRecognizer(_ sender: UITapGestureRecognizer) {
+	func tapRecognizer(_ sender: UITapGestureRecognizer) {
 		
 		let tapLocation = sender.location(in: LocationsList)
 		let indexPath = LocationsList.indexPathForItem(at: tapLocation)
@@ -193,7 +197,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.frame.size.width = 280
 		}
 		*/
-		
+		cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
+		cell.gestureRecognizers = []
+		cell.gestureRecognizers?.append(cell.tapRecognizer)
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
 		cell.facility = facility

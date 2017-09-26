@@ -10,6 +10,10 @@ import UIKit
 
 class FiltersTableViewController: UITableViewController {
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
 	@IBAction func doneButton(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
 	}

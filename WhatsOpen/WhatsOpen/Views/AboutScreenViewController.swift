@@ -13,6 +13,10 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 
 	@IBOutlet var versionLabel: UILabel!
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
