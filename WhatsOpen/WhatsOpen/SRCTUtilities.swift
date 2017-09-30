@@ -19,7 +19,7 @@ class Utilities: NSObject {
        
         if (!(facility.specialSchedule.openTimes.isEmpty)) {
             if let openDay = today(facility: facility) {
-                let nowTime = time(openTime: openDay)
+                let nowTime = time(facility)
                 if(nowTime == true){
                     open = true
                 } else {
@@ -30,8 +30,8 @@ class Utilities: NSObject {
         } else {
         
         if(!facility.mainSchedule.openTimes.isEmpty) {
-            if let openDay = today(facility: facility) {
-                let nowTime = time(openTime: openDay)
+            if today(facility: facility) != nil {
+                let nowTime = time(facility)
                 if(nowTime == true) {
                     open = true
                     
@@ -67,6 +67,7 @@ class Utilities: NSObject {
         return currentDay!
     }
     
+    //Gets the current day of the week.
     static func today(facility: Facility) -> OpenTimes? {
         let currentDay = getDayOfWeek()
         let day = currentDay
@@ -80,11 +81,23 @@ class Utilities: NSObject {
         return nil
     }
     
-    static func time(openTime: OpenTimes) -> Bool {
+    // Converts our startTime and endTime to dates.
+    static func convertTime(_ facility: Facility) -> (startTime: Date, endTime: Date) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "US_en")
+        formatter.dateFormat = "HH:mm:ss"
+        let startTime = formatter.date(from: facility.mainSchedule.validStart)
+        let endTime = formatter.date(from: facility.mainSchedule.validEnd)
+        return (startTime!, endTime!)
+        
+    }
+    
+    static func time(_ facility: Facility) -> Bool {
         var time = false
+        let startEnd = convertTime(facility)
         let nowTime = getCurrentTime()
         
-        if(openTime.startTime >= openTime.endTime || nowTime >= openTime.startTime && nowTime <= openTime.endTime) {
+        if(startEnd.startTime >= startEnd.endTime || nowTime >= startEnd.startTime && nowTime <= startEnd.endTime) {
             time = true
         }
         
@@ -98,17 +111,18 @@ class Utilities: NSObject {
         dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
         dateComponentsFormatter.maximumUnitCount = 1
         dateComponentsFormatter.unitsStyle = .full
+        let startEnd = convertTime(facility)
         
         if(Utilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
             if(!facility.mainSchedule.openTimes.isEmpty) {
-            let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.endTime)!)
+                let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (startEnd.endTime))
             return "Closes in \(time!)."
             
 			//Eventually add more detailled text here, allowing for more custom
 			//messages as it gets closer to closing time
         } else {
-			let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (today(facility: facility)?.startTime)!) //This line doesn't work pls fix
+			let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (startEnd.startTime)) //This line doesn't work pls fix
             return "Opens in \(time!)."
         }
             
@@ -122,7 +136,7 @@ class Utilities: NSObject {
     // TODO: Function to check for special schedules.
     static func isSpecialSchedule(_ facility: Facility) -> Bool? {
         var isSpecial = false
-        if (facility.specialSchedules == nil) {
+        if (facility.specialSchedule == nil) {
             isSpecial = false
             
         }

@@ -30,9 +30,8 @@ class SRCTNetworkController: NSObject {
 
                     //var schedules = Array
                     //Finish this, and fix the function
-                    try! realm.write{
-                    let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
-                        
+                    try! realm.write(){
+                        let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
                         realm.create(Facility.self, value: json!, update: true)
                     }
                 
