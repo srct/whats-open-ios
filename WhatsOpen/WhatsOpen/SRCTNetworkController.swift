@@ -15,7 +15,7 @@ class SRCTNetworkController: NSObject {
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json    
    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
     
-    let realm = try! Realm()
+    
     let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -27,14 +27,16 @@ class SRCTNetworkController: NSObject {
             if (statusCode == 200) {
                
                 if let dataN = data {
+                    DispatchQueue.main.async {
+                        do{
+                            let realm = try! Realm()
+                            let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
+                            Object.init(value: "slug")
+                            
 
-                    //var schedules = Array
-                    //Finish this, and fix the function
-                    try! realm.write(){
-                        let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
-                        realm.create(Facility.self, value: json!, update: true)
+                            
+                        }
                     }
-                
                 
                 }
                 

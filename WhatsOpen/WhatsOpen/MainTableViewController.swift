@@ -33,9 +33,7 @@ class MainTableViewController: UITableViewController {
         SRCTNetworkController.performDownload { (facilities) in
             self.facilitiesArray = facilities
 //            print(self.facilitiesArray)
-            DispatchQueue.main.async {
                 self.tableView.reloadData()
-            }
             
         }
     }
