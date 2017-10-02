@@ -100,6 +100,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
 			//do a popover here for the iPad
 			//iPads are cool right?
+			destination.modalPresentationStyle = .popover
+			let popoverController = destination.popoverPresentationController
+			popoverController?.permittedArrowDirections = .any
+			popoverController?.sourceView = destination.view
+			
+			present(destination, animated: true, completion: nil)
 		}
 		else {
 			let destDelegate = DeckTransitioningDelegate()

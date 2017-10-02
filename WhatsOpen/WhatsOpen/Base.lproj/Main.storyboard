@@ -669,5 +669,5 @@
         <image name="Gear" width="25" height="25"/>
         <image name="WO_Black_TextLight" width="2355" height="692"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

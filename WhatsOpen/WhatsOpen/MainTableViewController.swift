@@ -17,6 +17,10 @@ class MainTableViewController: UITableViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		mainNavigationBar.titleView = UIImageView(image: #imageLiteral(resourceName: "Navigation Bar TitleView"))
 	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
