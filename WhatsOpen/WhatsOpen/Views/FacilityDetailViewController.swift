@@ -35,6 +35,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		modalPresentationCapturesStatusBarAppearance = true
+		
 		NameLabel.text = facility.name
 		PlaceLabel.text = facility.location
 		let open = Utilities.isOpen(facility: facility)
