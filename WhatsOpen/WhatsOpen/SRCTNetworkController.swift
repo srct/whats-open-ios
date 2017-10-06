@@ -15,7 +15,7 @@ class SRCTNetworkController: NSObject {
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json    
    public static func performDownload(completion: @escaping (_ result: Array<Facility>) -> Void) {
     
-    
+    let facility = Facility()
     let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -31,8 +31,9 @@ class SRCTNetworkController: NSObject {
                         do{
                             let realm = try! Realm()
                             let json = try? JSONSerialization.jsonObject(with: dataN, options: [])
-                            Object.init(value: "slug")
-                            
+                            try! realm.write {
+                                realm.add(facility, update: true)
+                            }
 
                             
                         }

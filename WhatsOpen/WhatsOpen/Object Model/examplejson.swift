@@ -2,6 +2,7 @@
 
 import Foundation
 import RealmSwift
+import ObjectMapper
 //
 // MARK: - Data Model
 //
@@ -21,13 +22,25 @@ enum Day: Int {
 class Facility: Object {
     dynamic var slug = ""
     dynamic var facilityName = ""
-    let facilityLocation = Locations()
-    let category = Categories()
-    let facilityTags = List<FacilityTags>()
-    let mainSchedule = MainSchedule()
-    let specialSchedule = SpecialSchedule()
+    var facilityLocation = Locations()
+    var category = Categories()
+    var facilityTags = List<FacilityTags>()
+    var mainSchedule = MainSchedule()
+    var specialSchedule = SpecialSchedule()
     
     
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    func mapping(map: Map){
+        slug <- map["slug"]
+        facilityName <- map["facility_name"]
+        facilityLocation <- map["facility_location"]
+        category <- map["facility_category"]
+        facilityTags <- map["facility_product_tags"]
+        mainSchedule <- map["main_schedule"]
+        specialSchedule <- map["special_schedules"]
+    }
     
 }
 
@@ -40,6 +53,19 @@ class Locations: Object {
     dynamic var campus = ""
     dynamic var onCampus = false
     
+    required convenience init?(map: Map){
+        self.init()
+    }
+    func mapping(map: Map){
+        id <- map["id"]
+        created <- map["created"]
+        lastmodified <- map["modified"]
+        building <- map["building"]
+        address <- map["address"]
+        campus <- map["campus_region"]
+        onCampus <- map["on_campus"]
+    }
+    
 }
 
 class Categories: Object {
@@ -47,6 +73,16 @@ class Categories: Object {
     dynamic var created = ""
     dynamic var modified = ""
     dynamic var categoryName = ""
+    
+    required convenience init?(map: Map){
+        self.init()
+    }
+    func mapping(map: Map){
+        id <- map["id"]
+        created <- map["created"]
+        modified <- map["modified"]
+        categoryName <- map["name"]
+    }
     
 }
 
@@ -57,7 +93,7 @@ class FacilityTags: Object {
 
 class MainSchedule: Object {
     dynamic var id = 0
-    let openTimes = List<OpenTimes>()
+    var openTimes = List<OpenTimes>()
     dynamic var lastModified = ""
     dynamic var name = ""
     dynamic var validStart = ""
@@ -65,6 +101,19 @@ class MainSchedule: Object {
     dynamic var twentyFourHours = false
     
     
+    required convenience init?(map: Map){
+        self.init()
+    }
+    
+    func mapping(map: Map){
+        id <- map["id"]
+        openTimes <- map["open_times"]
+        lastModified <- map["modified"]
+        name <- map["name"]
+        validStart <- map["valid_start"]
+        validEnd <- map["valid_end"]
+        twentyFourHours <- map["twenty_four_hours"]
+    }
 }
 
 class SpecialSchedule: Object {
