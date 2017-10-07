@@ -22,7 +22,7 @@ enum Day: Int {
 class Facility: Object {
     dynamic var slug = ""
     dynamic var facilityName = ""
-    var facilityLocation = Locations()
+    dynamic var facilityLocation = Locations()
     var category = Categories()
     var facilityTags = List<FacilityTags>()
     var mainSchedule = MainSchedule()
