@@ -22,6 +22,7 @@ enum Day: Int {
 class Facility: Object {
     dynamic var slug = ""
     dynamic var facilityName = ""
+    //Make optional ?
     dynamic var facilityLocation = Locations()
     var category = Categories()
     var facilityTags = List<FacilityTags>()
