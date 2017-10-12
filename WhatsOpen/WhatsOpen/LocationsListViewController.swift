@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-	var facilitiesArray = Array<Facility>()
+	var facilitiesArray = List<Facility>()
 	var filters = Filters()
 	
 	@IBOutlet var LeftButton: UIBarButtonItem!
@@ -70,7 +71,11 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
 		LocationsListLayout.invalidateLayout()
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
@@ -79,10 +84,8 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		LocationsList.addSubview(refreshControl)
 		LocationsList.alwaysBounceVertical = true
 		
-		
 		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = facilities
-			//            print(self.facilitiesArray)
+			self.facilitiesArray = List(facilities)
 			DispatchQueue.main.async {
 				self.LocationsList.reloadData()
 				let date = Date()
@@ -160,7 +163,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		return cell
 	}
 	
-	func getLocationArray(_ facilitiesArray: [Facility]) -> [Facility] {
+	func getLocationArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
 		}
@@ -174,7 +177,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	//Returns an array which has the open locations listed first
 	//Could be improved in the future because currently this means you're checking
 	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		var open = [Facility]()
 		var closed = [Facility]()
 		

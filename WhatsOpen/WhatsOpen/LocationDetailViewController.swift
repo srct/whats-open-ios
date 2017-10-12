@@ -29,7 +29,7 @@ class LocationDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
 		
 		NameLabel.text = facility.facilityName
-		PlaceLabel.text = facility.facilityLocation.address
+        PlaceLabel.text = facility.facilityLocation?.address
 		let open = Utilities.isOpen(facility: facility)
 		if(open) {
 			OpenLabel.text = "OPEN"

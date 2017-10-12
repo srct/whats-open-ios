@@ -7,11 +7,11 @@
 //
 
 import UIKit
-//import RealmSwift
+import RealmSwift
 
 class MainTableViewController: UITableViewController {
     
-    var facilitiesArray = Array<Facility>()
+    var facilitiesArray = List<Facility>()
     
 	@IBOutlet var mainNavigationBar: UINavigationItem!
 	
@@ -29,9 +29,8 @@ class MainTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
 
-        
         SRCTNetworkController.performDownload { (facilities) in
-            self.facilitiesArray = facilities
+            self.facilitiesArray = List(facilities)
 //            print(self.facilitiesArray)
                 self.tableView.reloadData()
             
@@ -66,7 +65,7 @@ class MainTableViewController: UITableViewController {
 	//Returns an array which has the open locations listed first
 	//Could be improved in the future because currently this means you're checking
 	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		var open = [Facility]()
 		var closed = [Facility]()
 
@@ -82,7 +81,7 @@ class MainTableViewController: UITableViewController {
 		return open + closed
 	}
 	
-	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
+	func countForOpenAndClosedFacilities(_ facilitiesArray: List<Facility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
 	
