@@ -8,26 +8,25 @@ import ObjectMapper
 //
 
 enum Day: Int {
-	case Monday = 0
-	case Tuesday = 1
-	case Wednesday = 2
-	case Thursday = 3
-	case Friday = 4
-	case Saturday = 5
-	case Sunday = 6
-	
-	// Add functions here later if we need them
+    case Monday = 0
+    case Tuesday = 1
+    case Wednesday = 2
+    case Thursday = 3
+    case Friday = 4
+    case Saturday = 5
+    case Sunday = 6
+    
+    // Add functions here later if we need them
 }
 
-class Facility: Object {
+class Facility: Object, MapContext, Mappable {
     dynamic var slug = ""
     dynamic var facilityName = ""
-    //Make optional ?
-    dynamic var facilityLocation = Locations()
-    var category = Categories()
-    var facilityTags = List<FacilityTags>()
-    var mainSchedule = MainSchedule()
-    var specialSchedule = SpecialSchedule()
+    var facilityLocation: Locations? = Locations()
+    var category: Categories? = Categories()
+    var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
+    var mainSchedule: MainSchedule? = MainSchedule()
+    var specialSchedule: SpecialSchedule? = SpecialSchedule()
     
     
     required convenience init?(map: Map) {
@@ -45,7 +44,7 @@ class Facility: Object {
     
 }
 
-class Locations: Object {
+class Locations: Object, Mappable {
     dynamic var id = 0
     dynamic var created = ""
     dynamic var lastmodified = ""
@@ -69,7 +68,7 @@ class Locations: Object {
     
 }
 
-class Categories: Object {
+class Categories: Object, Mappable {
     dynamic var id = 0
     dynamic var created = ""
     dynamic var modified = ""
@@ -87,12 +86,21 @@ class Categories: Object {
     
 }
 
-class FacilityTags: Object {
+class FacilityTags: Object, Mappable {
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        tags <- map["tags"]
+    }
+    
     dynamic var tags = ""
     
 }
 
-class MainSchedule: Object {
+class MainSchedule: Object, Mappable {
     dynamic var id = 0
     var openTimes = List<OpenTimes>()
     dynamic var lastModified = ""
@@ -117,25 +125,54 @@ class MainSchedule: Object {
     }
 }
 
-class SpecialSchedule: Object {
+class SpecialSchedule: Object, Mappable {
+    
+    convenience required init?(map: Map) {
+        self.init()
+    }
+    
     dynamic var id = 0
-    let openTimes = List<OpenTimes>()
+    var openTimes = List<OpenTimes>()
     dynamic var lastModified = ""
     dynamic var name = ""
     dynamic var validStart = ""
     dynamic var validEnd = ""
     dynamic var twentyFourHours = false
     
+    func mapping(map: Map){
+        id <- map["id"]
+        openTimes <- map["open_times"]
+        lastModified <- map["modified"]
+        name <- map["name"]
+        validStart <- map["valid_start"]
+        validEnd <- map["valid_end"]
+        twentyFourHours <- map["twenty_four_hours"]
+    }
+    
 }
 
 
-class OpenTimes: Object {
+class OpenTimes: Object, Mappable {
     dynamic var schedule = 0
     dynamic var lastModified = ""
     dynamic var startDay = 0
     dynamic var endDay = 0
     dynamic var startTime = ""
     dynamic var endTime = ""
+    
+    convenience required init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map){
+        schedule <- map["id"]
+        lastModified <- map["last_modified"]
+        startDay <- map["start_day"]
+        endDay <- map["end_day"]
+        startTime <- map["start_time"]
+        endTime <- map["end_time"]
+    }
+    
 }
 
 
@@ -222,7 +259,7 @@ struct Facility: CreatableFromJSON { // TODO: Rename this struct
             guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
             self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
         }
-        
+ 
     }
     struct SpecialSchedules: CreatableFromJSON { // TODO: Rename this struct
         let id: Int
@@ -404,3 +441,4 @@ extension Array where Element: Any {
         }
     }
 }
+
