@@ -29,6 +29,9 @@ class Utilities: NSObject {
             }
         } else {
             if(isMainSchedule(facility:facility)) {
+                print(facility.mainSchedule?.openTimes.isEmpty)
+                print(facility.mainSchedule?.openTimes.count)
+                print(facility.mainSchedule?.openTimes)
                 if(!facility.mainSchedule!.openTimes.isEmpty) {
                     if today(facility: facility) != nil {
                         let nowTime = time(facility)
@@ -46,7 +49,6 @@ class Utilities: NSObject {
         }
         }
     
-//        print(facility.mainScheduleprint.name ," is ", open)
         return open
     }
     
@@ -60,23 +62,38 @@ class Utilities: NSObject {
     }
     
     static func getCurrentTime() -> Date {
-        let date = Date()
+//        let date = Date()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "ET")
+//        dateFormatter.timeZone = TimeZone.current
+//        dateFormatter.dateFormat = "HH:mm:ss.S"
+//        let convertedDate = dateFormatter.string(from: date)
+//        let currentDay = dateFormatter.date(from: convertedDate)
+//        print(currentDay)
+        
+        let currentDate = Date()
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: currentDate)
+//        let minute = calendar.component(.minute, from: currentDate)
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ET")
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "HH:mm:ss"
-        let convertedDate = dateFormatter.string(from: date)
-        let currentDay = dateFormatter.date(from: convertedDate)
-        return currentDay!
+        
+        let stringDate = dateFormatter.string(from: currentDate)
+        let formattedDate = dateFormatter.date(from: stringDate)
+        print(formattedDate)
+        return formattedDate!
     }
     
     //Gets the current day of the week.
     static func today(facility: Facility) -> OpenTimes? {
         let currentDay = getDayOfWeek()
-        let day = currentDay
         
         if(isMainSchedule(facility: facility)) {
             for openTime in facility.mainSchedule!.openTimes {
-                if(day! >= openTime.startDay && day! <= openTime.endDay) {
+                if(currentDay! >= openTime.startDay && currentDay! <= openTime.endDay) {
                     return openTime
                 }
             }
@@ -87,25 +104,30 @@ class Utilities: NSObject {
     }
     
     // Converts our startTime and endTime to dates.
-    static func convertTime(_ facility: Facility) -> (startTime: Date, endTime: Date)? {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "US_en")
-        formatter.dateFormat = "HH:mm:ss"
+    static func getStartEndDates(_ facility: Facility) -> (startTime: Date, endTime: Date)? {
+        let today = self.today(facility: facility)
+        let startTime = today?.startTime
+        let endTime = today?.endTime
         
-        // TODO: This is a forced unwrapping, very dangerous, and needs to be fixed
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let startTime = dateFormatter.date(from: facility.mainSchedule!.validStart), let endTime = dateFormatter.date(from: facility.mainSchedule!.validEnd) else { return nil }
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let formattedStartTime = dateFormatter.date(from: startTime!)
+        // TODO: Error here
+        let formattedEndTimeDate   = dateFormatter.date(from: endTime!)
         
-        return (startTime, endTime)
+        guard let startTimeDate = formattedStartTime, let endTimeDate = formattedEndTimeDate else { return nil }
+        return (startTimeDate, endTimeDate)
+
     }
     
     static func time(_ facility: Facility) -> Bool {
         var time = false
         let nowTime = getCurrentTime()
         // TODO: Check if this logic works
-        guard let startEnd = convertTime(facility) else { return false }
-        if(startEnd.startTime >= startEnd.endTime || nowTime >= startEnd.startTime && nowTime <= startEnd.endTime) {
+        guard let startEnd = getStartEndDates(facility) else { return false }
+        if(nowTime >= startEnd.startTime && nowTime <= startEnd.endTime) {
             time = true
         }
         
@@ -119,7 +141,7 @@ class Utilities: NSObject {
         dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
         dateComponentsFormatter.maximumUnitCount = 1
         dateComponentsFormatter.unitsStyle = .full
-        let startEnd = convertTime(facility)
+        let startEnd = getStartEndDates(facility)
         
         if(Utilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
@@ -151,14 +173,7 @@ class Utilities: NSObject {
 
     // TODO: Function to check for special schedules.
     static func isSpecialSchedule(_ facility: Facility) -> Bool {
-        var isSpecial = false
-        if (facility.specialSchedule == nil) {
-            isSpecial = false
-        }
-        else {
-            isSpecial = true
-        }
-        return isSpecial
+        return facility.specialSchedule!.isValid
     }
     
     static func isMainSchedule(facility: Facility) -> Bool {

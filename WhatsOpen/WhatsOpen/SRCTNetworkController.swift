@@ -32,7 +32,7 @@ class SRCTNetworkController: NSObject {
                         // Map function to iterate through each JSON tree
                         let facilities = json!.map({ (json) -> Facility in
                             let facility = Facility()
-                            let map = Map(mappingType: .fromJSON, JSON: json, toObject: true, context: facility, shouldIncludeNilValues: false)
+                            let map = Map(mappingType: .fromJSON, JSON: json, toObject: true, context: facility, shouldIncludeNilValues: true)
                             facility.mapping(map: map)
                             // Look at this print statement, it shows everything
                             print(facility)
