@@ -71,11 +71,6 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
 		LocationsListLayout.invalidateLayout()
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
@@ -117,18 +112,11 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
     }
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+		return 1
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray)) //TODO could be better optimized
-		
-		if(section == 1) {
-			return count.open
-		}
-		else {
-			return count.closed
-		}
+        return self.facilitiesArray.count
 	}
 	
 	
@@ -143,8 +131,9 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		}
 		*/
 		
-		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-		let facility = dataArray[indexPath.row]
+//        let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
+        let index = indexPath.row
+		let facility = self.facilitiesArray[index]
 		cell.facility = facility
 		cell.nameLabel.text = facility.facilityName
 		
@@ -159,7 +148,7 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		
 		cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
 		
-		self.reloadInputViews()
+		//self.reloadInputViews()
 		return cell
 	}
 	

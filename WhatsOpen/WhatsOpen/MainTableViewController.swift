@@ -31,9 +31,7 @@ class MainTableViewController: UITableViewController {
 
         SRCTNetworkController.performDownload { (facilities) in
             self.facilitiesArray = List(facilities)
-//            print(self.facilitiesArray)
-                self.tableView.reloadData()
-            
+                self.tableView.reloadData()            
         }
     }
 

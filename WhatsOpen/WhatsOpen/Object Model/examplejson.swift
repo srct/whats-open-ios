@@ -124,7 +124,6 @@ class MainSchedule: Object, Mappable {
                 self.openTimes.append(openTime)
             }
         }
-        //
         lastModified <- map["modified"]
         name <- map["name"]
         validStart <- map["valid_start"]
@@ -153,7 +152,14 @@ class SpecialSchedule: Object, Mappable {
     
     func mapping(map: Map){
         id <- map["id"]
-        openTimes <- map["open_times"]
+        // This is a way around mapping to a list object
+        var openTimesList: [OpenTimes]?
+        openTimesList <- map["open_times"]
+        if let openTimesList = openTimesList {
+            for openTime in openTimesList {
+                self.openTimes.append(openTime)
+            }
+        }
         lastModified <- map["modified"]
         name <- map["name"]
         validStart <- map["valid_start"]
@@ -186,9 +192,6 @@ class OpenTimes: Object, Mappable {
     }
     
 }
-
-
-
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int

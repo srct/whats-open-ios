@@ -34,8 +34,6 @@ class SRCTNetworkController: NSObject {
                             let facility = Facility()
                             let map = Map(mappingType: .fromJSON, JSON: json, toObject: true, context: facility, shouldIncludeNilValues: true)
                             facility.mapping(map: map)
-                            // Look at this print statement, it shows everything
-                            print(facility)
                             return facility
                         })
                         // This is where completion is called
