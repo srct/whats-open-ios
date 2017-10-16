@@ -14,16 +14,16 @@ import ObjectMapper
 
 class SRCTNetworkController: NSObject {
     //Use this for testing with the new API, might make it possible to get stuff moving pre official release 
-    //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json    
+    //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json
     public static func performDownload(completion: @escaping (_ result: List<Facility>) -> Void) {
-    
+
     let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
 
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            
+
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             if (statusCode == 200) {
@@ -46,7 +46,5 @@ class SRCTNetworkController: NSObject {
     task.resume()
 
     }
-    
+
 }
-
-

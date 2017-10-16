@@ -9,7 +9,7 @@
 import UIKit
 
 class Utilities: NSObject {
-    
+
     static func isOpen(facility: Facility) -> Bool {
         var open = false
         if (isSpecialSchedule(facility) == true) {
@@ -28,15 +28,15 @@ class Utilities: NSObject {
                         open = time(facility)
                     }
             }
-        
+
         } else {
             open = false
         }
         }
-    
+
         return open
     }
-    
+
     static func getDayOfWeek() -> Int? {
         let todayDate    = NSDate()
         let myCalendar   = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
@@ -45,23 +45,23 @@ class Utilities: NSObject {
         let pyweekDay    = (5 + weekDay!) % 7
         return pyweekDay
     }
-    
+
     static func getCurrentTime() -> Date {
         let currentDate   = Date()
 
         let dateFormatter = DateFormatter.easternCoastTimeFormat
-        
+
         let stringDate    = dateFormatter.string(from: currentDate)
         let formattedDate = dateFormatter.date(from: stringDate)
 
         return formattedDate!
     }
-    
+
     //Gets the current day of the week.
     static func today(facility: Facility, special: Bool = false) -> OpenTimes? {
         let scheduleValid     = special ? self.isSpecialSchedule(facility) : self.isMainSchedule(facility: facility)
         let scheduleOpenTimes = special ? facility.specialSchedule!.openTimes : facility.mainSchedule!.openTimes
-        
+
         let currentDay = getDayOfWeek()
         if(scheduleValid) {
             for openTime in scheduleOpenTimes {
@@ -72,7 +72,7 @@ class Utilities: NSObject {
         }
         return nil
     }
-    
+
     static func getStartEndDates(_ facility: Facility) -> (startTime: Date, endTime: Date)? {
         let dateFormatter = DateFormatter.easternCoastTimeFormat
         // 24 Hour Case
@@ -84,17 +84,16 @@ class Utilities: NSObject {
         if let today = self.today(facility: facility) {
             let startTime = today.startTime
             let endTime   = today.endTime
-            
+
             let formattedStartTime     = dateFormatter.date(from: startTime)
             let formattedEndTimeDate   = dateFormatter.date(from: endTime)
-            
+
             guard let startTimeDate = formattedStartTime, let endTimeDate = formattedEndTimeDate else { return nil }
             return (startTimeDate, endTimeDate)
         }
         return nil
-        
     }
-    
+
     static func time(_ facility: Facility) -> Bool {
         let nowTime        = getCurrentTime()
         guard let startEnd = getStartEndDates(facility) else { return false }
@@ -110,7 +109,7 @@ class Utilities: NSObject {
         // In between the start & end time of the facility
         return (nowTime >= startTime) && nowTime <= (endTime)
     }
-    
+
     static func timeUntilFacility(_ facility: Facility) -> String? {
         //var currentTime = getCurrentTime()
         let dateComponentsFormatter = DateComponentsFormatter()
@@ -137,26 +136,27 @@ class Utilities: NSObject {
                     let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (startEnd!.startTime)) //This line doesn't work pls fix
                     return "Opens in \(time!)."
                 }
-			
+
         }
-            
+
         } else {
             return "Closed"
         }
         return nil
     }
-    
+
     static func isSpecialSchedule(_ facility: Facility) -> Bool {
         return facility.specialSchedule!.isValid
     }
-    
+
     static func isMainSchedule(facility: Facility) -> Bool {
         return facility.mainSchedule != nil
     }
-    
+
 }
 
 extension DateFormatter {
+    
     public static var easternCoastTimeFormat: DateFormatter {
         let dateFormatter        = DateFormatter()
         dateFormatter.timeZone   = TimeZone.current
@@ -164,6 +164,7 @@ extension DateFormatter {
         dateFormatter.dateFormat = "HH:mm:ss"
         return dateFormatter
     }
+
 }
 
 extension Date {
@@ -172,7 +173,7 @@ extension Date {
         let endDate = dateFormatter.date(from: "23:59:59")
         return endDate!
     }
-    
+
     public static func startOfCurrentDay() -> Date {
         let dateFormatter = DateFormatter.easternCoastTimeFormat
         let startDate = dateFormatter.date(from: "00:00:00")

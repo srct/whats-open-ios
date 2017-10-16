@@ -55,7 +55,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)`
 
 To-do
 ---
-
+Check the issues list for things that need to be done.
 Note-- this should also be on the wiki
 
 About GMU SRCT

@@ -8,15 +8,15 @@ import ObjectMapper
 //
 
 enum Day: Int {
-	case Monday = 0
-	case Tuesday = 1
-	case Wednesday = 2
-	case Thursday = 3
-	case Friday = 4
-	case Saturday = 5
-	case Sunday = 6
-	
-	// Add functions here later if we need them
+    case Monday = 0
+    case Tuesday = 1
+    case Wednesday = 2
+    case Thursday = 3
+    case Friday = 4
+    case Saturday = 5
+    case Sunday = 6
+
+    // Add functions here later if we need them
 }
 
 class Facility: Object, MapContext, Mappable {
@@ -27,8 +27,8 @@ class Facility: Object, MapContext, Mappable {
     var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
     var mainSchedule: MainSchedule? = MainSchedule()
     var specialSchedule: SpecialSchedule? = SpecialSchedule()
-    
-    
+
+
     required convenience init?(map: Map) {
         self.init()
     }
@@ -41,7 +41,7 @@ class Facility: Object, MapContext, Mappable {
         mainSchedule <- map["main_schedule"]
         specialSchedule <- map["special_schedules"]
     }
-    
+
 }
 
 class Locations: Object, Mappable {
@@ -52,7 +52,7 @@ class Locations: Object, Mappable {
     dynamic var address = ""
     dynamic var campus = ""
     dynamic var onCampus = false
-    
+
     required convenience init?(map: Map){
         self.init()
     }
@@ -65,7 +65,7 @@ class Locations: Object, Mappable {
         campus <- map["campus_region"]
         onCampus <- map["on_campus"]
     }
-    
+
 }
 
 class Categories: Object, Mappable {
@@ -73,7 +73,7 @@ class Categories: Object, Mappable {
     dynamic var created = ""
     dynamic var modified = ""
     dynamic var categoryName = ""
-    
+
     required convenience init?(map: Map){
         self.init()
     }
@@ -83,21 +83,21 @@ class Categories: Object, Mappable {
         modified <- map["modified"]
         categoryName <- map["name"]
     }
-    
+
 }
 
 class FacilityTags: Object, Mappable {
-    
+
     required convenience init?(map: Map) {
         self.init()
     }
-    
+
     func mapping(map: Map) {
         tags <- map["tags"]
     }
-    
+
     dynamic var tags = ""
-    
+
 }
 
 class MainSchedule: Object, Mappable {
@@ -108,12 +108,12 @@ class MainSchedule: Object, Mappable {
     dynamic var validStart = ""
     dynamic var validEnd = ""
     dynamic var twentyFourHours = false
-    
-    
+
+
     required convenience init?(map: Map){
         self.init()
     }
-    
+
     func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
@@ -133,15 +133,15 @@ class MainSchedule: Object, Mappable {
 }
 
 class SpecialSchedule: Object, Mappable {
-    
+
     var isValid: Bool {
         return !(self.lastModified.isEmpty && self.name.isEmpty && self.validEnd.isEmpty && self.validStart.isEmpty)
     }
-    
+
     convenience required init?(map: Map) {
         self.init()
     }
-    
+
     dynamic var id = 0
     var openTimes = List<OpenTimes>()
     dynamic var lastModified = ""
@@ -149,7 +149,7 @@ class SpecialSchedule: Object, Mappable {
     dynamic var validStart = ""
     dynamic var validEnd = ""
     dynamic var twentyFourHours = false
-    
+
     func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
@@ -166,7 +166,7 @@ class SpecialSchedule: Object, Mappable {
         validEnd <- map["valid_end"]
         twentyFourHours <- map["twenty_four_hours"]
     }
-    
+
 }
 
 
@@ -177,11 +177,11 @@ class OpenTimes: Object, Mappable {
     dynamic var endDay = 0
     dynamic var startTime = ""
     dynamic var endTime = ""
-    
+
     convenience required init?(map: Map) {
         self.init()
     }
-    
+
     func mapping(map: Map){
         schedule <- map["schedule"]
         lastModified <- map["modified"]
@@ -190,7 +190,7 @@ class OpenTimes: Object, Mappable {
         startTime <- map["start_time"]
         endTime <- map["end_time"]
     }
-    
+
 }
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
@@ -274,7 +274,7 @@ struct Facility: CreatableFromJSON { // TODO: Rename this struct
             guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
             self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
         }
-        
+
     }
     struct SpecialSchedules: CreatableFromJSON { // TODO: Rename this struct
         let id: Int
@@ -318,14 +318,14 @@ extension CreatableFromJSON {
         guard let jsonDictionary = json[key] as? [String: Any] else { return nil }
         self.init(json: jsonDictionary)
     }
-    
+
     /// Attempts to produce an array of instances of the conforming type based on an array in the JSON dictionary.
     /// - Returns: `nil` if the JSON array is missing or if there is an invalid/null element in the JSON array.
     static func createRequiredInstances(from json: [String: Any], arrayKey: String) -> [Self]? {
         guard let jsonDictionaries = json[arrayKey] as? [[String: Any]] else { return nil }
         return createRequiredInstances(from: jsonDictionaries)
     }
-    
+
     /// Attempts to produce an array of instances of the conforming type based on an array of JSON dictionaries.
     /// - Returns: `nil` if there is an invalid/null element in the JSON array.
     static func createRequiredInstances(from jsonDictionaries: [[String: Any]]) -> [Self]? {
@@ -336,14 +336,14 @@ extension CreatableFromJSON {
         }
         return array
     }
-    
+
     /// Attempts to produce an array of instances of the conforming type, or `nil`, based on an array in the JSON dictionary.
     /// - Returns: `nil` if the JSON array is missing, or an array with `nil` for each invalid/null element in the JSON array.
     static func createOptionalInstances(from json: [String: Any], arrayKey: String) -> [Self?]? {
         guard let array = json[arrayKey] as? [Any] else { return nil }
         return createOptionalInstances(from: array)
     }
-    
+
     /// Attempts to produce an array of instances of the conforming type, or `nil`, based on an array.
     /// - Returns: An array of instances of the conforming type and `nil` for each invalid/null element in the source array.
     static func createOptionalInstances(from array: [Any]) -> [Self?] {
@@ -372,13 +372,13 @@ extension Date {
         formatterCache[format] = formatter
         return formatter
     }
-    
+
     static func parse(string: String, format: String) -> Date? {
         var formatter: DateFormatter!
         cacheQueue.sync { formatter = dateFormatter(with: format) }
         return formatter.date(from: string)
     }
-    
+
     init?(json: [String: Any], key: String, format: String) {
         guard let string = json[key] as? String else { return nil }
         guard let date = Date.parse(string: string, format: format) else { return nil }
@@ -419,7 +419,7 @@ extension Array where Element: CustomStringConvertible {
         }
         return dateArray
     }
-    
+
     func toURLArray() -> [URL]? {
         var urlArray = [URL]()
         for string in self {
@@ -434,21 +434,21 @@ extension Array where Element: Any {
     func toOptionalValueArray<Value>() -> [Value?] {
         return map { ($0 is NSNull) ? nil : ($0 as? Value) }
     }
-    
+
     func toOptionalDateArray(withFormat format: String) -> [Date?] {
         return map { item in
             guard let string = item as? String else { return nil }
             return Date.parse(string: string, format: format)
         }
     }
-    
+
     func toOptionalDoubleArray() -> [Double?] {
         return map { item in
             guard let nsNumber = item as? NSNumber else { return nil }
             return nsNumber.doubleValue
         }
     }
-    
+
     func toOptionalURLArray() -> [URL?] {
         return map { item in
             guard let string = item as? String else { return nil }
