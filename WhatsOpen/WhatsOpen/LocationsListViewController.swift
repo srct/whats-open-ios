@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LocationsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-	var facilitiesArray = Array<Facility>()
+	var facilitiesArray = List<Facility>()
 	var filters = Filters()
-	
+
 	@IBOutlet var LeftButton: UIBarButtonItem!
-		
+
 	@IBAction func RightButton(_ sender: Any) {
 	}
 	@IBOutlet var RightButton: UIBarButtonItem!
-	
+
 	@IBOutlet var LocationsList: UICollectionView!
-	
+
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
-	
+
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
 	@IBOutlet var LastUpdatedLabel: UIBarButtonItem!
-	
+
 	@IBAction func favoritesControlChanges(_ sender: Any) {
 		switch (self.favoritesControl.selectedSegmentIndex)
 		{
@@ -40,12 +41,12 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		}
 		self.LocationsList.reloadData()
 	}
-	
+
 	let refreshControl = UIRefreshControl()
-	
+
 	override func viewWillLayoutSubviews() {
 		let windowWidth = self.view.frame.size.width
-		
+
 		if(windowWidth > 320 && windowWidth < 640) {
 			LocationsListLayout.itemSize.width = windowWidth - 20
 		}
@@ -55,34 +56,31 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		else if(windowWidth >= 1024) {
 			LocationsListLayout.itemSize.width = (windowWidth / 3) - 15
 		}
-		
+
 		LocationsListLayout.invalidateLayout()
-		
+
 	}
-	
+
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender)
 	}
-	
+
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
 	}
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		LocationsListLayout.invalidateLayout()
-		
+
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
-		
+
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		LocationsList.addSubview(refreshControl)
 		LocationsList.alwaysBounceVertical = true
-		
-		
+
 		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = facilities
-			//            print(self.facilitiesArray)
+			self.facilitiesArray = List(facilities)
 			DispatchQueue.main.async {
 				self.LocationsList.reloadData()
 				let date = Date()
@@ -90,46 +88,40 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 			}
 		}
     }
-	
-	func refresh(_ sender: Any) {
-		refreshControl.beginRefreshing()
-		LocationsList.reloadData()
-		let date = Date()
-		LastUpdatedLabel.title = "Updated: " + shortDateFormat(date)
-		refreshControl.endRefreshing()
-	}
-	func shortDateFormat(_ date: Date) -> String {
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateStyle = .short
-		dateFormatter.timeStyle = .short
 
-		// US English Locale (en_US)
-		dateFormatter.locale = Locale(identifier: "en_US")
-		return dateFormatter.string(from: date)
-	}
-	
+    func refresh(_ sender: Any) {
+        refreshControl.beginRefreshing()
+        LocationsList.reloadData()
+        let date = Date()
+        LastUpdatedLabel.title = "Updated: " + shortDateFormat(date)
+        refreshControl.endRefreshing()
+    }
+
+    func shortDateFormat(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        // US English Locale (en_US)
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter.string(from: date)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
+
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+		return 1
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray)) //TODO could be better optimized
-		
-		if(section == 1) {
-			return count.open
-		}
-		else {
-			return count.closed
-		}
+        return self.facilitiesArray.count
 	}
-	
-	
-	
+
+
+
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! SRCTSimpleCollectionViewCell
 		/*
@@ -139,12 +131,13 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 			cell.frame.size.width = 280
 		}
 		*/
-		
-		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-		let facility = dataArray[indexPath.row]
+
+//        let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
+        let index = indexPath.row
+		let facility = self.facilitiesArray[index]
 		cell.facility = facility
-		cell.nameLabel.text = facility.name
-		
+		cell.nameLabel.text = facility.facilityName
+
 		let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
 			cell.openClosedLabel.text = "Open"
@@ -153,31 +146,31 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 			cell.openClosedLabel.text = "Closed"
 			cell.openClosedLabel.backgroundColor = UIColor.red
 		}
-		
+
 		cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
-		
-		self.reloadInputViews()
+
+		//self.reloadInputViews()
 		return cell
 	}
-	
-	func getLocationArray(_ facilitiesArray: [Facility]) -> [Facility] {
+
+	func getLocationArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
 		}
 		else {
 			return [] //TODO - INCOMPLETE
 		}
-		
-		
+
+
 	}
-	
+
 	//Returns an array which has the open locations listed first
 	//Could be improved in the future because currently this means you're checking
 	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		var open = [Facility]()
 		var closed = [Facility]()
-		
+
 		for i in facilitiesArray {
 			if(Utilities.isOpen(facility: i)) {
 				open.append(i)
@@ -189,11 +182,11 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 		// Test
 		return open + closed
 	}
-	
+
 	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
-		
+
 		for i in facilitiesArray {
 			if(Utilities.isOpen(facility: i)) {
 				open += 1
@@ -202,30 +195,29 @@ class LocationsListViewController: UIViewController, UICollectionViewDelegate, U
 				closed += 1
 			}
 		}
-		
+
 		return (open, closed)
 	}
-	
-	
+
+
     // MARK: - Navigation
 
-	//In a storyboard-based application, you will often want to do a little preparation before navigation
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-		if(segue.identifier == "toDetailView") {
-			let destination = segue.destination as! LocationDetailViewController
-			let tapped = sender as! SRCTSimpleCollectionViewCell //this is probably a bad idea just FYI future me
-			destination.facility = tapped.facility
-			
-		}
-		else if(segue.identifier == "toFilters") {
-			let destination = segue.destination as! UINavigationController
-			let filterView = destination.topViewController as! FiltersTableViewController
-			filterView.filters = self.filters
-		}
-		
+        if(segue.identifier == "toDetailView") {
+            let destination = segue.destination as! LocationDetailViewController
+            let tapped = sender as! SRCTSimpleCollectionViewCell //this is probably a bad idea just FYI future me
+            destination.facility = tapped.facility
+
+        }
+        else if(segue.identifier == "toFilters") {
+            let destination = segue.destination as! UINavigationController
+            let filterView = destination.topViewController as! FiltersTableViewController
+            filterView.filters = self.filters
+        }
+
         // Pass the selected object to the new view controller.
     }
-	
-}
 
+}

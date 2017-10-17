@@ -16,7 +16,7 @@ There are many things that can be done with this project (see the "To Do" sectio
 
 If you need help at all please contact and SRCT member. We want people to contribute, so if you are struggling, or just want to learn we are more than willing to help.
 
-The project lead for this project is **Eyad Hasan**. *ehasan3@gmu.edu*
+The project manager for this project is **Eyad Hasan**. *ehasan3@gmu.edu*
 
 Please visit the [SRCT Wiki](http://wiki.srct.gmu.edu/) for more information on this and other SRCT projects, along with other helpful links and tutorials.
 
@@ -24,7 +24,7 @@ Please visit the [SRCT Wiki](http://wiki.srct.gmu.edu/) for more information on 
 Setup
 ---
 
-Requirements: 
+Requirements:
 
 To get started, you'll need the following installed:
 * [Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
@@ -39,7 +39,7 @@ To get started, you'll need the following installed:
 Open a terminal window and type in the following commands. This will create a local, workable copy of the project.
   ``bash``  
   ``git clone [url]`` where the URL is the one listed at the top of the git repository for this project (preferrably using SSH)
-  
+
 Install the needed dependencies by running
   ``pod install``
 inside the the WhatsOpen directory.
@@ -55,7 +55,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)`
 
 To-do
 ---
-
+Check the issues list for things that need to be done.
 Note-- this should also be on the wiki
 
 About GMU SRCT
