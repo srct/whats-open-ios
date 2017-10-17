@@ -29,7 +29,7 @@ class Utilities: NSObject {
                     }
             }
 
-        } else {
+            } else {
             open = false
         }
         }
