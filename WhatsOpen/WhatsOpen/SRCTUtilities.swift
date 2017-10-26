@@ -37,7 +37,28 @@ class Utilities: NSObject {
         return open
     }
 
-    static func getDayOfWeek() -> Int? {
+    static func getDayOfWeek(_ day: Day) -> String? {
+        switch day {
+        case .Monday:
+            return "Monday"
+        case .Tuesday:
+            return "Tuesday"
+        case .Wednesday:
+            return "Wednesday"
+        case .Thursday:
+            return "Thursday"
+        case .Friday:
+            return "Friday"
+        case .Saturday:
+            return "Saturday"
+        case .Sunday:
+            return "Sunday"
+        default:
+            return nil
+        }
+    }
+    
+    static func getCurrentDayOfWeek() -> Int? {
         let todayDate    = NSDate()
         let myCalendar   = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let myComponents = myCalendar?.components(.weekday, from: todayDate as Date)
@@ -62,7 +83,7 @@ class Utilities: NSObject {
         let scheduleValid     = special ? self.isSpecialSchedule(facility) : self.isMainSchedule(facility: facility)
         let scheduleOpenTimes = special ? facility.specialSchedule!.openTimes : facility.mainSchedule!.openTimes
 
-        let currentDay = getDayOfWeek()
+        let currentDay = getCurrentDayOfWeek()
         if(scheduleValid) {
             for openTime in scheduleOpenTimes {
                 if(currentDay! >= openTime.startDay && currentDay! <= openTime.endDay) {

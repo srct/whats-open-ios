@@ -13,7 +13,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var NameLabel: UILabel!
 	@IBOutlet var PlaceLabel: UILabel!
 	@IBOutlet var OpenLabel: UILabel!
-
+    @IBOutlet var CategoryLabel: UILabel!
+    
 	@IBOutlet var OpenTimesList: UITableView!
 	
 	@IBOutlet var detailStackView: UIStackView!
@@ -37,10 +38,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		
 		modalPresentationCapturesStatusBarAppearance = true
 		
-		//NameLabel.text = facility.name
-		//PlaceLabel.text = facility.location
-		NameLabel.text = "Test"
-		PlaceLabel.text = "123"
+		NameLabel.text = facility.facilityName
+		PlaceLabel.text = facility.facilityLocation!.building
+        CategoryLabel.text = facility.category?.categoryName.uppercased()
+
 		
 		let open = Utilities.isOpen(facility: facility)
 		if(open) {
@@ -70,12 +71,15 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return (facility.mainSchedule?.openTimes.count)!
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = OpenTimesList.dequeueReusableCell(withIdentifier: "LocationDetailCell", for: indexPath)
 
+        let openTime = facility.mainSchedule?.openTimes[indexPath.row]
+        cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
+        cell.detailTextLabel?.text = "12:00 AM - 11:59 PM"
 
         // Configure the cell...
 

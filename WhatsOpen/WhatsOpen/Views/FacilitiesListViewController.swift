@@ -202,6 +202,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let facility = dataArray[indexPath.row]
 		cell.facility = facility
 		cell.nameLabel.text = facility.facilityName
+        cell.categoryLabel.text = facility.category?.categoryName.uppercased()
 
 		let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
