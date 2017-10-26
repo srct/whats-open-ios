@@ -8,10 +8,11 @@
 
 import UIKit
 import DeckTransition
+import RealmSwift
 
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
-	var facilitiesArray = Array<Facility>()
+	var facilitiesArray = List<Facility>()
 	var filters = Filters()
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -19,7 +20,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	@IBOutlet var LeftButton: UIBarButtonItem!
-		
+
 	@IBAction func RightButton(_ sender: Any) {
 	}
 	@IBOutlet var RightButton: UIBarButtonItem!
@@ -27,14 +28,14 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@IBOutlet var settingsButton: UIBarButtonItem!
 	
 	@IBOutlet var LocationsList: UICollectionView!
-	
+
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
-	
+
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
 	@IBOutlet var LastUpdatedLabel: UIBarButtonItem!
-	
+
 	@IBAction func favoritesControlChanges(_ sender: Any) {
 		switch (self.favoritesControl.selectedSegmentIndex)
 		{
@@ -47,9 +48,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		self.LocationsList.reloadData()
 	}
-	
+
 	let refreshControl = UIRefreshControl()
-	
+
 	override func viewWillLayoutSubviews() {
 		LocationsListLayout.itemSize.width = getCellWidth()
 		LocationsListLayout.invalidateLayout()
@@ -71,11 +72,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		return 0
 	}
-	
+
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender)
 	}
-	
+
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
 		
@@ -137,15 +138,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LastUpdatedLabel.accessibilityHint = ""
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
-		
+
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		LocationsList.addSubview(refreshControl)
 		LocationsList.alwaysBounceVertical = true
-		
-		
+
 		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = facilities
-			//            print(self.facilitiesArray)
+			self.facilitiesArray = List(facilities)
 			DispatchQueue.main.async {
 				self.LocationsList.reloadData()
 				let date = Date()
@@ -176,24 +175,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
+
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+		return 1
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = countForOpenAndClosedFacilities(getLocationArray(facilitiesArray)) //TODO could be better optimized
-		
-		if(section == 1) {
-			return count.open
-		}
-		else {
-			return count.closed
-		}
+        return self.facilitiesArray.count
 	}
-	
-	
-	
+
+
+
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
 		/*
@@ -209,8 +201,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
 		cell.facility = facility
-		cell.nameLabel.text = facility.name
-		
+		cell.nameLabel.text = facility.facilityName
+
 		let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
 			cell.openClosedLabel.text = "Open"
@@ -226,7 +218,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.backgroundColor = UIColor.red
 
 		}
-		
+
 		cell.timeDescriptionLabel.text = Utilities.timeUntilFacility(facility)
 		
 		cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
@@ -236,25 +228,25 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		self.reloadInputViews()
 		return cell
 	}
-	
-	func getLocationArray(_ facilitiesArray: [Facility]) -> [Facility] {
+
+	func getLocationArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
 		}
 		else {
 			return [] //TODO - INCOMPLETE
 		}
-		
-		
+
+
 	}
-	
+
 	//Returns an array which has the open locations listed first
 	//Could be improved in the future because currently this means you're checking
 	//open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: Array<Facility>) -> [Facility] {
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		var open = [Facility]()
 		var closed = [Facility]()
-		
+
 		for i in facilitiesArray {
 			if(Utilities.isOpen(facility: i)) {
 				open.append(i)
@@ -266,11 +258,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		// Test
 		return open + closed
 	}
-	
+
 	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
-		
+
 		for i in facilitiesArray {
 			if(Utilities.isOpen(facility: i)) {
 				open += 1
@@ -279,14 +271,14 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				closed += 1
 			}
 		}
-		
+
 		return (open, closed)
 	}
-	
-	
+
+
     // MARK: - Navigation
 
-	//In a storyboard-based application, you will often want to do a little preparation before navigation
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
 		if(segue.identifier == "toDetailView") {
@@ -327,4 +319,3 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 }
-
