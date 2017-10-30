@@ -79,7 +79,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
         let openTime = facility.mainSchedule?.openTimes[indexPath.row]
         cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
-        cell.detailTextLabel?.text = "12:00 AM - 11:59 PM"
+        cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
 
         // Configure the cell...
 

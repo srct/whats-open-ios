@@ -37,25 +37,48 @@ class Utilities: NSObject {
         return open
     }
 
-    static func getDayOfWeek(_ day: Day) -> String? {
-        switch day {
-        case .Monday:
-            return "Monday"
-        case .Tuesday:
-            return "Tuesday"
-        case .Wednesday:
-            return "Wednesday"
-        case .Thursday:
-            return "Thursday"
-        case .Friday:
-            return "Friday"
-        case .Saturday:
-            return "Saturday"
-        case .Sunday:
-            return "Sunday"
-        default:
-            return nil
+    static func getDayOfWeek(_ day: Day, small: Bool = false) -> String? {
+        if !small {
+            switch day {
+            case .Monday:
+                return "Monday"
+            case .Tuesday:
+                return "Tuesday"
+            case .Wednesday:
+                return "Wednesday"
+            case .Thursday:
+                return "Thursday"
+            case .Friday:
+                return "Friday"
+            case .Saturday:
+                return "Saturday"
+            case .Sunday:
+                return "Sunday"
+            default:
+                return nil
+            }
         }
+        else {
+            switch day {
+            case .Monday:
+                return "Mon"
+            case .Tuesday:
+                return "Tue"
+            case .Wednesday:
+                return "Wed"
+            case .Thursday:
+                return "Thu"
+            case .Friday:
+                return "Fri"
+            case .Saturday:
+                return "Sat"
+            case .Sunday:
+                return "Sun"
+            default:
+                return nil
+            }
+        }
+
     }
     
     static func getCurrentDayOfWeek() -> Int? {
@@ -118,7 +141,7 @@ class Utilities: NSObject {
     static func time(_ facility: Facility) -> Bool {
         let nowTime        = getCurrentTime()
         guard let startEnd = getStartEndDates(facility) else { return false }
-        var startTime      = startEnd.startTime
+        let startTime      = startEnd.startTime
         var endTime        = startEnd.endTime
         if endTime < startTime {
             endTime = Date.endOfCurrentDay()
@@ -165,6 +188,26 @@ class Utilities: NSObject {
         }
         return nil
     }
+    
+    static func getFormattedStartandEnd(_ openTime: OpenTimes) -> String? {
+        //Is it inelegant to go from string to date to string? maybe.
+        //Does it work? absolutely.
+        
+        let dateFormatter = DateFormatter.easternCoastTimeFormat
+        let startTime = dateFormatter.date(from: openTime.startTime)
+        let endTime = dateFormatter.date(from: openTime.endTime)
+        
+        let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
+        var returning = viewingFormatter.string(from: startTime!) + " - "
+        
+        if(openTime.startDay != openTime.endDay) {
+            returning += getDayOfWeek((Day(rawValue: openTime.endDay))!, small: true)! + " "
+        }
+        
+        returning += viewingFormatter.string(from: endTime!)
+        
+        return returning
+    }
 
     static func isSpecialSchedule(_ facility: Facility) -> Bool {
         return facility.specialSchedule!.isValid
@@ -183,6 +226,14 @@ extension DateFormatter {
         dateFormatter.timeZone   = TimeZone.current
         dateFormatter.locale     = Locale.current
         dateFormatter.dateFormat = "HH:mm:ss"
+        return dateFormatter
+    }
+    
+    public static var easternCoastTimeFormatForViewing: DateFormatter {
+        let dateFormatter        = DateFormatter()
+        dateFormatter.timeZone   = TimeZone.current
+        dateFormatter.locale     = Locale.current
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "hh:mm a", options: 0, locale: Locale.current)
         return dateFormatter
     }
 
