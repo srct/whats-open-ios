@@ -71,15 +71,28 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (facility.mainSchedule?.openTimes.count)!
+        if(Utilities.isSpecialSchedule(facility) == true) {
+            return (facility.specialSchedule?.openTimes.count)!
+        }
+        else {
+            return (facility.mainSchedule?.openTimes.count)!
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = OpenTimesList.dequeueReusableCell(withIdentifier: "LocationDetailCell", for: indexPath)
 
-        let openTime = facility.mainSchedule?.openTimes[indexPath.row]
-        cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
-        cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
+        if(Utilities.isSpecialSchedule(facility) == true) {
+            let openTime = facility.specialSchedule?.openTimes[indexPath.row]
+            cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
+            cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
+        }
+        else {
+            let openTime = facility.mainSchedule?.openTimes[indexPath.row]
+            cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
+            cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
+        }
+
 
         // Configure the cell...
 
