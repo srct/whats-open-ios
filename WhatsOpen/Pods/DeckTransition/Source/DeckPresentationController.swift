@@ -14,7 +14,25 @@ protocol DeckPresentationControllerDelegate {
     func isDismissGestureEnabled() -> Bool
 }
 
-final class DeckPresentationController: UIPresentationController, UIGestureRecognizerDelegate {
+/// A protocol to communicate to the transition that an update of the snapshot
+/// view is required. This is adopted only by the presentation controller
+public protocol DeckSnapshotUpdater {
+    
+    /// For various reasons (performance, the way iOS handles safe area,
+    /// layout issues, etc.) this transition uses a snapshot view of your
+    /// `presentingViewController` and not the live view itself.
+    ///
+    /// In some cases this snapshot might become outdated before the dismissal,
+    /// and for those cases you can request to have the snapshot updated. While
+    /// the transition only shows a small portion of the presenting view, in
+    /// some cases that might become inconsistent enough to demand an update.
+    ///
+    /// This is an expensive process and should only be used if necessary, for
+    /// example if you are updating your entire app's theme.
+    func requestPresentedViewSnapshotUpdate()
+}
+
+final class DeckPresentationController: UIPresentationController, UIGestureRecognizerDelegate, DeckSnapshotUpdater {
 	
 	// MARK:- Internal variables
 	
@@ -23,15 +41,18 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	// MARK:- Private variables
     
     private var pan: UIPanGestureRecognizer?
-	
-    private var roundedViewForPresentingView: RoundedView?
-	private var roundedViewForPresentedView: RoundedView?
-	private var backgroundView: UIView?
     
-	private var cachedContainerWidth: CGFloat = 0
-    private var presentingViewSnapshotView: UIView?
-    private var snapshotViewHeightConstraint: NSLayoutConstraint?
+    private let backgroundView = UIView()
+	private let presentingViewSnapshotView = UIView()
+    private let roundedViewForPresentingView = RoundedView()
+    private let roundedViewForPresentedView = RoundedView()
+    
+    private var snapshotViewTopConstraint: NSLayoutConstraint?
+    private var snapshotViewWidthConstraint: NSLayoutConstraint?
 	private var snapshotViewAspectRatioConstraint: NSLayoutConstraint?
+    
+    private var presentedViewFrameObserver: NSKeyValueObservation?
+    private var presentedViewTransformObserver: NSKeyValueObservation?
 	
 	private var presentAnimation: (() -> ())? = nil
 	private var presentCompletion: ((Bool) -> ())? = nil
@@ -50,10 +71,24 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 		NotificationCenter.default.addObserver(self, selector: #selector(updateForStatusBar), name: .UIApplicationDidChangeStatusBarFrame, object: nil)
 	}
     
+    // MARK:- Public methods
+    
+    public func requestPresentedViewSnapshotUpdate() {
+        updateSnapshotView()
+    }
+    
     // MARK:- Sizing
     
-    var statusBarHeight: CGFloat {
+    private var statusBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.height
+    }
+    
+    private var scaleForPresentingView: CGFloat {
+        guard let containerView = containerView else {
+            return 0
+        }
+        
+        return 1 - (ManualLayout.presentingViewTopInset * 2 / containerView.frame.height)
     }
 	
     override var frameOfPresentedViewInContainerView: CGRect {
@@ -70,6 +105,111 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
     }
 	
 	// MARK:- Presentation
+    
+    override func presentationTransitionWillBegin() {
+        guard let containerView = containerView, let window = containerView.window else {
+            return
+        }
+        
+        /// A CGRect to be used as a proxy for the frame of the presentingView
+        ///
+        /// The actual frame isn't used directly because in the case of the
+        /// double height status bar on non-X iPhones, the containerView has a
+        /// reduced height
+        let initialFrame: CGRect = {
+            if presentingViewController.isPresentedWithDeck {
+                return presentingViewController.view.frame
+            } else {
+                return containerView.bounds
+            }
+        }()
+        
+        /// The presented view's rounded view's frame is updated using KVO
+        roundedViewForPresentedView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(roundedViewForPresentedView)
+        setupPresentedViewKVO()
+        
+        /// The snapshot view initially has the same frame as the presentingView
+        containerView.insertSubview(presentingViewSnapshotView, belowSubview: presentedViewController.view)
+        presentingViewSnapshotView.frame = initialFrame
+        updateSnapshotView()
+        
+        /// The following transforms are performed on the snapshot view:
+        /// 1. It's frame's origin is reset to 0. This is done because for
+        ///    recursive Deck modals, the reference frame will not have its
+        ///    origin at `.zero`
+        /// 2. It is translated down by `ManualLayout.presentingViewTopInset`
+        ///    points This is the desired inset from the top of the
+        ///    containerView
+        /// 3. It is scaled down by `scaleForPresentingView` along both axes,
+        ///    such that it's top edge is at the same position. In order to do
+        ///    this, we translate it up by half it's height, perform the
+        ///    scaling, and then translate it back down by the same amount
+        let transformForSnapshotView = CGAffineTransform.identity
+            .translatedBy(x: 0, y: -presentingViewSnapshotView.frame.origin.y)
+            .translatedBy(x: 0, y: ManualLayout.presentingViewTopInset)
+            .translatedBy(x: 0, y: -presentingViewSnapshotView.frame.height / 2)
+            .scaledBy(x: scaleForPresentingView, y: scaleForPresentingView)
+            .translatedBy(x: 0, y: presentingViewSnapshotView.frame.height / 2)
+        
+        /// For a recursive modal, the `presentingView` already has rounded
+        /// corners so the animation must respect that
+        roundedViewForPresentingView.backgroundColor = UIColor.black.withAlphaComponent(0)
+        roundedViewForPresentingView.cornerRadius = presentingViewController.isPresentedWithDeck ? Constants.cornerRadius : 0
+        containerView.insertSubview(roundedViewForPresentingView, aboveSubview: presentingViewSnapshotView)
+        roundedViewForPresentingView.frame = initialFrame
+        
+        /// The background view is used to cover up the `presentedView`
+        backgroundView.backgroundColor = .black
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.insertSubview(backgroundView, belowSubview: presentingViewSnapshotView)
+        
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: window.topAnchor),
+            backgroundView.leftAnchor.constraint(equalTo: window.leftAnchor),
+            backgroundView.rightAnchor.constraint(equalTo: window.rightAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: window.bottomAnchor)
+        ])
+        
+        /// A snapshot view is used to represent the hierarchy of cards in the
+        /// case of recursive presentation
+        var rootSnapshotView: UIView?
+        var rootSnapshotRoundedView: RoundedView?
+        
+        if presentingViewController.isPresentedWithDeck {
+            guard let rootController = presentingViewController.presentingViewController,
+                  let snapshotView = rootController.view.snapshotView(afterScreenUpdates: false)
+            else {
+                return
+            }
+            
+            containerView.insertSubview(snapshotView, aboveSubview: backgroundView)
+            snapshotView.frame = initialFrame
+            snapshotView.transform = transformForSnapshotView
+            snapshotView.alpha = Constants.alphaForPresentingView
+            rootSnapshotView = snapshotView
+            
+            let snapshotRoundedView = RoundedView()
+            snapshotRoundedView.cornerRadius = Constants.cornerRadius
+            containerView.insertSubview(snapshotRoundedView, aboveSubview: snapshotView)
+            snapshotRoundedView.frame = initialFrame
+            snapshotRoundedView.transform = transformForSnapshotView
+            rootSnapshotRoundedView = snapshotRoundedView
+        }
+        
+        presentedViewController.transitionCoordinator?.animate(
+            alongsideTransition: { [unowned self] context in
+                self.presentAnimation?()
+                self.presentingViewSnapshotView.transform = transformForSnapshotView
+                self.roundedViewForPresentingView.cornerRadius = Constants.cornerRadius
+                self.roundedViewForPresentingView.transform = transformForSnapshotView
+                self.roundedViewForPresentingView.backgroundColor = UIColor.black.withAlphaComponent(1 - Constants.alphaForPresentingView)
+            }, completion: { _ in
+                rootSnapshotView?.removeFromSuperview()
+                rootSnapshotRoundedView?.removeFromSuperview()
+            }
+        )
+    }
 
     /// Method to ensure the layout is as required at the end of the
 	/// presentation. This is required in case the modal is presented without
@@ -91,59 +231,28 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 		guard let containerView = containerView else {
 			return
 		}
-		
-        if completed {
-			roundedViewForPresentedView = RoundedView()
-			roundedViewForPresentedView!.translatesAutoresizingMaskIntoConstraints = false
-			containerView.addSubview(roundedViewForPresentedView!)
-			
-			presentedViewController.view.addObserver(self, forKeyPath: "frame", options: [.initial], context: nil)
-			presentedViewController.view.addObserver(self, forKeyPath: "transform", options: [.initial], context: nil)
-            presentedViewController.view.frame = frameOfPresentedViewInContainerView
-			presentAnimation?()
-			
-			presentingViewSnapshotView = UIView()
-			presentingViewSnapshotView!.translatesAutoresizingMaskIntoConstraints = false
-			containerView.insertSubview(presentingViewSnapshotView!, belowSubview: presentedViewController.view)
-            
-			NSLayoutConstraint.activate([
-				presentingViewSnapshotView!.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-				presentingViewSnapshotView!.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
-			])
-			
-			updateSnapshotView()
-            
-            roundedViewForPresentingView = RoundedView()
-            roundedViewForPresentingView!.translatesAutoresizingMaskIntoConstraints = false
-            containerView.insertSubview(roundedViewForPresentingView!, aboveSubview: presentingViewSnapshotView!)
-            
-            NSLayoutConstraint.activate([
-                roundedViewForPresentingView!.topAnchor.constraint(equalTo: presentingViewSnapshotView!.topAnchor),
-                roundedViewForPresentingView!.leftAnchor.constraint(equalTo: presentingViewSnapshotView!.leftAnchor),
-                roundedViewForPresentingView!.rightAnchor.constraint(equalTo: presentingViewSnapshotView!.rightAnchor),
-                roundedViewForPresentingView!.heightAnchor.constraint(equalToConstant: Constants.cornerRadius)
-            ])
-			
-			backgroundView = UIView()
-			backgroundView!.backgroundColor = .black
-			backgroundView!.translatesAutoresizingMaskIntoConstraints = false
-			containerView.insertSubview(backgroundView!, belowSubview: presentingViewSnapshotView!)
-			
-			NSLayoutConstraint.activate([
-				backgroundView!.topAnchor.constraint(equalTo: containerView.window!.topAnchor),
-				backgroundView!.leftAnchor.constraint(equalTo: containerView.window!.leftAnchor),
-				backgroundView!.rightAnchor.constraint(equalTo: containerView.window!.rightAnchor),
-				backgroundView!.bottomAnchor.constraint(equalTo: containerView.window!.bottomAnchor)
-			])
-			
-			presentingViewController.view.transform = .identity
-			
-            pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-            pan!.delegate = self
-            pan!.maximumNumberOfTouches = 1
-            pan!.cancelsTouchesInView = false
-            presentedViewController.view.addGestureRecognizer(pan!)
-        }
+        
+        presentedViewController.view.frame = frameOfPresentedViewInContainerView
+        
+        presentingViewSnapshotView.transform = .identity
+        presentingViewSnapshotView.translatesAutoresizingMaskIntoConstraints = false
+        presentingViewSnapshotView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        updateSnapshotViewAspectRatio()
+        
+        roundedViewForPresentingView.transform = .identity
+        roundedViewForPresentingView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            roundedViewForPresentingView.topAnchor.constraint(equalTo: presentingViewSnapshotView.topAnchor),
+            roundedViewForPresentingView.leftAnchor.constraint(equalTo: presentingViewSnapshotView.leftAnchor),
+            roundedViewForPresentingView.rightAnchor.constraint(equalTo: presentingViewSnapshotView.rightAnchor),
+            roundedViewForPresentingView.bottomAnchor.constraint(equalTo: presentingViewSnapshotView.bottomAnchor)
+        ])
+        
+        pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        pan!.delegate = self
+        pan!.maximumNumberOfTouches = 1
+        pan!.cancelsTouchesInView = false
+        presentedViewController.view.addGestureRecognizer(pan!)
 		
 		presentCompletion?(completed)
     }
@@ -159,12 +268,9 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	/// modified only when a change is actually needed
 	override func containerViewWillLayoutSubviews() {
 		super.containerViewWillLayoutSubviews()
-		
-		updateSnapshotViewAspectRatio()
         
-        if let roundedView = roundedViewForPresentedView {
-            containerView?.bringSubview(toFront: roundedView)
-        }
+        updateSnapshotViewAspectRatio()
+        containerView?.bringSubview(toFront: roundedViewForPresentedView)
         
         UIView.animate(withDuration: 0.1) { [weak self] in
             guard let `self` = self else { return }
@@ -185,6 +291,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 		coordinator.animate(
 			alongsideTransition: nil,
 			completion: { [weak self] _ in
+                self?.updateSnapshotViewAspectRatio()
 				self?.updateSnapshotView()
 			}
         )
@@ -200,7 +307,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	/// The containerView is the only thing that received layout updates;
 	/// AutoLayout and the snapshotView method handle the rest. Additionally,
 	/// the mask for the `presentedViewController` is also reset
-	@objc func updateForStatusBar() {
+	@objc private func updateForStatusBar() {
 		guard let containerView = containerView else {
 			return
 		}
@@ -208,7 +315,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 		/// The `presentingViewController.view` often animated "before" the mask
 		/// view that should fully cover it, so it's hidden before altering the
 		/// view hierarchy, and then revealed after the animations are finished
-		presentingViewController.view.alpha = 0
+        presentingViewController.view.alpha = 0
 		
 		let fullHeight = containerView.window!.frame.size.height
 		
@@ -220,8 +327,9 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 			animations: {
 				containerView.frame.origin.y -= newHeight - currentHeight
 			}, completion: { [weak self] _ in
-				self?.presentingViewController.view.alpha = Constants.alphaForPresentingView
+                self?.presentingViewController.view.alpha = 1
                 containerView.frame = CGRect(x: 0, y: ManualLayout.containerViewTopInset, width: containerView.frame.width, height: newHeight)
+                self?.updateSnapshotView()
 			}
 		)
 	}
@@ -238,12 +346,6 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	/// then generates a new snapshot of the `presentingViewController`'s view,
 	/// and then replaces the existing snapshot with it
 	private func updateSnapshotView() {
-		guard let presentingViewSnapshotView = presentingViewSnapshotView else {
-			return
-		}
-		
-		updateSnapshotViewAspectRatio()
-		
 		if let snapshotView = presentingViewController.view.snapshotView(afterScreenUpdates: true) {
 			presentingViewSnapshotView.subviews.forEach { $0.removeFromSuperview() }
 			
@@ -264,45 +366,54 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	///
 	/// The aspect ratio is only updated when the width of the container changes
 	/// i.e. when just the status bar moves, nothing happens
-	private func updateSnapshotViewAspectRatio() {
+    private func updateSnapshotViewAspectRatio() {
 		guard let containerView = containerView,
-              let presentingViewSnapshotView = presentingViewSnapshotView,
-			  cachedContainerWidth != containerView.bounds.width
+              presentingViewSnapshotView.translatesAutoresizingMaskIntoConstraints == false
 		else {
 			return
 		}
-		
-		cachedContainerWidth = containerView.bounds.width
         
-        snapshotViewHeightConstraint?.isActive = false
+        snapshotViewTopConstraint?.isActive = false
+        snapshotViewWidthConstraint?.isActive = false
 		snapshotViewAspectRatioConstraint?.isActive = false
         
-        let heightConstant = ManualLayout.presentingViewTopInset * -2
-		let aspectRatio = containerView.bounds.width / containerView.bounds.height
+        let snapshotReferenceSize = presentingViewController.view.frame.size
         
-        roundedViewForPresentingView?.cornerRadius = Constants.cornerRadius * (1 - (heightConstant / containerView.frame.height))
-        snapshotViewHeightConstraint = presentingViewSnapshotView.heightAnchor.constraint(equalTo: containerView.heightAnchor,constant: heightConstant)
+        let topInset = ManualLayout.presentingViewTopInset
+        
+		let aspectRatio = snapshotReferenceSize.width / snapshotReferenceSize.height
+        
+        roundedViewForPresentingView.cornerRadius = Constants.cornerRadius * scaleForPresentingView
+        
+        snapshotViewTopConstraint = presentingViewSnapshotView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: topInset)
+        snapshotViewWidthConstraint = presentingViewSnapshotView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: scaleForPresentingView)
         snapshotViewAspectRatioConstraint = presentingViewSnapshotView.widthAnchor.constraint(equalTo: presentingViewSnapshotView.heightAnchor, multiplier: aspectRatio)
-		
-        snapshotViewHeightConstraint?.isActive = true
+        
+        snapshotViewTopConstraint?.isActive = true
+        snapshotViewWidthConstraint?.isActive = true
         snapshotViewAspectRatioConstraint?.isActive = true
 	}
 	
 	// MARK:- Presented view KVO + Rounded view update methods
 	
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		if keyPath == "transform" || keyPath == "frame", let view = object as? UIView {
-			let offset = view.frame.origin.y
-			updateRoundedView(forOffset: offset)
-		}
-	}
-	
-	private func updateRoundedView(forOffset offset: CGFloat) {
-		guard let roundedView = roundedViewForPresentedView else {
-			return
-		}
-		
-		roundedView.frame = CGRect(x: 0, y: offset, width: containerView!.bounds.width, height: Constants.cornerRadius)
+    private func setupPresentedViewKVO() {
+        presentedViewFrameObserver = presentedViewController.view.observe(\.frame, options: [.initial]) { [weak self] _, _ in
+            self?.presentedViewWasUpdated()
+        }
+        
+        presentedViewTransformObserver = presentedViewController.view.observe(\.transform, options: [.initial]) { [weak self] _, _ in
+            self?.presentedViewWasUpdated()
+        }
+    }
+    
+    private func invalidatePresentedViewKVO() {
+        presentedViewFrameObserver = nil
+        presentedViewTransformObserver = nil
+    }
+    
+    private func presentedViewWasUpdated() {
+        let offset = presentedViewController.view.frame.origin.y
+		roundedViewForPresentedView.frame = CGRect(x: 0, y: offset, width: containerView!.bounds.width, height: Constants.cornerRadius)
 	}
 	
 	// MARK:- Dismissal
@@ -314,31 +425,93 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
 	/// restores the state of the `presentingViewController`'s view to the
 	/// expected state at the end of the presenting animation
 	override func dismissalTransitionWillBegin() {
-		let scale: CGFloat = 1 - (ManualLayout.presentingViewTopInset * 2 / presentingViewController.view.frame.height)
-		presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
-		backgroundView?.removeFromSuperview()
-        presentingViewSnapshotView?.removeFromSuperview()
-        roundedViewForPresentingView?.removeFromSuperview()
+        guard let containerView = containerView else {
+            return
+        }
+        
+        let initialFrame: CGRect = {
+            if presentingViewController.isPresentedWithDeck {
+                return presentingViewController.view.frame
+            } else {
+                return containerView.bounds
+            }
+        }()
+        
+        let initialTransform = CGAffineTransform.identity
+            .translatedBy(x: 0, y: -initialFrame.origin.y)
+            .translatedBy(x: 0, y: ManualLayout.presentingViewTopInset)
+            .translatedBy(x: 0, y: -initialFrame.height / 2)
+            .scaledBy(x: scaleForPresentingView, y: scaleForPresentingView)
+            .translatedBy(x: 0, y: initialFrame.height / 2)
+        
+        roundedViewForPresentingView.translatesAutoresizingMaskIntoConstraints = true
+        roundedViewForPresentingView.frame = initialFrame
+        roundedViewForPresentingView.transform = initialTransform
+        
+        snapshotViewTopConstraint?.isActive = false
+        snapshotViewWidthConstraint?.isActive = false
+        snapshotViewAspectRatioConstraint?.isActive = false
+        presentingViewSnapshotView.translatesAutoresizingMaskIntoConstraints = true
+        presentingViewSnapshotView.frame = initialFrame
+        presentingViewSnapshotView.transform = initialTransform
+        
+        let finalCornerRadius = presentingViewController.isPresentedWithDeck ? Constants.cornerRadius : 0
+        let finalTransform: CGAffineTransform = .identity
+        
+        var rootSnapshotView: UIView?
+        var rootSnapshotRoundedView: RoundedView?
+        
+        if presentingViewController.isPresentedWithDeck {
+            guard let rootController = presentingViewController.presentingViewController,
+                  let snapshotView = rootController.view.snapshotView(afterScreenUpdates: false)
+            else {
+                return
+            }
+            
+            containerView.insertSubview(snapshotView, aboveSubview: backgroundView)
+            snapshotView.frame = initialFrame
+            snapshotView.transform = initialTransform
+            rootSnapshotView = snapshotView
+            
+            let snapshotRoundedView = RoundedView()
+            snapshotRoundedView.cornerRadius = Constants.cornerRadius
+            snapshotRoundedView.backgroundColor = UIColor.black.withAlphaComponent(1 - Constants.alphaForPresentingView)
+            containerView.insertSubview(snapshotRoundedView, aboveSubview: snapshotView)
+            snapshotRoundedView.frame = initialFrame
+            snapshotRoundedView.transform = initialTransform
+            rootSnapshotRoundedView = snapshotRoundedView
+        }
+        
+        presentedViewController.transitionCoordinator?.animate(
+            alongsideTransition: { [unowned self] context in
+                self.dismissAnimation?()
+                self.presentingViewSnapshotView.transform = finalTransform
+                self.roundedViewForPresentingView.transform = finalTransform
+                self.roundedViewForPresentingView.cornerRadius = finalCornerRadius
+                self.roundedViewForPresentingView.backgroundColor = .clear
+            }, completion: { _ in
+                rootSnapshotView?.removeFromSuperview()
+                rootSnapshotRoundedView?.removeFromSuperview()
+            }
+        )
 	}
 	
 	/// Method to ensure the layout is as required at the end of the dismissal.
 	/// This is required in case the modal is dismissed without animation.
 	override func dismissalTransitionDidEnd(_ completed: Bool) {
-		if completed {
-            roundedViewForPresentedView?.removeFromSuperview()
-            presentedViewController.view.removeObserver(self, forKeyPath: "frame")
-            presentedViewController.view.removeObserver(self, forKeyPath: "transform")
-            
-			presentingViewController.view.frame = containerView!.frame
-			presentingViewController.view.transform = .identity
-			dismissAnimation?()
-			
-			if let view = containerView {
-				let offScreenFrame = CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: view.bounds.height)
-				presentedViewController.view.frame = offScreenFrame
-				presentedViewController.view.transform = .identity
-			}
-		}
+        guard let containerView = containerView else {
+            return
+        }
+        
+		backgroundView.removeFromSuperview()
+        presentingViewSnapshotView.removeFromSuperview()
+        roundedViewForPresentingView.removeFromSuperview()
+        
+        let offscreenFrame = CGRect(x: 0, y: containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
+        presentedViewController.view.frame = offscreenFrame
+        presentedViewController.view.transform = .identity
+        
+        invalidatePresentedViewKVO()
 		
 		dismissCompletion?(completed)
 	}
@@ -429,6 +602,18 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
         }
 		
         return true
+    }
+    
+}
+
+fileprivate extension UIViewController {
+    
+    /// A Boolean value indicating whether the view controller is presented
+    /// using Deck.
+    var isPresentedWithDeck: Bool {
+        return transitioningDelegate is DeckTransitioningDelegate
+            && modalPresentationStyle == .custom
+            && presentingViewController != nil
     }
     
 }

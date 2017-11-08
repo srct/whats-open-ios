@@ -85,7 +85,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
-	func tapRecognizer(_ sender: UITapGestureRecognizer) {
+	@objc func tapRecognizer(_ sender: UITapGestureRecognizer) {
 		
 		let tapLocation = sender.location(in: LocationsList)
 		let indexPath = LocationsList.indexPathForItem(at: tapLocation)
@@ -155,7 +155,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 	}
 	
-	func refresh(_ sender: Any) {
+	@objc func refresh(_ sender: Any) {
 		refreshControl.beginRefreshing()
 		LocationsList.reloadData()
 		let date = Date()

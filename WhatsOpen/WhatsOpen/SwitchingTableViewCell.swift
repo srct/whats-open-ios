@@ -25,7 +25,7 @@ class SwitchingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-	func toggleSwitch(_ sender: Any) {
+	@objc func toggleSwitch(_ sender: Any) {
 		print("toggle")
 		dump(sender)
 		//LocationsListViewController.checkForReload(sander, switchControl.isOn)
