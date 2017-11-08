@@ -188,6 +188,37 @@ class Utilities: NSObject {
         }
         return nil
     }
+    static func openOrClosedUntil(_ facility: Facility) -> String? {
+        let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
+
+        let startEnd = getStartEndDates(facility)
+        if facility.mainSchedule!.twentyFourHours {
+            return "Open all day"
+        }
+        if(Utilities.isOpen(facility: facility)) {
+            // Might be a better way of doing this, but for now, this works.
+            if(isMainSchedule(facility: facility)) {
+                if(!facility.mainSchedule!.openTimes.isEmpty) {
+                    if startEnd != nil {
+                        let time = viewingFormatter.string(from: startEnd!.endTime)
+                        return "Open until \(time)"
+                    }
+                }
+                //Eventually add more detailled text here, allowing for more custom
+                //messages as it gets closer to closing time
+            } else {
+                if startEnd != nil {
+                    let time = viewingFormatter.string(from: startEnd!.startTime)
+                    return "Closed until \(time)."
+                }
+                
+            }
+            
+        } else {
+            return "Closed"
+        }
+        return nil
+    }
     
     static func getFormattedStartandEnd(_ openTime: OpenTimes) -> String? {
         //Is it inelegant to go from string to date to string? maybe.

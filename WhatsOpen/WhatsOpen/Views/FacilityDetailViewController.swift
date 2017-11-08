@@ -44,12 +44,13 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
 		
 		let open = Utilities.isOpen(facility: facility)
+        OpenLabel.text = Utilities.openOrClosedUntil(facility)
+        OpenLabel.layer.cornerRadius = 4
+        OpenLabel.layer.masksToBounds = true
 		if(open) {
-			OpenLabel.text = "OPEN"
 			OpenLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		}
 		else {
-			OpenLabel.text = "CLOSED"
 			OpenLabel.backgroundColor = UIColor.red
 		}
 		
