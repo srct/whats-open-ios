@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOSED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="096-jU-K7m">
-                                            <rect key="frame" x="283" y="8" width="84" height="29"/>
+                                            <rect key="frame" x="275" y="11" width="84" height="29"/>
                                             <color key="backgroundColor" red="1" green="0.29840450600000001" blue="0.060627813330000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="84" id="vqQ-Sa-wvE"/>
@@ -39,7 +38,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opens tomorrow at 9am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-Nu-eyP">
-                                            <rect key="frame" x="8" y="45" width="359" height="28"/>
+                                            <rect key="frame" x="16" y="48" width="343" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="zkw-SM-0t0"/>
                                             </constraints>
@@ -48,7 +47,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Panera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvO-Lp-vwb">
-                                            <rect key="frame" x="8" y="8" width="267" height="28"/>
+                                            <rect key="frame" x="16" y="11" width="251" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="rXq-zk-e92"/>
                                             </constraints>
@@ -125,7 +124,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sort By x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rYu-5q-2u8">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -153,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="-8599" y="-349"/>
         </scene>
-        <!--Facilities List View Controller-->
+        <!--What's Open-->
         <scene sceneID="w5e-Fb-rsR">
             <objects>
                 <viewController id="aaB-Go-aWd" customClass="FacilitiesListViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
@@ -272,7 +271,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uyS-pc-zem"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lS5-pu-Adr">
+                    <navigationItem key="navigationItem" title="What's Open" id="lS5-pu-Adr">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="v4j-oA-7Fa">
                             <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -328,7 +327,7 @@
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHy-SO-4Zr" id="fwy-U7-SfD">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YYL-gW-pTv">

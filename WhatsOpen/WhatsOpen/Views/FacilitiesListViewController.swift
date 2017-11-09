@@ -125,13 +125,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		
 		let searchController = UISearchController(searchResultsController: nil) //TODO: ADD SEARCH
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = true
-			navigationItem.searchController = searchController
-			navigationItem.hidesSearchBarWhenScrolling = true
-			navigationItem.searchController?.searchBar.barTintColor = UIColor.white
-			navigationItem.searchController?.searchBar.barStyle = .default
-		}
+		
+		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationItem.searchController = searchController
+		navigationItem.hidesSearchBarWhenScrolling = true
+		navigationItem.searchController?.searchBar.barTintColor = UIColor.white
+		navigationItem.searchController?.searchBar.barStyle = .default
 		
 		LocationsListLayout.invalidateLayout()
 		
