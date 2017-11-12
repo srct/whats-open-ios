@@ -79,10 +79,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
-		
-		navigationItem.title = "What's Open?"
-
-
 	}
 	
 	@objc func tapRecognizer(_ sender: UITapGestureRecognizer) {
@@ -118,19 +114,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		navigationItem.title = "What's Open?"
 		
-		if( traitCollection.forceTouchCapability == .available){
+		if(traitCollection.forceTouchCapability == .available) {
 			registerForPreviewing(with: self, sourceView: self.LocationsList!)
 		}
-		
-		let searchController = UISearchController(searchResultsController: nil) //TODO: ADD SEARCH
-		
+        
+        navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.searchController = searchController
-		navigationItem.hidesSearchBarWhenScrolling = true
-		navigationItem.searchController?.searchBar.barTintColor = UIColor.white
-		navigationItem.searchController?.searchBar.barStyle = .default
+        
+        let searchController = UISearchController(searchResultsController: nil) //TODO: ADD SEARCH
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
 		
 		LocationsListLayout.invalidateLayout()
 		

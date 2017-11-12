@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49O-ie-MPO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49O-ie-MPO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +13,6 @@
         <scene sceneID="Zyo-V7-Z0R">
             <objects>
                 <viewController id="rgX-hK-Yk9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="abj-II-4Y1"/>
-                        <viewControllerLayoutGuide type="bottom" id="uEj-Wh-tIe"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v6Q-ll-llg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,10 +31,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dLQ-LD-ZYN" secondAttribute="trailing" id="5dW-Pp-BXz"/>
-                            <constraint firstItem="dLQ-LD-ZYN" firstAttribute="leading" secondItem="v6Q-ll-llg" secondAttribute="leading" id="DgE-50-feH"/>
-                            <constraint firstItem="uEj-Wh-tIe" firstAttribute="top" secondItem="dLQ-LD-ZYN" secondAttribute="bottom" id="vxR-Lb-0T3"/>
+                            <constraint firstItem="S6o-JX-Hs6" firstAttribute="trailing" secondItem="dLQ-LD-ZYN" secondAttribute="trailing" id="5dW-Pp-BXz"/>
+                            <constraint firstItem="dLQ-LD-ZYN" firstAttribute="leading" secondItem="S6o-JX-Hs6" secondAttribute="leading" id="DgE-50-feH"/>
+                            <constraint firstItem="S6o-JX-Hs6" firstAttribute="bottom" secondItem="dLQ-LD-ZYN" secondAttribute="bottom" id="vxR-Lb-0T3"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="S6o-JX-Hs6"/>
                     </view>
                     <navigationItem key="navigationItem" id="oR9-Bj-2qk">
                         <nil key="title"/>
