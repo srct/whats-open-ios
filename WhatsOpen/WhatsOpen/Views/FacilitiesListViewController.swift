@@ -189,18 +189,26 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.frame.size.width = 280
 		}
 		*/
+        //Get tap of the cell
 		cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
-		cell.gestureRecognizers = []
+        cell.gestureRecognizers = []
 		cell.gestureRecognizers?.append(cell.tapRecognizer)
+        
+        //get facility for cell
 		let dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
 		let facility = dataArray[indexPath.row]
 		cell.facility = facility
+        
+        //set labels
 		cell.nameLabel.text = facility.facilityName
         cell.categoryLabel.text = facility.category?.categoryName.uppercased()
 
-		let open = Utilities.isOpen(facility: facility)
-        let openClosedText = Utilities.openOrClosedUntil(facility)
-        cell.openClosedLabel.text = openClosedText! //my god what a hack
+        cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
+        
+        cell.timeDescriptionLabel.text = facility.facilityLocation?.building
+
+        //change appearence based on open state
+        let open = Utilities.isOpen(facility: facility)
 		if(open == true) {
 			//cell.openClosedLabel.text = "Open"
 			cell.openClosedLabel.textColor = UIColor.black
@@ -216,9 +224,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 		}
 
-        
-
-		cell.timeDescriptionLabel.text = facility.facilityLocation?.building
+        //Accessibility
         //TODO: FIX THIS
 		cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
 		cell.accessibilityHint = "Double Tap to view details"
