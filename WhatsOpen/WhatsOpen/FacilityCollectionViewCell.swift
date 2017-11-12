@@ -12,7 +12,7 @@ import QuartzCore
 class FacilityCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var timeDescriptionLabel: UILabel!
-	@IBOutlet var openClosedLabel: UILabel!
+	@IBOutlet var openClosedLabel: PaddedUILabel!
     @IBOutlet var categoryLabel: UILabel!
     var facility: Facility!
 	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()

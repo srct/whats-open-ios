@@ -19,6 +19,7 @@
 		9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
+		92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
 		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
@@ -56,6 +57,7 @@
 		927A8466141434969CE74044 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
+		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
 		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */,
 				CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */,
 				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
+				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
 				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
@@ -359,6 +362,7 @@
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
+				92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */,
 				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,

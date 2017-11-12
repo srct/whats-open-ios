@@ -199,7 +199,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         cell.categoryLabel.text = facility.category?.categoryName.uppercased()
 
 		let open = Utilities.isOpen(facility: facility)
-        cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
+        let openClosedText = Utilities.openOrClosedUntil(facility)
+        cell.openClosedLabel.text = openClosedText! //my god what a hack
 		if(open == true) {
 			//cell.openClosedLabel.text = "Open"
 			cell.openClosedLabel.textColor = UIColor.black
