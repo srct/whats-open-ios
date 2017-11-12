@@ -250,19 +250,48 @@ class Utilities: NSObject {
     
     //MARK - Favorite facilities
     static func getFavorites() -> [Facility] {
+        let defaults = UserDefaults.standard
+        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]
+        for var str in favoriteStrings {
+            // Search through realm DB for facilities w/ matching titles
+        }
         return []
     }
     
     static func isFavoriteFacility(_ facility: Facility) -> Bool {
+        let defaults = UserDefaults.standard
+        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]
+        for var str in favoriteStrings! {
+            // Search through realm DB for facilities w/ matching title
+            // return true if found
+        }
         return false
     }
     
     static func addFavoriteFacility(_ facility: Facility) -> Bool {
-        return false
+        if(isFavoriteFacility(facility)) {
+            return false
+        }
+        else {
+            let defaults = UserDefaults.standard
+            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]
+            favoriteStrings.append(facility.facilityName)
+            defaults.set(favoriteStrings, forKey: "favorites")
+            return true
+        }
     }
     
     static func removeFavoriteFacility(_ facility: Facility) -> Bool {
-        return false
+        if(isFavoriteFacility(facility)) {
+            let defaults = UserDefaults.standard
+            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]
+            let removing = favoriteStrings.index(of: facility.facilityName)
+            favoriteStrings.remove(at: removing!)
+            defaults.set(favoriteStrings, forKey: "favorites")
+        }
+        else {
+            return false
+        }
     }
 
 }
