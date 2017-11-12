@@ -247,6 +247,23 @@ class Utilities: NSObject {
     static func isMainSchedule(facility: Facility) -> Bool {
         return facility.mainSchedule != nil
     }
+    
+    //MARK - Favorite facilities
+    static func getFavorites() -> [Facility] {
+        return []
+    }
+    
+    static func isFavoriteFacility(_ facility: Facility) -> Bool {
+        return false
+    }
+    
+    static func addFavoriteFacility(_ facility: Facility) -> Bool {
+        return false
+    }
+    
+    static func removeFavoriteFacility(_ facility: Facility) -> Bool {
+        return false
+    }
 
 }
 
