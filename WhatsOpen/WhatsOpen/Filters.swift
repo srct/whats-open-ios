@@ -14,7 +14,6 @@ class Filters {
 	var showOpen = true
 	var showClosed = true
 	var sortBy = SortMethod.alphabetical
-	var allAllFacilities = true
     var openFirst = true
 	
 	init() {
@@ -22,9 +21,86 @@ class Filters {
 	}
 	
     func applyFiltersOnFacilities(_ facilities: [Facility]) -> [Facility] {
+        let (open, closed) = separateOpenAndClosed(facilities)
         
-        
-        return []
+        // I imagine that a function per enum may be more useful than this switch statement of copied code, but whatever
+        switch sortBy {
+        case .alphabetical:
+            if(openFirst) {
+                var returning: [Facility] = []
+                if(showOpen) {
+                    returning += sortAlphabetically(open)
+                }
+                if(showClosed) {
+                    returning += sortAlphabetically(closed)
+                }
+                return returning
+            }
+            else {
+                if(showOpen && showClosed) {
+                    return sortAlphabetically(facilities)
+                }
+                else if(showOpen) {
+                    return sortAlphabetically(open)
+                }
+                else if(showClosed) {
+                    return sortAlphabetically(closed)
+                }
+                else {
+                    return []
+                }
+            }
+        case .reverseAlphabetical:
+            if(openFirst) {
+                var returning: [Facility] = []
+                if(showOpen) {
+                    returning += sortAlphabetically(open, reverse: true)
+                }
+                if(showClosed) {
+                    returning += sortAlphabetically(closed, reverse: true)
+                }
+                return returning
+            }
+            else {
+                if(showOpen && showClosed) {
+                    return sortAlphabetically(facilities, reverse: true)
+                }
+                else if(showOpen) {
+                    return sortAlphabetically(open, reverse: true)
+                }
+                else if(showClosed) {
+                    return sortAlphabetically(closed, reverse: true)
+                }
+                else {
+                    return []
+                }
+            }
+        case .byLocation:
+            if(openFirst) {
+                var returning: [Facility] = []
+                if(showOpen) {
+                    returning += sortByLocation(open)
+                }
+                if(showClosed) {
+                    returning += sortByLocation(closed)
+                }
+                return returning
+            }
+            else {
+                if(showOpen && showClosed) {
+                    return sortByLocation(facilities)
+                }
+                else if(showOpen) {
+                    return sortByLocation(open)
+                }
+                else if(showClosed) {
+                    return sortByLocation(closed)
+                }
+                else {
+                    return []
+                }
+            }
+        }
     }
     
     // Takes in array of Facilities, separates them into those open and closed, returning a tuple of 2 arrays
