@@ -187,7 +187,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     
     func filterFacilitiesForSearchText(_ searchText: String) {
         filteredFacilities = facilitiesArray.filter({(facility: Facility) -> Bool in
-            return facility.facilityName.lowercased().contains(searchText.lowercased())
+            let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
+            let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
+            return hasName || hasBuilding
         })
         LocationsList.reloadData()
     }
