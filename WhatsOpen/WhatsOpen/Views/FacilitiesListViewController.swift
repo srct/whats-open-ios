@@ -124,6 +124,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             
             // present the detail view over the search controller if we're searching
             if searchController.isActive {
+			  	
                 searchController.present(destination, animated: true, completion: nil)
             }
             else {
