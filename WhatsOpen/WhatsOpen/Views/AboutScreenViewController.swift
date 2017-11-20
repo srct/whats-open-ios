@@ -54,7 +54,6 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		default:
 			return 0
 		}
-		return contributors.count
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
