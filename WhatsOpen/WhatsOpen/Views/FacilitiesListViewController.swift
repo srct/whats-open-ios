@@ -124,7 +124,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             
             // present the detail view over the search controller if we're searching
             if searchController.isActive {
-			  	
                 searchController.present(destination, animated: true, completion: nil)
             }
             else {
@@ -146,6 +145,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		self.definesPresentationContext = true
 		
 		if(traitCollection.forceTouchCapability == .available) {
 			registerForPreviewing(with: self, sourceView: self.LocationsList!)
@@ -190,7 +191,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         filteredFacilities = facilitiesArray.filter({(facility: Facility) -> Bool in
             let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
             let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
-            return hasName || hasBuilding
+			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
+            return hasName || hasBuilding || hasCategory
         })
         LocationsList.reloadData()
     }
