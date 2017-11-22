@@ -249,33 +249,34 @@ class Utilities: NSObject {
     }
     
     //MARK - Favorite facilities
-    static func getFavorites() -> [Facility] {
-        let defaults = UserDefaults.standard
-        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]
-        for var str in favoriteStrings {
-            // Search through realm DB for facilities w/ matching titles
-        }
-        return []
-    }
     
     static func isFavoriteFacility(_ facility: Facility) -> Bool {
         let defaults = UserDefaults.standard
-        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]
-        for var str in favoriteStrings! {
+        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
+		if( favoriteStrings == nil ) {
+			return false
+		}
+		for str in favoriteStrings! {
             // Search through realm DB for facilities w/ matching title
             // return true if found
+			if( facility.facilityName == str ) {
+				return true
+			}
         }
         return false
     }
-    
+	
     static func addFavoriteFacility(_ facility: Facility) -> Bool {
         if(isFavoriteFacility(facility)) {
             return false
         }
         else {
             let defaults = UserDefaults.standard
-            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]
-            favoriteStrings.append(facility.facilityName)
+            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
+			if(favoriteStrings == nil) {
+				favoriteStrings = []
+			}
+            favoriteStrings?.append(facility.facilityName)
             defaults.set(favoriteStrings, forKey: "favorites")
             return true
         }
@@ -288,6 +289,7 @@ class Utilities: NSObject {
             let removing = favoriteStrings.index(of: facility.facilityName)
             favoriteStrings.remove(at: removing!)
             defaults.set(favoriteStrings, forKey: "favorites")
+			return true
         }
         else {
             return false

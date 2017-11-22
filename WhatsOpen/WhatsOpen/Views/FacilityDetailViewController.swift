@@ -20,7 +20,14 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var detailStackView: UIStackView!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
-		let favoritePreviewItem = UIPreviewAction(title: "Mark as Favorite", style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
+		var title: String
+		if(Utilities.isFavoriteFacility(facility)) {
+			title = "Remove from Favorites"
+		}
+		else {
+			title = "Add to Favorites"
+		}
+		let favoritePreviewItem = UIPreviewAction(title: title, style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
 	    return [favoritePreviewItem]
 	}
 	
@@ -101,6 +108,11 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
 			
 	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
-		
+		if(Utilities.isFavoriteFacility(facility)) {
+			Utilities.removeFavoriteFacility(facility)
+		}
+		else {
+			Utilities.addFavoriteFacility(facility)
+		}
 	}
 }

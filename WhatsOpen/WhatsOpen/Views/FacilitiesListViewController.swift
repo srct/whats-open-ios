@@ -46,8 +46,27 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		{
 		case 0:
 			showFavorites = false
+			filteredFacilities = facilitiesArray
 		case 1:
 			showFavorites = true
+			filteredFacilities = List<Facility>()
+			let defaults = UserDefaults.standard
+			
+			let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
+			if(favoriteStrings == nil) {
+				return
+			}
+			else {
+				for facility in facilitiesArray {
+					for str in favoriteStrings! {
+						if(facility.facilityName == str) {
+							filteredFacilities.append(facility)
+							break;
+						}
+					}
+				}
+			}
+
 		default:
 			showFavorites = false
 		}
@@ -225,7 +244,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isSearching() ? self.filteredFacilities.count : self.facilitiesArray.count
+        return isSearching() || showFavorites ? self.filteredFacilities.count : self.facilitiesArray.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -247,7 +266,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         let dataArray: [Facility]
         
         // if something has been searched for, we want to use the filtered array as the data source
-        if isSearching() {
+        if isSearching() || showFavorites {
             dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
         } else {
             dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
