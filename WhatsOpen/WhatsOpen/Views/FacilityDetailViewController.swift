@@ -17,8 +17,6 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     
 	@IBOutlet var OpenTimesList: UITableView!
 	
-	@IBOutlet var detailStackView: UIStackView!
-	
 	override var previewActionItems: [UIPreviewActionItem] {
 		var title: String
 		if(Utilities.isFavoriteFacility(facility)) {
@@ -29,6 +27,27 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		}
 		let favoritePreviewItem = UIPreviewAction(title: title, style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
 	    return [favoritePreviewItem]
+	}
+	
+	@IBOutlet var favoritesButton: UIButton!
+	@IBAction func setFavButton(_ sender: Any) {
+		if(Utilities.isFavoriteFacility(facility)) {
+			Utilities.removeFavoriteFacility(facility)
+		}
+		else {
+			Utilities.addFavoriteFacility(facility)
+		}
+		setFavoriteButtonText()
+	}
+	func setFavoriteButtonText() {
+		if(Utilities.isFavoriteFacility(facility)) {
+			favoritesButton.setTitle("Remove from Favorites", for: .normal)
+			favoritesButton.titleLabel?.text = "Remove from Favorites"
+		}
+		else {
+			favoritesButton.setTitle("Add to Favorites", for: .normal)
+			favoritesButton.titleLabel?.text = "Add to Favorites"
+		}
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -60,6 +79,12 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		else {
 			OpenLabel.backgroundColor = UIColor.red
 		}
+		
+		setFavoriteButtonText()
+		favoritesButton.backgroundColor = UIColor.green
+		favoritesButton.titleLabel?.textColor = UIColor.white
+		favoritesButton.layer.cornerRadius = 8
+
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
