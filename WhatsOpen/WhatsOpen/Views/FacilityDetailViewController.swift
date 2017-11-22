@@ -81,9 +81,9 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		}
 		
 		setFavoriteButtonText()
-		favoritesButton.backgroundColor = UIColor.green
-		favoritesButton.titleLabel?.textColor = UIColor.white
-		favoritesButton.layer.cornerRadius = 8
+		favoritesButton.tintColor = UIColor.white
+		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+		favoritesButton.layer.cornerRadius = 10
 
 		
 		if #available(iOS 11.0, *) {
