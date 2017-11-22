@@ -20,6 +20,8 @@
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
+		92F681581FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
+		92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
 		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
@@ -58,6 +60,8 @@
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
+		92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-WhatsOpen-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
 		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
 				CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */,
 				CD81F5281DC0334600009FBD /* Info.plist */,
+				92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */,
+				92F681591FC137CF00393DF4 /* Settings.bundle */,
 			);
 			path = WhatsOpen;
 			sourceTree = "<group>";
@@ -278,7 +284,9 @@
 			files = (
 				CD81F5271DC0334600009FBD /* LaunchScreen.storyboard in Resources */,
 				CD81F5241DC0334600009FBD /* Assets.xcassets in Resources */,
+				92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */,
 				CD81F5221DC0334600009FBD /* Main.storyboard in Resources */,
+				92F681581FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iameyad.WhatsOpenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsOpen.app/WhatsOpen";
 			};
 			name = Debug;
@@ -437,7 +445,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iameyad.WhatsOpenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsOpen.app/WhatsOpen";
 			};
 			name = Release;

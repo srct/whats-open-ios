@@ -41,6 +41,7 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		"Eyad Hasan",
 		"Zach Knox",
 		"Patrick Murray",
+		"Zac Wood",
 		"Jason Yeomans"
 	]
 	
@@ -53,7 +54,6 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		default:
 			return 0
 		}
-		return contributors.count
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

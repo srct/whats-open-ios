@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 import MessageUI
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
@@ -22,6 +22,9 @@ class SettingsTableViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		tableView.estimatedRowHeight = 44.0
+		tableView.rowHeight = UITableViewAutomaticDimension
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -95,8 +98,20 @@ class SettingsTableViewController: UITableViewController {
 				self.showDetailViewController(SFSafariViewController(url: settingcell.linkURL!), sender: settingcell)
 			}
 			else if settingcell.textLabel?.text == "Are Our Hours Wrong?" {
-				let mailvc = settingcell.initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
-				self.showDetailViewController(mailvc, sender: cell)
+				let mailvc = initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
+				if !MFMailComposeViewController.canSendMail() {
+					/*
+					let alert = UIAlertController(title: "Mail Not Available", message: "Make sure your mail account is properly set up.", preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+						NSLog("The \"OK\" alert occured.")
+					}))
+					present(alert, animated: true)
+					*/
+					// Do literally nothing
+				}
+				else {
+					present(mailvc, animated: true)
+				}
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
 				let avc = self.storyboard?.instantiateViewController(withIdentifier: "about")
@@ -106,6 +121,25 @@ class SettingsTableViewController: UITableViewController {
 		else {
 			return
 		}
+	}
+	
+	func initMail(subject: String, to: String) -> MFMailComposeViewController {
+		let mailto = MFMailComposeViewController()
+		mailto.mailComposeDelegate = self
+		mailto.setSubject(subject)
+		mailto.setToRecipients([to])
+		let df = DateFormatter()
+		let now = Date()
+		mailto.setMessageBody("\n\n"+df.string(from: now), isHTML: false)
+		return mailto
+	}
+	
+	func mailComposeController(_ controller: MFMailComposeViewController,
+							   didFinishWith result: MFMailComposeResult, error: Error?) {
+		// Check the result or perform other tasks.
+		
+		// Dismiss the mail compose view controller.
+		controller.dismiss(animated: true, completion: nil)
 	}
 
     /*
