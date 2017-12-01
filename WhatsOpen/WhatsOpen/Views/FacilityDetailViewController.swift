@@ -14,8 +14,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var PlaceLabel: UILabel!
 	@IBOutlet var OpenLabel: UILabel!
     @IBOutlet var CategoryLabel: UILabel!
-    
 	@IBOutlet var OpenTimesList: UITableView!
+    @IBOutlet var favoritesButton: UIButton!
+    
+    var facility: Facility!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
 		var title: String
@@ -29,16 +31,25 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	    return [favoritePreviewItem]
 	}
 	
-	@IBOutlet var favoritesButton: UIButton!
+    /**
+     Favorites button touch handler
+     
+     Adds a facility to favorites if it isn't a favorite,
+     removes from favorites if it is a favorite.
+     */
 	@IBAction func setFavButton(_ sender: Any) {
-		if(Utilities.isFavoriteFacility(facility)) {
-			Utilities.removeFavoriteFacility(facility)
+        if(Utilities.isFavoriteFacility(facility)) { // if the facility is a favorite
+			Utilities.removeFavoriteFacility(facility) // remove it from favorites
 		}
-		else {
+		else { // else add it to favorites
 			Utilities.addFavoriteFacility(facility)
 		}
 		setFavoriteButtonText()
 	}
+    
+    /**
+     Change the favorite button text depending on if the facility is a favorite
+     */
 	func setFavoriteButtonText() {
 		if(Utilities.isFavoriteFacility(facility)) {
 			favoritesButton.setTitle("Remove from Favorites", for: .normal)
@@ -53,8 +64,6 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
-	
-	var facility: Facility!
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)

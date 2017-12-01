@@ -12,10 +12,13 @@ import RealmSwift
 
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
+    // array of all facilities
 	var facilitiesArray = List<Facility>()
+    
+    // array of facilities that pass the current filters
     var filteredFacilities = List<Facility>()
     
-    // passing in nil sets the controller to be this controller
+    // passing in nil sets the search controller to be this controller
     let searchController = UISearchController(searchResultsController: nil)
 
 	var filters = Filters()
@@ -40,45 +43,44 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	var showFavorites = false
 
 	@IBOutlet var LastUpdatedLabel: UIBarButtonItem!
+    
+    let refreshControl = UIRefreshControl()
 
 	@IBAction func favoritesControlChanges(_ sender: Any) {
-		switch (self.favoritesControl.selectedSegmentIndex)
+		switch self.favoritesControl.selectedSegmentIndex
 		{
 		case 0:
 			showFavorites = false
 			filteredFacilities = facilitiesArray
 		case 1:
-			showFavorites = true
-			filteredFacilities = List<Facility>()
-			let defaults = UserDefaults.standard
-			
-			let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
-			if(favoriteStrings == nil) {
-				return
-			}
-			else {
-				for facility in facilitiesArray {
-					for str in favoriteStrings! {
-						if(facility.facilityName == str) {
-							filteredFacilities.append(facility)
-							break;
-						}
-					}
-				}
-			}
-
+            showFavorites = true
+			filteredFacilities = filterFacilitiesForFavorites()
 		default:
 			showFavorites = false
 		}
 		self.LocationsList.reloadData()
 	}
-
-	let refreshControl = UIRefreshControl()
+    
+    /**
+     Get all of the facilities that are favorited.
+     
+     - returns:
+        List of facilities that are favorited
+     */
+    func filterFacilitiesForFavorites() -> List<Facility> {
+        var favoriteFacilites = List<Facility>()
+        
+        // add the facility to favorites list if it is a favorite
+        favoriteFacilites = facilitiesArray.filter({ (facility: Facility) -> Bool in
+            return Utilities.isFavoriteFacility(facility)
+        })
+        
+        return favoriteFacilites
+    }
 
 	override func viewWillLayoutSubviews() {
 		LocationsListLayout.itemSize.width = getCellWidth()
 		LocationsListLayout.invalidateLayout()
-
 	}
 	
 	func getCellWidth() -> CGFloat {
@@ -115,7 +117,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             let tapped = self.LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
             destination!.facility = tapped.facility
             self.presentDetailView(destination!)
-            
 		}
 	}
 	
@@ -206,14 +207,44 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         return searchController.isActive && !isSearchBarEmpty()
     }
     
-    func filterFacilitiesForSearchText(_ searchText: String) {
-        filteredFacilities = facilitiesArray.filter({(facility: Facility) -> Bool in
-            let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
-            let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
-			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
-            return hasName || hasBuilding || hasCategory
-        })
+    /**
+     Filters facilities based on the text inputted into the search controller.
+     
+     - parameters:
+        - searchText: text used to filter the facilities.
+     - returns:
+        List of filtered facilities. Facilities whose names, buildings, or categories match the search text are included.
+     */
+    func filterFacilitiesForSearchText(_ searchText: String) -> List<Facility> {
+        var filtered: List<Facility>
+        
+        if showFavorites {
+            let favoriteFacilities = filterFacilitiesForFavorites()
+            
+            if searchText == "" { // if the search text is empty, just return the favorites.
+                filtered = favoriteFacilities
+            } else {
+                filtered = favoriteFacilities.filter({(facility: Facility) -> Bool in
+                    let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
+                    let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
+                    let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
+                    
+                    return hasName || hasBuilding || hasCategory
+                })
+            }
+            
+        } else {
+            filtered = facilitiesArray.filter({(facility: Facility) -> Bool in
+                let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
+                let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
+                let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
+                
+                return hasName || hasBuilding || hasCategory
+            })
+        }
+        
         LocationsList.reloadData()
+        return filtered
     }
 	
 	@objc func refresh(_ sender: Any) {
@@ -316,7 +347,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
 		}
 		else {
-			return [] //TODO - INCOMPLETE
+			return placeOpenFacilitiesFirstInArray(filteredFacilities)
 		}
 
 
@@ -412,7 +443,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 extension FacilitiesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text ?? ""
-        filterFacilitiesForSearchText(searchText)
+        filteredFacilities = filterFacilitiesForSearchText(searchText)
     }
 }
 

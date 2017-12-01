@@ -250,22 +250,30 @@ class Utilities: NSObject {
     
     //MARK - Favorite facilities
     
+    /**
+     Checks if a facility is a favorite.
+     
+     - returns:
+        true if the facility is a favorite, false if it isn't
+     */
     static func isFavoriteFacility(_ facility: Facility) -> Bool {
         let defaults = UserDefaults.standard
         let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
 		if( favoriteStrings == nil ) {
 			return false
 		}
-		for str in favoriteStrings! {
-            // Search through realm DB for facilities w/ matching title
-            // return true if found
-			if( facility.facilityName == str ) {
-				return true
-			}
+        // return if the facility's name is in the list of favorites
+        return favoriteStrings!.contains { (favorite: String) -> Bool in
+            return facility.facilityName == favorite
         }
-        return false
     }
 	
+    /**
+     Adds a facility to the UserDefault's favorites list.
+     
+     - returns:
+        true if the facility was added correctly, false if the facility is already a favorite.
+     */
     static func addFavoriteFacility(_ facility: Facility) -> Bool {
         if(isFavoriteFacility(facility)) {
             return false
@@ -282,6 +290,12 @@ class Utilities: NSObject {
         }
     }
     
+    /**
+     Removes a facility from the UserDefault's favorites list.
+     
+     - returns:
+        true if the facility was removed correctly, false if the facility is not a favorite.
+     */
     static func removeFavoriteFacility(_ facility: Facility) -> Bool {
         if(isFavoriteFacility(facility)) {
             let defaults = UserDefaults.standard
