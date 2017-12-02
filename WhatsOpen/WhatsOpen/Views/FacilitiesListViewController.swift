@@ -168,16 +168,23 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsList.addSubview(refreshControl)
 		LocationsList.alwaysBounceVertical = true
 
-		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = List(facilities)
-			DispatchQueue.main.async {
-				self.LocationsList.reloadData()
-				let date = Date()
-				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
-			}
+		
+		let defaults = UserDefaults.standard
+		let facilitiesFromDefaults = defaults.object(forKey: "FacilitiesList") as! List<Facility>?
+	  	let lastUpdatedList = defaults.object(forKey: "lastUpdatedList") as! Date?
+		if(facilitiesFromDefaults == nil || lastUpdatedList == nil) {
+			refresh(self)
+		}
+		else if(lastUpdatedList! < Date(timeIntervalSinceNow: -86400.0)) {
+			refresh(self)
+		}
+		else {
+			facilitiesArray = facilitiesFromDefaults!
 		}
 		
 	}
+	
+	
     
     func isSearchBarEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -197,11 +204,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         LocationsList.reloadData()
     }
 	
-	@objc func refresh(_ sender: Any) {
+	func refresh(_ sender: Any) {
 		refreshControl.beginRefreshing()
-		LocationsList.reloadData()
-		let date = Date()
-		LastUpdatedLabel.title = "Updated: " + shortDateFormat(date)
+			SRCTNetworkController.performDownload { (facilities) in
+				self.facilitiesArray = List(facilities)
+				let defaults = UserDefaults.standard
+				defaults.set(List(facilities), forKey: "FacilitiesList")
+				self.LocationsList.reloadData()
+				let date = Date()
+				defaults.set(date, forKey: "lastUpdatedList")
+				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
+			}
 		refreshControl.endRefreshing()
 	}
     
