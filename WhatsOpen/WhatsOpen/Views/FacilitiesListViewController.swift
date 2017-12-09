@@ -181,7 +181,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		else {
 			facilitiesArray = facilitiesFromDefaults!
 		}
-		
+		LocationsList.reloadData()
 	}
 	
 	
@@ -206,15 +206,20 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func refresh(_ sender: Any) {
 		refreshControl.beginRefreshing()
-			SRCTNetworkController.performDownload { (facilities) in
-				self.facilitiesArray = List(facilities)
+		SRCTNetworkController.performDownload { (facilities) in
+			self.facilitiesArray = facilities
+			
+			DispatchQueue.main.async {
 				let defaults = UserDefaults.standard
-				defaults.set(List(facilities), forKey: "FacilitiesList")
-				self.LocationsList.reloadData()
+				//defaults.set(facilities, forKey: "FacilitiesList")
 				let date = Date()
 				defaults.set(date, forKey: "lastUpdatedList")
+				self.LocationsList.reloadData()
 				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
 			}
+
+		}
+		LocationsList.reloadData()
 		refreshControl.endRefreshing()
 	}
     
