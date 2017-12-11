@@ -167,7 +167,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         
         navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
-        
+		navigationItem.largeTitleDisplayMode = .always
+		
         configureSearchController()
 		
 		LocationsListLayout.invalidateLayout()
@@ -178,7 +179,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-		LocationsList.addSubview(refreshControl)
+		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
 		
