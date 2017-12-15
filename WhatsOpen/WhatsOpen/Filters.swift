@@ -16,14 +16,21 @@ class Filters {
 	var sortBy = SortMethod.alphabetical
     var openFirst = true
 	
+	var onlyFromLocations = [Locations]() // Locations to show, could simply use Location objects instead if you wanted
+	var onlyFromCategories = [Categories]() //same as above, but for Categories, not Locations
+	//can check these using the .equals() functions in Locations and Categories
+	
+	
 	init() {
         //nothing to do here
 	}
 	
     func applyFiltersOnFacilities(_ facilities: [Facility]) -> [Facility] {
-        let (open, closed) = separateOpenAndClosed(facilities)
+		//TODO: Add checks for onlyFromLocations and onlyFromCategories here before doing the rest
+		
+		let (open, closed) = separateOpenAndClosed(facilities)
         
-        // I imagine that a function per enum may be more useful than this switch statement of copied code, but whatever
+        // This switch statement figures out what sort method is being used, and will sort accordingly
         switch sortBy {
         case .alphabetical:
             if(openFirst) {
@@ -102,19 +109,22 @@ class Filters {
             }
         }
     }
-    
+	
+	//TODO
     // Takes in array of Facilities, separates them into those open and closed, returning a tuple of 2 arrays
     private func separateOpenAndClosed(_ facilities: [Facility]) -> (open: [Facility], closed: [Facility]) {
         
         return ([], [])
     }
-    
+	
+	//TODO
     // Sorts items in the given Facility array by name alphabetically (reverse if told)
     private func sortAlphabetically(_ facilities: [Facility], reverse: Bool = false) -> [Facility] {
         
         return []
     }
-    
+	
+	//TODO
     // Sorts Facilities by their given location's name, and within those sorts A->Z
     private func sortByLocation(_ facilities: [Facility]) -> [Facility] {
         
