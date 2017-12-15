@@ -239,6 +239,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				}
 				else {
 					facilitiesArray = facilities
+					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 				}
 			}
 			else {
@@ -252,32 +253,53 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func update(_ sender: Any) {
 		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = facilities
-			
-			DispatchQueue.main.async {
-				//let defaults = UserDefaults.standard
-				//defaults.set(facilities, forKey: "FacilitiesList")
-				let date = Date()
-				//defaults.set(date, forKey: "lastUpdatedList")
-				self.LocationsList.reloadData()
-				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
-				let model = FacilitiesModel()
-				model.facilities = facilities
-				model.lastUpdated = date
-				let results = self.realm.objects(FacilitiesModel.self)
-				if results.count == 0 {
-					try! self.realm.write {
-						self.realm.add(model)
+			if(facilities == nil) {
+				DispatchQueue.main.async {
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count > 0 {
+						let model = results[0]
+						let facilitiesFromDB = model.facilities
+						let lastUpdated = model.lastUpdated
+						
+						self.facilitiesArray = facilitiesFromDB
+						self.LocationsList.reloadData()
+						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 					}
-				}
-				else {
-					let fromRealm = results[0]
-					try! self.realm.write {
-						fromRealm.facilities = model.facilities
-						fromRealm.lastUpdated = model.lastUpdated
+					else {
+						self.facilitiesArray = List<Facility>()
 					}
 				}
 			}
+			else {
+				self.facilitiesArray = facilities!
+				
+				DispatchQueue.main.async {
+					//let defaults = UserDefaults.standard
+					//defaults.set(facilities, forKey: "FacilitiesList")
+					let date = Date()
+					//defaults.set(date, forKey: "lastUpdatedList")
+					self.LocationsList.reloadData()
+					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
+					let model = FacilitiesModel()
+					model.facilities = facilities!
+					model.lastUpdated = date
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count == 0 {
+						try! self.realm.write {
+							self.realm.add(model)
+						}
+					}
+					else {
+						let fromRealm = results[0]
+						try! self.realm.write {
+							fromRealm.facilities = model.facilities
+							fromRealm.lastUpdated = model.lastUpdated
+						}
+					}
+				}
+			}
+			
+
 			
 		}
 	}
