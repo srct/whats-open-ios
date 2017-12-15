@@ -22,11 +22,11 @@ enum Day: Int {
 class Facility: Object, MapContext, Mappable {
     @objc dynamic var slug = ""
     @objc dynamic var facilityName = ""
-    var facilityLocation: Locations? = Locations()
-    var category: Categories? = Categories()
-    var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
-    var mainSchedule: MainSchedule? = MainSchedule()
-    var specialSchedule: SpecialSchedule? = SpecialSchedule()
+    @objc dynamic var facilityLocation: Locations? = Locations()
+    @objc dynamic var category: Categories? = Categories()
+	var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
+    @objc dynamic var mainSchedule: MainSchedule? = MainSchedule()
+    @objc dynamic var specialSchedule: SpecialSchedule? = SpecialSchedule()
 
 
     required convenience init?(map: Map) {

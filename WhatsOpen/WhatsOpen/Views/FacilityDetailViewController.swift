@@ -14,21 +14,56 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var PlaceLabel: UILabel!
 	@IBOutlet var OpenLabel: UILabel!
     @IBOutlet var CategoryLabel: UILabel!
-    
 	@IBOutlet var OpenTimesList: UITableView!
-	
-	@IBOutlet var detailStackView: UIStackView!
+    @IBOutlet var favoritesButton: UIButton!
+    
+    var facility: Facility!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
-		let favoritePreviewItem = UIPreviewAction(title: "Mark as Favorite", style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
+		var title: String
+		if(Utilities.isFavoriteFacility(facility)) {
+			title = "Remove from Favorites"
+		}
+		else {
+			title = "Add to Favorites"
+		}
+		let favoritePreviewItem = UIPreviewAction(title: title, style: UIPreviewActionStyle.default, handler: markAsFavoritePreviewAction)
 	    return [favoritePreviewItem]
+	}
+	
+    /**
+     Favorites button touch handler
+     
+     Adds a facility to favorites if it isn't a favorite,
+     removes from favorites if it is a favorite.
+     */
+	@IBAction func setFavButton(_ sender: Any) {
+        if(Utilities.isFavoriteFacility(facility)) { // if the facility is a favorite
+			Utilities.removeFavoriteFacility(facility) // remove it from favorites
+		}
+		else { // else add it to favorites
+			Utilities.addFavoriteFacility(facility)
+		}
+		setFavoriteButtonText()
+	}
+    
+    /**
+     Change the favorite button text depending on if the facility is a favorite
+     */
+	func setFavoriteButtonText() {
+		if(Utilities.isFavoriteFacility(facility)) {
+			favoritesButton.setTitle("Remove from Favorites", for: .normal)
+			favoritesButton.titleLabel?.text = "Remove from Favorites"
+		}
+		else {
+			favoritesButton.setTitle("Add to Favorites", for: .normal)
+			favoritesButton.titleLabel?.text = "Add to Favorites"
+		}
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
-	
-	var facility: Facility!
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
@@ -53,6 +88,12 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		else {
 			OpenLabel.backgroundColor = UIColor.red
 		}
+		
+		setFavoriteButtonText()
+		favoritesButton.tintColor = UIColor.white
+		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+		favoritesButton.layer.cornerRadius = 10
+
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
@@ -101,6 +142,11 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
 			
 	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
-		
+		if(Utilities.isFavoriteFacility(facility)) {
+			Utilities.removeFavoriteFacility(facility)
+		}
+		else {
+			Utilities.addFavoriteFacility(facility)
+		}
 	}
 }

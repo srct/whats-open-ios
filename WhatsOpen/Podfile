@@ -13,7 +13,8 @@ pod 'ObjectMapper', '~> 3.0'
 
 #pod 'Segmentio', '~> 2.1'
 
-  pod 'DeckTransition', '~> 1.4.0'
+pod 'DeckTransition', '~> 1.4.0'
+
 end
 
 
@@ -23,4 +24,7 @@ post_install do |installer|
        config.build_settings['SWIFT_VERSION'] = '3.1'
      end
    end
- end
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-Acknowledgements.plist', 'WhatsOpen/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+
+end
