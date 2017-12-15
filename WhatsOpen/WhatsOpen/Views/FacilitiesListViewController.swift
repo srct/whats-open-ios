@@ -10,9 +10,21 @@ import UIKit
 import DeckTransition
 import RealmSwift
 
+//Realm Model
+class FacilitiesModel: Object {
+	var facilities = List<Facility>()
+	@objc dynamic var lastUpdated = Date()
+	@objc dynamic let id = 0
+}
+
+
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
 
-    // array of all facilities
+	let realm = try! Realm()
+
+	
+	
+	
 	var facilitiesArray = List<Facility>()
     
     // array of facilities that pass the current filters
@@ -100,7 +112,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	@IBAction func RefreshButton(_ sender: Any) {
-		refresh(sender)
+		refresh(sender, forceUpdate: true)
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -174,7 +186,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         
         navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
-        
+		navigationItem.largeTitleDisplayMode = .always
+		
         configureSearchController()
 		
 		LocationsListLayout.invalidateLayout()
@@ -185,19 +198,30 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-		LocationsList.addSubview(refreshControl)
+		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
-		SRCTNetworkController.performDownload { (facilities) in
-			self.facilitiesArray = List(facilities)
-			DispatchQueue.main.async {
-				self.LocationsList.reloadData()
-				let date = Date()
-				self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
-			}
-		}
 		
+		/*
+		let defaults = UserDefaults.standard
+		let facilitiesFromDefaults = defaults.object(forKey: "FacilitiesList") as! List<Facility>?
+	  	let lastUpdatedList = defaults.object(forKey: "lastUpdatedList") as! Date?
+		if(facilitiesFromDefaults == nil || lastUpdatedList == nil) {
+			refresh(self)
+		}
+		else if(lastUpdatedList! < Date(timeIntervalSinceNow: -86400.0)) {
+			refresh(self)
+		}
+		else {
+			facilitiesArray = facilitiesFromDefaults!
+		}
+		*/
+		
+		refresh(self, forceUpdate: false)
+		LocationsList.reloadData()
 	}
+	
+	
     
     func isSearchBarEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -247,12 +271,86 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         return filtered
     }
 	
-	@objc func refresh(_ sender: Any) {
+	func refresh(_ sender: Any, forceUpdate: Bool = true) {
 		refreshControl.beginRefreshing()
+		if(forceUpdate) {
+			update(sender);
+		}
+		else {
+			let results = realm.objects(FacilitiesModel.self)
+			if results.count > 0 {
+				let model = results[0]
+				let facilities = model.facilities
+				let lastUpdated = model.lastUpdated
+				
+				if(facilities.isEmpty || lastUpdated < Date(timeIntervalSinceNow: -86400.0)) {
+					update(sender)
+				}
+				else {
+					facilitiesArray = facilities
+					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
+				}
+			}
+			else {
+				update(sender)
+			}
+
+		}
 		LocationsList.reloadData()
-		let date = Date()
-		LastUpdatedLabel.title = "Updated: " + shortDateFormat(date)
 		refreshControl.endRefreshing()
+	}
+	
+	func update(_ sender: Any) {
+		SRCTNetworkController.performDownload { (facilities) in
+			if(facilities == nil) {
+				DispatchQueue.main.async {
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count > 0 {
+						let model = results[0]
+						let facilitiesFromDB = model.facilities
+						let lastUpdated = model.lastUpdated
+						
+						self.facilitiesArray = facilitiesFromDB
+						self.LocationsList.reloadData()
+						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
+					}
+					else {
+						self.facilitiesArray = List<Facility>()
+					}
+				}
+			}
+			else {
+				self.facilitiesArray = facilities!
+				
+				DispatchQueue.main.async {
+					//let defaults = UserDefaults.standard
+					//defaults.set(facilities, forKey: "FacilitiesList")
+					let date = Date()
+					//defaults.set(date, forKey: "lastUpdatedList")
+					self.LocationsList.reloadData()
+					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
+					let model = FacilitiesModel()
+					model.facilities = facilities!
+					model.lastUpdated = date
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count == 0 {
+						try! self.realm.write {
+							self.realm.add(model)
+						}
+					}
+					else {
+						let fromRealm = results[0]
+						try! self.realm.write {
+							fromRealm.facilities = model.facilities
+							fromRealm.lastUpdated = model.lastUpdated
+						}
+					}
+				}
+			}
+			
+
+			
+		}
 	}
     
 	func shortDateFormat(_ date: Date) -> String {
@@ -446,4 +544,6 @@ extension FacilitiesListViewController: UISearchResultsUpdating {
         filteredFacilities = filterFacilitiesForSearchText(searchText)
     }
 }
+
+
 
