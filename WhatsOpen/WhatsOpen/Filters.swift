@@ -130,8 +130,21 @@ class Filters {
         
         return []
     }
-    
-    
+	
+	func setShowOpen(_ to: Bool) -> Bool {
+		showOpen = to
+		return true
+	}
+	
+	func setShowClosed(_ to: Bool) -> Bool {
+		showClosed = to
+		return true
+	}
+	
+	func setOpenFirst(_ to: Bool) -> Bool {
+		openFirst = to
+		return true
+	}
     
     
 }
@@ -143,6 +156,10 @@ enum SortMethod {
 	case byLocation // A -> Z Locations, w/ A -> Z Facilities inside
     //case openLongest //Places things open longest on top; if only showing closed, shows opening soonest
 	//case openShortest //Places things closing soonest on top; if only showing closed, shows opening furthest from now
+	
+	
+	static var count = 3 // REMEMBER TO CHANGE THIS IF YOU ADD MORE CASES
+	
 	
 	//We should figure out how we want to allow sorting
 }

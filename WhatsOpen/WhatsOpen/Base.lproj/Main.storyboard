@@ -45,6 +45,28 @@
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="picking" rowHeight="157" id="Qzo-pS-g9l" customClass="PickingTableViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="157"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qzo-pS-g9l" id="gyt-MF-bQ2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="156.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpt-Of-2BY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                                        </pickerView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="centerX" secondItem="Qzo-pS-g9l" secondAttribute="centerX" id="CjR-K6-Sgm"/>
+                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="width" secondItem="Qzo-pS-g9l" secondAttribute="width" id="d22-Bv-Rtp"/>
+                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="height" secondItem="Qzo-pS-g9l" secondAttribute="height" id="eS7-jA-ZGG"/>
+                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="centerY" secondItem="Qzo-pS-g9l" secondAttribute="centerY" id="ejW-ir-L9k"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="pickerView" destination="Rpt-Of-2BY" id="ek7-I8-MFW"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="jkQ-vu-LQa" id="DbO-38-R86"/>
@@ -61,7 +83,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyJ-38-T8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8599" y="-349"/>
+            <point key="canvasLocation" x="-8599.2000000000007" y="-349.47526236881561"/>
         </scene>
         <!--What's Open-->
         <scene sceneID="w5e-Fb-rsR">

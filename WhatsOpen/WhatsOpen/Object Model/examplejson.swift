@@ -54,9 +54,10 @@ class Locations: Object, Mappable {
     @objc dynamic var onCampus = false
 
     required convenience init?(map: Map){
-        self.init()
+		self.init()
     }
-    func mapping(map: Map){
+	
+	func mapping(map: Map){
         id <- map["id"]
         created <- map["created"]
         lastmodified <- map["modified"]

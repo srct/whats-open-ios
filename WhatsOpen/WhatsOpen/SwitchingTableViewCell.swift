@@ -11,6 +11,7 @@ import UIKit
 class SwitchingTableViewCell: UITableViewCell {
 
 	let switchControl = UISwitch()
+	var toggleFunc: ((Bool)->Bool)!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +28,11 @@ class SwitchingTableViewCell: UITableViewCell {
 
 	@objc func toggleSwitch(_ sender: Any) {
 		print("toggle")
-		dump(sender)
-		//LocationsListViewController.checkForReload(sander, switchControl.isOn)
+		
+		let res = toggleFunc(self.switchControl.isOn)
+		if( res == false ) {
+			// Probably should do some error handling here
+		}
 	}
 	
 }

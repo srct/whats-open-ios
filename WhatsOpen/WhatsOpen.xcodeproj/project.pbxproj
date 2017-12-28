@@ -19,6 +19,7 @@
 		9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
+		929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
 		92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
 		92F681581FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
 		92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
@@ -59,6 +60,7 @@
 		927A8466141434969CE74044 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
+		929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingTableViewCell.swift; sourceTree = "<group>"; };
 		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
 		92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-WhatsOpen-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
 				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
+				929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */,
 				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
 				CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */,
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */,
+				929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
