@@ -74,6 +74,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filters" id="cMM-TC-eOa">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="oiZ-l0-N5p">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="resetButton:" destination="jkQ-vu-LQa" id="0A8-2P-9dL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="fjl-0E-K5s">
                             <connections>
                                 <action selector="doneButton:" destination="jkQ-vu-LQa" id="mmt-OK-gtV"/>

@@ -19,6 +19,10 @@ class FiltersTableViewController: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	@IBAction func resetButton(_ sender: Any) {
+		filters = Filters()
+		tableView.reloadData()
+	}
 	var filters: Filters!
 	var facilities: List<Facility>!
 	//var allLocations: [Locations] = [Locations]()
