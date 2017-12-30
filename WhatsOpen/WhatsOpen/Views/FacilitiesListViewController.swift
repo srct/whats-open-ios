@@ -218,7 +218,20 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		*/
 		
 		refresh(self, forceUpdate: false)
+		
+		// Add locations and categories to filters
+		for f in facilitiesArray {
+			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
+				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!)
+			}
+			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
+				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
+			}
+		}
+		
 		LocationsList.reloadData()
+		
+		
 	}
 	
 	
@@ -490,30 +503,31 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     // MARK: - Navigation
 
     //In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        if(segue.identifier == "toDetailView") {
-//            let destination = segue.destination as! FacilityDetailViewController
-//            let destDelegate = DeckTransitioningDelegate()
-//            destination.transitioningDelegate = destDelegate
-//            let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
-//            destination.facility = tapped.facility
-//
-//            // if we're in the search view, present on its controller
-//            if searchController.isActive {
-//                searchController.present(destination, animated: true, completion: nil)
-//            } else {
-//                present(destination, animated: true, completion: nil)
-//            }
-//        }
-//        else if(segue.identifier == "toFilters") {
-//            let destination = segue.destination as! UINavigationController
-//            let filterView = destination.topViewController as! FiltersTableViewController
-//            filterView.filters = self.filters
-//        }
-//
-//        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if(segue.identifier == "toDetailView") {
+            let destination = segue.destination as! FacilityDetailViewController
+            let destDelegate = DeckTransitioningDelegate()
+            destination.transitioningDelegate = destDelegate
+            let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
+            destination.facility = tapped.facility
+
+            // if we're in the search view, present on its controller
+            if searchController.isActive {
+                searchController.present(destination, animated: true, completion: nil)
+            } else {
+                present(destination, animated: true, completion: nil)
+            }
+        }
+        else if(segue.identifier == "toFilters") {
+            let destination = segue.destination as! UINavigationController
+            let filterView = destination.topViewController as! FiltersTableViewController
+			filterView.facilities = self.facilitiesArray
+            filterView.filters = self.filters
+        }
+
+        // Pass the selected object to the new view controller.
+    }
 	
 	// MARK: - Peek and Pop
 	

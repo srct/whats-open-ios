@@ -18,6 +18,7 @@ class SwitchingTableViewCell: UITableViewCell {
         // Initialization code
 		switchControl.addTarget(self, action: #selector(toggleSwitch), for: .valueChanged)
 		self.accessoryView = switchControl
+		self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

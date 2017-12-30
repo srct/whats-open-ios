@@ -16,8 +16,9 @@ class Filters {
 	var sortBy = SortMethod.alphabetical
     var openFirst = true
 	
-	var onlyFromLocations = [Locations]() // Locations to show, could simply use Location objects instead if you wanted
-	var onlyFromCategories = [Categories]() //same as above, but for Categories, not Locations
+	// TODO: Deal with these
+	var onlyFromLocations = [String: Bool]() // Locations to show, could simply use Location objects instead if you wanted
+	var onlyFromCategories = [String: Bool]() //same as above, but for Categories, not Locations
 	//can check these using the .equals() functions in Locations and Categories
 	
 	

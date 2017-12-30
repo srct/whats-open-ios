@@ -11,16 +11,17 @@ import UIKit
 class PickingTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
 
 	@IBOutlet var pickerView: UIPickerView!
-	var pickerStrings: [String]!
+	var pickerStrings: [String] = [String]()
 	var pickerItems: [Any?]! //literally just here for convienence
-	var pickerChecked: [Bool]! //Should I use a dictionary? maybe, but this is way easier
-	
+	var pickerChecked = [Bool]() //Should I use a dictionary? maybe, but this is way easier
+	var pickFunc: ((String?) -> Bool)!
 	
 	override func awakeFromNib() {
-        super.awakeFromNib()
 		self.selectionStyle = .none
 		pickerView.dataSource = self
 		pickerView.delegate = self
+		super.awakeFromNib()
+
         // Initialization code
     }
 

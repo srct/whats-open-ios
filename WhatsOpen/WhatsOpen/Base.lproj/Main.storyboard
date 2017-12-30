@@ -53,16 +53,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpt-Of-2BY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                                            <rect key="frame" x="0.0" y="-30" width="375" height="216"/>
                                         </pickerView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Rpt-Of-2BY" firstAttribute="top" secondItem="gyt-MF-bQ2" secondAttribute="topMargin" constant="-41" id="7mi-Wh-JBQ"/>
+                                        <constraint firstItem="Rpt-Of-2BY" firstAttribute="centerY" secondItem="gyt-MF-bQ2" secondAttribute="centerY" id="NoV-nt-cIb"/>
+                                        <constraint firstItem="Rpt-Of-2BY" firstAttribute="leading" secondItem="gyt-MF-bQ2" secondAttribute="leading" id="eka-9S-DfO"/>
+                                        <constraint firstAttribute="trailing" secondItem="Rpt-Of-2BY" secondAttribute="trailing" id="tBC-fA-0Nf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="centerX" secondItem="Qzo-pS-g9l" secondAttribute="centerX" id="CjR-K6-Sgm"/>
-                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="width" secondItem="Qzo-pS-g9l" secondAttribute="width" id="d22-Bv-Rtp"/>
-                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="height" secondItem="Qzo-pS-g9l" secondAttribute="height" id="eS7-jA-ZGG"/>
-                                    <constraint firstItem="Rpt-Of-2BY" firstAttribute="centerY" secondItem="Qzo-pS-g9l" secondAttribute="centerY" id="ejW-ir-L9k"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="pickerView" destination="Rpt-Of-2BY" id="ek7-I8-MFW"/>
                                 </connections>
@@ -160,6 +160,7 @@
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="width" secondItem="uhu-6U-8Tx" secondAttribute="width" id="Ftl-Xc-Ebe"/>
                                             <constraint firstItem="o7N-To-w50" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" constant="4" id="SX9-Zt-4A1"/>
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="top" secondItem="uhu-6U-8Tx" secondAttribute="bottom" constant="-3" id="eIM-MS-uXs"/>
+                                            <constraint firstAttribute="trailing" secondItem="6QR-8Q-n4s" secondAttribute="trailing" constant="5" id="fPa-e2-kxS"/>
                                             <constraint firstAttribute="bottom" secondItem="DEx-BH-Fun" secondAttribute="bottom" constant="6" id="kFY-Lf-EkL"/>
                                             <constraint firstItem="DEx-BH-Fun" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" constant="4" id="khv-Ot-qRM"/>
                                             <constraint firstItem="uhu-6U-8Tx" firstAttribute="top" secondItem="6qn-VX-mZx" secondAttribute="top" constant="8" id="yOA-sO-1or"/>

@@ -21,8 +21,8 @@ class FiltersTableViewController: UITableViewController {
 	
 	var filters: Filters!
 	var facilities: List<Facility>!
-	var allLocations: [Locations] = [Locations]()
-	var allCategories: [Categories]! = [Categories]()
+	//var allLocations: [Locations] = [Locations]()
+	//var allCategories: [Categories]! = [Categories]()
 	
 	var showOpen, showClosed, openFirst: SwitchingTableViewCell!
 	var sortOptions: [CheckingTableViewCell] = []
@@ -35,6 +35,7 @@ class FiltersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		/*
 		for f in facilities {
 			if(!allLocations.contains(f.facilityLocation!)) {
 				allLocations.append(f.facilityLocation!)
@@ -43,6 +44,7 @@ class FiltersTableViewController: UITableViewController {
 				allCategories.append(f.category!)
 			}
 		}
+		*/
 		
 		tableView.reloadData()
 		
@@ -83,6 +85,21 @@ class FiltersTableViewController: UITableViewController {
 		}
     }
 
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		switch section {
+		case 0, 1:
+			return nil
+		case 2:
+			return "Sort Facilities"
+		case 3:
+			return "Show Locations"
+		case 4:
+			return "Show Categories"
+		default:
+			return nil
+		}
+	}
+	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		switch indexPath.section {
 		  case 0:
@@ -103,28 +120,68 @@ class FiltersTableViewController: UITableViewController {
 			  default:
 				cell = UITableViewCell() as! SwitchingTableViewCell //this is bad don't let this happen
 			}
+			return cell
 		  case 1:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
 			cell.textLabel!.text = "Show Open Facilities First"
 			cell.switchControl.isEnabled = filters.showOpen
+			cell.switchControl.isOn = filters.openFirst
 			cell.toggleFunc = filters.setOpenFirst
+			return cell
 		  case 2: // TODO
+			let method: SortMethod
+			let cellText: String
+			switch indexPath.row {
+			case 0:
+				method = SortMethod.alphabetical
+				cellText = "Alphabetically (A-Z)"
+			case 1:
+				method = SortMethod.reverseAlphabetical
+				cellText = "Reverse Alphabetically (Z-A)"
+			case 2:
+				method = SortMethod.byLocation
+				cellText = "By Location Name (A-Z)"
+			default:
+				method = SortMethod.alphabetical
+				cellText = "Alphabetically (A-Z)"
+			}
 			let cell: CheckingTableViewCell
 			cell = tableView.dequeueReusableCell(withIdentifier: "Checkbox Filter", for: indexPath) as! CheckingTableViewCell
 			cell.onlyOne = self.onlyOne
 			cell.cellIndex = indexPath.row
+			cell.selectingEnum = method
+			cell.selectFunc = onlyCheckOne
+			if(filters.sortBy == method) {
+				cell.accessoryType = .checkmark
+			}
+			else {
+				cell.accessoryType = .none
+			}
+			cell.textLabel!.text = cellText
 			sortOptions.append(cell)
 			return cell
 		  case 3: // TODO
 			let cell = tableView.dequeueReusableCell(withIdentifier: "picking", for: indexPath) as! PickingTableViewCell
-			cell.pickerStrings = []
-			cell.pickerItems = []
+			var strings = [String]()
+			var items = [Bool]()
+			for l in filters.onlyFromLocations {
+				strings.append(l.key)
+				items.append(l.value)
+			}
+			cell.pickerStrings = strings
+			cell.pickerChecked = items
 			
 			return cell
 		  case 4: // TODO
 			let cell = tableView.dequeueReusableCell(withIdentifier: "picking", for: indexPath) as! PickingTableViewCell
-			cell.pickerStrings = []
-			cell.pickerItems = []
+			var strings = [String]()
+			var items = [Bool]()
+			for l in filters.onlyFromCategories {
+				strings.append(l.key)
+				items.append(l.value)
+			}
+			cell.pickerStrings = strings
+			cell.pickerChecked = items
 			
 			return cell
 		  default:
@@ -138,6 +195,13 @@ class FiltersTableViewController: UITableViewController {
 	
 	func updateOpenFirstEnabledState(_ to: Bool) -> Bool {
 		filters.setShowOpen(to)
+		var index = IndexPath(row: 0, section: 1)
+		tableView.reloadRows(at: [index], with: .automatic)
+		return true
+	}
+	
+	func onlyCheckOne(_ method: Any?) -> Bool {
+		filters.sortBy = method as! SortMethod // Be careful when calling this
 		tableView.reloadData()
 		return true
 	}
