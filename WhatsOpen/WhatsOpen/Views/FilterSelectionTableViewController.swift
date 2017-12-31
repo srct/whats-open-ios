@@ -86,7 +86,7 @@ class FilterSelectionTableViewController: UITableViewController {
 		else {
 			let tableCell = tableView.cellForRow(at: indexPath)
 			var res: Bool
-			if(tableCell?.accessoryType == .none) {
+			if(tableCell?.accessoryType == UITableViewCellAccessoryType.none) {
 				res = true
 			}
 			else {
@@ -97,14 +97,18 @@ class FilterSelectionTableViewController: UITableViewController {
 		}
 	}
 
-    /*
+	
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+		if(segue.identifier == "toSelection") {
+			let destination = segue.destination as! FiltersTableViewController
+			destination.tableView.reloadData()
+		}
     }
-    */
+	
 
 }

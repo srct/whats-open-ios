@@ -20,7 +20,17 @@ class FiltersTableViewController: UITableViewController {
 	}
 	
 	@IBAction func resetButton(_ sender: Any) {
+		var c = filters.onlyFromCategories
+		var l = filters.onlyFromLocations
+		for v in c {
+			c.updateValue(true, forKey: v.key)
+		}
+		for v in l {
+			l.updateValue(true, forKey: v.key)
+		}
 		filters = Filters()
+		filters.onlyFromCategories = c
+		filters.onlyFromLocations = l
 		tableView.reloadData()
 	}
 	var filters: Filters!
@@ -34,6 +44,7 @@ class FiltersTableViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		onlyOne = OnlyOneChecked(tableView: self, tableCellChecked: -1)
+		tableView.reloadData()
 	}
 	
     override func viewDidLoad() {
@@ -49,8 +60,6 @@ class FiltersTableViewController: UITableViewController {
 			}
 		}
 		*/
-		
-		tableView.reloadData()
 		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -179,6 +188,7 @@ class FiltersTableViewController: UITableViewController {
 				else {
 					detail = "\(i) Selected"
 				}
+				cell.detailTextLabel?.text = detail
 			case 1:
 				cell.textLabel?.text = "Locations"
 				var i = 0
@@ -194,6 +204,7 @@ class FiltersTableViewController: UITableViewController {
 				else {
 					detail = "\(i) Selected"
 				}
+				cell.detailTextLabel?.text = detail
 			default:
 				return cell
 			}
@@ -300,13 +311,13 @@ class FiltersTableViewController: UITableViewController {
 			}
 			func selectAllFunc() -> Bool {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
-					for var v in filters.onlyFromCategories {
-						v.value = true
+					for v in filters.onlyFromCategories {
+						filters.onlyFromCategories.updateValue(true, forKey: v.key)
 					}
 				}
 				else {
-					for var v in filters.onlyFromLocations {
-						v.value = true
+					for v in filters.onlyFromLocations {
+						filters.onlyFromLocations.updateValue(true, forKey: v.key)
 					}
 				}
 				return true
