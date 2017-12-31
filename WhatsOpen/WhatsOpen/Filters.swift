@@ -16,11 +16,8 @@ class Filters {
 	var sortBy = SortMethod.alphabetical
     var openFirst = true
 	
-	// TODO: Deal with these
 	var onlyFromLocations = [String: Bool]() // Locations to show, could simply use Location objects instead if you wanted
 	var onlyFromCategories = [String: Bool]() //same as above, but for Categories, not Locations
-	//can check these using the .equals() functions in Locations and Categories
-	
 	
 	init() {
         //nothing to do here
@@ -29,7 +26,15 @@ class Filters {
     func applyFiltersOnFacilities(_ facilities: [Facility]) -> [Facility] {
 		//TODO: Add checks for onlyFromLocations and onlyFromCategories here before doing the rest
 		
-		let (open, closed) = separateOpenAndClosed(facilities)
+		var specifiedFacilities = [Facility]()
+		// facility must be within both a specified location and category
+		for f in facilities {
+			if(onlyFromLocations[(f.facilityLocation?.building)!] == true && onlyFromCategories[(f.category?.categoryName)!] == true) {
+				specifiedFacilities.append(f)
+			}
+		}
+		
+		let (open, closed) = separateOpenAndClosed(specifiedFacilities)
         
         // This switch statement figures out what sort method is being used, and will sort accordingly
         switch sortBy {
@@ -145,6 +150,26 @@ class Filters {
 	func setOpenFirst(_ to: Bool) -> Bool {
 		openFirst = to
 		return true
+	}
+	
+	func setCategory(_ category: String?, to: Bool) -> Bool{
+		if(category != nil) {
+			onlyFromCategories[category!] = to
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	func setLocation(_ location: String?, to: Bool) -> Bool{
+		if(location != nil) {
+			onlyFromLocations[location!] = to
+			return true
+		}
+		else {
+			return false
+		}
 	}
     
     

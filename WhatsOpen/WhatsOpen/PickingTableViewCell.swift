@@ -14,7 +14,7 @@ class PickingTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewD
 	var pickerStrings: [String] = [String]()
 	var pickerItems: [Any?]! //literally just here for convienence
 	var pickerChecked = [Bool]() //Should I use a dictionary? maybe, but this is way easier
-	var pickFunc: ((String?) -> Bool)!
+	var pickFunc: ((String?, Bool) -> Bool)!
 	
 	override func awakeFromNib() {
 		self.selectionStyle = .none
@@ -45,7 +45,8 @@ class PickingTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewD
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		pickerChecked[row] = !pickerChecked[row]
-		pickerView.showsSelectionIndicator = pickerChecked[row]
+		pickFunc(pickerStrings[row], pickerChecked[row])
+		pickerView.reloadComponent(component)
 	}
 	
 }

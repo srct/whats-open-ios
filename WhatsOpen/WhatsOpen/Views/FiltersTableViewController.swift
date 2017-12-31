@@ -174,7 +174,7 @@ class FiltersTableViewController: UITableViewController {
 			}
 			cell.pickerStrings = strings
 			cell.pickerChecked = items
-			
+			cell.pickFunc = filters.setLocation
 			return cell
 		  case 4: // TODO
 			let cell = tableView.dequeueReusableCell(withIdentifier: "picking", for: indexPath) as! PickingTableViewCell
@@ -186,7 +186,7 @@ class FiltersTableViewController: UITableViewController {
 			}
 			cell.pickerStrings = strings
 			cell.pickerChecked = items
-			
+			cell.pickFunc = filters.setCategory
 			return cell
 		  default:
 			let cell = UITableViewCell() //this is bad don't let this happen
@@ -199,7 +199,7 @@ class FiltersTableViewController: UITableViewController {
 	
 	func updateOpenFirstEnabledState(_ to: Bool) -> Bool {
 		filters.setShowOpen(to)
-		var index = IndexPath(row: 0, section: 1)
+		let index = IndexPath(row: 0, section: 1)
 		tableView.reloadRows(at: [index], with: .automatic)
 		return true
 	}
