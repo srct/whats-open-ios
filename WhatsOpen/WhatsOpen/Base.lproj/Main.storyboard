@@ -75,7 +75,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yIT-AR-gdn" kind="show" id="86R-Fz-PuY"/>
+                                    <segue destination="yIT-AR-gdn" kind="show" identifier="toSelection" id="86R-Fz-PuY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

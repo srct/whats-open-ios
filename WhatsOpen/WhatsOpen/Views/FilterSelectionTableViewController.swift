@@ -84,15 +84,15 @@ class FilterSelectionTableViewController: UITableViewController {
 			tableView.reloadData()
 		}
 		else {
-			let tableCell = self.tableView(tableView, cellForRowAt: indexPath)
+			let tableCell = tableView.cellForRow(at: indexPath)
 			var res: Bool
-			if(tableCell.accessoryType == .none) {
+			if(tableCell?.accessoryType == .none) {
 				res = true
 			}
 			else {
 				res = false
 			}
-			selectFunc((tableCell.textLabel?.text)!, res)
+			selectFunc((tableCell?.textLabel?.text)!, res)
 			tableView.reloadRows(at: [IndexPath(row: 0, section: 0), indexPath], with: .automatic)
 		}
 	}

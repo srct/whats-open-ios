@@ -68,7 +68,7 @@ class FiltersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,9 +81,7 @@ class FiltersTableViewController: UITableViewController {
 		case 2:
 			return SortMethod.count
 		case 3:
-			return 1
-		case 4:
-			return 1
+			return 2
 		default:
 			return 0
 		}
@@ -96,9 +94,7 @@ class FiltersTableViewController: UITableViewController {
 		case 2:
 			return "Sort Facilities"
 		case 3:
-			return "Show Locations"
-		case 4:
-			return "Show Categories"
+			return "Show Only Specified"
 		default:
 			return nil
 		}
@@ -165,28 +161,42 @@ class FiltersTableViewController: UITableViewController {
 			sortOptions.append(cell)
 			return cell
 		  case 3: // TODO
-			let cell = tableView.dequeueReusableCell(withIdentifier: "picking", for: indexPath) as! PickingTableViewCell
-			var strings = [String]()
-			var items = [Bool]()
-			for l in filters.onlyFromLocations {
-				strings.append(l.key)
-				items.append(l.value)
+			let cell = tableView.dequeueReusableCell(withIdentifier: "toSelection", for: indexPath)
+			cell.accessoryType = .disclosureIndicator
+			switch indexPath.row {
+			case 0:
+				cell.textLabel?.text = "Categories"
+				var i = 0
+				for c in filters.onlyFromCategories {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == filters.onlyFromCategories.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+			case 1:
+				cell.textLabel?.text = "Locations"
+				var i = 0
+				for c in filters.onlyFromLocations {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == filters.onlyFromLocations.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+			default:
+				return cell
 			}
-			cell.pickerStrings = strings
-			cell.pickerChecked = items
-			cell.pickFunc = filters.setLocation
-			return cell
-		  case 4: // TODO
-			let cell = tableView.dequeueReusableCell(withIdentifier: "picking", for: indexPath) as! PickingTableViewCell
-			var strings = [String]()
-			var items = [Bool]()
-			for l in filters.onlyFromCategories {
-				strings.append(l.key)
-				items.append(l.value)
-			}
-			cell.pickerStrings = strings
-			cell.pickerChecked = items
-			cell.pickFunc = filters.setCategory
 			return cell
 		  default:
 			let cell = UITableViewCell() //this is bad don't let this happen
@@ -196,6 +206,13 @@ class FiltersTableViewController: UITableViewController {
 		return UITableViewCell() //shouldn't come to this
         // Configure the cell...
     }
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let cell = tableView.cellForRow(at: indexPath)
+		cell?.isSelected = false
+		
+		//nothing is selected forever
+	}
 	
 	func updateOpenFirstEnabledState(_ to: Bool) -> Bool {
 		filters.setShowOpen(to)
@@ -253,12 +270,53 @@ class FiltersTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
 		
 		//Using this code means there won't be live updates, but that only matters on the iPad with a popover
-		filters.showOpen = showOpen.switchControl.isOn
-		filters.showClosed = showClosed.switchControl.isOn
+		//filters.showOpen = showOpen.switchControl.isOn
+		//filters.showClosed = showClosed.switchControl.isOn
 		
 		if(segue.identifier == "toFilters") {
 			let destination = segue.destination as! FacilitiesListViewController
 			destination.filters = self.filters
+		}
+		else if(segue.identifier == "toSelection") {
+			let destination = segue.destination as! FilterSelectionTableViewController
+			destination.navigationItem.title = (sender as! UITableViewCell).textLabel?.text!
+			
+			func get() -> [String: Bool] {
+				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
+					return filters.onlyFromCategories
+				}
+				else {
+					return filters.onlyFromLocations
+				}
+			}
+			func selectFunc(_ key: String, value: Bool) -> Bool {
+				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
+					filters.onlyFromCategories[key] = value
+				}
+				else {
+					filters.onlyFromLocations[key] = value
+				}
+				return true
+			}
+			func selectAllFunc() -> Bool {
+				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
+					for var v in filters.onlyFromCategories {
+						v.value = true
+					}
+				}
+				else {
+					for var v in filters.onlyFromLocations {
+						v.value = true
+					}
+				}
+				return true
+			}
+			
+			destination.getFunc = get
+			destination.selectFunc = selectFunc
+			destination.selectAllFunc = selectAllFunc
+			
+			
 		}
 		
         // Pass the selected object to the new view controller.
