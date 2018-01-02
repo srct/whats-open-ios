@@ -219,15 +219,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		refresh(self, forceUpdate: false)
 		
-		// Add locations and categories to filters
-		for f in facilitiesArray {
-			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
-				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!)
-			}
-			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
-				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
-			}
-		}
+
 		
 		LocationsList.reloadData()
 		
@@ -310,6 +302,16 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 		}
 		LocationsList.reloadData()
+		
+		// Add locations and categories to filters
+		for f in facilitiesArray {
+			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
+				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!)
+			}
+			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
+				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
+			}
+		}
 		refreshControl.endRefreshing()
 	}
 	
