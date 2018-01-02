@@ -114,9 +114,30 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender, forceUpdate: true)
 	}
+	
+	func checkFilterState() {
+		if(filters.showOpen && filters.showClosed && filters.openFirst && filters.sortBy == SortMethod.alphabetical) {
+			for f in filters.onlyFromCategories {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
+			for f in filters.onlyFromLocations {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
+			LeftButton.title = "Filter"
+			return
+		}
+		LeftButton.title = "Filter (On)"
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
+		checkFilterState()
 	}
 	
 	@objc func tapRecognizer(_ sender: UITapGestureRecognizer) {
