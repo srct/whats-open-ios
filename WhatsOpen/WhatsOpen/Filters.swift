@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 //This may be a stupid way to handle filters, but it should work; at least for now
 
@@ -23,10 +24,10 @@ class Filters {
         //nothing to do here
 	}
 	
-    func applyFiltersOnFacilities(_ facilities: [Facility]) -> [Facility] {
+    func applyFiltersOnFacilities(_ facilities: List<Facility>) -> List<Facility> {
 		//TODO: Add checks for onlyFromLocations and onlyFromCategories here before doing the rest
 		
-		var specifiedFacilities = [Facility]()
+		let specifiedFacilities = List<Facility>()
 		// facility must be within both a specified location and category
 		for f in facilities {
 			if(onlyFromLocations[(f.facilityLocation?.building)!] == true && onlyFromCategories[(f.category?.categoryName)!] == true) {
@@ -40,7 +41,7 @@ class Filters {
         switch sortBy {
         case .alphabetical:
             if(openFirst) {
-                var returning: [Facility] = []
+                var returning = List<Facility>()
                 if(showOpen) {
                     returning += sortAlphabetically(open)
                 }
@@ -60,12 +61,12 @@ class Filters {
                     return sortAlphabetically(closed)
                 }
                 else {
-                    return []
+                    return List<Facility>()
                 }
             }
         case .reverseAlphabetical:
             if(openFirst) {
-                var returning: [Facility] = []
+                var returning = List<Facility>()
                 if(showOpen) {
                     returning += sortAlphabetically(open, reverse: true)
                 }
@@ -85,12 +86,12 @@ class Filters {
                     return sortAlphabetically(closed, reverse: true)
                 }
                 else {
-                    return []
+                    return List<Facility>()
                 }
             }
         case .byLocation:
             if(openFirst) {
-                var returning: [Facility] = []
+                var returning = List<Facility>()
                 if(showOpen) {
                     returning += sortByLocation(open)
                 }
@@ -110,7 +111,7 @@ class Filters {
                     return sortByLocation(closed)
                 }
                 else {
-                    return []
+                    return List<Facility>()
                 }
             }
         }
@@ -118,23 +119,23 @@ class Filters {
 	
 	//TODO
     // Takes in array of Facilities, separates them into those open and closed, returning a tuple of 2 arrays
-    private func separateOpenAndClosed(_ facilities: [Facility]) -> (open: [Facility], closed: [Facility]) {
+    private func separateOpenAndClosed(_ facilities: List<Facility>) -> (open: List<Facility>, closed: List<Facility>) {
         
-        return ([], [])
+        return (List<Facility>(), List<Facility>())
     }
 	
 	//TODO
     // Sorts items in the given Facility array by name alphabetically (reverse if told)
-    private func sortAlphabetically(_ facilities: [Facility], reverse: Bool = false) -> [Facility] {
+    private func sortAlphabetically(_ facilities: List<Facility>, reverse: Bool = false) -> List<Facility> {
         
-        return []
+        return List<Facility>()
     }
 	
 	//TODO
     // Sorts Facilities by their given location's name, and within those sorts A->Z
-    private func sortByLocation(_ facilities: [Facility]) -> [Facility] {
+    private func sortByLocation(_ facilities: List<Facility>) -> List<Facility> {
         
-        return []
+        return List<Facility>()
     }
 	
 	func setShowOpen(_ to: Bool) -> Bool {
