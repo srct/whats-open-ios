@@ -145,6 +145,12 @@
       "scale" : "2x"
     },
     {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "ItunesArtwork@2x.png",
+      "scale" : "1x"
+    },
+    {
       "size" : "24x24",
       "idiom" : "watch",
       "filename" : "Icon-24@2x.png",
@@ -207,6 +213,11 @@
       "subtype" : "42mm"
     },
     {
+      "idiom" : "watch-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
+    },
+    {
       "idiom" : "mac",
       "size" : "16x16",
       "scale" : "1x"
@@ -247,15 +258,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "ItunesArtwork.png",
+      "size" : "512x512",
       "scale" : "1x"
     },
     {
-      "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "ItunesArtwork@2x.png",
+      "size" : "512x512",
       "scale" : "2x"
     }
   ],

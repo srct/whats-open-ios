@@ -27,17 +27,60 @@ class Utilities: NSObject {
                     if today(facility: facility) != nil {
                         open = time(facility)
                     }
-            }
-
+                }
             } else {
-            open = false
-        }
+                open = false
+            }
         }
 
         return open
     }
 
-    static func getDayOfWeek() -> Int? {
+    static func getDayOfWeek(_ day: Day, small: Bool = false) -> String? {
+        if !small {
+            switch day {
+            case .Monday:
+                return "Monday"
+            case .Tuesday:
+                return "Tuesday"
+            case .Wednesday:
+                return "Wednesday"
+            case .Thursday:
+                return "Thursday"
+            case .Friday:
+                return "Friday"
+            case .Saturday:
+                return "Saturday"
+            case .Sunday:
+                return "Sunday"
+            default:
+                return nil
+            }
+        }
+        else {
+            switch day {
+            case .Monday:
+                return "Mon"
+            case .Tuesday:
+                return "Tue"
+            case .Wednesday:
+                return "Wed"
+            case .Thursday:
+                return "Thu"
+            case .Friday:
+                return "Fri"
+            case .Saturday:
+                return "Sat"
+            case .Sunday:
+                return "Sun"
+            default:
+                return nil
+            }
+        }
+
+    }
+    
+    static func getCurrentDayOfWeek() -> Int? {
         let todayDate    = NSDate()
         let myCalendar   = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let myComponents = myCalendar?.components(.weekday, from: todayDate as Date)
@@ -62,7 +105,7 @@ class Utilities: NSObject {
         let scheduleValid     = special ? self.isSpecialSchedule(facility) : self.isMainSchedule(facility: facility)
         let scheduleOpenTimes = special ? facility.specialSchedule!.openTimes : facility.mainSchedule!.openTimes
 
-        let currentDay = getDayOfWeek()
+        let currentDay = getCurrentDayOfWeek()
         if(scheduleValid) {
             for openTime in scheduleOpenTimes {
                 if(currentDay! >= openTime.startDay && currentDay! <= openTime.endDay) {
@@ -97,7 +140,7 @@ class Utilities: NSObject {
     static func time(_ facility: Facility) -> Bool {
         let nowTime        = getCurrentTime()
         guard let startEnd = getStartEndDates(facility) else { return false }
-        var startTime      = startEnd.startTime
+        let startTime      = startEnd.startTime
         var endTime        = startEnd.endTime
         if endTime < startTime {
             endTime = Date.endOfCurrentDay()
@@ -144,6 +187,57 @@ class Utilities: NSObject {
         }
         return nil
     }
+    static func openOrClosedUntil(_ facility: Facility) -> String? {
+        let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
+
+        let startEnd = getStartEndDates(facility)
+        if facility.mainSchedule!.twentyFourHours {
+            return "Open all day"
+        }
+        if(Utilities.isOpen(facility: facility)) {
+            // Might be a better way of doing this, but for now, this works.
+            if(isMainSchedule(facility: facility)) {
+                if(!facility.mainSchedule!.openTimes.isEmpty) {
+                    if startEnd != nil {
+                        let time = viewingFormatter.string(from: startEnd!.endTime)
+                        return "Open until \(time)"
+                    }
+                }
+                //Eventually add more detailled text here, allowing for more custom
+                //messages as it gets closer to closing time
+            } else {
+                if startEnd != nil {
+                    let time = viewingFormatter.string(from: startEnd!.startTime)
+                    return "Closed until \(time)."
+                }
+                
+            }
+            
+        } else {
+            return "Closed"
+        }
+        return nil
+    }
+    
+    static func getFormattedStartandEnd(_ openTime: OpenTimes) -> String? {
+        //Is it inelegant to go from string to date to string? maybe.
+        //Does it work? absolutely.
+        
+        let dateFormatter = DateFormatter.easternCoastTimeFormat
+        let startTime = dateFormatter.date(from: openTime.startTime)
+        let endTime = dateFormatter.date(from: openTime.endTime)
+        
+        let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
+        var returning = viewingFormatter.string(from: startTime!) + " - "
+        
+        if(openTime.startDay != openTime.endDay) {
+            returning += getDayOfWeek((Day(rawValue: openTime.endDay))!, small: true)! + " "
+        }
+        
+        returning += viewingFormatter.string(from: endTime!)
+        
+        return returning
+    }
 
     static func isSpecialSchedule(_ facility: Facility) -> Bool {
         return facility.specialSchedule!.isValid
@@ -151,6 +245,68 @@ class Utilities: NSObject {
 
     static func isMainSchedule(facility: Facility) -> Bool {
         return facility.mainSchedule != nil
+    }
+    
+    //MARK - Favorite facilities
+    
+    /**
+     Checks if a facility is a favorite.
+     
+     - returns:
+        true if the facility is a favorite, false if it isn't
+     */
+    static func isFavoriteFacility(_ facility: Facility) -> Bool {
+        let defaults = UserDefaults.standard
+        let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
+		if( favoriteStrings == nil ) {
+			return false
+		}
+        // return if the facility's name is in the list of favorites
+        return favoriteStrings!.contains { (favorite: String) -> Bool in
+            return facility.facilityName == favorite
+        }
+    }
+	
+    /**
+     Adds a facility to the UserDefault's favorites list.
+     
+     - returns:
+        true if the facility was added correctly, false if the facility is already a favorite.
+     */
+    static func addFavoriteFacility(_ facility: Facility) -> Bool {
+        if(isFavoriteFacility(facility)) {
+            return false
+        }
+        else {
+            let defaults = UserDefaults.standard
+            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
+			if(favoriteStrings == nil) {
+				favoriteStrings = []
+			}
+            favoriteStrings?.append(facility.facilityName)
+            defaults.set(favoriteStrings, forKey: "favorites")
+            return true
+        }
+    }
+    
+    /**
+     Removes a facility from the UserDefault's favorites list.
+     
+     - returns:
+        true if the facility was removed correctly, false if the facility is not a favorite.
+     */
+    static func removeFavoriteFacility(_ facility: Facility) -> Bool {
+        if(isFavoriteFacility(facility)) {
+            let defaults = UserDefaults.standard
+            var favoriteStrings = defaults.array(forKey: "favorites") as! [String]
+            let removing = favoriteStrings.index(of: facility.facilityName)
+            favoriteStrings.remove(at: removing!)
+            defaults.set(favoriteStrings, forKey: "favorites")
+			return true
+        }
+        else {
+            return false
+        }
     }
 
 }
@@ -162,6 +318,14 @@ extension DateFormatter {
         dateFormatter.timeZone   = TimeZone.current
         dateFormatter.locale     = Locale.current
         dateFormatter.dateFormat = "HH:mm:ss"
+        return dateFormatter
+    }
+    
+    public static var easternCoastTimeFormatForViewing: DateFormatter {
+        let dateFormatter        = DateFormatter()
+        dateFormatter.timeZone   = TimeZone.current
+        dateFormatter.locale     = Locale.current
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "hh:mm a", options: 0, locale: Locale.current)
         return dateFormatter
     }
 

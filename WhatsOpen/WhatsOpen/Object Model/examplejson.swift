@@ -20,13 +20,13 @@ enum Day: Int {
 }
 
 class Facility: Object, MapContext, Mappable {
-    dynamic var slug = ""
-    dynamic var facilityName = ""
-    var facilityLocation: Locations? = Locations()
-    var category: Categories? = Categories()
-    var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
-    var mainSchedule: MainSchedule? = MainSchedule()
-    var specialSchedule: SpecialSchedule? = SpecialSchedule()
+    @objc dynamic var slug = ""
+    @objc dynamic var facilityName = ""
+    @objc dynamic var facilityLocation: Locations? = Locations()
+    @objc dynamic var category: Categories? = Categories()
+	var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
+    @objc dynamic var mainSchedule: MainSchedule? = MainSchedule()
+    @objc dynamic var specialSchedule: SpecialSchedule? = SpecialSchedule()
 
 
     required convenience init?(map: Map) {
@@ -45,18 +45,19 @@ class Facility: Object, MapContext, Mappable {
 }
 
 class Locations: Object, Mappable {
-    dynamic var id = 0
-    dynamic var created = ""
-    dynamic var lastmodified = ""
-    dynamic var building = ""
-    dynamic var address = ""
-    dynamic var campus = ""
-    dynamic var onCampus = false
+    @objc dynamic var id = 0
+    @objc dynamic var created = ""
+    @objc dynamic var lastmodified = ""
+    @objc dynamic var building = ""
+    @objc dynamic var address = ""
+    @objc dynamic var campus = ""
+    @objc dynamic var onCampus = false
 
     required convenience init?(map: Map){
-        self.init()
+		self.init()
     }
-    func mapping(map: Map){
+	
+	func mapping(map: Map){
         id <- map["id"]
         created <- map["created"]
         lastmodified <- map["modified"]
@@ -65,14 +66,26 @@ class Locations: Object, Mappable {
         campus <- map["campus_region"]
         onCampus <- map["on_campus"]
     }
+	
+	func equals(_ another: Locations) -> Bool {
+		if  self.building == another.building &&
+		    self.address == another.address &&
+		    self.campus == another.campus &&
+			self.onCampus == another.onCampus {
+			return true
+		}
+		else {
+			return false
+		}
+	}
 
 }
 
 class Categories: Object, Mappable {
-    dynamic var id = 0
-    dynamic var created = ""
-    dynamic var modified = ""
-    dynamic var categoryName = ""
+    @objc dynamic var id = 0
+    @objc dynamic var created = ""
+    @objc dynamic var modified = ""
+    @objc dynamic var categoryName = ""
 
     required convenience init?(map: Map){
         self.init()
@@ -83,6 +96,10 @@ class Categories: Object, Mappable {
         modified <- map["modified"]
         categoryName <- map["name"]
     }
+	
+	func equals(_ another: Categories) -> Bool {
+		return another.categoryName == self.categoryName
+	}
 
 }
 
@@ -96,18 +113,18 @@ class FacilityTags: Object, Mappable {
         tags <- map["tags"]
     }
 
-    dynamic var tags = ""
+    @objc dynamic var tags = ""
 
 }
 
 class MainSchedule: Object, Mappable {
-    dynamic var id = 0
+    @objc dynamic var id = 0
     var openTimes = List<OpenTimes>()
-    dynamic var lastModified = ""
-    dynamic var name = ""
-    dynamic var validStart = ""
-    dynamic var validEnd = ""
-    dynamic var twentyFourHours = false
+    @objc dynamic var lastModified = ""
+    @objc dynamic var name = ""
+    @objc dynamic var validStart = ""
+    @objc dynamic var validEnd = ""
+    @objc dynamic var twentyFourHours = false
 
 
     required convenience init?(map: Map){
@@ -142,13 +159,13 @@ class SpecialSchedule: Object, Mappable {
         self.init()
     }
 
-    dynamic var id = 0
+    @objc dynamic var id = 0
     var openTimes = List<OpenTimes>()
-    dynamic var lastModified = ""
-    dynamic var name = ""
-    dynamic var validStart = ""
-    dynamic var validEnd = ""
-    dynamic var twentyFourHours = false
+    @objc dynamic var lastModified = ""
+    @objc dynamic var name = ""
+    @objc dynamic var validStart = ""
+    @objc dynamic var validEnd = ""
+    @objc dynamic var twentyFourHours = false
 
     func mapping(map: Map){
         id <- map["id"]
@@ -171,12 +188,12 @@ class SpecialSchedule: Object, Mappable {
 
 
 class OpenTimes: Object, Mappable {
-    dynamic var schedule = 0
-    dynamic var lastModified = ""
-    dynamic var startDay = 0
-    dynamic var endDay = 0
-    dynamic var startTime = ""
-    dynamic var endTime = ""
+    @objc dynamic var schedule = 0
+    @objc dynamic var lastModified = ""
+    @objc dynamic var startDay = 0
+    @objc dynamic var endDay = 0
+    @objc dynamic var startTime = ""
+    @objc dynamic var endTime = ""
 
     convenience required init?(map: Map) {
         self.init()

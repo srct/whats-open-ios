@@ -12,6 +12,8 @@ class CheckingTableViewCell: UITableViewCell {
 
 	var onlyOne: OnlyOneChecked!
 	var cellIndex: Int!
+	var selectingEnum: Any?
+	var selectFunc: ((Any?) -> Bool)!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +23,7 @@ class CheckingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 		if(selected) {
+			selectFunc(selectingEnum)
 			onlyOne.setCheckToCellWithID(cellIndex)
 			super.setSelected(false, animated: animated)
 		}

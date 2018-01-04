@@ -11,12 +11,14 @@ import UIKit
 class SwitchingTableViewCell: UITableViewCell {
 
 	let switchControl = UISwitch()
+	var toggleFunc: ((Bool)->Bool)!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 		switchControl.addTarget(self, action: #selector(toggleSwitch), for: .valueChanged)
 		self.accessoryView = switchControl
+		self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,10 +27,13 @@ class SwitchingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-	func toggleSwitch(_ sender: Any) {
+	@objc func toggleSwitch(_ sender: Any) {
 		print("toggle")
-		dump(sender)
-		//LocationsListViewController.checkForReload(sander, switchControl.isOn)
+		
+		let res = toggleFunc(self.switchControl.isOn)
+		if( res == false ) {
+			// Probably should do some error handling here
+		}
 	}
 	
 }
