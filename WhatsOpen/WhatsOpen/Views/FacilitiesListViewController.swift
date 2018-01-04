@@ -607,7 +607,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 extension FacilitiesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text ?? ""
-        filteredFacilities = filterFacilitiesForSearchText(searchText)
+        shownFacilities = filterFacilitiesForSearchText(searchText)
     }
 }
 
