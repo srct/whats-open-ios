@@ -414,7 +414,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					if results.count > 0 {
 						let model = results[0]
 						let alertsFromDB = model.alerts
-						let lastUpdated = model.lastUpdated
 						
 						self.alertsList = alertsFromDB
 					}
@@ -462,79 +461,99 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     }
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
+		if alertsList.count > 0 {
+			return 2
+		}
+		else {
+			return 1
+		}
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shownFacilities.count
+		if(section == 1 || alertsList.count == 0) {
+			return shownFacilities.count
+		}
+		else {
+			// TODO: get current alerts, not just any alerts
+			return alertsList.count
+		}
+		
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
-		/*
-		let windowRect = self.view.window!.frame
-		let windowWidth = windowRect.size.width
-		if(windowWidth <= 320) {
+		
+		if (indexPath.section == 1 || alertsList.count == 0) {
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
+			/*
+			let windowRect = self.view.window!.frame
+			let windowWidth = windowRect.size.width
+			if(windowWidth <= 320) {
 			cell.frame.size.width = 280
+			}
+			*/
+			//Get tap of the cell
+			cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
+			cell.gestureRecognizers = []
+			cell.gestureRecognizers?.append(cell.tapRecognizer)
+			
+			
+			let facility: Facility
+			//let dataArray: [Facility]
+			
+			/*
+			// if something has been searched for, we want to use the filtered array as the data source
+			if isSearching() || showFavorites {
+			dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
+			} else {
+			dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
+			}
+			*/
+			
+			
+			
+			facility = shownFacilities[indexPath.row]
+			
+			cell.facility = facility
+			
+			//set labels
+			cell.nameLabel.text = facility.facilityName
+			cell.categoryLabel.text = facility.category?.categoryName.uppercased()
+			
+			cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
+			
+			cell.timeDescriptionLabel.text = facility.facilityLocation?.building
+			
+			//change appearence based on open state
+			let open = Utilities.isOpen(facility: facility)
+			if(open == true) {
+				//cell.openClosedLabel.text = "Open"
+				cell.openClosedLabel.textColor = UIColor.black
+				cell.openClosedLabel.backgroundColor = UIColor.white
+				//cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+				cell.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+			} else {
+				//cell.openClosedLabel.text = "Closed"
+				cell.openClosedLabel.textColor = UIColor.white
+				cell.openClosedLabel.backgroundColor = UIColor.black
+				//cell.openClosedLabel.backgroundColor = UIColor.red
+				cell.backgroundColor = UIColor.red
+				
+			}
+			
+			//Accessibility
+			//TODO: FIX THIS
+			cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
+			cell.accessibilityHint = "Double Tap to view details"
+			
+			
+			self.reloadInputViews()
+			return cell
 		}
-		*/
-        //Get tap of the cell
-		cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
-        cell.gestureRecognizers = []
-		cell.gestureRecognizers?.append(cell.tapRecognizer)
-        
-        
-        let facility: Facility
-        //let dataArray: [Facility]
-		
-		/*
-        // if something has been searched for, we want to use the filtered array as the data source
-        if isSearching() || showFavorites {
-            dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
-        } else {
-            dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-        }
-		*/
-		
-		
-        
-		facility = shownFacilities[indexPath.row]
-        
-		cell.facility = facility
-        
-        //set labels
-		cell.nameLabel.text = facility.facilityName
-        cell.categoryLabel.text = facility.category?.categoryName.uppercased()
-
-        cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
-        
-        cell.timeDescriptionLabel.text = facility.facilityLocation?.building
-
-        //change appearence based on open state
-        let open = Utilities.isOpen(facility: facility)
-		if(open == true) {
-			//cell.openClosedLabel.text = "Open"
-			cell.openClosedLabel.textColor = UIColor.black
-			cell.openClosedLabel.backgroundColor = UIColor.white
-			//cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-			cell.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-		} else {
-			//cell.openClosedLabel.text = "Closed"
-			cell.openClosedLabel.textColor = UIColor.white
-			cell.openClosedLabel.backgroundColor = UIColor.black
-			//cell.openClosedLabel.backgroundColor = UIColor.red
-			cell.backgroundColor = UIColor.red
-
+		else {
+			// Do Alerts things here
+			return UICollectionViewCell() //This is bad
 		}
 
-        //Accessibility
-        //TODO: FIX THIS
-		cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
-		cell.accessibilityHint = "Double Tap to view details"
-
-		
-		self.reloadInputViews()
-		return cell
 	}
 
 	

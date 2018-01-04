@@ -234,6 +234,43 @@
                                             <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Alert Cell" id="RlS-h3-WtZ" customClass="AlertCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="148" width="300" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-U6-xpF">
+                                                    <rect key="frame" x="8" y="33" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="64" id="66B-Ym-t5O"/>
+                                                        <constraint firstAttribute="width" constant="64" id="u3D-mk-VoY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ns-M7-OG1">
+                                                    <rect key="frame" x="76" y="9" width="217" height="113"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.21742078993055555" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Oab-U6-xpF" firstAttribute="centerY" secondItem="RlS-h3-WtZ" secondAttribute="centerY" id="0Gm-3d-NZV"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Ns-M7-OG1" secondAttribute="bottom" constant="9" id="1LV-oj-Rfc"/>
+                                            <constraint firstItem="2Ns-M7-OG1" firstAttribute="centerY" secondItem="RlS-h3-WtZ" secondAttribute="centerY" id="3e1-Vz-z7i"/>
+                                            <constraint firstItem="Oab-U6-xpF" firstAttribute="leading" secondItem="RlS-h3-WtZ" secondAttribute="leading" constant="8" id="HjX-L1-EAY"/>
+                                            <constraint firstItem="2Ns-M7-OG1" firstAttribute="leading" secondItem="Oab-U6-xpF" secondAttribute="trailing" constant="4" id="OfY-Bd-5U7"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Ns-M7-OG1" secondAttribute="trailing" constant="7" id="eSX-e8-2qc"/>
+                                            <constraint firstItem="2Ns-M7-OG1" firstAttribute="top" secondItem="RlS-h3-WtZ" secondAttribute="top" constant="9" id="xBI-iS-rEV"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Oab-U6-xpF" id="zUI-Ac-2nk"/>
+                                            <outlet property="messageLabel" destination="2Ns-M7-OG1" id="ubW-8f-ewB"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aaB-Go-aWd" id="bX7-L2-MmS"/>
