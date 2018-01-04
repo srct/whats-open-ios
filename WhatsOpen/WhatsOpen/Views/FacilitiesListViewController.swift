@@ -13,6 +13,7 @@ import RealmSwift
 //Realm Model
 class FacilitiesModel: Object {
 	var facilities = List<Facility>()
+	var alerts = List<Alert>()
 	@objc dynamic var lastUpdated = Date()
 	@objc dynamic let id = 0
 }
@@ -23,6 +24,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	let realm = try! Realm()
 
 	var facilitiesArray = List<Facility>()
+	var alertsList = List<Alert>()
     
     // array of facilities that pass the current filters
     var filteredFacilities = List<Facility>()
@@ -404,9 +406,43 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					}
 				}
 			}
-			
-
-			
+		}
+		SRCTNetworkController.performAlertsDownload { (alerts) in
+			if(alerts == nil) {
+				DispatchQueue.main.async {
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count > 0 {
+						let model = results[0]
+						let alertsFromDB = model.alerts
+						let lastUpdated = model.lastUpdated
+						
+						self.alertsList = alertsFromDB
+					}
+					else {
+						self.alertsList = List<Alert>()
+					}
+				}
+			}
+			else {
+				self.alertsList = alerts!
+				
+				DispatchQueue.main.async {
+					let model = FacilitiesModel()
+					model.alerts = alerts!
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count == 0 {
+						try! self.realm.write {
+							self.realm.add(model)
+						}
+					}
+					else {
+						let fromRealm = results[0]
+						try! self.realm.write {
+							fromRealm.alerts = model.alerts
+						}
+					}
+				}
+			}
 		}
 	}
     

@@ -210,7 +210,7 @@ class OpenTimes: Object, Mappable {
 
 }
 
-class Alert: Object, Mappable {
+class Alert: Object, MapContext, Mappable {
 	@objc dynamic var id = 0
 	@objc dynamic var created = ""
 	@objc dynamic var lastModified = ""
