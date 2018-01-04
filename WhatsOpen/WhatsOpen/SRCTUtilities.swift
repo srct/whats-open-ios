@@ -27,11 +27,10 @@ class Utilities: NSObject {
                     if today(facility: facility) != nil {
                         open = time(facility)
                     }
-            }
-
+                }
             } else {
-            open = false
-        }
+                open = false
+            }
         }
 
         return open

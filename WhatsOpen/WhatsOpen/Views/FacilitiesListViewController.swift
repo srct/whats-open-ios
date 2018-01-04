@@ -22,13 +22,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	let realm = try! Realm()
 
-	
-	
-	
 	var facilitiesArray = List<Facility>()
     
     // array of facilities that pass the current filters
     var filteredFacilities = List<Facility>()
+	
+	// List which actually pertains to what is shown
+	var shownFacilities = List<Facility>()
     
     // passing in nil sets the search controller to be this controller
     let searchController = UISearchController(searchResultsController: nil)
@@ -63,12 +63,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		{
 		case 0:
 			showFavorites = false
-			filteredFacilities = facilitiesArray
+			shownFacilities = filteredFacilities
 		case 1:
             showFavorites = true
-			filteredFacilities = filterFacilitiesForFavorites()
+			shownFacilities = filterFacilitiesForFavorites()
 		default:
 			showFavorites = false
+			shownFacilities = filteredFacilities
 		}
 		self.LocationsList.reloadData()
 	}
@@ -83,7 +84,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         var favoriteFacilites = List<Facility>()
         
         // add the facility to favorites list if it is a favorite
-        favoriteFacilites = facilitiesArray.filter({ (facility: Facility) -> Bool in
+        favoriteFacilites = filteredFacilities.filter({ (facility: Facility) -> Bool in
             return Utilities.isFavoriteFacility(facility)
         })
         
@@ -114,9 +115,31 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender, forceUpdate: true)
 	}
+	
+	func checkFilterState() {
+		if(filters.showOpen && filters.showClosed && filters.openFirst && filters.sortBy == SortMethod.alphabetical) {
+			for f in filters.onlyFromCategories {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
+			for f in filters.onlyFromLocations {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
+			LeftButton.title = "Filter"
+			return
+		}
+		LeftButton.title = "Filter (On)"
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
+		checkFilterState()
+		reloadWithFilters()
 	}
 	
 	@objc func tapRecognizer(_ sender: UITapGestureRecognizer) {
@@ -218,10 +241,20 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		*/
 		
 		refresh(self, forceUpdate: false)
-		LocationsList.reloadData()
+		
+
+		
+		reloadWithFilters()
+		
+		
 	}
 	
-	
+	func reloadWithFilters() {
+		filteredFacilities = filters.applyFiltersOnFacilities(facilitiesArray)
+		shownFacilities = filteredFacilities
+		favoritesControlChanges(self)
+		LocationsList.reloadData()
+	}
     
     func isSearchBarEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -241,7 +274,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
      */
     func filterFacilitiesForSearchText(_ searchText: String) -> List<Facility> {
         var filtered: List<Facility>
-        
+		
+		/*
         if showFavorites {
             let favoriteFacilities = filterFacilitiesForFavorites()
             
@@ -256,21 +290,30 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
                     return hasName || hasBuilding || hasCategory
                 })
             }
-            
+
         } else {
-            filtered = facilitiesArray.filter({(facility: Facility) -> Bool in
-                let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
-                let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
-                let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
-                
-                return hasName || hasBuilding || hasCategory
-            })
-        }
+		  */
+		if searchText == "" {
+			filtered = shownFacilities
+			LocationsList.reloadData()
+			return shownFacilities
+		}
+		filtered = filteredFacilities.filter({(facility: Facility) -> Bool in
+			let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
+			let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
+			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
+			
+			return hasName || hasBuilding || hasCategory
+		})
         
         LocationsList.reloadData()
         return filtered
     }
 	
+	/*
+	* Reloads data, either calling update() to attempt a download
+	* or simply pulling from the realm
+	*/
 	func refresh(_ sender: Any, forceUpdate: Bool = true) {
 		refreshControl.beginRefreshing()
 		if(forceUpdate) {
@@ -296,10 +339,24 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 
 		}
-		LocationsList.reloadData()
+		reloadWithFilters()
+		
+		// Add locations and categories to filters
+		for f in facilitiesArray {
+			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
+				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!)
+			}
+			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
+				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
+			}
+		}
 		refreshControl.endRefreshing()
 	}
 	
+	/*
+	* Attempts to update facilitiesArray from the network
+	* and place that new information into Realm
+	*/
 	func update(_ sender: Any) {
 		SRCTNetworkController.performDownload { (facilities) in
 			if(facilities == nil) {
@@ -311,7 +368,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						let lastUpdated = model.lastUpdated
 						
 						self.facilitiesArray = facilitiesFromDB
-						self.LocationsList.reloadData()
+						self.reloadWithFilters()
 						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 					}
 					else {
@@ -327,7 +384,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					//defaults.set(facilities, forKey: "FacilitiesList")
 					let date = Date()
 					//defaults.set(date, forKey: "lastUpdatedList")
-					self.LocationsList.reloadData()
+					self.reloadWithFilters()
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
 					let model = FacilitiesModel()
 					model.facilities = facilities!
@@ -373,7 +430,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isSearching() || showFavorites ? self.filteredFacilities.count : self.facilitiesArray.count
+        return shownFacilities.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -392,16 +449,20 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         
         
         let facility: Facility
-        let dataArray: [Facility]
-        
+        //let dataArray: [Facility]
+		
+		/*
         // if something has been searched for, we want to use the filtered array as the data source
         if isSearching() || showFavorites {
             dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
         } else {
             dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
         }
+		*/
+		
+		
         
-		facility = dataArray[indexPath.row]
+		facility = shownFacilities[indexPath.row]
         
 		cell.facility = facility
         
@@ -440,6 +501,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		return cell
 	}
 
+	
+	//unused
 	func getLocationArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
@@ -450,7 +513,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 
 	}
-
+	
+	//unused
 	// Returns an array which has the open locations listed first
 	// Could be improved in the future because currently this means you're checking
 	// open status twice per cell
@@ -470,6 +534,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		return open + closed
 	}
 
+	//unused
 	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
@@ -490,30 +555,31 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     // MARK: - Navigation
 
     //In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        if(segue.identifier == "toDetailView") {
-//            let destination = segue.destination as! FacilityDetailViewController
-//            let destDelegate = DeckTransitioningDelegate()
-//            destination.transitioningDelegate = destDelegate
-//            let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
-//            destination.facility = tapped.facility
-//
-//            // if we're in the search view, present on its controller
-//            if searchController.isActive {
-//                searchController.present(destination, animated: true, completion: nil)
-//            } else {
-//                present(destination, animated: true, completion: nil)
-//            }
-//        }
-//        else if(segue.identifier == "toFilters") {
-//            let destination = segue.destination as! UINavigationController
-//            let filterView = destination.topViewController as! FiltersTableViewController
-//            filterView.filters = self.filters
-//        }
-//
-//        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if(segue.identifier == "toDetailView") {
+            let destination = segue.destination as! FacilityDetailViewController
+            let destDelegate = DeckTransitioningDelegate()
+            destination.transitioningDelegate = destDelegate
+            let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
+            destination.facility = tapped.facility
+
+            // if we're in the search view, present on its controller
+            if searchController.isActive {
+                searchController.present(destination, animated: true, completion: nil)
+            } else {
+                present(destination, animated: true, completion: nil)
+            }
+        }
+        else if(segue.identifier == "toFilters") {
+            let destination = segue.destination as! UINavigationController
+            let filterView = destination.topViewController as! FiltersTableViewController
+			filterView.facilities = self.facilitiesArray
+            filterView.filters = self.filters
+        }
+
+        // Pass the selected object to the new view controller.
+    }
 	
 	// MARK: - Peek and Pop
 	
@@ -541,7 +607,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 extension FacilitiesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text ?? ""
-        filteredFacilities = filterFacilitiesForSearchText(searchText)
+        shownFacilities = filterFacilitiesForSearchText(searchText)
     }
 }
 

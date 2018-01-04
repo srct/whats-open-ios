@@ -54,9 +54,10 @@ class Locations: Object, Mappable {
     @objc dynamic var onCampus = false
 
     required convenience init?(map: Map){
-        self.init()
+		self.init()
     }
-    func mapping(map: Map){
+	
+	func mapping(map: Map){
         id <- map["id"]
         created <- map["created"]
         lastmodified <- map["modified"]
@@ -65,6 +66,18 @@ class Locations: Object, Mappable {
         campus <- map["campus_region"]
         onCampus <- map["on_campus"]
     }
+	
+	func equals(_ another: Locations) -> Bool {
+		if  self.building == another.building &&
+		    self.address == another.address &&
+		    self.campus == another.campus &&
+			self.onCampus == another.onCampus {
+			return true
+		}
+		else {
+			return false
+		}
+	}
 
 }
 
@@ -83,6 +96,10 @@ class Categories: Object, Mappable {
         modified <- map["modified"]
         categoryName <- map["name"]
     }
+	
+	func equals(_ another: Categories) -> Bool {
+		return another.categoryName == self.categoryName
+	}
 
 }
 
