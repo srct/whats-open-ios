@@ -23,6 +23,7 @@ class CheckingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 		if(selected) {
+			selectFunc(selectingEnum)
 			onlyOne.setCheckToCellWithID(cellIndex)
 			super.setSelected(false, animated: animated)
 		}

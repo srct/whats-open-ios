@@ -139,6 +139,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	override func viewWillAppear(_ animated: Bool) {
 		LastUpdatedLabel.isEnabled = false
 		checkFilterState()
+		reloadWithFilters()
 	}
 	
 	@objc func tapRecognizer(_ sender: UITapGestureRecognizer) {

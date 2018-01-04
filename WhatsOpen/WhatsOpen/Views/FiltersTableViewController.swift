@@ -137,7 +137,7 @@ class FiltersTableViewController: UITableViewController {
 			cell.switchControl.isOn = filters.openFirst
 			cell.toggleFunc = filters.setOpenFirst
 			return cell
-		  case 2: // TODO
+		  case 2:
 			let method: SortMethod
 			let cellText: String
 			switch indexPath.row {
@@ -169,7 +169,7 @@ class FiltersTableViewController: UITableViewController {
 			cell.textLabel!.text = cellText
 			sortOptions.append(cell)
 			return cell
-		  case 3: // TODO
+		  case 3:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "toSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
 			switch indexPath.row {

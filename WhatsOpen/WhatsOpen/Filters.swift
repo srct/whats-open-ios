@@ -132,7 +132,13 @@ class Filters {
     private func sortAlphabetically(_ facilities: List<Facility>, reverse: Bool = false) -> List<Facility> {
         // Convert to a swift array because the realm sorting method crashes the list object for some reason?
         var facilitiesArray = facilities.asArray()
-        facilitiesArray.sort { $0.facilityName < $1.facilityName }
+		if !reverse {
+			facilitiesArray.sort { $0.facilityName < $1.facilityName }
+
+		}
+		else {
+			facilitiesArray.sort { $0.facilityName > $1.facilityName }
+		}
         return facilitiesArray.asRealmList()
     }
     
