@@ -125,6 +125,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = OpenTimesList.dequeueReusableCell(withIdentifier: "LocationDetailCell", for: indexPath)
 
+		cell.selectionStyle = .none
+		
         if(Utilities.isSpecialSchedule(facility) == true) {
             let openTime = facility.specialSchedule?.openTimes[indexPath.row]
             cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)

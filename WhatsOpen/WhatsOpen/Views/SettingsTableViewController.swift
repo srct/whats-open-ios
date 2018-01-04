@@ -9,6 +9,7 @@
 import UIKit
 import SafariServices
 import MessageUI
+import StoreKit
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -94,10 +95,11 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		let cell = self.tableView(tableView, cellForRowAt: indexPath)
 		
 		if let settingcell = cell as? SettingTableViewCell {
+			// Eventually we should change this logic to make it not reliant on English text
 			if settingcell.linkURL != nil {
 				self.showDetailViewController(SFSafariViewController(url: settingcell.linkURL!), sender: settingcell)
 			}
-			else if settingcell.textLabel?.text == "Are Our Hours Wrong?" {
+			else if settingcell.textLabel!.text == "Are Our Hours Wrong?" {
 				let mailvc = initMail(subject: "What's Open - Your Hours are Wrong", to: "srct@gmu.edu")
 				if !MFMailComposeViewController.canSendMail() {
 					/*
@@ -112,6 +114,23 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				else {
 					present(mailvc, animated: true)
 				}
+			}
+			else if settingcell.textLabel?.text == "Review on the App Store" {
+				let appPage = SKStoreProductViewController()
+				let params = [SKStoreProductParameterITunesItemIdentifier: 1331260366]
+				appPage.loadProduct(withParameters: params, completionBlock: { (result, err) in
+					if err == nil && result == true {
+						self.present(appPage, animated: true)
+						print("presenting")
+					}
+					else {
+						let alert = UIAlertController(title: "Cound Not Find App in Store", message: "Check your network connection", preferredStyle: .alert)
+						alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+						}))
+						self.present(alert, animated: true)
+						print("alerting")
+					}
+				})
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
 				let avc = self.storyboard?.instantiateViewController(withIdentifier: "about")
