@@ -210,6 +210,30 @@ class OpenTimes: Object, Mappable {
 
 }
 
+class Alert: Object, Mappable {
+	@objc dynamic var id = 0
+	@objc dynamic var created = ""
+	@objc dynamic var lastModified = ""
+	@objc dynamic var urgency = ""
+	@objc dynamic var message = ""
+	@objc dynamic var startDate = ""
+	@objc dynamic var endDate = ""
+	
+	convenience required init?(map: Map) {
+		self.init()
+	}
+	
+	func mapping(map: Map){
+		id <- map["id"]
+		created <- map["created"]
+		lastModified <- map["modified"]
+		urgency <- map["urgency_tag"]
+		message <- map["message"]
+		startDate <- map["start_datetime"]
+		endDate <- map["end_datetime"]
+	}
+}
+
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
     let endTime: Date
