@@ -500,6 +500,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		return cell
 	}
 
+	
+	//unused
 	func getLocationArray(_ facilitiesArray: List<Facility>) -> [Facility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
@@ -511,7 +513,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
-	
+	//unused
 	// Returns an array which has the open locations listed first
 	// Could be improved in the future because currently this means you're checking
 	// open status twice per cell
@@ -531,6 +533,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		return open + closed
 	}
 
+	//unused
 	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<Facility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
