@@ -12,8 +12,8 @@ import RealmSwift
 
 //Realm Model
 class FacilitiesModel: Object {
-	var facilities = List<Facility>()
-	var alerts = List<Alert>()
+	let facilities = List<Facility>()
+	let alerts = List<Alert>()
 	@objc dynamic var lastUpdated = Date()
 	@objc dynamic let id = 0
 }
@@ -228,28 +228,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
-		
-		/*
-		let defaults = UserDefaults.standard
-		let facilitiesFromDefaults = defaults.object(forKey: "FacilitiesList") as! List<Facility>?
-	  	let lastUpdatedList = defaults.object(forKey: "lastUpdatedList") as! Date?
-		if(facilitiesFromDefaults == nil || lastUpdatedList == nil) {
-			refresh(self)
-		}
-		else if(lastUpdatedList! < Date(timeIntervalSinceNow: -86400.0)) {
-			refresh(self)
-		}
-		else {
-			facilitiesArray = facilitiesFromDefaults!
-		}
-		*/
-		
 		refresh(self, forceUpdate: false)
 		
-
-		
 		reloadWithFilters()
-		
 		
 	}
 	
@@ -344,13 +325,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			if results.count > 0 {
 				let model = results[0]
 				let facilities = model.facilities
+				let alerts = model.alerts
 				let lastUpdated = model.lastUpdated
 				
-				if(facilities.isEmpty || lastUpdated < Date(timeIntervalSinceNow: -86400.0)) {
+				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare: Date(timeIntervalSinceNow: -86400.0))) {
 					update(sender)
 				}
 				else {
 					facilitiesArray = facilities
+					alertsList = alerts
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 				}
 			}
@@ -359,7 +342,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 
 		}
-		reloadWithFilters()
+		
 		
 		// Add locations and categories to filters
 		for f in facilitiesArray {
@@ -370,6 +353,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
 			}
 		}
+		
+		reloadWithFilters()
 		refreshControl.endRefreshing()
 	}
 	
@@ -400,17 +385,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.facilitiesArray = facilities!
 				
 				DispatchQueue.main.async {
-					//let defaults = UserDefaults.standard
-					//defaults.set(facilities, forKey: "FacilitiesList")
 					let date = Date()
-					//defaults.set(date, forKey: "lastUpdatedList")
-					self.reloadWithFilters()
+					//self.reloadWithFilters()
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
-					let model = FacilitiesModel()
-					model.facilities = facilities!
-					model.lastUpdated = date
+
 					let results = self.realm.objects(FacilitiesModel.self)
 					if results.count == 0 {
+						let model = FacilitiesModel()
+						for f in facilities! {
+							model.facilities.append(f)
+						}
+						model.lastUpdated = date
 						try! self.realm.write {
 							self.realm.add(model)
 						}
@@ -418,8 +403,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					else {
 						let fromRealm = results[0]
 						try! self.realm.write {
-							fromRealm.facilities = model.facilities
-							fromRealm.lastUpdated = model.lastUpdated
+							fromRealm.facilities.removeAll()
+							for f in facilities! {
+								fromRealm.facilities.append(f)
+							}
+							fromRealm.lastUpdated = date
 						}
 					}
 				}
@@ -431,9 +419,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					let results = self.realm.objects(FacilitiesModel.self)
 					if results.count > 0 {
 						let model = results[0]
-						let alertsFromDB = model.alerts
-						
-						self.alertsList = alertsFromDB
+						self.alertsList = model.alerts
 					}
 					else {
 						self.alertsList = List<Alert>()
@@ -444,18 +430,23 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.alertsList = alerts!
 				
 				DispatchQueue.main.async {
-					let model = FacilitiesModel()
-					model.alerts = alerts!
 					let results = self.realm.objects(FacilitiesModel.self)
 					if results.count == 0 {
 						try! self.realm.write {
+							let model = FacilitiesModel()
+							for a in alerts! {
+								model.alerts.append(a)
+							}
 							self.realm.add(model)
 						}
 					}
 					else {
 						let fromRealm = results[0]
 						try! self.realm.write {
-							fromRealm.alerts = model.alerts
+							fromRealm.alerts.removeAll()
+							for a in alerts! {
+								fromRealm.alerts.append(a)
+							}
 						}
 					}
 				}
