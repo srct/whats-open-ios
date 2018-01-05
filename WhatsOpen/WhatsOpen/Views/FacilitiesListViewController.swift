@@ -19,7 +19,7 @@ class FacilitiesModel: Object {
 }
 
 
-class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
+class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDelegateFlowLayout {
 
 	let realm = try! Realm()
 
@@ -55,6 +55,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
 
+	
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
@@ -96,10 +97,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     }
 
 	override func viewWillLayoutSubviews() {
-		LocationsListLayout.itemSize.width = getCellWidth()
+		//LocationsListLayout.itemSize.width = getCellWidth()
 		LocationsListLayout.invalidateLayout()
+		LocationsList.reloadData()
 	}
 	
+	/*
 	func getCellWidth() -> CGFloat {
 		let windowWidth = self.view.frame.size.width
 		
@@ -115,6 +118,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		return 0
 	}
+	*/
 
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender, forceUpdate: true)
@@ -561,24 +565,67 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		else {
 			// Do Alerts things here
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Alert Cell", for: indexPath) as! AlertCollectionViewCell
+			cell.viewWidth = self.view.frame.width
 			
 			switch currentAlerts[indexPath.row].urgency {
 			case "info":
 				cell.imageView.image = #imageLiteral(resourceName: "info")
+				cell.imageView.accessibilityLabel = "Info"
 			case "minor":
 				cell.imageView.image = #imageLiteral(resourceName: "minor")
+				cell.imageView.accessibilityLabel = "Minor Alert"
 			case "major":
 				cell.imageView.image = #imageLiteral(resourceName: "major")
+				cell.imageView.accessibilityLabel = "Major Alert"
 			case "emergency":
 				cell.imageView.image = #imageLiteral(resourceName: "emergency")
+				cell.imageView.accessibilityLabel = "Emergency Alert"
 			default:
 				cell.imageView.image = #imageLiteral(resourceName: "major")
+				cell.imageView.accessibilityLabel = "Alert"
 			}
 			cell.messageLabel.text = currentAlerts[indexPath.row].message
+			
+
 			
 			return cell
 		}
 
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		if(indexPath.section == 1 || alertsList.count == 0) {
+			let height = LocationsListLayout.itemSize.height
+			let width: CGFloat
+			
+			let windowWidth = self.view.frame.size.width
+			
+			if(windowWidth < 640) {
+				width = windowWidth - 20
+			}
+			else if(windowWidth >= 640 && windowWidth < 1024) {
+				width = (windowWidth / 2) - 15
+			}
+			else if(windowWidth >= 1024) {
+				width = (windowWidth / 3) - 15
+			}
+			else {
+				width = windowWidth - 20
+			}
+			
+			return CGSize(width: width, height: height)
+		}
+		else {
+			return CGSize(width: self.view.frame.size.width, height: LocationsListLayout.itemSize.height)
+		}
+	}
+
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		var sectionInsets = LocationsListLayout.sectionInset
+		if(section != 1 && alertsList.count != 0) {
+			sectionInsets.top = 0
+		}
+		return sectionInsets
 	}
 
 	
