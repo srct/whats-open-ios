@@ -25,6 +25,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	var facilitiesArray = List<Facility>()
 	var alertsList = List<Alert>()
+	
+	var currentAlerts = List<Alert>()
     
     // array of facilities that pass the current filters
     var filteredFacilities = List<Facility>()
@@ -252,9 +254,25 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func reloadWithFilters() {
+		
+		// Facilities
 		filteredFacilities = filters.applyFiltersOnFacilities(facilitiesArray)
 		shownFacilities = filteredFacilities
 		favoritesControlChanges(self)
+		
+		// Alerts
+		let shown = List<Alert>()
+		let formatter = ISO8601DateFormatter()
+		formatter.timeZone = TimeZone(identifier: "America/New_York")
+		let now = Date()
+		for alert in alertsList {
+			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
+				shown.append(alert)
+			}
+		}
+		currentAlerts = shown
+		
+		
 		LocationsList.reloadData()
 	}
     
@@ -461,7 +479,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     }
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		if alertsList.count > 0 {
+		if currentAlerts.count > 0 {
 			return 2
 		}
 		else {
@@ -475,7 +493,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		else {
 			// TODO: get current alerts, not just any alerts
-			return alertsList.count
+			return currentAlerts.count
 		}
 		
 	}
@@ -551,7 +569,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		else {
 			// Do Alerts things here
-			return UICollectionViewCell() //This is bad
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Alert Cell", for: indexPath) as! AlertCollectionViewCell
+			
+			cell.imageView.image = #imageLiteral(resourceName: "major")
+			cell.messageLabel.text = currentAlerts[indexPath.row].message
+			
+			return cell
 		}
 
 	}
@@ -664,6 +687,48 @@ extension FacilitiesListViewController: UISearchResultsUpdating {
         let searchText = searchController.searchBar.text ?? ""
         shownFacilities = filterFacilitiesForSearchText(searchText)
     }
+}
+
+// based on https://stackoverflow.com/questions/26198526/nsdate-comparison-using-swift
+extension Date {
+	func isGreaterThanDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isGreater = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedDescending {
+			isGreater = true
+		}
+		
+		//Return Result
+		return isGreater
+	}
+	
+	func isLessThanDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isLess = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedAscending {
+			isLess = true
+		}
+		
+		//Return Result
+		return isLess
+	}
+	
+	func equalToDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isEqualTo = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedSame {
+			isEqualTo = true
+		}
+		
+		//Return Result
+		return isEqualTo
+	}
 }
 
 
