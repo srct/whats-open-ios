@@ -562,7 +562,18 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			// Do Alerts things here
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Alert Cell", for: indexPath) as! AlertCollectionViewCell
 			
-			cell.imageView.image = #imageLiteral(resourceName: "major")
+			switch currentAlerts[indexPath.row].urgency {
+			case "info":
+				cell.imageView.image = #imageLiteral(resourceName: "info")
+			case "minor":
+				cell.imageView.image = #imageLiteral(resourceName: "minor")
+			case "major":
+				cell.imageView.image = #imageLiteral(resourceName: "major")
+			case "emergency":
+				cell.imageView.image = #imageLiteral(resourceName: "emergency")
+			default:
+				cell.imageView.image = #imageLiteral(resourceName: "major")
+			}
 			cell.messageLabel.text = currentAlerts[indexPath.row].message
 			
 			return cell
