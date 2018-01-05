@@ -138,6 +138,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					return
 				}
 			}
+			for f in filters.showAlerts {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
 			LeftButton.title = "Filter"
 			return
 		}
@@ -252,7 +258,22 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let now = Date()
 		for alert in alertsList {
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
-				shown.append(alert)
+				switch alert.urgency {
+				case "info":
+					if(filters.showAlerts["Informational"])! {
+						shown.append(alert)
+					}
+				case "minor":
+					if(filters.showAlerts["Minor Alerts"])! {
+						shown.append(alert)
+					}
+				case "major":
+					if(filters.showAlerts["Major Alerts"])! {
+						shown.append(alert)
+					}
+				default:
+					shown.append(alert)
+				}
 			}
 		}
 		currentAlerts = shown
@@ -483,7 +504,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		if(section == 1 || alertsList.count == 0) {
+		if(section == 1 || currentAlerts.count == 0) {
 			return shownFacilities.count
 		}
 		else {
@@ -495,7 +516,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-		if (indexPath.section == 1 || alertsList.count == 0) {
+		if (indexPath.section == 1 || currentAlerts.count == 0) {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
 			/*
 			let windowRect = self.view.window!.frame
@@ -594,7 +615,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		if(indexPath.section == 1 || alertsList.count == 0) {
+		if(indexPath.section == 1 || currentAlerts.count == 0) {
 			let height = LocationsListLayout.itemSize.height
 			let width: CGFloat
 			

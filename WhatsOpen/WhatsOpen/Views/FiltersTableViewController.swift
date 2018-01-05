@@ -90,7 +90,7 @@ class FiltersTableViewController: UITableViewController {
 		case 2:
 			return SortMethod.count
 		case 3:
-			return 2
+			return 3
 		default:
 			return 0
 		}
@@ -205,6 +205,22 @@ class FiltersTableViewController: UITableViewController {
 					detail = "\(i) Selected"
 				}
 				cell.detailTextLabel?.text = detail
+			case 2:
+				cell.textLabel?.text = "Alerts"
+				var i = 0
+				for c in filters.showAlerts {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == filters.showAlerts.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+				cell.detailTextLabel?.text = detail
 			default:
 				return cell
 			}
@@ -292,9 +308,13 @@ class FiltersTableViewController: UITableViewController {
 			let destination = segue.destination as! FilterSelectionTableViewController
 			destination.navigationItem.title = (sender as! UITableViewCell).textLabel?.text!
 			
+			
 			func get() -> [String: Bool] {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
 					return filters.onlyFromCategories
+				}
+				else if(sender as! UITableViewCell).textLabel?.text! == "Alerts" {
+					return filters.showAlerts
 				}
 				else {
 					return filters.onlyFromLocations
@@ -303,6 +323,9 @@ class FiltersTableViewController: UITableViewController {
 			func selectFunc(_ key: String, value: Bool) -> Bool {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
 					filters.onlyFromCategories[key] = value
+				}
+				else if(sender as! UITableViewCell).textLabel?.text! == "Alerts" {
+					filters.showAlerts[key] = value
 				}
 				else {
 					filters.onlyFromLocations[key] = value
