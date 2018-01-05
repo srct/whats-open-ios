@@ -334,13 +334,60 @@ class FiltersTableViewController: UITableViewController {
 			}
 			func selectAllFunc() -> Bool {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
+					var foundFalse = false
 					for v in filters.onlyFromCategories {
-						filters.onlyFromCategories.updateValue(true, forKey: v.key)
+						if !foundFalse {
+							if !v.value {
+								foundFalse = true
+								filters.onlyFromCategories.updateValue(true, forKey: v.key)
+							}
+						}
+						else {
+							filters.onlyFromCategories.updateValue(true, forKey: v.key)
+						}
+					}
+					if !foundFalse {
+						for v in filters.onlyFromCategories {
+							filters.onlyFromCategories.updateValue(false, forKey: v.key)
+						}
+					}
+				}
+				else if((sender as! UITableViewCell).textLabel?.text! == "Alerts") {
+					var foundFalse = false
+					for v in filters.showAlerts {
+						if !foundFalse {
+							if !v.value {
+								foundFalse = true
+								filters.showAlerts.updateValue(true, forKey: v.key)
+							}
+						}
+						else {
+							filters.showAlerts.updateValue(true, forKey: v.key)
+						}
+					}
+					if !foundFalse {
+						for v in filters.showAlerts {
+							filters.showAlerts.updateValue(false, forKey: v.key)
+						}
 					}
 				}
 				else {
+					var foundFalse = false
 					for v in filters.onlyFromLocations {
-						filters.onlyFromLocations.updateValue(true, forKey: v.key)
+						if !foundFalse {
+							if !v.value {
+								foundFalse = true
+								filters.onlyFromLocations.updateValue(true, forKey: v.key)
+							}
+						}
+						else {
+							filters.onlyFromLocations.updateValue(true, forKey: v.key)
+						}
+					}
+					if !foundFalse {
+						for v in filters.onlyFromLocations {
+							filters.onlyFromLocations.updateValue(false, forKey: v.key)
+						}
 					}
 				}
 				return true

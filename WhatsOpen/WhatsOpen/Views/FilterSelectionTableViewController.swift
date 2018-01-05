@@ -49,14 +49,8 @@ class FilterSelectionTableViewController: UITableViewController {
 		let values = getFunc()
         // Configure the cell...
 		if(indexPath.row == 0) {
-			cell.textLabel?.text = "Show All"
-			cell.accessoryType = .checkmark
-			for v in values {
-				if(v.value == false) {
-					cell.accessoryType = .none
-					break
-				}
-			}
+			cell.textLabel?.text = "Select All/None"
+			cell.accessoryType = .none
 		}
 		else {
 			var i = 1
