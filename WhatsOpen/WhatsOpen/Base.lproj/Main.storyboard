@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -234,6 +235,57 @@
                                             <outlet property="timeDescriptionLabel" destination="o7N-To-w50" id="gAW-xD-mws"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Alert Cell" id="RlS-h3-WtZ" customClass="AlertCollectionViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="148" width="300" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4r-K0-38K">
+                                                    <rect key="frame" x="0.5" y="1" width="300" height="128"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert Text" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ns-M7-OG1">
+                                                            <rect key="frame" x="72" y="8" width="228" height="112"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-U6-xpF">
+                                                            <rect key="frame" x="0.0" y="32" width="64" height="64"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="64" id="D8k-fI-v4K"/>
+                                                                <constraint firstAttribute="width" constant="64" id="FVc-XG-Cdz"/>
+                                                                <constraint firstAttribute="width" secondItem="Oab-U6-xpF" secondAttribute="height" multiplier="1:1" id="oGq-If-eyX"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2Ns-M7-OG1" firstAttribute="top" secondItem="S4r-K0-38K" secondAttribute="top" constant="8" id="72c-BL-1gb"/>
+                                                        <constraint firstItem="2Ns-M7-OG1" firstAttribute="leading" secondItem="Oab-U6-xpF" secondAttribute="trailing" constant="8" id="97x-ge-os6"/>
+                                                        <constraint firstItem="Oab-U6-xpF" firstAttribute="leading" secondItem="S4r-K0-38K" secondAttribute="leading" id="KJK-vc-7N5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2Ns-M7-OG1" secondAttribute="trailing" id="StY-Dp-GaW"/>
+                                                        <constraint firstItem="Oab-U6-xpF" firstAttribute="centerY" secondItem="S4r-K0-38K" secondAttribute="centerY" id="UnJ-FG-F23"/>
+                                                        <constraint firstItem="2Ns-M7-OG1" firstAttribute="bottom" secondItem="S4r-K0-38K" secondAttribute="bottom" constant="-8" id="c9J-HY-QWj"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.21742078993055555" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="S4r-K0-38K" firstAttribute="centerX" secondItem="RlS-h3-WtZ" secondAttribute="centerX" id="DAa-g9-pyb"/>
+                                            <constraint firstItem="S4r-K0-38K" firstAttribute="centerY" secondItem="RlS-h3-WtZ" secondAttribute="centerY" id="P2z-Aq-USK"/>
+                                            <constraint firstItem="S4r-K0-38K" firstAttribute="width" secondItem="RlS-h3-WtZ" secondAttribute="width" id="RTU-nN-RCt"/>
+                                            <constraint firstItem="S4r-K0-38K" firstAttribute="top" secondItem="RlS-h3-WtZ" secondAttribute="top" constant="1" id="fH8-Io-0p4"/>
+                                            <constraint firstAttribute="bottom" secondItem="S4r-K0-38K" secondAttribute="bottom" constant="2" id="uWj-h9-AHl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="containingView" destination="S4r-K0-38K" id="iLl-66-60S"/>
+                                            <outlet property="containingViewWidth" destination="RTU-nN-RCt" id="yqn-hj-ahE"/>
+                                            <outlet property="imageView" destination="Oab-U6-xpF" id="zUI-Ac-2nk"/>
+                                            <outlet property="messageLabel" destination="2Ns-M7-OG1" id="ubW-8f-ewB"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aaB-Go-aWd" id="bX7-L2-MmS"/>
@@ -295,19 +347,12 @@
                                 <action selector="favoritesControlChanges:" destination="aaB-Go-aWd" eventType="valueChanged" id="5Ij-Z9-Gsa"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title=" " id="vtX-VZ-RB4">
-                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="LastUpdatedLabel" destination="y4Z-i6-UYu" id="zCz-7O-cP3"/>
                         <outlet property="LeftButton" destination="v4j-oA-7Fa" id="EdI-if-QoB"/>
                         <outlet property="LocationsList" destination="naC-sZ-bcy" id="Wk4-kY-TeR"/>
                         <outlet property="LocationsListLayout" destination="eqw-AF-DSB" id="kLH-bz-bdn"/>
-                        <outlet property="RightButton" destination="vtX-VZ-RB4" id="iv8-Xb-WoJ"/>
                         <outlet property="favoritesControl" destination="9BX-Nz-NN6" id="94S-gq-Nni"/>
                         <outlet property="navigationItem" destination="lS5-pu-Adr" id="4tw-ID-qgg"/>
                         <outlet property="settingsButton" destination="MHZ-t0-Moj" id="nyC-iO-GTe"/>

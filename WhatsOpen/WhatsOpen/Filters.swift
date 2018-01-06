@@ -16,6 +16,8 @@ class Filters {
     var showClosed = true
     var sortBy = SortMethod.alphabetical
     var openFirst = true
+	
+	var showAlerts = ["Informational":true, "Minor Alerts":true, "Major Alerts":true]
     
     var onlyFromLocations = [String: Bool]() // Locations to show, could simply use Location objects instead if you wanted
     var onlyFromCategories = [String: Bool]() //same as above, but for Categories, not Locations

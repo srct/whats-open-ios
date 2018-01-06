@@ -12,17 +12,36 @@ import RealmSwift
 
 //Realm Model
 class FacilitiesModel: Object {
-	var facilities = List<Facility>()
+	let facilities = List<Facility>()
+	let alerts = List<Alert>()
 	@objc dynamic var lastUpdated = Date()
 	@objc dynamic let id = 0
 }
 
 
-class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
+class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDelegateFlowLayout {
 
-	let realm = try! Realm()
+	// Tell Realm to use this new configuration object for the default Realm
+	let realm = try! Realm(configuration: Realm.Configuration(
+		// Set the new schema version. This must be greater than the previously used
+		// version (if you've never set a schema version before, the version is 0).
+		schemaVersion: 1,
+		
+		// Set the block which will be called automatically when opening a Realm with
+		// a schema version lower than the one set above
+		migrationBlock: { migration, oldSchemaVersion in
+			// We haven’t migrated anything yet, so oldSchemaVersion == 0
+			if (oldSchemaVersion < 1) {
+				migration.enumerateObjects(ofType: "FacilitiesModel", { (oldObject, newObject) in
+					newObject!["alerts"] = List<Alert>()
+				})
+			}
+	}))
 
 	var facilitiesArray = List<Facility>()
+	var alertsList = List<Alert>()
+	
+	var currentAlerts = List<Alert>()
     
     // array of facilities that pass the current filters
     var filteredFacilities = List<Facility>()
@@ -40,17 +59,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	@IBOutlet var LeftButton: UIBarButtonItem!
-
-	@IBAction func RightButton(_ sender: Any) {
-	}
-	@IBOutlet var RightButton: UIBarButtonItem!
 	
 	@IBOutlet var settingsButton: UIBarButtonItem!
 	
 	@IBOutlet var LocationsList: UICollectionView!
 
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
-
+	
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
@@ -92,10 +107,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     }
 
 	override func viewWillLayoutSubviews() {
-		LocationsListLayout.itemSize.width = getCellWidth()
+		//LocationsListLayout.itemSize.width = getCellWidth()
 		LocationsListLayout.invalidateLayout()
+		LocationsList.reloadData()
 	}
 	
+	/*
 	func getCellWidth() -> CGFloat {
 		let windowWidth = self.view.frame.size.width
 		
@@ -111,9 +128,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		return 0
 	}
+	*/
 
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender, forceUpdate: true)
+		reloadWithFilters()
 	}
 	
 	func checkFilterState() {
@@ -125,6 +144,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				}
 			}
 			for f in filters.onlyFromLocations {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
+			for f in filters.showAlerts {
 				if(f.value != true) {
 					LeftButton.title = "Filter (On)"
 					return
@@ -224,35 +249,47 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
-		
-		/*
-		let defaults = UserDefaults.standard
-		let facilitiesFromDefaults = defaults.object(forKey: "FacilitiesList") as! List<Facility>?
-	  	let lastUpdatedList = defaults.object(forKey: "lastUpdatedList") as! Date?
-		if(facilitiesFromDefaults == nil || lastUpdatedList == nil) {
-			refresh(self)
-		}
-		else if(lastUpdatedList! < Date(timeIntervalSinceNow: -86400.0)) {
-			refresh(self)
-		}
-		else {
-			facilitiesArray = facilitiesFromDefaults!
-		}
-		*/
-		
 		refresh(self, forceUpdate: false)
 		
-
-		
 		reloadWithFilters()
-		
 		
 	}
 	
 	func reloadWithFilters() {
+		
+		// Facilities
 		filteredFacilities = filters.applyFiltersOnFacilities(facilitiesArray)
 		shownFacilities = filteredFacilities
 		favoritesControlChanges(self)
+		
+		// Alerts
+		let shown = List<Alert>()
+		let formatter = ISO8601DateFormatter()
+		formatter.timeZone = TimeZone(identifier: "America/New_York")
+		let now = Date()
+		for alert in alertsList {
+			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
+				switch alert.urgency {
+				case "info":
+					if(filters.showAlerts["Informational"])! {
+						shown.append(alert)
+					}
+				case "minor":
+					if(filters.showAlerts["Minor Alerts"])! {
+						shown.append(alert)
+					}
+				case "major":
+					if(filters.showAlerts["Major Alerts"])! {
+						shown.append(alert)
+					}
+				default:
+					shown.append(alert)
+				}
+			}
+		}
+		currentAlerts = shown
+		
+		
 		LocationsList.reloadData()
 	}
     
@@ -314,7 +351,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	* Reloads data, either calling update() to attempt a download
 	* or simply pulling from the realm
 	*/
-	func refresh(_ sender: Any, forceUpdate: Bool = true) {
+	@objc func refresh(_ sender: Any, forceUpdate: Bool = true) {
 		refreshControl.beginRefreshing()
 		if(forceUpdate) {
 			update(sender);
@@ -324,13 +361,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			if results.count > 0 {
 				let model = results[0]
 				let facilities = model.facilities
+				let alerts = model.alerts
 				let lastUpdated = model.lastUpdated
 				
-				if(facilities.isEmpty || lastUpdated < Date(timeIntervalSinceNow: -86400.0)) {
+				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare: Date(timeIntervalSinceNow: -43200.0))) {
 					update(sender)
 				}
 				else {
 					facilitiesArray = facilities
+					alertsList = alerts
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 				}
 			}
@@ -339,8 +378,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 
 		}
-		reloadWithFilters()
 		
+		
+		updateFiltersLists()
+		
+		reloadWithFilters()
+		refreshControl.endRefreshing()
+	}
+	
+	func updateFiltersLists() {
 		// Add locations and categories to filters
 		for f in facilitiesArray {
 			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
@@ -350,7 +396,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
 			}
 		}
-		refreshControl.endRefreshing()
 	}
 	
 	/*
@@ -368,6 +413,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						let lastUpdated = model.lastUpdated
 						
 						self.facilitiesArray = facilitiesFromDB
+						self.updateFiltersLists()
 						self.reloadWithFilters()
 						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 					}
@@ -380,17 +426,16 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.facilitiesArray = facilities!
 				
 				DispatchQueue.main.async {
-					//let defaults = UserDefaults.standard
-					//defaults.set(facilities, forKey: "FacilitiesList")
 					let date = Date()
-					//defaults.set(date, forKey: "lastUpdatedList")
-					self.reloadWithFilters()
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
-					let model = FacilitiesModel()
-					model.facilities = facilities!
-					model.lastUpdated = date
+
 					let results = self.realm.objects(FacilitiesModel.self)
 					if results.count == 0 {
+						let model = FacilitiesModel()
+						for f in facilities! {
+							model.facilities.append(f)
+						}
+						model.lastUpdated = date
 						try! self.realm.write {
 							self.realm.add(model)
 						}
@@ -398,15 +443,57 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					else {
 						let fromRealm = results[0]
 						try! self.realm.write {
-							fromRealm.facilities = model.facilities
-							fromRealm.lastUpdated = model.lastUpdated
+							fromRealm.facilities.removeAll()
+							for f in facilities! {
+								fromRealm.facilities.append(f)
+							}
+							fromRealm.lastUpdated = date
 						}
+					}
+					self.updateFiltersLists()
+					self.reloadWithFilters()
+				}
+			}
+		}
+		SRCTNetworkController.performAlertsDownload { (alerts) in
+			if(alerts == nil) {
+				DispatchQueue.main.async {
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count > 0 {
+						let model = results[0]
+						self.alertsList = model.alerts
+					}
+					else {
+						self.alertsList = List<Alert>()
 					}
 				}
 			}
-			
-
-			
+			else {
+				self.alertsList = alerts!
+				
+				DispatchQueue.main.async {
+					let results = self.realm.objects(FacilitiesModel.self)
+					if results.count == 0 {
+						try! self.realm.write {
+							let model = FacilitiesModel()
+							for a in alerts! {
+								model.alerts.append(a)
+							}
+							self.realm.add(model)
+						}
+					}
+					else {
+						let fromRealm = results[0]
+						try! self.realm.write {
+							fromRealm.alerts.removeAll()
+							for a in alerts! {
+								fromRealm.alerts.append(a)
+							}
+						}
+					}
+					self.reloadWithFilters()
+				}
+			}
 		}
 	}
     
@@ -426,79 +513,158 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     }
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
+		if currentAlerts.count > 0 {
+			return 2
+		}
+		else {
+			return 1
+		}
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shownFacilities.count
+		if(section == 1 || currentAlerts.count == 0) {
+			return shownFacilities.count
+		}
+		else {
+			// TODO: get current alerts, not just any alerts
+			return currentAlerts.count
+		}
+		
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
-		/*
-		let windowRect = self.view.window!.frame
-		let windowWidth = windowRect.size.width
-		if(windowWidth <= 320) {
+		
+		if (indexPath.section == 1 || currentAlerts.count == 0) {
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
+			/*
+			let windowRect = self.view.window!.frame
+			let windowWidth = windowRect.size.width
+			if(windowWidth <= 320) {
 			cell.frame.size.width = 280
+			}
+			*/
+			//Get tap of the cell
+			cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
+			cell.gestureRecognizers = []
+			cell.gestureRecognizers?.append(cell.tapRecognizer)
+			
+			
+			let facility: Facility
+			//let dataArray: [Facility]
+			
+			/*
+			// if something has been searched for, we want to use the filtered array as the data source
+			if isSearching() || showFavorites {
+			dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
+			} else {
+			dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
+			}
+			*/
+			
+			
+			
+			facility = shownFacilities[indexPath.row]
+			
+			cell.facility = facility
+			
+			//set labels
+			cell.nameLabel.text = facility.facilityName
+			cell.categoryLabel.text = facility.category?.categoryName.uppercased()
+			
+			cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
+			
+			cell.timeDescriptionLabel.text = facility.facilityLocation?.building
+			
+			//change appearence based on open state
+			let open = Utilities.isOpen(facility: facility)
+			if(open == true) {
+				//cell.openClosedLabel.text = "Open"
+				cell.openClosedLabel.textColor = UIColor.black
+				cell.openClosedLabel.backgroundColor = UIColor.white
+				//cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+				cell.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
+			} else {
+				//cell.openClosedLabel.text = "Closed"
+				cell.openClosedLabel.textColor = UIColor.white
+				cell.openClosedLabel.backgroundColor = UIColor.black
+				//cell.openClosedLabel.backgroundColor = UIColor.red
+				cell.backgroundColor = UIColor.red
+				
+			}
+			
+			//Accessibility
+			//TODO: FIX THIS
+			cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
+			cell.accessibilityHint = "Double Tap to view details"
+			
+			
+			self.reloadInputViews()
+			return cell
 		}
-		*/
-        //Get tap of the cell
-		cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
-        cell.gestureRecognizers = []
-		cell.gestureRecognizers?.append(cell.tapRecognizer)
-        
-        
-        let facility: Facility
-        //let dataArray: [Facility]
-		
-		/*
-        // if something has been searched for, we want to use the filtered array as the data source
-        if isSearching() || showFavorites {
-            dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
-        } else {
-            dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-        }
-		*/
-		
-		
-        
-		facility = shownFacilities[indexPath.row]
-        
-		cell.facility = facility
-        
-        //set labels
-		cell.nameLabel.text = facility.facilityName
-        cell.categoryLabel.text = facility.category?.categoryName.uppercased()
+		else {
+			// Do Alerts things here
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Alert Cell", for: indexPath) as! AlertCollectionViewCell
+			cell.viewWidth = self.view.frame.width
+			
+			switch currentAlerts[indexPath.row].urgency {
+			case "info":
+				cell.imageView.image = #imageLiteral(resourceName: "info")
+				cell.imageView.accessibilityLabel = "Info"
+			case "minor":
+				cell.imageView.image = #imageLiteral(resourceName: "minor")
+				cell.imageView.accessibilityLabel = "Minor Alert"
+			case "major":
+				cell.imageView.image = #imageLiteral(resourceName: "major")
+				cell.imageView.accessibilityLabel = "Major Alert"
+			case "emergency":
+				cell.imageView.image = #imageLiteral(resourceName: "emergency")
+				cell.imageView.accessibilityLabel = "Emergency Alert"
+			default:
+				cell.imageView.image = #imageLiteral(resourceName: "major")
+				cell.imageView.accessibilityLabel = "Alert"
+			}
+			cell.messageLabel.text = currentAlerts[indexPath.row].message
+			
 
-        cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
-        
-        cell.timeDescriptionLabel.text = facility.facilityLocation?.building
-
-        //change appearence based on open state
-        let open = Utilities.isOpen(facility: facility)
-		if(open == true) {
-			//cell.openClosedLabel.text = "Open"
-			cell.openClosedLabel.textColor = UIColor.black
-			cell.openClosedLabel.backgroundColor = UIColor.white
-			//cell.openClosedLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-			cell.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
-		} else {
-			//cell.openClosedLabel.text = "Closed"
-			cell.openClosedLabel.textColor = UIColor.white
-			cell.openClosedLabel.backgroundColor = UIColor.black
-			//cell.openClosedLabel.backgroundColor = UIColor.red
-			cell.backgroundColor = UIColor.red
-
+			
+			return cell
 		}
 
-        //Accessibility
-        //TODO: FIX THIS
-		cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
-		cell.accessibilityHint = "Double Tap to view details"
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		if(indexPath.section == 1 || currentAlerts.count == 0) {
+			let height = LocationsListLayout.itemSize.height
+			let width: CGFloat
+			
+			let windowWidth = self.view.frame.size.width
+			
+			if(windowWidth < 640) {
+				width = windowWidth - 20
+			}
+			else if(windowWidth >= 640 && windowWidth < 1024) {
+				width = (windowWidth / 2) - 15
+			}
+			else if(windowWidth >= 1024) {
+				width = (windowWidth / 3) - 15
+			}
+			else {
+				width = windowWidth - 20
+			}
+			
+			return CGSize(width: width, height: height)
+		}
+		else {
+			return CGSize(width: self.view.frame.size.width, height: LocationsListLayout.itemSize.height)
+		}
+	}
 
-		
-		self.reloadInputViews()
-		return cell
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		var sectionInsets = LocationsListLayout.sectionInset
+		if(section != 1 && alertsList.count != 0) {
+			sectionInsets.top = 0
+		}
+		return sectionInsets
 	}
 
 	
@@ -609,6 +775,48 @@ extension FacilitiesListViewController: UISearchResultsUpdating {
         let searchText = searchController.searchBar.text ?? ""
         shownFacilities = filterFacilitiesForSearchText(searchText)
     }
+}
+
+// based on https://stackoverflow.com/questions/26198526/nsdate-comparison-using-swift
+extension Date {
+	func isGreaterThanDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isGreater = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedDescending {
+			isGreater = true
+		}
+		
+		//Return Result
+		return isGreater
+	}
+	
+	func isLessThanDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isLess = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedAscending {
+			isLess = true
+		}
+		
+		//Return Result
+		return isLess
+	}
+	
+	func equalToDate(dateToCompare: Date) -> Bool {
+		//Declare Variables
+		var isEqualTo = false
+		
+		//Compare Values
+		if self.compare(dateToCompare) == ComparisonResult.orderedSame {
+			isEqualTo = true
+		}
+		
+		//Return Result
+		return isEqualTo
+	}
 }
 
 

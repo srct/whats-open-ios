@@ -49,14 +49,8 @@ class FilterSelectionTableViewController: UITableViewController {
 		let values = getFunc()
         // Configure the cell...
 		if(indexPath.row == 0) {
-			cell.textLabel?.text = "Show All"
-			cell.accessoryType = .checkmark
-			for v in values {
-				if(v.value == false) {
-					cell.accessoryType = .none
-					break
-				}
-			}
+			cell.textLabel?.text = "Select All/None"
+			cell.accessoryType = .none
 		}
 		else {
 			var i = 1
@@ -77,6 +71,13 @@ class FilterSelectionTableViewController: UITableViewController {
 
         return cell
     }
+	
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		if navigationItem.title == "Alerts" {
+			return "Emergency Alerts are always enabled in the app for your safety. We will never send a notification to your device without your consent."
+		}
+		return nil
+	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if(indexPath.row == 0) {
