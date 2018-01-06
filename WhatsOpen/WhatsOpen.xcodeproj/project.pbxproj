@@ -533,6 +533,7 @@
 			baseConfigurationReference = 8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K5MMVK2UFR;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -549,6 +550,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "App Store";
 		};
@@ -681,6 +683,7 @@
 			baseConfigurationReference = 872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEV";
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = N5GM564QWL;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -695,6 +698,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -703,6 +707,7 @@
 			baseConfigurationReference = 850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEV";
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = N5GM564QWL;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -718,6 +723,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

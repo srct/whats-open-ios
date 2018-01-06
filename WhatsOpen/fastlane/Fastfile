@@ -17,17 +17,39 @@ lane :beta do
   # cocoapods
 
   # increment_build_number
+  # Increment the build number (not the version number)
+  # Providing the xcodeproj is optional
+  increment_build_number(xcodeproj: "WhatsOpen.xcodeproj")
+
+  # Commit the version bump
+  commit_version_bump(xcodeproj: "WhatsOpen.xcodeproj")
+
+  # Add a git tag for this build. This will automatically
+  # use an appropriate git tag name
+  add_git_tag
+
+  # Push the new commit and tag back to your git remote
+  push_to_git_remote
+
+  changelog = prompt(
+    text: "Changelog: ",
+    multi_line_end_keyword: "END"
+  )
+
 
   # build your iOS app
   build_app(
-    # scheme: "YourScheme",
-    export_method: "app-store"
+    scheme: "WhatsOpen - App Store",
+    export_method: "app-store",
+    include_bitcode: true
   )
+
+
 
   # upload to Testflight
   pilot(skip_waiting_for_build_processing: true)
 
-  # slack(
-  #   slack_url: "https://hooks.slack.com/services/IDS"
-  # )
+  slack(
+    slack_url: "https://hooks.slack.com/services/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"
+  )
 end
