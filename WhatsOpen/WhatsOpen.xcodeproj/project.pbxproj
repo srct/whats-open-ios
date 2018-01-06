@@ -256,7 +256,7 @@
 					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = N5GM564QWL;
+						DevelopmentTeam = K5MMVK2UFR;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
