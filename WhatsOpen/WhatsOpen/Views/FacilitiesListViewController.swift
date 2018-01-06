@@ -21,7 +21,22 @@ class FacilitiesModel: Object {
 
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDelegateFlowLayout {
 
-	let realm = try! Realm()
+	// Tell Realm to use this new configuration object for the default Realm
+	let realm = try! Realm(configuration: Realm.Configuration(
+		// Set the new schema version. This must be greater than the previously used
+		// version (if you've never set a schema version before, the version is 0).
+		schemaVersion: 1,
+		
+		// Set the block which will be called automatically when opening a Realm with
+		// a schema version lower than the one set above
+		migrationBlock: { migration, oldSchemaVersion in
+			// We haven’t migrated anything yet, so oldSchemaVersion == 0
+			if (oldSchemaVersion < 1) {
+				migration.enumerateObjects(ofType: "FacilitiesModel", { (oldObject, newObject) in
+					newObject!["alerts"] = List<Alert>()
+				})
+			}
+	}))
 
 	var facilitiesArray = List<Facility>()
 	var alertsList = List<Alert>()
@@ -44,17 +59,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	@IBOutlet var LeftButton: UIBarButtonItem!
-
-	@IBAction func RightButton(_ sender: Any) {
-	}
-	@IBOutlet var RightButton: UIBarButtonItem!
 	
 	@IBOutlet var settingsButton: UIBarButtonItem!
 	
 	@IBOutlet var LocationsList: UICollectionView!
 
 	@IBOutlet var LocationsListLayout: UICollectionViewFlowLayout!
-
 	
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
@@ -122,6 +132,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	@IBAction func RefreshButton(_ sender: Any) {
 		refresh(sender, forceUpdate: true)
+		reloadWithFilters()
 	}
 	
 	func checkFilterState() {
@@ -340,7 +351,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	* Reloads data, either calling update() to attempt a download
 	* or simply pulling from the realm
 	*/
-	func refresh(_ sender: Any, forceUpdate: Bool = true) {
+	@objc func refresh(_ sender: Any, forceUpdate: Bool = true) {
 		refreshControl.beginRefreshing()
 		if(forceUpdate) {
 			update(sender);
@@ -353,7 +364,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				let alerts = model.alerts
 				let lastUpdated = model.lastUpdated
 				
-				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare: Date(timeIntervalSinceNow: -86400.0))) {
+				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare: Date(timeIntervalSinceNow: -43200.0))) {
 					update(sender)
 				}
 				else {
@@ -369,6 +380,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		
 		
+		updateFiltersLists()
+		
+		reloadWithFilters()
+		refreshControl.endRefreshing()
+	}
+	
+	func updateFiltersLists() {
 		// Add locations and categories to filters
 		for f in facilitiesArray {
 			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
@@ -378,9 +396,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
 			}
 		}
-		
-		reloadWithFilters()
-		refreshControl.endRefreshing()
 	}
 	
 	/*
@@ -398,6 +413,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						let lastUpdated = model.lastUpdated
 						
 						self.facilitiesArray = facilitiesFromDB
+						self.updateFiltersLists()
 						self.reloadWithFilters()
 						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
 					}
@@ -411,7 +427,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				
 				DispatchQueue.main.async {
 					let date = Date()
-					//self.reloadWithFilters()
 					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
 
 					let results = self.realm.objects(FacilitiesModel.self)
@@ -435,6 +450,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 							fromRealm.lastUpdated = date
 						}
 					}
+					self.updateFiltersLists()
+					self.reloadWithFilters()
 				}
 			}
 		}
@@ -474,6 +491,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 							}
 						}
 					}
+					self.reloadWithFilters()
 				}
 			}
 		}

@@ -347,19 +347,12 @@
                                 <action selector="favoritesControlChanges:" destination="aaB-Go-aWd" eventType="valueChanged" id="5Ij-Z9-Gsa"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title=" " id="vtX-VZ-RB4">
-                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="RightButton:" destination="aaB-Go-aWd" id="47Y-7w-MFS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="LastUpdatedLabel" destination="y4Z-i6-UYu" id="zCz-7O-cP3"/>
                         <outlet property="LeftButton" destination="v4j-oA-7Fa" id="EdI-if-QoB"/>
                         <outlet property="LocationsList" destination="naC-sZ-bcy" id="Wk4-kY-TeR"/>
                         <outlet property="LocationsListLayout" destination="eqw-AF-DSB" id="kLH-bz-bdn"/>
-                        <outlet property="RightButton" destination="vtX-VZ-RB4" id="iv8-Xb-WoJ"/>
                         <outlet property="favoritesControl" destination="9BX-Nz-NN6" id="94S-gq-Nni"/>
                         <outlet property="navigationItem" destination="lS5-pu-Adr" id="4tw-ID-qgg"/>
                         <outlet property="settingsButton" destination="MHZ-t0-Moj" id="nyC-iO-GTe"/>
