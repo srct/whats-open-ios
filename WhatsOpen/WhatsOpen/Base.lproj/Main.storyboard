@@ -482,6 +482,63 @@
             </objects>
             <point key="canvasLocation" x="-6852" y="-349.47526236881561"/>
         </scene>
+        <!--Set App Icon-->
+        <scene sceneID="LLV-Ru-cLJ">
+            <objects>
+                <tableViewController title="Set App Icon" id="zpI-ZO-yo2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZMO-bz-mrv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="setIcon" rowHeight="88" id="TTa-90-iRz" customClass="IconSelectionTableViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTa-90-iRz" id="SzL-Cg-6Ln">
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="87.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73I-DC-dMX">
+                                            <rect key="frame" x="9" y="8" width="72" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="qmv-NI-8Qq"/>
+                                                <constraint firstAttribute="height" constant="72" id="z6v-6y-CEL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXq-oB-plw">
+                                            <rect key="frame" x="89" y="33" width="78.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qXq-oB-plw" firstAttribute="centerX" secondItem="SzL-Cg-6Ln" secondAttribute="centerX" id="D1D-kd-e7J"/>
+                                        <constraint firstItem="qXq-oB-plw" firstAttribute="leading" secondItem="73I-DC-dMX" secondAttribute="trailing" constant="8" id="NAc-cs-q1q"/>
+                                        <constraint firstItem="73I-DC-dMX" firstAttribute="centerX" secondItem="SzL-Cg-6Ln" secondAttribute="centerX" id="NQ3-jq-yCJ"/>
+                                        <constraint firstItem="73I-DC-dMX" firstAttribute="leading" secondItem="SzL-Cg-6Ln" secondAttribute="leading" constant="9" id="d8l-Jq-cnv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qXq-oB-plw" secondAttribute="trailing" constant="40" id="Fhk-gH-G4h"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="iconName" destination="qXq-oB-plw" id="BXs-Li-HvY"/>
+                                    <outlet property="iconThumbnail" destination="73I-DC-dMX" id="m9u-gd-jT4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zpI-ZO-yo2" id="Cny-cV-gLI"/>
+                            <outlet property="delegate" destination="zpI-ZO-yo2" id="ay7-EJ-gdf"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEr-8j-YgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6034.3999999999996" y="-349.47526236881561"/>
+        </scene>
         <!--Facility Detail View Controller-->
         <scene sceneID="PSR-07-q3V">
             <objects>
