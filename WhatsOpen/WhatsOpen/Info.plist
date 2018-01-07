@@ -68,7 +68,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -94,5 +94,19 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>Fabric</key>
+	<dict>
+	  <key>APIKey</key>
+	  <string>efd41c497ec3bc605941d2bbb6353dfc2b2e3710</string>
+	  <key>Kits</key>
+	  <array>
+		<dict>
+		  <key>KitInfo</key>
+		  <dict/>
+		  <key>KitName</key>
+		  <string>Crashlytics</string>
+		</dict>
+	  </array>
+	</dict>
 </dict>
 </plist>

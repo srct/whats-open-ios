@@ -15,6 +15,9 @@ pod 'ObjectMapper', '~> 3.0'
 
 pod 'DeckTransition', '~> 1.4.0'
 
+pod 'Fabric'
+pod 'Crashlytics'
+
 end
 
 
