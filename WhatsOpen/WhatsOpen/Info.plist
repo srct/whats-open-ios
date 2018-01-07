@@ -8,6 +8,55 @@
 	<string>What's Open</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>1009</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>iosicon-1009</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<true/>
+			</dict>
+			<key>420</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>iosicon-420</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<true/>
+			</dict>
+			<key>730</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>iosicon-730</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<true/>
+			</dict>
+			<key>srct</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>iosicon-srctlogo</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<true/>
+			</dict>
+		</dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>$(PRIMARYICON)</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

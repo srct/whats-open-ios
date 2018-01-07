@@ -43,7 +43,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +52,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 1
 		}
 		else if(section == 1) {
+			return 1
+		}
+		else if(section == 2) {
 			return 3
 		}
 		else {
@@ -66,6 +69,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		case 0:
 			cell.textLabel!.text = "Are Our Hours Wrong?"
 		case 1:
+			cell.textLabel!.text = "Select App Icon"
+			cell.accessoryType = .disclosureIndicator
+		case 2:
 			switch indexPath.row {
 			case 0:
 				cell.textLabel!.text = "Review on the App Store"
@@ -114,6 +120,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				else {
 					present(mailvc, animated: true)
 				}
+			}
+			else if settingcell.textLabel?.text == "Select App Icon" {
+				let vc = self.storyboard?.instantiateViewController(withIdentifier: "setAppIcon")
+				self.show(vc!, sender: settingcell)
 			}
 			else if settingcell.textLabel?.text == "Review on the App Store" {
 				let appPage = SKStoreProductViewController()

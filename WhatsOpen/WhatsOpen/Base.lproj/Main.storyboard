@@ -485,7 +485,7 @@
         <!--Set App Icon-->
         <scene sceneID="LLV-Ru-cLJ">
             <objects>
-                <tableViewController title="Set App Icon" id="zpI-ZO-yo2" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="setAppIcon" title="Set App Icon" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpI-ZO-yo2" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZMO-bz-mrv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
