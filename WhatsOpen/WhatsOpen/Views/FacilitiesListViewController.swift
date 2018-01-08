@@ -149,6 +149,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					return
 				}
 			}
+			for f in filters.onlyFromCampuses {
+				if(f.value != true) {
+					LeftButton.title = "Filter (On)"
+					return
+				}
+			}
 			for f in filters.showAlerts {
 				if(f.value != true) {
 					LeftButton.title = "Filter (On)"
@@ -394,6 +400,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
 				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
+			}
+			if(!filters.onlyFromCampuses.keys.contains((f.facilityLocation?.campus)!)) {
+				filters.onlyFromCampuses.updateValue(true, forKey: (f.facilityLocation?.campus)!)
 			}
 		}
 	}

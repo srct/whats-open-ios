@@ -20,8 +20,9 @@ class Filters {
 	var showAlerts = ["Informational":true, "Minor Alerts":true, "Major Alerts":true]
     
     var onlyFromLocations = [String: Bool]() // Locations to show, could simply use Location objects instead if you wanted
-    var onlyFromCategories = [String: Bool]() //same as above, but for Categories, not Locations
-    
+    var onlyFromCategories = [String: Bool]() // same as above, but for Categories, not Locations
+	var onlyFromCampuses = [String: Bool]() // and for campuses
+	
     init() {
         //nothing to do here
     }
@@ -32,7 +33,7 @@ class Filters {
         let specifiedFacilities = List<Facility>()
         // facility must be within both a specified location and category
         for f in facilities {
-            if(onlyFromLocations[(f.facilityLocation?.building)!] == true && onlyFromCategories[(f.category?.categoryName)!] == true) {
+            if(onlyFromLocations[(f.facilityLocation?.building)!] == true && onlyFromCategories[(f.category?.categoryName)!] == true && onlyFromCampuses[(f.facilityLocation?.campus)!] == true) {
                 specifiedFacilities.append(f)
             }
         }

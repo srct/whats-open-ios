@@ -56,7 +56,7 @@ class FilterSelectionTableViewController: UITableViewController {
 			var i = 1
 			for v in values {
 				if i == indexPath.row {
-					cell.textLabel?.text = v.key
+					cell.textLabel?.text = v.key.capitalized
 					if(v.value == true) {
 						cell.accessoryType = .checkmark
 					}
@@ -93,7 +93,7 @@ class FilterSelectionTableViewController: UITableViewController {
 			else {
 				res = false
 			}
-			selectFunc((tableCell?.textLabel?.text)!, res)
+			selectFunc((tableCell?.textLabel?.text)!.lowercased(), res)
 			tableView.reloadRows(at: [IndexPath(row: 0, section: 0), indexPath], with: .automatic)
 		}
 	}

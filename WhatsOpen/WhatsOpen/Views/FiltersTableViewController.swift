@@ -90,7 +90,7 @@ class FiltersTableViewController: UITableViewController {
 		case 2:
 			return SortMethod.count
 		case 3:
-			return 3
+			return 4
 		default:
 			return 0
 		}
@@ -206,6 +206,22 @@ class FiltersTableViewController: UITableViewController {
 				}
 				cell.detailTextLabel?.text = detail
 			case 2:
+				cell.textLabel?.text = "Campuses"
+				var i = 0
+				for c in filters.onlyFromCampuses {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == filters.onlyFromCampuses.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+				cell.detailTextLabel?.text = detail
+			case 3:
 				cell.textLabel?.text = "Alerts"
 				var i = 0
 				for c in filters.showAlerts {
@@ -316,6 +332,9 @@ class FiltersTableViewController: UITableViewController {
 				else if(sender as! UITableViewCell).textLabel?.text! == "Alerts" {
 					return filters.showAlerts
 				}
+				else if(sender as! UITableViewCell).textLabel?.text! == "Campuses" {
+					return filters.onlyFromCampuses
+				}
 				else {
 					return filters.onlyFromLocations
 				}
@@ -326,6 +345,9 @@ class FiltersTableViewController: UITableViewController {
 				}
 				else if(sender as! UITableViewCell).textLabel?.text! == "Alerts" {
 					filters.showAlerts[key] = value
+				}
+				else if(sender as! UITableViewCell).textLabel?.text! == "Campuses" {
+					filters.onlyFromCampuses[key] = value
 				}
 				else {
 					filters.onlyFromLocations[key] = value
@@ -368,6 +390,25 @@ class FiltersTableViewController: UITableViewController {
 					if !foundFalse {
 						for v in filters.showAlerts {
 							filters.showAlerts.updateValue(false, forKey: v.key)
+						}
+					}
+				}
+				else if((sender as! UITableViewCell).textLabel?.text! == "Campuses") {
+					var foundFalse = false
+					for v in filters.onlyFromCampuses {
+						if !foundFalse {
+							if !v.value {
+								foundFalse = true
+								filters.onlyFromCampuses.updateValue(true, forKey: v.key)
+							}
+						}
+						else {
+							filters.onlyFromCampuses.updateValue(true, forKey: v.key)
+						}
+					}
+					if !foundFalse {
+						for v in filters.onlyFromCampuses {
+							filters.onlyFromCampuses.updateValue(false, forKey: v.key)
 						}
 					}
 				}
