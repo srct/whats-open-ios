@@ -44,19 +44,31 @@ Install the needed dependencies by running
   ``pod install``
 inside the the WhatsOpen directory.
 
-To work on the project, you will need to make sure to use the WhatsOpen.xcworkspace file, and NOT the .xcodeproj file. This allows us to use the dependencies that you installed.
+To work on the project, you will need to **make sure to use the WhatsOpen.xcworkspace file**, and NOT the .xcodeproj file. This allows us to use the dependencies that you installed.
 
 You may need to choose your personal development team inside of Xcode on the project settings page. If you are not a registered Apple developer, you can do so at [developer.apple.com](https://developer.apple.com/)
+
+When Building and running, be sure to use the "WhatsOpen" scheme (you can see it to the right of the run and stop buttons) and NOT the "WhatsOpen - App Store" scheme. The second has special settings in the build process, as well as a registered bundle identifier, required for us to properly distribute the app ti the App Store.
+
+What Won't Work During Development
+---
+- Crashlytics won't load in under the "WhatsOpen" Scheme. Use Xcode's debugger.
+- Alternate app icons won't work (and will probably crash if you try to use them) due to the build method of adding them to the info.plist file. If you're an artist and have some cool alternate app icons to add, you can still do so in the `AlternateAppIcons.xcassets` file in the main project folder, and adding a cell for them in the SetIconTableViewController.
 
 Troubleshooting
 ---
 * If you recieve and error similar to ``ld: framework not found Pods
 clang: error: linker command failed with exit code 1 (use -v to see invocation)`` then check to make sure you opened ``WhatsOpen.xcworkspace`` and not ``WhatsOpen.xcodeproj``
 
-To-do
+Distribution Information
 ---
-Check the issues list for things that need to be done.
-Note-- this should also be on the wiki
+To run a build for the App Store, you need the following
+- Use the "WhatsOpen - App Store" scheme to build
+- The bundle ID (edu.gmu.srct.whatsopen) registered to your Apple Developer account (requires Apple Developer Program membership) (Registered to Zach Knox)
+- a `crashlyticsbuild.sh` file with the Crashlytics run script in it inside the project folder.
+- [alternate-icons](https://github.com/alexaubry/alternate-icons) installed to add the alternate icons to the bundle.
+
+To produce a `.ipa` for the App Store, run `Product > Archive`. When complete, you should see it in the Organizer. You can then upload using the organizer or Application Loader.
 
 About GMU SRCT
 ---
