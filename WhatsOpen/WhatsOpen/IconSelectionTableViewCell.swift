@@ -12,6 +12,8 @@ class IconSelectionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+		iconThumbnail.layer.cornerRadius = 10
+		iconThumbnail.layer.masksToBounds = true
         // Initialization code
     }
 	@IBOutlet var iconThumbnail: UIImageView!
