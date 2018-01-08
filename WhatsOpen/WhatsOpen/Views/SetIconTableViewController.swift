@@ -10,6 +10,8 @@ import UIKit
 
 class SetIconTableViewController: UITableViewController {
 
+	var secretCount = 0
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,7 @@ class SetIconTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 9
     }
 
 	
@@ -44,104 +46,87 @@ class SetIconTableViewController: UITableViewController {
         // Configure the cell...
 		switch indexPath.row {
 		case 0:
-			cell.iconThumbnail.image = UIImage(named: "appicon-thumbnail")
-			cell.iconName.text = "Default"
-			if UIApplication.shared.alternateIconName == nil {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo(nil, display: "Default", cell: cell)
 		case 1:
-			cell.iconThumbnail.image = UIImage(named: "srct-thumbnail")
-			cell.iconName.text = "SRCT Logo"
-			if UIApplication.shared.alternateIconName == "srct" {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo("srct", display: "SRCT Logo", cell: cell)
 		case 2:
-			cell.iconThumbnail.image = UIImage(named: "1009-thumbnail")
-			cell.iconName.text = "Morning"
-			if UIApplication.shared.alternateIconName == "1009" {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo("1009", display: "Morning", cell: cell)
 		case 3:
-			cell.iconThumbnail.image = UIImage(named: "420-thumbnail")
-			cell.iconName.text = "Afternoon"
-			if UIApplication.shared.alternateIconName == "420" {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo("420", display: "Afternoon", cell: cell)
 		case 4:
-			cell.iconThumbnail.image = UIImage(named: "730-thumbnail")
-			cell.iconName.text = "Meeting Time"
-			if UIApplication.shared.alternateIconName == "730" {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo("730", display: "Meeting Time", cell: cell)
+		case 5:
+			setCellInfo("opensign", display: "Come On In", cell: cell)
+		case 6:
+			setCellInfo("closedsign", display: "Sorry, We're Closed", cell: cell)
+		case 7:
+			setCellInfo("pride", display: "Pride Rainbow", cell: cell)
+		case 8:
+			setCellInfo("sixcolors", display: "Six Colors", cell: cell)
 		default:
-			cell.iconThumbnail.image = UIImage(named: "appicon-thumbnail")
-			cell.iconName.text = "Default"
-			if UIApplication.shared.alternateIconName == nil {
-				cell.accessoryType = .checkmark
-			}
-			else {
-				cell.accessoryType = .none
-			}
+			setCellInfo(nil, display: "Default", cell: cell)
 		}
 		
         return cell
     }
 	
+	func setCellInfo(_ name: String?, display: String, cell: IconSelectionTableViewCell) {
+		if(name == nil) {
+			cell.iconThumbnail.image = UIImage(named: "appicon-thumbnail")
+		}
+		else {
+			cell.iconThumbnail.image = UIImage(named: "\(name!)-thumbnail")
+		}
+		cell.iconName.text = display
+		if UIApplication.shared.alternateIconName == name {
+			cell.accessoryType = .checkmark
+		}
+		else {
+			cell.accessoryType = .none
+		}
+	}
+	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.row {
 		case 0:
-			UIApplication.shared.setAlternateIconName(nil) { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
+			if secretCount < 4 {
+				setIcon(nil)
+				secretCount += 1
+			}
+			else {
+				setIcon("pizza")
+				secretCount = 0
 			}
 		case 1:
-			UIApplication.shared.setAlternateIconName("srct") { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
-			}
+			setIcon("srct")
 		case 2:
-			UIApplication.shared.setAlternateIconName("1009") { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
-			}
+			setIcon("1009")
 		case 3:
-			UIApplication.shared.setAlternateIconName("420") { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
-			}
+			setIcon("420")
 		case 4:
-			UIApplication.shared.setAlternateIconName("730") { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
-			}
+			setIcon("730")
+		case 5:
+			setIcon("opensign")
+		case 6:
+			setIcon("closedsign")
+		case 7:
+			setIcon("pride")
+		case 8:
+			setIcon("sixcolors")
+		case 9:
+			setIcon("pizza")
 		default:
-			UIApplication.shared.setAlternateIconName(nil) { (error) in
-				if let error = error {
-					print("err: \(error)")
-				}
-			}
+			setIcon(nil)
 		}
 		tableView.reloadData()
+	}
+	
+	func setIcon(_ name: String?) {
+		UIApplication.shared.setAlternateIconName(name) { (error) in
+			if let error = error {
+				print("err: \(error)")
+			}
+		}
 	}
 
     /*
