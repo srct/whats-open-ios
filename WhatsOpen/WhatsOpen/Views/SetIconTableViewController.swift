@@ -39,12 +39,12 @@ class SetIconTableViewController: UITableViewController {
 
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! IconSelectionTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "setIcon", for: indexPath) as! IconSelectionTableViewCell
 
         // Configure the cell...
 		switch indexPath.row {
 		case 0:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "appicon-76.png")
+			cell.iconThumbnail.image = UIImage(named: "appicon-thumbnail")
 			cell.iconName.text = "Default"
 			if UIApplication.shared.alternateIconName == nil {
 				cell.accessoryType = .checkmark
@@ -53,43 +53,43 @@ class SetIconTableViewController: UITableViewController {
 				cell.accessoryType = .none
 			}
 		case 1:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "iosicon-srctlogo-76.png")
+			cell.iconThumbnail.image = UIImage(named: "srct-thumbnail")
 			cell.iconName.text = "SRCT Logo"
-			if UIApplication.shared.alternateIconName == "iosicon-srct" {
+			if UIApplication.shared.alternateIconName == "srct" {
 				cell.accessoryType = .checkmark
 			}
 			else {
 				cell.accessoryType = .none
 			}
 		case 2:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "iosicon-1009-76.png")
+			cell.iconThumbnail.image = UIImage(named: "1009-thumbnail")
 			cell.iconName.text = "Morning"
-			if UIApplication.shared.alternateIconName == "iosicon-1009" {
+			if UIApplication.shared.alternateIconName == "1009" {
 				cell.accessoryType = .checkmark
 			}
 			else {
 				cell.accessoryType = .none
 			}
 		case 3:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "iosicon-420-76.png")
+			cell.iconThumbnail.image = UIImage(named: "420-thumbnail")
 			cell.iconName.text = "Afternoon"
-			if UIApplication.shared.alternateIconName == "iosicon-420" {
+			if UIApplication.shared.alternateIconName == "420" {
 				cell.accessoryType = .checkmark
 			}
 			else {
 				cell.accessoryType = .none
 			}
 		case 4:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "iosicon-730-76.png")
+			cell.iconThumbnail.image = UIImage(named: "730-thumbnail")
 			cell.iconName.text = "Meeting Time"
-			if UIApplication.shared.alternateIconName == "iosicon-730" {
+			if UIApplication.shared.alternateIconName == "730" {
 				cell.accessoryType = .checkmark
 			}
 			else {
 				cell.accessoryType = .none
 			}
 		default:
-			cell.iconThumbnail.image = #imageLiteral(resourceName: "appicon-76.png")
+			cell.iconThumbnail.image = UIImage(named: "appicon-thumbnail")
 			cell.iconName.text = "Default"
 			if UIApplication.shared.alternateIconName == nil {
 				cell.accessoryType = .checkmark
@@ -111,25 +111,25 @@ class SetIconTableViewController: UITableViewController {
 				}
 			}
 		case 1:
-			UIApplication.shared.setAlternateIconName("iosicon-srct") { (error) in
+			UIApplication.shared.setAlternateIconName("srct") { (error) in
 				if let error = error {
 					print("err: \(error)")
 				}
 			}
 		case 2:
-			UIApplication.shared.setAlternateIconName("iosicon-1009") { (error) in
+			UIApplication.shared.setAlternateIconName("1009") { (error) in
 				if let error = error {
 					print("err: \(error)")
 				}
 			}
 		case 3:
-			UIApplication.shared.setAlternateIconName("iosicon-420") { (error) in
+			UIApplication.shared.setAlternateIconName("420") { (error) in
 				if let error = error {
 					print("err: \(error)")
 				}
 			}
 		case 4:
-			UIApplication.shared.setAlternateIconName("iosicon-730") { (error) in
+			UIApplication.shared.setAlternateIconName("730") { (error) in
 				if let error = error {
 					print("err: \(error)")
 				}

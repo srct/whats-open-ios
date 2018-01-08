@@ -485,38 +485,38 @@
         <!--Set App Icon-->
         <scene sceneID="LLV-Ru-cLJ">
             <objects>
-                <tableViewController storyboardIdentifier="setAppIcon" title="Set App Icon" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpI-ZO-yo2" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="setAppIcon" title="Set App Icon" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpI-ZO-yo2" customClass="SetIconTableViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZMO-bz-mrv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="setIcon" rowHeight="88" id="TTa-90-iRz" customClass="IconSelectionTableViewCell" customModule="WhatsOpen" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="88"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="setIcon" rowHeight="65" id="TTa-90-iRz" customClass="IconSelectionTableViewCell" customModule="WhatsOpen" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTa-90-iRz" id="SzL-Cg-6Ln">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="87.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73I-DC-dMX">
-                                            <rect key="frame" x="9" y="8" width="72" height="72"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="72" id="qmv-NI-8Qq"/>
-                                                <constraint firstAttribute="height" constant="72" id="z6v-6y-CEL"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXq-oB-plw">
-                                            <rect key="frame" x="89" y="33" width="78.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXq-oB-plw">
+                                            <rect key="frame" x="59" y="22" width="276" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="73I-DC-dMX">
+                                            <rect key="frame" x="11" y="12.5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="qmv-NI-8Qq"/>
+                                                <constraint firstAttribute="height" constant="40" id="z6v-6y-CEL"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qXq-oB-plw" firstAttribute="centerX" secondItem="SzL-Cg-6Ln" secondAttribute="centerX" id="D1D-kd-e7J"/>
                                         <constraint firstItem="qXq-oB-plw" firstAttribute="leading" secondItem="73I-DC-dMX" secondAttribute="trailing" constant="8" id="NAc-cs-q1q"/>
-                                        <constraint firstItem="73I-DC-dMX" firstAttribute="centerX" secondItem="SzL-Cg-6Ln" secondAttribute="centerX" id="NQ3-jq-yCJ"/>
-                                        <constraint firstItem="73I-DC-dMX" firstAttribute="leading" secondItem="SzL-Cg-6Ln" secondAttribute="leading" constant="9" id="d8l-Jq-cnv"/>
+                                        <constraint firstItem="qXq-oB-plw" firstAttribute="centerY" secondItem="SzL-Cg-6Ln" secondAttribute="centerY" id="S6k-Ic-ccX"/>
+                                        <constraint firstItem="73I-DC-dMX" firstAttribute="leading" secondItem="SzL-Cg-6Ln" secondAttribute="leading" constant="11" id="d8l-Jq-cnv"/>
+                                        <constraint firstItem="73I-DC-dMX" firstAttribute="centerY" secondItem="SzL-Cg-6Ln" secondAttribute="centerY" id="uEt-tb-lME"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
