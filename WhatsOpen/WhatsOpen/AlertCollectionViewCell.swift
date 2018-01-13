@@ -12,9 +12,10 @@ class AlertCollectionViewCell: UICollectionViewCell {
 	
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var messageLabel: UILabel!
+	var alert: Alert!
+	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
+
 	
-	@IBOutlet var containingView: UIView!
-	@IBOutlet var containingViewWidth: NSLayoutConstraint!
 	var viewWidth: CGFloat!
 	
 	override func awakeFromNib() {
@@ -23,26 +24,6 @@ class AlertCollectionViewCell: UICollectionViewCell {
 		isAccessibilityElement = true
 		shouldGroupAccessibilityChildren = true
 		setNeedsLayout()
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		if(viewWidth < 640) {
-			containingViewWidth.constant = -30
-			//cell.containingView.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 1, constant: -10)
-		}
-		else if(viewWidth >= 640 && viewWidth < 1024) {
-			containingViewWidth.constant = -100
-			//cell.containingView.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 1, constant: -100)
-		}
-		else if(viewWidth >= 1024) {
-			containingViewWidth.constant = -300
-			//cell.containingView.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 1, constant: -150)
-		}
-		else {
-			containingViewWidth.constant = -10
-			//cell.containingView.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 1, constant: -10)
-		}
 	}
 	
 }

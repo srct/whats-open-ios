@@ -177,16 +177,27 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		let tapLocation = sender.location(in: LocationsList)
 		let indexPath = LocationsList.indexPathForItem(at: tapLocation)
-        
-		if((indexPath) != nil) {
-            let destination = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
-            let tapped = self.LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
-            destination!.facility = tapped.facility
-            self.presentDetailView(destination!)
+		
+		if(indexPath != nil) {
+			if(indexPath?.section == 1 || currentAlerts.count == 0) {
+				let destination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController
+				destination?.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
+				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
+				(destination?.currentViewController as? FacilityDetailViewController)?.facility = tapped.facility
+				self.presentDetailView(destination!)
+			}
+			else {
+				let destination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController
+				destination?.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController
+				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! AlertCollectionViewCell
+				(destination?.currentViewController as? AlertDetailViewController)?.alert = tapped.alert
+				self.presentDetailView(destination!)
+			}
 		}
+
 	}
 	
-	func presentDetailView(_ destination: FacilityDetailViewController) {
+	func presentDetailView(_ destination: PullingViewController) {
 		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
 			//do a popover here for the iPad
 			//iPads are cool right?
@@ -614,6 +625,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			// Do Alerts things here
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Alert Cell", for: indexPath) as! AlertCollectionViewCell
 			cell.viewWidth = self.view.frame.width
+			cell.alert = currentAlerts[indexPath.row]
+			cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
+			cell.gestureRecognizers = []
+			cell.gestureRecognizers?.append(cell.tapRecognizer)
 			
 			switch currentAlerts[indexPath.row].urgency {
 			case "info":
@@ -633,7 +648,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				cell.imageView.accessibilityLabel = "Alert"
 			}
 			cell.messageLabel.text = currentAlerts[indexPath.row].message
-			
 
 			
 			return cell
@@ -664,7 +678,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			return CGSize(width: width, height: height)
 		}
 		else {
-			return CGSize(width: self.view.frame.size.width, height: LocationsListLayout.itemSize.height)
+			return CGSize(width: self.view.frame.size.width, height: 43)
 		}
 	}
 
@@ -733,11 +747,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         if(segue.identifier == "toDetailView") {
-            let destination = segue.destination as! FacilityDetailViewController
+            let destination = segue.destination as! PullingViewController
+			var destChild = destination.childViewControllers[0] as! FacilityDetailViewController
+			destChild = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
             let destDelegate = DeckTransitioningDelegate()
             destination.transitioningDelegate = destDelegate
             let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
-            destination.facility = tapped.facility
+			destChild.facility = tapped.facility
 
             // if we're in the search view, present on its controller
             if searchController.isActive {
