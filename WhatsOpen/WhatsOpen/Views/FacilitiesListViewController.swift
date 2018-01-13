@@ -608,7 +608,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				cell.openClosedLabel.textColor = UIColor.white
 				cell.openClosedLabel.backgroundColor = UIColor.black
 				//cell.openClosedLabel.backgroundColor = UIColor.red
-				cell.backgroundColor = UIColor.red
+				cell.backgroundColor = UIColor.darkGray
 				
 			}
 			
