@@ -50,6 +50,8 @@ You may need to choose your personal development team inside of Xcode on the pro
 
 When Building and running, be sure to use the "WhatsOpen" scheme (you can see it to the right of the run and stop buttons) and NOT the "WhatsOpen - App Store" scheme. The second has special settings in the build process, as well as a registered bundle identifier, required for us to properly distribute the app ti the App Store.
 
+**IMPORTANT**: If you are having issues building and running due to bundle identifier and team issues, be sure to change them in the Build Settings for the Debug and Release sections (not the App Store one). You will find those settings under "Product Bundle Identifier" and "Development Team"
+
 What Won't Work During Development
 ---
 - Crashlytics won't load in under the "WhatsOpen" Scheme. Use Xcode's debugger.
