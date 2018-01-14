@@ -39,10 +39,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
      */
 	@IBAction func setFavButton(_ sender: Any) {
         if(Utilities.isFavoriteFacility(facility)) { // if the facility is a favorite
-			Utilities.removeFavoriteFacility(facility) // remove it from favorites
+			_ = Utilities.removeFavoriteFacility(facility) // remove it from favorites
 		}
 		else { // else add it to favorites
-			Utilities.addFavoriteFacility(facility)
+			_ = Utilities.addFavoriteFacility(facility)
 		}
 		setFavoriteButtonText()
 	}
@@ -146,10 +146,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 			
 	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
 		if(Utilities.isFavoriteFacility(facility)) {
-			Utilities.removeFavoriteFacility(facility)
+			_ = Utilities.removeFavoriteFacility(facility)
 		}
 		else {
-			Utilities.addFavoriteFacility(facility)
+			_ = Utilities.addFavoriteFacility(facility)
 		}
 	}
 }

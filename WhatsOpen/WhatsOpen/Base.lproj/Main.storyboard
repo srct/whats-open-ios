@@ -176,8 +176,8 @@
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naC-sZ-bcy">
-                                <rect key="frame" x="-3" y="116" width="375" height="507"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naC-sZ-bcy">
+                                <rect key="frame" x="0.0" y="116" width="375" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eqw-AF-DSB">
@@ -194,20 +194,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Closes in 2 hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-To-w50">
-                                                    <rect key="frame" x="4" y="55" width="291" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closes in 2 hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-To-w50">
+                                                    <rect key="frame" x="4" y="57" width="291" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Location" lineBreakMode="tailTruncation" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="6QR-8Q-n4s">
-                                                    <rect key="frame" x="4" y="25" width="291" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RESTAURANT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhu-6U-8Tx">
-                                                    <rect key="frame" x="4" y="8" width="291" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESTAURANT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhu-6U-8Tx">
+                                                    <rect key="frame" x="4" y="8" width="291" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -231,6 +225,12 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="6QR-8Q-n4s">
+                                                    <rect key="frame" x="4" y="22" width="291" height="35"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -242,6 +242,7 @@
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" constant="4" id="FcK-k7-0NQ"/>
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="width" secondItem="uhu-6U-8Tx" secondAttribute="width" id="Ftl-Xc-Ebe"/>
                                             <constraint firstItem="o7N-To-w50" firstAttribute="leading" secondItem="6qn-VX-mZx" secondAttribute="leading" constant="4" id="SX9-Zt-4A1"/>
+                                            <constraint firstAttribute="trailing" secondItem="o7N-To-w50" secondAttribute="trailing" constant="5" id="bkz-Hf-1Ds"/>
                                             <constraint firstItem="6QR-8Q-n4s" firstAttribute="top" secondItem="uhu-6U-8Tx" secondAttribute="bottom" constant="-3" id="eIM-MS-uXs"/>
                                             <constraint firstAttribute="trailing" secondItem="6QR-8Q-n4s" secondAttribute="trailing" constant="5" id="fPa-e2-kxS"/>
                                             <constraint firstAttribute="bottom" secondItem="DEx-BH-Fun" secondAttribute="bottom" constant="9" id="kFY-Lf-EkL"/>
@@ -355,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-T4-yZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8151.1999999999998" y="-1884.1079460269866"/>
+            <point key="canvasLocation" x="-8151.5" y="-1884.5"/>
         </scene>
         <!--What's Open-->
         <scene sceneID="rbo-Xh-B4S">
@@ -428,7 +429,7 @@
                                 <rect key="frame" x="16" y="174" width="343" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="5xu-tD-Fqa"/>
-                                    <constraint firstAttribute="width" constant="343" id="nAs-Xy-cBU"/>
+                                    <constraint firstAttribute="width" constant="343" placeholder="YES" id="nAs-Xy-cBU"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Version 1.0 (10)">
@@ -831,6 +832,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IER-Fh-tIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-5936" y="-1127"/>
         </scene>
     </scenes>
     <resources>

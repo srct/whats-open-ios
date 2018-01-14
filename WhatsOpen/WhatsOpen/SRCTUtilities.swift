@@ -53,8 +53,6 @@ class Utilities: NSObject {
                 return "Saturday"
             case .Sunday:
                 return "Sunday"
-            default:
-                return nil
             }
         }
         else {
@@ -73,8 +71,6 @@ class Utilities: NSObject {
                 return "Sat"
             case .Sunday:
                 return "Sun"
-            default:
-                return nil
             }
         }
 
@@ -187,6 +183,8 @@ class Utilities: NSObject {
         }
         return nil
     }
+	
+	//TODO: THIS PROBABLY DOESN'T WORK WITH SPECIAL SCHEDULES
     static func openOrClosedUntil(_ facility: Facility) -> String? {
         let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
 
@@ -205,16 +203,14 @@ class Utilities: NSObject {
                 }
                 //Eventually add more detailled text here, allowing for more custom
                 //messages as it gets closer to closing time
-            } else {
-                if startEnd != nil {
-                    let time = viewingFormatter.string(from: startEnd!.startTime)
-                    return "Closed until \(time)."
-                }
-                
             }
-            
         } else {
-            return "Closed"
+			if startEnd != nil {
+				let time = viewingFormatter.string(from: startEnd!.startTime)
+				return "Closed until \(time)"
+			} else {
+				return "Closed"
+			}
         }
         return nil
     }

@@ -81,7 +81,7 @@ class FilterSelectionTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if(indexPath.row == 0) {
-			selectAllFunc()
+			_ = selectAllFunc()
 			tableView.reloadData()
 		}
 		else {
@@ -93,7 +93,7 @@ class FilterSelectionTableViewController: UITableViewController {
 			else {
 				res = false
 			}
-			selectFunc((tableCell?.textLabel?.text)!.lowercased(), res)
+			_ = selectFunc((tableCell?.textLabel?.text)!.lowercased(), res)
 			tableView.reloadRows(at: [IndexPath(row: 0, section: 0), indexPath], with: .automatic)
 		}
 	}

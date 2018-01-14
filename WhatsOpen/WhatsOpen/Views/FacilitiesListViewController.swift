@@ -25,18 +25,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	let realm = try! Realm(configuration: Realm.Configuration(
 		// Set the new schema version. This must be greater than the previously used
 		// version (if you've never set a schema version before, the version is 0).
-		schemaVersion: 1,
-		
-		// Set the block which will be called automatically when opening a Realm with
-		// a schema version lower than the one set above
-		migrationBlock: { migration, oldSchemaVersion in
-			// We haven’t migrated anything yet, so oldSchemaVersion == 0
-			if (oldSchemaVersion < 1) {
-				migration.enumerateObjects(ofType: "FacilitiesModel", { (oldObject, newObject) in
-					newObject!["alerts"] = List<Alert>()
-				})
-			}
-	}))
+		schemaVersion: 3,
+		// We replace the data stored every 12 hours, do we _really_ need to worry about schema updates?
+		// I say nay.
+		deleteRealmIfMigrationNeeded: true
+	  ))
 
 	var facilitiesArray = List<Facility>()
 	var alertsList = List<Alert>()
@@ -356,8 +349,25 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
 			let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
 			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
-			
-			return hasName || hasBuilding || hasCategory
+			var hasTag = false
+			for tag in facility.facilityTags! {
+				if hasTag {
+					break
+				}
+				if tag.tag.lowercased().contains(searchText.lowercased()) {
+					hasTag = true
+				}
+			}
+			var hasLabel = false
+			for label in facility.labels! {
+				if hasLabel {
+					break
+				}
+				if label.tag.lowercased().contains(searchText.lowercased()) {
+					hasLabel = true
+				}
+			}
+			return hasName || hasBuilding || hasCategory || hasTag
 		})
         
         LocationsList.reloadData()

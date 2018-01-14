@@ -246,7 +246,7 @@ class FiltersTableViewController: UITableViewController {
 			return cell
 		}
 
-		return UITableViewCell() //shouldn't come to this
+		//return UITableViewCell() //shouldn't come to this
         // Configure the cell...
     }
 	
@@ -258,7 +258,7 @@ class FiltersTableViewController: UITableViewController {
 	}
 	
 	func updateOpenFirstEnabledState(_ to: Bool) -> Bool {
-		filters.setShowOpen(to)
+		_ = filters.setShowOpen(to)
 		let index = IndexPath(row: 0, section: 1)
 		tableView.reloadRows(at: [index], with: .automatic)
 		return true

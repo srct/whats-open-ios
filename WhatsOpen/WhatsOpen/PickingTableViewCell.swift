@@ -45,7 +45,7 @@ class PickingTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewD
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		pickerChecked[row] = !pickerChecked[row]
-		pickFunc(pickerStrings[row], pickerChecked[row])
+		_ = pickFunc(pickerStrings[row], pickerChecked[row])
 		pickerView.reloadComponent(component)
 	}
 	

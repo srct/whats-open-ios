@@ -24,11 +24,14 @@ class Facility: Object, MapContext, Mappable {
     @objc dynamic var facilityName = ""
     @objc dynamic var facilityLocation: Locations? = Locations()
     @objc dynamic var category: Categories? = Categories()
-	var facilityTags: List<FacilityTags>?  = List<FacilityTags>()
+	var facilityTags: List<FacilityTag>?  = List<FacilityTag>()
     @objc dynamic var mainSchedule: MainSchedule? = MainSchedule()
     @objc dynamic var specialSchedule: SpecialSchedule? = SpecialSchedule()
-
-
+	var labels: List<FacilityTag>? = List<FacilityTag>()
+	@objc dynamic var tapingoURL = ""
+	@objc dynamic var note = ""
+	@objc dynamic var logoURL = ""
+	
     required convenience init?(map: Map) {
         self.init()
     }
@@ -37,9 +40,15 @@ class Facility: Object, MapContext, Mappable {
         facilityName <- map["facility_name"]
         facilityLocation <- map["facility_location"]
         category <- map["facility_category"]
-        facilityTags <- map["facility_product_tags"]
+        facilityTags <- (map["facility_product_tags"], TagTransform())
         mainSchedule <- map["main_schedule"]
         specialSchedule <- map["special_schedules"]
+		labels <- (map["facility_labels"], TagTransform())
+		tapingoURL <- map["tapingo_url"]
+		note <- map["note"]
+		logoURL <- map["logo"]
+		
+		
     }
 
 }
@@ -103,18 +112,20 @@ class Categories: Object, Mappable {
 
 }
 
-class FacilityTags: Object, Mappable {
+class FacilityTag: Object, Mappable {
+    @objc dynamic var tag = ""
+	
+	
+	required convenience init?(map: Map){
+		self.init()
+	}
+	
+	func mapping(map: Map) {
+		tag <- map["facility_product_tags"]
+		tag <- map["facility_labels"]
+	}
 
-    required convenience init?(map: Map) {
-        self.init()
-    }
-
-    func mapping(map: Map) {
-        tags <- map["tags"]
-    }
-
-    @objc dynamic var tags = ""
-
+	
 }
 
 class MainSchedule: Object, Mappable {
@@ -233,6 +244,37 @@ class Alert: Object, MapContext, Mappable {
 		endDate <- map["end_datetime"]
 	}
 }
+
+// Updated for Swift 4, based on https://gist.github.com/Jerrot/fe233a94c5427a4ec29b but I removed the generics sorry code reuse
+class TagTransform : TransformType {
+	typealias Object = List<FacilityTag>
+	typealias JSON = [String]
+	
+	func transformFromJSON(_ value: Any?) -> List<FacilityTag>? {
+		let result = List<FacilityTag>()
+		if let tempArr = value as! [String]? {
+			for entry in tempArr {
+				let tag = FacilityTag()
+				tag.tag = entry
+				result.append(tag)
+			}
+		}
+		return result
+	}
+	
+	func transformToJSON(_ value: List<FacilityTag>?) -> [String]? {
+		if (value!.count > 0) {
+			var result = [String]()
+			for entry in value! {
+				result.append(entry.tag)
+			}
+			return result
+		}
+		return nil
+	}
+}
+
+
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
     let endDay: Int
