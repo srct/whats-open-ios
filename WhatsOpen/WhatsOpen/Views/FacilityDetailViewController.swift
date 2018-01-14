@@ -86,7 +86,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 			OpenLabel.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		}
 		else {
-			OpenLabel.backgroundColor = UIColor.red
+			OpenLabel.backgroundColor = UIColor(red:0.17, green:0.17, blue: 0.17, alpha: 1.0)
 		}
 		
 		setFavoriteButtonText()
