@@ -173,31 +173,30 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		if(indexPath != nil) {
 			if(indexPath?.section == 1 || currentAlerts.count == 0) {
-				let destination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController
-				destination?.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
+				let destination =  self.storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
 				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
-				(destination?.currentViewController as? FacilityDetailViewController)?.facility = tapped.facility
-				self.presentDetailView(destination!)
+				destination?.facility = tapped.facility
+				self.presentDetailView(destination!, tapped: tapped)
 			}
 			else {
-				let destination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController
-				destination?.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController
+				let destination = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController
 				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! AlertCollectionViewCell
-				(destination?.currentViewController as? AlertDetailViewController)?.alert = tapped.alert
-				self.presentDetailView(destination!)
+				destination?.alert = tapped.alert
+				self.presentDetailView(destination!, tapped: tapped)
 			}
 		}
 
 	}
 	
-	func presentDetailView(_ destination: PullingViewController) {
+	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
 		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
 			//do a popover here for the iPad
 			//iPads are cool right?
 			destination.modalPresentationStyle = .popover
 			let popoverController = destination.popoverPresentationController
 			popoverController?.permittedArrowDirections = .any
-			popoverController?.sourceView = destination.view
+			popoverController?.sourceView = tapped.contentView
+			popoverController?.sourceRect = tapped.bounds
             
             // present the detail view over the search controller if we're searching
             if searchController.isActive {
@@ -208,16 +207,18 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             }
 		}
 		else {
+			let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+			finalDestination?.currentViewController = destination
 			let destDelegate = DeckTransitioningDelegate()
-			destination.modalPresentationStyle = .custom
-			destination.transitioningDelegate = destDelegate
+			finalDestination?.modalPresentationStyle = .custom
+			finalDestination?.transitioningDelegate = destDelegate
             
             // present the detail view over the search controller if we're searching
             if searchController.isActive {
-                searchController.present(destination, animated: true, completion: nil)
+				searchController.present(finalDestination!, animated: true, completion: nil)
             }
             else {
-                present(destination, animated: true, completion: nil)
+				present(finalDestination!, animated: true, completion: nil)
             }
 		}
         
@@ -677,7 +678,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			let height = LocationsListLayout.itemSize.height
 			let width: CGFloat
 			
-			let windowWidth = self.view.frame.size.width
+			let edgeInsets = self.view.safeAreaInsets
+			let windowWidth = self.view.frame.size.width - edgeInsets.left - edgeInsets.right
 			
 			if(windowWidth < 640) {
 				width = windowWidth - 20
@@ -695,7 +697,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			return CGSize(width: width, height: height)
 		}
 		else {
-			return CGSize(width: self.view.frame.size.width, height: 43)
+			let edgeInsets = self.view.safeAreaInsets
+			return CGSize(width: self.view.frame.size.width - edgeInsets.left - edgeInsets.right, height: 43)
 		}
 	}
 	
@@ -820,11 +823,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+		finalDestination?.currentViewController = viewControllerToCommit
 		let destDelegate = DeckTransitioningDelegate()
-		viewControllerToCommit.modalPresentationStyle = .custom
-		viewControllerToCommit.transitioningDelegate = destDelegate
+		finalDestination?.modalPresentationStyle = .custom
+		finalDestination?.transitioningDelegate = destDelegate
 		//If one day 3D touch comes to the iPad, this is no longer good.
-		present(viewControllerToCommit, animated: true, completion: nil)
+		present(finalDestination!, animated: true, completion: nil)
 	}
 	
 }
