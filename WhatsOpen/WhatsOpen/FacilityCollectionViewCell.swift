@@ -39,6 +39,31 @@ class FacilityCollectionViewCell: UICollectionViewCell {
 		isAccessibilityElement = true
 		shouldGroupAccessibilityChildren = true
 		
+		tapRecognizer.cancelsTouchesInView = true
+		
 		// Initialization code
 	}
+
+	// Animations - modified based on this: https://stackoverflow.com/questions/35236271/make-a-collectionviewcell-bounce-on-highlight-in-swift#35236995
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+	{
+		UIView.animate(withDuration: 0.2) { () -> Void in
+			let shrinkTransform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+			self.transform = shrinkTransform
+		}
+	}
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+	{
+		super.touchesEnded(touches, with: event)
+		UIView.animate(withDuration: 0.3) { () -> Void in
+			self.transform = .identity
+		}
+	}
+	override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+		super.touchesCancelled(touches, with: event)
+		UIView.animate(withDuration: 0.3) { () -> Void in
+			self.transform = .identity
+		}
+	}
+	
 }

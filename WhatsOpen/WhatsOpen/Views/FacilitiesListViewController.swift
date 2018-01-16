@@ -623,11 +623,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 			
 			//Accessibility
-			//TODO: FIX THIS
-			cell.accessibilityLabel = cell.nameLabel.text! + ", Currently " + cell.openClosedLabel.text! + "." + cell.timeDescriptionLabel.text!
+			cell.accessibilityLabel = cell.nameLabel.text! + " " + cell.categoryLabel.text! + ", Currently " + cell.openClosedLabel.text! + ". Located in" + cell.timeDescriptionLabel.text!
 			cell.accessibilityHint = "Double Tap to view details"
 			
 			
+			//Shadows
+			cell.layer.shadowColor = UIColor.black.cgColor
+			cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+			cell.layer.shadowRadius = 7.0
+			cell.layer.shadowOpacity = 0.4
+			cell.layer.masksToBounds = false
+			cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.layer.cornerRadius).cgPath
 			self.reloadInputViews()
 			return cell
 		}
@@ -665,6 +671,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
+	// MARK - Collection View Cell Layout
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if(indexPath.section == 1 || currentAlerts.count == 0) {
 			let height = LocationsListLayout.itemSize.height
@@ -689,6 +696,24 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		else {
 			return CGSize(width: self.view.frame.size.width, height: 43)
+		}
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		if(section == 1 || currentAlerts.count == 0) {
+			return 15
+		}
+		else {
+			return 0
+		}
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		if(section == 1 || currentAlerts.count == 0) {
+			return 10
+		}
+		else {
+			return 0
 		}
 	}
 

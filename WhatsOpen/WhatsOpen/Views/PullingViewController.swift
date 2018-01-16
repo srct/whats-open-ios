@@ -13,6 +13,8 @@ class PullingViewController: UIViewController {
 	@IBOutlet var containerView: UIView!
 	weak var currentViewController: UIViewController?
 	
+	@IBOutlet var pullDown: UIImageView!
+	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
@@ -26,10 +28,17 @@ class PullingViewController: UIViewController {
 		self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
 		self.addChildViewController(self.currentViewController!)
 		self.addSubview(self.currentViewController!.view, toView: self.containerView)
+		self.accessibilityCustomActions = [
+			UIAccessibilityCustomAction(name: "Dismiss Detail View", target: self, selector: #selector(PullingViewController.willDismiss))
+		]
 		super.viewDidLoad()
 		
         // Do any additional setup after loading the view.
     }
+	
+	@objc func willDismiss() {
+		dismiss(animated: true, completion: nil)
+	}
 
 	func addSubview(_ subView: UIView, toView parentView: UIView) {
 		parentView.addSubview(subView)

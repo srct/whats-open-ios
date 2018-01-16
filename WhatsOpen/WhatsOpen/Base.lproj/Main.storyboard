@@ -155,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naC-sZ-bcy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naC-sZ-bcy">
                                 <rect key="frame" x="0.0" y="116" width="375" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -313,9 +313,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="naC-sZ-bcy" firstAttribute="leading" secondItem="uyS-pc-zem" secondAttribute="leading" id="8qe-8Q-n4N"/>
                             <constraint firstItem="uyS-pc-zem" firstAttribute="bottom" secondItem="8FA-yc-q3z" secondAttribute="bottom" id="HZe-Pq-6Jf"/>
                             <constraint firstItem="8FA-yc-q3z" firstAttribute="leading" secondItem="avG-8M-sVI" secondAttribute="leading" id="Hbe-dA-GI7"/>
-                            <constraint firstItem="naC-sZ-bcy" firstAttribute="width" secondItem="avG-8M-sVI" secondAttribute="width" id="YGE-MT-SX5"/>
+                            <constraint firstItem="uyS-pc-zem" firstAttribute="trailing" secondItem="naC-sZ-bcy" secondAttribute="trailing" id="Txw-xY-c0f"/>
                             <constraint firstAttribute="trailing" secondItem="8FA-yc-q3z" secondAttribute="trailing" id="Zqb-Sf-oE3"/>
                             <constraint firstItem="naC-sZ-bcy" firstAttribute="bottom" secondItem="8FA-yc-q3z" secondAttribute="top" id="uPG-sr-fLJ"/>
                             <constraint firstItem="naC-sZ-bcy" firstAttribute="top" secondItem="uyS-pc-zem" secondAttribute="top" id="wgO-7q-0zE"/>
@@ -750,6 +751,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="7YD-bF-DBg" id="4FF-ZZ-bmY"/>
+                        <outlet property="pullDown" destination="wLk-ur-Xnx" id="w86-BQ-fKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oH-oz-bTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
