@@ -814,12 +814,19 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
-		let cell = LocationsList?.cellForItem(at: indexPath) as! FacilityCollectionViewCell
-		guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
-		
-		detailView.facility = cell.facility
+		if(indexPath.section == 1 || currentAlerts.count == 0) {
+			let cell = LocationsList?.cellForItem(at: indexPath) as? FacilityCollectionViewCell
+			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
+			detailView.facility = cell?.facility
+			return detailView
+		}
+		else {
+			let cell = LocationsList?.cellForItem(at: indexPath) as? AlertCollectionViewCell
+			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController else { return nil }
+			detailView.alert = cell?.alert
+			return detailView
+		}
 
-		return detailView
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
