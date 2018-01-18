@@ -304,7 +304,54 @@ class Utilities: NSObject {
             return false
         }
     }
-
+	
+	// MARK - Persistent Alerts
+	
+	/**
+	Sets alerts settings in User Defaults
+	
+	- returns:
+	true if the alerts was added correctly.
+	*/
+	static func setAlertDefaults(_ alerts: [String: Bool]) -> Bool {
+		let defaults = UserDefaults.standard
+		defaults.set(alerts, forKey: "alerts")
+		return true
+	}
+	
+	/**
+	Sets all alerts settings in User Defaults to true
+	
+	- returns:
+	true if the alerts was changed correctly, false if nil was retrieved from User Defaults.
+	*/
+	static func setAllAlertDefaultsTrue() -> Bool {
+		let defaults = UserDefaults.standard
+		let alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		var newAlerts: [String: Bool] = [:]
+		if alerts != nil {
+			for alert in alerts! {
+				newAlerts.updateValue(true, forKey: alert.key)
+			}
+			defaults.set(newAlerts, forKey: "alerts")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Gets alerts settings in User Defaults
+	
+	- returns:
+	item stored in User Defaults for key 'alerts'
+	*/
+	static func getAlertDefaults() -> [String: Bool]? {
+		let defaults = UserDefaults.standard
+		return  defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+	}
+	
 }
 
 extension DateFormatter {
