@@ -73,7 +73,7 @@ class FilterSelectionTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-		if navigationItem.title == "Alerts" {
+		if navigationItem.title == "Show Alerts" {
 			return "Emergency Alerts are always enabled in the app for your safety. We will never send a notification to your device without your consent."
 		}
 		return nil

@@ -42,8 +42,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +54,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 1
 		}
 		else if(section == 2) {
+			return 1
+		}
+		else if(section == 3) {
 			return 3
 		}
 		else {
@@ -63,15 +65,53 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 
 		switch indexPath.section {
 		case 0:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			cell.textLabel!.text = "Are Our Hours Wrong?"
+			return cell
 		case 1:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			cell.textLabel!.text = "Select App Icon"
 			cell.accessoryType = .disclosureIndicator
+			return cell
 		case 2:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
+			cell.accessoryType = .disclosureIndicator
+			
+			cell.textLabel?.text = "Show Alerts"
+			
+			/*
+			let defaults = UserDefaults.standard
+			let alertsFromDefaults = defaults.dictionary(forKey: "alerts")
+			if alertsFromDefaults == nil {
+				var setAlerts = [String: Bool]()
+				setAlerts.updateValue(true, forKey: "Informational")
+				setAlerts.updateValue(true, forKey: "Minor Alerts")
+				setAlerts.updateValue(true, forKey: "Major Alerts")
+				defaults.set(setAlerts, forKey: "alerts")
+			}
+			*/
+			
+			let alerts = Utilities.getAlertDefaults()
+				var i = 0
+			for c in alerts {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+			if(i == alerts.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+				cell.detailTextLabel?.text = detail
+			return cell
+		case 3:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			switch indexPath.row {
 			case 0:
 				cell.textLabel!.text = "Review on the App Store"
@@ -83,18 +123,13 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			default:
 				cell.textLabel!.text = "rip"
 			}
-			if indexPath.row == 0 {
-
-			}
-			else if indexPath.row == 1 {
-
-			}
+			return cell
 		default:
 			break
 		}
         // Configure the cell...
 
-        return cell
+        return tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell // don't let this happen
     }
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -126,21 +161,13 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				self.show(vc!, sender: settingcell)
 			}
 			else if settingcell.textLabel?.text == "Review on the App Store" {
-				let appPage = SKStoreProductViewController()
-				let params = [SKStoreProductParameterITunesItemIdentifier: 1331260366]
-				appPage.loadProduct(withParameters: params, completionBlock: { (result, err) in
-					if err == nil && result == true {
-						self.present(appPage, animated: true)
-						print("presenting")
-					}
-					else {
-						let alert = UIAlertController(title: "Cound Not Find App in Store", message: "Check your network connection", preferredStyle: .alert)
-						alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
-						}))
-						self.present(alert, animated: true)
-						print("alerting")
-					}
-				})
+				let appId = "1331260366"
+				
+				let urlString = "itms-apps://itunes.apple.com/us/app/whats-open-at-mason/id\(appId)?action=write-review"
+				
+				if let url = URL(string: urlString) {
+					UIApplication.shared.open((url), options: [:], completionHandler: nil)
+				}
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
 				let avc = self.storyboard?.instantiateViewController(withIdentifier: "about")
@@ -206,14 +233,22 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     */
 
-    /*
+	
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+		
+		if segue.identifier == "settingSelection" {
+			let destination = segue.destination as! FilterSelectionTableViewController
+			destination.navigationItem.title = "Show Alerts"
+			destination.getFunc = Utilities.getAlertDefaults
+			destination.selectFunc = Utilities.setAlertDefaults
+			destination.selectAllFunc = Utilities.setAllAlertDefaults
+		}
     }
-    */
+	
 
 }

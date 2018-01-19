@@ -25,6 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			Fabric.with([Crashlytics.self])
 		#endif
 		
+		let defaults = UserDefaults.standard
+		let alerts = defaults.dictionary(forKey: "alerts")
+		if alerts == nil {
+			var setAlerts = [String: Bool]()
+			setAlerts.updateValue(true, forKey: "Informational")
+			setAlerts.updateValue(true, forKey: "Minor Alerts")
+			setAlerts.updateValue(true, forKey: "Major Alerts")
+			defaults.set(setAlerts, forKey: "alerts")
+		}
+		
         return true
     }
 

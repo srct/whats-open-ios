@@ -148,12 +148,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					return
 				}
 			}
-			for f in filters.showAlerts {
-				if(f.value != true) {
-					LeftButton.title = "Filter (On)"
-					return
-				}
-			}
 			LeftButton.title = "Filter"
 			return
 		}
@@ -278,19 +272,21 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let formatter = ISO8601DateFormatter()
 		formatter.timeZone = TimeZone(identifier: "America/New_York")
 		let now = Date()
+		let defaults = UserDefaults.standard
+		let alertFilers = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 		for alert in alertsList {
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
 				switch alert.urgency {
 				case "info":
-					if(filters.showAlerts["Informational"])! {
+					if(alertFilers!["Informational"])! {
 						shown.append(alert)
 					}
 				case "minor":
-					if(filters.showAlerts["Minor Alerts"])! {
+					if(alertFilers!["Minor Alerts"])! {
 						shown.append(alert)
 					}
 				case "major":
-					if(filters.showAlerts["Major Alerts"])! {
+					if(alertFilers!["Major Alerts"])! {
 						shown.append(alert)
 					}
 				default:

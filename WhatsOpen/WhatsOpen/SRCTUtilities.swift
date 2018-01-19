@@ -313,10 +313,17 @@ class Utilities: NSObject {
 	- returns:
 	true if the alerts was added correctly.
 	*/
-	static func setAlertDefaults(_ alerts: [String: Bool]) -> Bool {
+	static func setAlertDefaults(_ key: String, value: Bool) -> Bool {
 		let defaults = UserDefaults.standard
-		defaults.set(alerts, forKey: "alerts")
-		return true
+		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		if alerts != nil {
+			alerts!.updateValue(value, forKey: key)
+			defaults.set(alerts, forKey: "alerts")
+			return true
+		}
+		else {
+			return false
+		}
 	}
 	
 	/**
@@ -325,15 +332,22 @@ class Utilities: NSObject {
 	- returns:
 	true if the alerts was changed correctly, false if nil was retrieved from User Defaults.
 	*/
-	static func setAllAlertDefaultsTrue() -> Bool {
+	static func setAllAlertDefaults() -> Bool {
 		let defaults = UserDefaults.standard
-		let alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
-		var newAlerts: [String: Bool] = [:]
+		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+
 		if alerts != nil {
-			for alert in alerts! {
-				newAlerts.updateValue(true, forKey: alert.key)
+			var foundFalse = false
+			for a in alerts! {
+				if a.value == false {
+					foundFalse = true
+					break
+				}
 			}
-			defaults.set(newAlerts, forKey: "alerts")
+			for alert in alerts! {
+				alerts!.updateValue(!foundFalse, forKey: alert.key)
+			}
+			defaults.set(alerts, forKey: "alerts")
 			return true
 		}
 		else {
@@ -347,9 +361,15 @@ class Utilities: NSObject {
 	- returns:
 	item stored in User Defaults for key 'alerts'
 	*/
-	static func getAlertDefaults() -> [String: Bool]? {
+	static func getAlertDefaults() -> [String: Bool] {
 		let defaults = UserDefaults.standard
-		return  defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		let returning = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		if returning == nil {
+			return [:]
+		}
+		else {
+			return returning!
+		}
 	}
 	
 }
