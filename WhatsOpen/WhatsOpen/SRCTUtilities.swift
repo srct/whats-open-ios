@@ -304,7 +304,74 @@ class Utilities: NSObject {
             return false
         }
     }
+	
+	// MARK - Persistent Alerts
+	
+	/**
+	Sets alerts settings in User Defaults
+	
+	- returns:
+	true if the alerts was added correctly.
+	*/
+	static func setAlertDefaults(_ key: String, value: Bool) -> Bool {
+		let defaults = UserDefaults.standard
+		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		if alerts != nil {
+			alerts!.updateValue(value, forKey: key)
+			defaults.set(alerts, forKey: "alerts")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Sets all alerts settings in User Defaults to true
+	
+	- returns:
+	true if the alerts was changed correctly, false if nil was retrieved from User Defaults.
+	*/
+	static func setAllAlertDefaults() -> Bool {
+		let defaults = UserDefaults.standard
+		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 
+		if alerts != nil {
+			var foundFalse = false
+			for a in alerts! {
+				if a.value == false {
+					foundFalse = true
+					break
+				}
+			}
+			for alert in alerts! {
+				alerts!.updateValue(foundFalse, forKey: alert.key)
+			}
+			defaults.set(alerts, forKey: "alerts")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Gets alerts settings in User Defaults
+	
+	- returns:
+	item stored in User Defaults for key 'alerts'
+	*/
+	static func getAlertDefaults() -> [String: Bool] {
+		let defaults = UserDefaults.standard
+		let returning = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+		if returning == nil {
+			return [:]
+		}
+		else {
+			return returning!
+		}
+	}
+	
 }
 
 extension DateFormatter {

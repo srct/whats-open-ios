@@ -90,7 +90,7 @@ class FiltersTableViewController: UITableViewController {
 		case 2:
 			return SortMethod.count
 		case 3:
-			return 4
+			return 3
 		default:
 			return 0
 		}
@@ -215,22 +215,6 @@ class FiltersTableViewController: UITableViewController {
 				}
 				var detail: String
 				if(i == filters.onlyFromCampuses.count) {
-					detail = "All Selected"
-				}
-				else {
-					detail = "\(i) Selected"
-				}
-				cell.detailTextLabel?.text = detail
-			case 3:
-				cell.textLabel?.text = "Alerts"
-				var i = 0
-				for c in filters.showAlerts {
-					if(c.value == true) {
-						i += 1
-					}
-				}
-				var detail: String
-				if(i == filters.showAlerts.count) {
 					detail = "All Selected"
 				}
 				else {

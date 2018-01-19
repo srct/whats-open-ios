@@ -241,6 +241,7 @@
 				E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */,
 				92FF6C7820017E1C00D836AE /* Run Script */,
 				922C3C1B200306F5008E1146 /* ShellScript */,
+				92A4237E201190EA00010B73 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,7 +271,7 @@
 					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = K5MMVK2UFR;
+						DevelopmentTeam = N5GM564QWL;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -373,6 +374,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This relies on the following program. Alternate app icons WILL NOT WORK without running this (as they're stored in a separate asset catalog)\n# https://github.com/alexaubry/alternate-icons\nif [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    embed-alternate-icons\nfi\n";
+		};
+		92A4237E201190EA00010B73 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
 		92FF6C7820017E1C00D836AE /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
