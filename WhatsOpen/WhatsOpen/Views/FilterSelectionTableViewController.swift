@@ -94,7 +94,7 @@ class FilterSelectionTableViewController: UITableViewController {
 				res = false
 			}
 			_ = selectFunc((tableCell?.textLabel?.text)!.lowercased(), res)
-			tableView.reloadRows(at: [IndexPath(row: 0, section: 0), indexPath], with: .automatic)
+			tableView.reloadData()
 		}
 	}
 
