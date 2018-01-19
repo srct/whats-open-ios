@@ -278,15 +278,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
 				switch alert.urgency {
 				case "info":
-					if(alertFilers!["Informational"])! {
+					if(alertFilers!["informational"])! {
 						shown.append(alert)
 					}
 				case "minor":
-					if(alertFilers!["Minor Alerts"])! {
+					if(alertFilers!["minor alerts"])! {
 						shown.append(alert)
 					}
 				case "major":
-					if(alertFilers!["Major Alerts"])! {
+					if(alertFilers!["major alerts"])! {
 						shown.append(alert)
 					}
 				default:
@@ -718,8 +718,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		var sectionInsets = LocationsListLayout.sectionInset
-		if(section != 1 && alertsList.count != 0) {
+		if(section != 1 && currentAlerts.count != 0) {
 			sectionInsets.top = 0
+		}
+		else if currentAlerts.count == 0 {
+			sectionInsets.top = 15
 		}
 		return sectionInsets
 	}

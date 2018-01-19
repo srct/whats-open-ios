@@ -21,6 +21,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		tableView.reloadData()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		

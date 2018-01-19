@@ -345,7 +345,7 @@ class Utilities: NSObject {
 				}
 			}
 			for alert in alerts! {
-				alerts!.updateValue(!foundFalse, forKey: alert.key)
+				alerts!.updateValue(foundFalse, forKey: alert.key)
 			}
 			defaults.set(alerts, forKey: "alerts")
 			return true
