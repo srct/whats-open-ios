@@ -233,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD81F52B1DC0334600009FBD /* Build configuration list for PBXNativeTarget "WhatsOpen" */;
 			buildPhases = (
+				92A4237E201190EA00010B73 /* ShellScript */,
 				50D6F624F16EB519DDA7AD66 /* [CP] Check Pods Manifest.lock */,
 				CD81F5151DC0334600009FBD /* Sources */,
 				CD81F5161DC0334600009FBD /* Frameworks */,
@@ -241,7 +242,6 @@
 				E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */,
 				92FF6C7820017E1C00D836AE /* Run Script */,
 				922C3C1B200306F5008E1146 /* ShellScript */,
-				92A4237E201190EA00010B73 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,7 +271,7 @@
 					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = N5GM564QWL;
+						DevelopmentTeam = K5MMVK2UFR;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};

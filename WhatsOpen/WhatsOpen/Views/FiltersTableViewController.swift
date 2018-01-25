@@ -28,7 +28,10 @@ class FiltersTableViewController: UITableViewController {
 		for v in l {
 			l.updateValue(true, forKey: v.key)
 		}
-		filters = Filters()
+		filters.openFirst = true
+		filters.showClosed = true
+		filters.showOpen = true
+		filters.sortBy = .alphabetical
 		filters.onlyFromCategories = c
 		filters.onlyFromLocations = l
 		tableView.reloadData()

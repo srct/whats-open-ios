@@ -414,13 +414,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		// Add locations and categories to filters
 		for f in facilitiesArray {
 			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
-				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!)
+				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!.lowercased())
 			}
 			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
-				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!)
+				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!.lowercased())
 			}
 			if(!filters.onlyFromCampuses.keys.contains((f.facilityLocation?.campus)!)) {
-				filters.onlyFromCampuses.updateValue(true, forKey: (f.facilityLocation?.campus)!)
+				filters.onlyFromCampuses.updateValue(true, forKey: (f.facilityLocation?.campus)!.lowercased())
 			}
 		}
 	}

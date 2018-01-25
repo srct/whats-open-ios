@@ -33,7 +33,7 @@ class Filters {
         let specifiedFacilities = List<Facility>()
         // facility must be within both a specified location and category
         for f in facilities {
-            if(onlyFromLocations[(f.facilityLocation?.building)!] == true && onlyFromCategories[(f.category?.categoryName)!] == true && onlyFromCampuses[(f.facilityLocation?.campus)!] == true) {
+            if(onlyFromLocations[(f.facilityLocation?.building)!.lowercased()] == true && onlyFromCategories[(f.category?.categoryName)!.lowercased()] == true && onlyFromCampuses[(f.facilityLocation?.campus)!.lowercased()] == true) {
                 specifiedFacilities.append(f)
             }
         }
