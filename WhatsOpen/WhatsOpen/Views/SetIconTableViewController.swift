@@ -93,8 +93,12 @@ class SetIconTableViewController: UITableViewController {
 				setIcon(nil)
 				secretCount += 1
 			}
-			else {
+			else if secretCount == 4{
 				setIcon("pizza")
+				secretCount += 1
+			}
+			else {
+				setIcon("dhaynes")
 				secretCount = 0
 			}
 		case 1:
