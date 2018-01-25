@@ -595,7 +595,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.facility = facility
 			
 			//set labels
-			cell.nameLabel.text = facility.facilityName
+			var name = facility.facilityName
+			let separator = name.index(of: "[")
+			if separator != nil {
+				name = String(name[..<separator!]).replacingOccurrences(of: "\\s+$",with: "", options: .regularExpression)
+			}
+			cell.nameLabel.text = name
 			cell.categoryLabel.text = facility.category?.categoryName.uppercased()
 			
 			cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)

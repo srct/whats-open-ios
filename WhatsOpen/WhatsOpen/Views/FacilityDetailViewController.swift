@@ -73,7 +73,12 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		
 		modalPresentationCapturesStatusBarAppearance = true
 		
-		NameLabel.text = facility.facilityName
+		var name = facility.facilityName
+		let separator = name.index(of: "[")
+		if separator != nil {
+			name = String(name[..<separator!]).replacingOccurrences(of: "\\s+$",with: "", options: .regularExpression)
+		}
+		NameLabel.text = name
 		PlaceLabel.text = facility.facilityLocation!.building
         CategoryLabel.text = facility.category?.categoryName.uppercased()
 
