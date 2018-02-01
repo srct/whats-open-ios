@@ -593,7 +593,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D APPSTORE";
 				PRIMARYICON = appicon;
-				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
