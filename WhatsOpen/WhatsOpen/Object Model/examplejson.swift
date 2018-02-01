@@ -61,6 +61,7 @@ class Locations: Object, Mappable {
     @objc dynamic var address = ""
     @objc dynamic var campus = ""
     @objc dynamic var onCampus = false
+    @objc dynamic var abbreviation = ""
 
     required convenience init?(map: Map){
 		self.init()
@@ -74,6 +75,7 @@ class Locations: Object, Mappable {
         address <- map["address"]
         campus <- map["campus_region"]
         onCampus <- map["on_campus"]
+        abbreviation <- map["friendly_building"]
     }
 	
 	func equals(_ another: Locations) -> Bool {

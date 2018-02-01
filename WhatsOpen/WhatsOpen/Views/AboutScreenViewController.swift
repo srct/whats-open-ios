@@ -41,6 +41,7 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		"Eyad Hasan",
 		"Zach Knox",
 		"Patrick Murray",
+        "Jesse Scearce",
 		"Zac Wood",
 		"Jason Yeomans"
 	]

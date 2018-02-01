@@ -345,6 +345,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		filtered = filteredFacilities.filter({(facility: Facility) -> Bool in
 			let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
 			let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
+            let hasAbbreviation = facility.facilityLocation?.abbreviation.lowercased().contains(searchText.lowercased()) ?? false
 			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
 			var hasTag = false
 			for tag in facility.facilityTags! {
@@ -364,7 +365,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					hasLabel = true
 				}
 			}
-			return hasName || hasBuilding || hasCategory || hasTag
+			return hasName || hasBuilding || hasCategory || hasTag || hasAbbreviation
 		})
         
         LocationsList.reloadData()
