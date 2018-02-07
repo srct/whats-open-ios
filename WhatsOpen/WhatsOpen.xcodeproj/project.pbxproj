@@ -9,6 +9,36 @@
 /* Begin PBXBuildFile section */
 		230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
+		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
+		9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
+		9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
+		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
+		9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
+		9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
+		9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
+		9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
+		9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
+		9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
+		9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
+		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
+		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
+		9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
+		9203CB942023D51A006ACC3B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
+		9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
+		9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
+		9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */; };
+		9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
+		9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
+		9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */; };
+		9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
+		9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
+		9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
+		9203CB9F2023D51A006ACC3B /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
+		9203CBA12023D51A006ACC3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */; };
+		9203CBA22023D51A006ACC3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5231DC0334600009FBD /* Assets.xcassets */; };
+		9203CBA32023D51A006ACC3B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
+		9203CBA42023D51A006ACC3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5201DC0334600009FBD /* Main.storyboard */; };
+		9203CBA52023D51A006ACC3B /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
 		92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
 		92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
@@ -56,6 +86,7 @@
 		850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.debug.xcconfig"; sourceTree = "<group>"; };
 		8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
+		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
 		92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitiesListViewController.swift; sourceTree = "<group>"; };
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +126,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9203CB9E2023D51A006ACC3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9203CB9F2023D51A006ACC3B /* Pods_WhatsOpen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +198,7 @@
 			children = (
 				CD81F5191DC0334600009FBD /* WhatsOpen.app */,
 				7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */,
+				9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,12 +269,35 @@
 			productReference = 7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9203CB822023D51A006ACC3B /* WhatsOpen - AppStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9203CBAA2023D51A006ACC3B /* Build configuration list for PBXNativeTarget "WhatsOpen - AppStore" */;
+			buildPhases = (
+				9203CB832023D51A006ACC3B /* [CP] Check Pods Manifest.lock */,
+				9203CB842023D51A006ACC3B /* ShellScript */,
+				9203CB852023D51A006ACC3B /* Sources */,
+				9203CB9E2023D51A006ACC3B /* Frameworks */,
+				9203CBA02023D51A006ACC3B /* Resources */,
+				9203CBA62023D51A006ACC3B /* [CP] Embed Pods Frameworks */,
+				9203CBA72023D51A006ACC3B /* [CP] Copy Pods Resources */,
+				9203CBA82023D51A006ACC3B /* Run Script */,
+				9203CBA92023D51A006ACC3B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WhatsOpen - AppStore";
+			productName = WhatsOpen;
+			productReference = 9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CD81F5181DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD81F52B1DC0334600009FBD /* Build configuration list for PBXNativeTarget "WhatsOpen" */;
 			buildPhases = (
-				92A4237E201190EA00010B73 /* ShellScript */,
 				50D6F624F16EB519DDA7AD66 /* [CP] Check Pods Manifest.lock */,
+				92A4237E201190EA00010B73 /* ShellScript */,
 				CD81F5151DC0334600009FBD /* Sources */,
 				CD81F5161DC0334600009FBD /* Frameworks */,
 				CD81F5171DC0334600009FBD /* Resources */,
@@ -269,9 +332,13 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = CD81F5181DC0334600009FBD;
 					};
+					9203CB822023D51A006ACC3B = {
+						DevelopmentTeam = K5MMVK2UFR;
+						ProvisioningStyle = Manual;
+					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = HQSN7HX89U;
+						DevelopmentTeam = N5GM564QWL;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -292,6 +359,7 @@
 			targets = (
 				CD81F5181DC0334600009FBD /* WhatsOpen */,
 				7F4743171E11C7D100E6E3D1 /* WhatsOpenTests */,
+				9203CB822023D51A006ACC3B /* WhatsOpen - AppStore */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +369,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9203CBA02023D51A006ACC3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9203CBA12023D51A006ACC3B /* LaunchScreen.storyboard in Resources */,
+				9203CBA22023D51A006ACC3B /* Assets.xcassets in Resources */,
+				9203CBA32023D51A006ACC3B /* Settings.bundle in Resources */,
+				9203CBA42023D51A006ACC3B /* Main.storyboard in Resources */,
+				9203CBA52023D51A006ACC3B /* Pods-WhatsOpen-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +440,104 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9203CB832023D51A006ACC3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhatsOpen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9203CB842023D51A006ACC3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		9203CBA62023D51A006ACC3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9203CBA72023D51A006ACC3B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9203CBA82023D51A006ACC3B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    $SRCROOT/crashlyticsbuild.sh\nfi";
+		};
+		9203CBA92023D51A006ACC3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/AlternateAppIcons.xcassets",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This relies on the following program. Alternate app icons WILL NOT WORK without running this (as they're stored in a separate asset catalog)\n# https://github.com/alexaubry/alternate-icons\nif [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    embed-alternate-icons\nfi\n";
 		};
 		922C3C1B200306F5008E1146 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -425,6 +603,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9203CB852023D51A006ACC3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */,
+				9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */,
+				9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */,
+				9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */,
+				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
+				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
+				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
+				9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */,
+				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
+				9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */,
+				9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */,
+				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
+				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
+				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
+				9203CB942023D51A006ACC3B /* Filters.swift in Sources */,
+				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
+				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
+				9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */,
+				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
+				9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */,
+				9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */,
+				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
+				9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */,
+				9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +733,95 @@
 			};
 			name = Release;
 		};
+		9203CBAB2023D51A006ACC3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRIMARYICON = "appicon-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		9203CBAC2023D51A006ACC3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRIMARYICON = "appicon-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		9203CBAD2023D51A006ACC3B /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D APPSTORE";
+				PRIMARYICON = appicon;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
+				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "App Store";
+		};
 		928C95FF1FFDAEBF0071B3B0 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,11 +877,12 @@
 			baseConfigurationReference = 8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = HQSN7HX89U;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -595,6 +894,7 @@
 				PRIMARYICON = appicon;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -737,7 +1037,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = HQSN7HX89U;
+				DEVELOPMENT_TEAM = N5GM564QWL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -765,7 +1065,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = HQSN7HX89U;
+				DEVELOPMENT_TEAM = N5GM564QWL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -794,6 +1094,16 @@
 				7F4743201E11C7D100E6E3D1 /* Debug */,
 				7F4743211E11C7D100E6E3D1 /* Release */,
 				928C96011FFDAEBF0071B3B0 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9203CBAA2023D51A006ACC3B /* Build configuration list for PBXNativeTarget "WhatsOpen - AppStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9203CBAB2023D51A006ACC3B /* Debug */,
+				9203CBAC2023D51A006ACC3B /* Release */,
+				9203CBAD2023D51A006ACC3B /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

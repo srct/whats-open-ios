@@ -40,7 +40,7 @@ Open a terminal window and type in the following commands. This will create a lo
   ``bash``  
   ``git clone [url]`` where the URL is the one listed at the top of the git repository for this project (preferrably using SSH)
 
-Install the needed dependencies by running
+**If there is not already a `Pods/` directory with contents**, install the needed dependencies by running
   ``pod install``
 inside the the WhatsOpen directory.
 
@@ -50,7 +50,7 @@ You may need to choose your personal development team inside of Xcode on the pro
 
 When Building and running, be sure to use the "WhatsOpen" scheme (you can see it to the right of the run and stop buttons) and NOT the "WhatsOpen - App Store" scheme. The second has special settings in the build process, as well as a registered bundle identifier, required for us to properly distribute the app ti the App Store.
 
-**IMPORTANT**: If you are having issues building and running due to bundle identifier and team issues, be sure to change them in the Build Settings for the Debug and Release sections (not the App Store one). You will find those settings under "Product Bundle Identifier" and "Development Team"
+**Important**: Only change information about signing on the traget named "WhatsOpen" and **not** the one labeled "WhatsOpen - AppStore" inside the Project infofmation section of Xcode.
 
 What Won't Work During Development
 ---
@@ -67,10 +67,11 @@ Distribution Information
 To run a build for the App Store, you need the following
 - Use the "WhatsOpen - App Store" scheme to build
 - The bundle ID (edu.gmu.srct.whatsopen) registered to your Apple Developer account (requires Apple Developer Program membership) (Registered to Zach Knox)
+- Certificates and Provisioning Profiles to build an app with the above bundle ID (currently held by Zach Knox and Eyad Hasan)
 - a `crashlyticsbuild.sh` file with the Crashlytics run script in it inside the project folder.
-- [alternate-icons](https://github.com/alexaubry/alternate-icons) installed to add the alternate icons to the bundle.
+- [alternate-icons](https://github.com/alexaubry/alternate-icons) installed to add the alternate icons to the bundle. (This build step is disabled during development builds because alternate icons are a trivial feature and dependencies are annoying).
 
-To produce a `.ipa` for the App Store, run `Product > Archive`. When complete, you should see it in the Organizer. You can then upload using the organizer or Application Loader.
+To produce a `.ipa` for the App Store, run `Product > Archive`. When complete, you should see it in the Organizer. You can then upload using the organizer or export it with a distribution certificate and upload via Application Loader.
 
 About GMU SRCT
 ---
