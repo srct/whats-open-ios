@@ -372,6 +372,74 @@ class Utilities: NSObject {
 		}
 	}
 	
+	// MARK - Persistent Campuses
+	// Maybe we should have thought about code reuse when we made those alerts functions up there, hmm...
+	
+	/**
+	Sets campus settings in User Defaults
+	
+	- returns:
+	true if the campus was added correctly.
+	*/
+	static func setCampusDefaults(_ key: String, value: Bool) -> Bool {
+		let defaults = UserDefaults.standard
+		var campuses = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
+		if campuses != nil {
+			campuses!.updateValue(value, forKey: key)
+			defaults.set(campuses, forKey: "campuses")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Sets all campus settings in User Defaults to true
+	
+	- returns:
+	true if the campuses were changed correctly, false if nil was retrieved from User Defaults.
+	*/
+	static func setAllCampusDefaults() -> Bool {
+		let defaults = UserDefaults.standard
+		var campuses = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
+		
+		if campuses != nil {
+			var foundFalse = false
+			for a in campuses! {
+				if a.value == false {
+					foundFalse = true
+					break
+				}
+			}
+			for campus in campuses! {
+				campuses!.updateValue(foundFalse, forKey: campus.key)
+			}
+			defaults.set(campuses, forKey: "campuses")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Gets alerts settings in User Defaults
+	
+	- returns:
+	item stored in User Defaults for key 'campuses'
+	*/
+	static func getCampusDefaults() -> [String: Bool] {
+		let defaults = UserDefaults.standard
+		let returning = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
+		if returning == nil {
+			return [:]
+		}
+		else {
+			return returning!
+		}
+	}
+	
 }
 
 extension DateFormatter {

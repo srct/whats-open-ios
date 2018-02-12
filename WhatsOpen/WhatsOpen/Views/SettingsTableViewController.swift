@@ -105,15 +105,15 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				return cell
 			case 1:
 				cell.textLabel?.text = "Show Campuses"
-				let alerts = Utilities.getAlertDefaults()
+				let campuses = Utilities.getCampusDefaults()
 				var i = 0
-				for c in alerts {
+				for c in campuses {
 					if(c.value == true) {
 						i += 1
 					}
 				}
 				var detail: String
-				if(i == alerts.count) {
+				if(i == campuses.count) {
 					detail = "All Selected"
 				}
 				else {
