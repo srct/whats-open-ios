@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			setAlerts.updateValue(true, forKey: "major alerts")
 			defaults.set(setAlerts, forKey: "alerts")
 		}
+		let campuses = defaults.dictionary(forKey: "campuses")
+		if campuses == nil {
+			defaults.set([String: Bool](), forKey: "alerts")
+		}
 		
         return true
     }

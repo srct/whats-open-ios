@@ -264,6 +264,24 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		// Facilities
 		filteredFacilities = filters.applyFiltersOnFacilities(facilitiesArray)
+
+		
+		let defaults = UserDefaults.standard
+
+		
+		// Campuses
+		// By the time you've called reloadWithFilters(), the defaults list should already be updated to include
+		// all campuses via updateFilterLists
+		let campusFilters = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
+		
+		let filteredByCampus = List<Facility>()
+		for facility in filteredFacilities {
+			if campusFilters![(facility.facilityLocation?.campus.lowercased())!]! {
+				filteredByCampus.append(facility)
+			}
+		}
+		filteredFacilities = filteredByCampus
+		
 		shownFacilities = filteredFacilities
 		favoritesControlChanges(self)
 		
@@ -272,7 +290,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let formatter = ISO8601DateFormatter()
 		formatter.timeZone = TimeZone(identifier: "America/New_York")
 		let now = Date()
-		let defaults = UserDefaults.standard
 		let alertFilers = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 		for alert in alertsList {
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
@@ -413,6 +430,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func updateFiltersLists() {
 		// Add locations and categories to filters
+		let defaults = UserDefaults.standard
+		var campusFilters = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		for f in facilitiesArray {
 			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {
 				filters.onlyFromCategories.updateValue(true, forKey: (f.category?.categoryName)!.lowercased())
@@ -420,10 +439,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			if(!filters.onlyFromLocations.keys.contains((f.facilityLocation?.building)!)) {
 				filters.onlyFromLocations.updateValue(true, forKey: (f.facilityLocation?.building)!.lowercased())
 			}
-			if(!filters.onlyFromCampuses.keys.contains((f.facilityLocation?.campus)!)) {
-				filters.onlyFromCampuses.updateValue(true, forKey: (f.facilityLocation?.campus)!.lowercased())
+			if(!campusFilters!.keys.contains((f.facilityLocation?.campus)!)) {
+				campusFilters!.updateValue(true, forKey: (f.facilityLocation?.campus)!.lowercased())
 			}
 		}
+		defaults.set(campusFilters, forKey: "campuses")
 	}
 	
 	/*

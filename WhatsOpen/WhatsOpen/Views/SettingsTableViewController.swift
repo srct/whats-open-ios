@@ -58,7 +58,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 1
 		}
 		else if(section == 2) {
-			return 1
+			return 2
 		}
 		else if(section == 3) {
 			return 3
@@ -84,36 +84,47 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
 			
-			cell.textLabel?.text = "Show Alerts"
-			
-			/*
-			let defaults = UserDefaults.standard
-			let alertsFromDefaults = defaults.dictionary(forKey: "alerts")
-			if alertsFromDefaults == nil {
-				var setAlerts = [String: Bool]()
-				setAlerts.updateValue(true, forKey: "Informational")
-				setAlerts.updateValue(true, forKey: "Minor Alerts")
-				setAlerts.updateValue(true, forKey: "Major Alerts")
-				defaults.set(setAlerts, forKey: "alerts")
-			}
-			*/
-			
-			let alerts = Utilities.getAlertDefaults()
+			switch indexPath.row {
+			case 0:
+				cell.textLabel?.text = "Show Alerts"
+				let alerts = Utilities.getAlertDefaults()
 				var i = 0
-			for c in alerts {
+				for c in alerts {
 					if(c.value == true) {
 						i += 1
 					}
 				}
 				var detail: String
-			if(i == alerts.count) {
+				if(i == alerts.count) {
 					detail = "All Selected"
 				}
 				else {
 					detail = "\(i) Selected"
 				}
 				cell.detailTextLabel?.text = detail
-			return cell
+				return cell
+			case 1:
+				cell.textLabel?.text = "Show Campuses"
+				let alerts = Utilities.getAlertDefaults()
+				var i = 0
+				for c in alerts {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == alerts.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+				cell.detailTextLabel?.text = detail
+				return cell
+			default:
+				return UITableViewCell() // don't do this
+			}
+
 		case 3:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			switch indexPath.row {
