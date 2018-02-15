@@ -104,7 +104,12 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
 		}
-        // Do any additional setup after loading the view.
+        
+//        NameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+//        PlaceLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+//        OpenLabel.font = UIFont.preferredFont(forTextStyle: .body)
+//        favoritesButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,8 +148,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
             cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
         }
 
-
-        // Configure the cell...
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
 
         return cell
     }

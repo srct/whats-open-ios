@@ -83,8 +83,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		case 2:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
-			
 			cell.textLabel?.text = "Show Alerts"
+            cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
 			
 			/*
 			let defaults = UserDefaults.standard

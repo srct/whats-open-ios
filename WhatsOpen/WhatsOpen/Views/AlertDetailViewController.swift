@@ -37,6 +37,10 @@ class AlertDetailViewController: UIViewController {
 		}
 		self.messageView.text = alert.message
         // Do any additional setup after loading the view.
+        
+        // dynamic font sizes
+        self.nameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        self.messageView.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
     override func didReceiveMemoryWarning() {
