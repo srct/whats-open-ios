@@ -99,7 +99,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		favoritesButton.layer.cornerRadius = 10
 
-		OpenTimesList.bounces = true
+		OpenTimesList.bounces = false
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
