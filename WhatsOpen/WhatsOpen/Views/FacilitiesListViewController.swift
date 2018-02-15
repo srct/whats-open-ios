@@ -237,6 +237,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			registerForPreviewing(with: self, sourceView: self.LocationsList!)
 		}
         
+        
         navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.largeTitleDisplayMode = .always
