@@ -99,12 +99,17 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		favoritesButton.layer.cornerRadius = 10
 
-		OpenTimesList.bounces = false
+		OpenTimesList.bounces = true
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
 		}
-        // Do any additional setup after loading the view.
+        
+//        NameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+//        PlaceLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+//        OpenLabel.font = UIFont.preferredFont(forTextStyle: .body)
+//        favoritesButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,8 +148,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
             cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
         }
 
-
-        // Configure the cell...
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
 
         return cell
     }
