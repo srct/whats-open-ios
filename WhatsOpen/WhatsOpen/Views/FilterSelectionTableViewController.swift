@@ -14,6 +14,7 @@ class FilterSelectionTableViewController: UITableViewController {
 	var getFunc: (() -> [String: Bool])!
 	var selectFunc: ((String, Bool) -> Bool)!
 	var selectAllFunc: (() -> Bool)!
+    var updateFacilities: (() -> Void)!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,7 @@ class FilterSelectionTableViewController: UITableViewController {
 			_ = selectFunc((tableCell?.textLabel?.text)!.lowercased(), res)
 			tableView.reloadData()
 		}
+        updateFacilities()
 	}
 
 	

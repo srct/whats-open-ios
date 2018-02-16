@@ -812,6 +812,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             let filterView = destination.topViewController as! FiltersTableViewController
 			filterView.facilities = self.facilitiesArray
             filterView.filters = self.filters
+            filterView.updateFacilities = reloadWithFilters
         }
 
         // Pass the selected object to the new view controller.

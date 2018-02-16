@@ -11,6 +11,8 @@ import RealmSwift
 
 class FiltersTableViewController: UITableViewController {
 
+    var updateFacilities: (() -> Void)!
+    
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
 	}
@@ -35,6 +37,7 @@ class FiltersTableViewController: UITableViewController {
 		filters.onlyFromCategories = c
 		filters.onlyFromLocations = l
 		tableView.reloadData()
+        updateFacilities()
 	}
 	var filters: Filters!
 	var facilities: List<Facility>!
@@ -71,7 +74,11 @@ class FiltersTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateFacilities?()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -242,6 +249,7 @@ class FiltersTableViewController: UITableViewController {
 		let cell = tableView.cellForRow(at: indexPath)
 		cell?.isSelected = false
 		
+        updateFacilities()
 		//nothing is selected forever
 	}
 	
@@ -307,11 +315,12 @@ class FiltersTableViewController: UITableViewController {
 		if(segue.identifier == "toFilters") {
 			let destination = segue.destination as! FacilitiesListViewController
 			destination.filters = self.filters
+            updateFacilities()
 		}
 		else if(segue.identifier == "toSelection") {
 			let destination = segue.destination as! FilterSelectionTableViewController
 			destination.navigationItem.title = (sender as! UITableViewCell).textLabel?.text!
-			
+			destination.updateFacilities = updateFacilities
 			
 			func get() -> [String: Bool] {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {
