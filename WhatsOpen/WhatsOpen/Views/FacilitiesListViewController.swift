@@ -404,11 +404,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 
 		}
-		
-		
+				
 		updateFiltersLists()
-		
 		reloadWithFilters()
+        
 		refreshControl.endRefreshing()
 	}
 	
@@ -812,7 +811,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             let filterView = destination.topViewController as! FiltersTableViewController
 			filterView.facilities = self.facilitiesArray
             filterView.filters = self.filters
-            filterView.updateFacilities = reloadWithFilters
+            filterView.updateFacilities = { [weak self] in
+                self?.reloadWithFilters()
+            }
         }
 
         // Pass the selected object to the new view controller.

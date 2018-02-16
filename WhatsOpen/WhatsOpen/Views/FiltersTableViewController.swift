@@ -55,6 +55,7 @@ class FiltersTableViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 		tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
 		/*
@@ -129,13 +130,21 @@ class FiltersTableViewController: UITableViewController {
 				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
 				cell.textLabel!.text = "Show Open Locations"
 				cell.switchControl.isOn = filters.showOpen
-				cell.toggleFunc = updateOpenFirstEnabledState
+                cell.toggleFunc = { [unowned self] isOn in
+                    let result = self.updateOpenFirstEnabledState(isOn)
+                    self.updateFacilities()
+                    return result
+                }
 				//self.showOpen = cell
 			  case 1:
 				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
 				cell.textLabel!.text = "Show Closed Locations"
 				cell.switchControl.isOn = filters.showClosed
-				cell.toggleFunc = filters.setShowClosed
+                cell.toggleFunc = { [unowned self] isOn in
+                    let result = self.filters.setShowClosed(isOn)
+                    self.updateFacilities()
+                    return result
+                }
 				//self.showClosed = cell
 			  default:
 				cell = UITableViewCell() as! SwitchingTableViewCell //this is bad don't let this happen
@@ -146,7 +155,11 @@ class FiltersTableViewController: UITableViewController {
 			cell.textLabel!.text = "Show Open Facilities First"
 			cell.switchControl.isEnabled = filters.showOpen
 			cell.switchControl.isOn = filters.openFirst
-			cell.toggleFunc = filters.setOpenFirst
+            cell.toggleFunc = { [unowned self] isOn in
+                let result = self.filters.setOpenFirst(isOn)
+                self.updateFacilities()
+                return result
+            }
 			return cell
 		  case 2:
 			let method: SortMethod
