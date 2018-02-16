@@ -237,6 +237,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			registerForPreviewing(with: self, sourceView: self.LocationsList!)
 		}
         
+        
         navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.largeTitleDisplayMode = .always
@@ -420,11 +421,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 
 		}
-		
-		
+				
 		updateFiltersLists()
-		
 		reloadWithFilters()
+        
 		refreshControl.endRefreshing()
 	}
 	
@@ -831,6 +831,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
             let filterView = destination.topViewController as! FiltersTableViewController
 			filterView.facilities = self.facilitiesArray
             filterView.filters = self.filters
+            filterView.updateFacilities = { [weak self] in
+                self?.reloadWithFilters()
+            }
         }
 
         // Pass the selected object to the new view controller.

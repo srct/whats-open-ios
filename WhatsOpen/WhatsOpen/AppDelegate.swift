@@ -26,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#endif
 		
 		let defaults = UserDefaults.standard
+		initAlerts(defaults)
+		initCampuses(defaults)
+		
+        return true
+    }
+	
+	func initAlerts(_ defaults: UserDefaults) {
 		let alerts = defaults.dictionary(forKey: "alerts")
 		if alerts == nil {
 			var setAlerts = [String: Bool]()
@@ -34,13 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			setAlerts.updateValue(true, forKey: "major alerts")
 			defaults.set(setAlerts, forKey: "alerts")
 		}
+	}
+	
+	func initCampuses(_ defaults: UserDefaults) {
 		let campuses = defaults.dictionary(forKey: "campuses")
 		if campuses == nil {
-			defaults.set([String: Bool](), forKey: "alerts")
+			defaults.set([String: Bool](), forKey: "campuses")
 		}
-		
-        return true
-    }
+	}
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -11,6 +11,8 @@ import RealmSwift
 
 class FiltersTableViewController: UITableViewController {
 
+    var updateFacilities: (() -> Void)!
+    
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
 	}
@@ -35,6 +37,7 @@ class FiltersTableViewController: UITableViewController {
 		filters.onlyFromCategories = c
 		filters.onlyFromLocations = l
 		tableView.reloadData()
+        updateFacilities()
 	}
 	var filters: Filters!
 	var facilities: List<Facility>!
@@ -52,7 +55,9 @@ class FiltersTableViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+        
+		tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
 		/*
 		for f in facilities {
 			if(!allLocations.contains(f.facilityLocation!)) {
@@ -70,7 +75,11 @@ class FiltersTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateFacilities?()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -121,13 +130,21 @@ class FiltersTableViewController: UITableViewController {
 				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
 				cell.textLabel!.text = "Show Open Locations"
 				cell.switchControl.isOn = filters.showOpen
-				cell.toggleFunc = updateOpenFirstEnabledState
+                cell.toggleFunc = { [unowned self] isOn in
+                    let result = self.updateOpenFirstEnabledState(isOn)
+                    self.updateFacilities()
+                    return result
+                }
 				//self.showOpen = cell
 			  case 1:
 				cell = tableView.dequeueReusableCell(withIdentifier: "Switching", for: indexPath) as! SwitchingTableViewCell
 				cell.textLabel!.text = "Show Closed Locations"
 				cell.switchControl.isOn = filters.showClosed
-				cell.toggleFunc = filters.setShowClosed
+                cell.toggleFunc = { [unowned self] isOn in
+                    let result = self.filters.setShowClosed(isOn)
+                    self.updateFacilities()
+                    return result
+                }
 				//self.showClosed = cell
 			  default:
 				cell = UITableViewCell() as! SwitchingTableViewCell //this is bad don't let this happen
@@ -138,7 +155,11 @@ class FiltersTableViewController: UITableViewController {
 			cell.textLabel!.text = "Show Open Facilities First"
 			cell.switchControl.isEnabled = filters.showOpen
 			cell.switchControl.isOn = filters.openFirst
-			cell.toggleFunc = filters.setOpenFirst
+            cell.toggleFunc = { [unowned self] isOn in
+                let result = self.filters.setOpenFirst(isOn)
+                self.updateFacilities()
+                return result
+            }
 			return cell
 		  case 2:
 			let method: SortMethod
@@ -175,6 +196,8 @@ class FiltersTableViewController: UITableViewController {
 		  case 3:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "toSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
+			cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+			cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
 			switch indexPath.row {
 			case 0:
 				cell.textLabel?.text = "Categories"
@@ -241,6 +264,7 @@ class FiltersTableViewController: UITableViewController {
 		let cell = tableView.cellForRow(at: indexPath)
 		cell?.isSelected = false
 		
+        updateFacilities()
 		//nothing is selected forever
 	}
 	
@@ -306,11 +330,12 @@ class FiltersTableViewController: UITableViewController {
 		if(segue.identifier == "toFilters") {
 			let destination = segue.destination as! FacilitiesListViewController
 			destination.filters = self.filters
+            updateFacilities()
 		}
 		else if(segue.identifier == "toSelection") {
 			let destination = segue.destination as! FilterSelectionTableViewController
 			destination.navigationItem.title = (sender as! UITableViewCell).textLabel?.text!
-			
+			destination.updateFacilities = updateFacilities
 			
 			func get() -> [String: Bool] {
 				if((sender as! UITableViewCell).textLabel?.text! == "Categories") {

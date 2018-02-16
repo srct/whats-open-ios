@@ -83,10 +83,11 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		case 2:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
-			
 			switch indexPath.row {
 			case 0:
 				cell.textLabel?.text = "Show Alerts"
+            	cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
 				let alerts = Utilities.getAlertDefaults()
 				var i = 0
 				for c in alerts {
@@ -105,6 +106,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				return cell
 			case 1:
 				cell.textLabel?.text = "Show Campuses"
+				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
 				let campuses = Utilities.getCampusDefaults()
 				var i = 0
 				for c in campuses {
@@ -248,6 +251,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     */
 
+	func updateFacilities() {
+		// This isn't important for settings but is required for segueing to the views below
+		return
+	}
 	
     // MARK: - Navigation
 
@@ -257,11 +264,22 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         // Pass the selected object to the new view controller.
 		
 		if segue.identifier == "settingSelection" {
-			let destination = segue.destination as! FilterSelectionTableViewController
-			destination.navigationItem.title = "Show Alerts"
-			destination.getFunc = Utilities.getAlertDefaults
-			destination.selectFunc = Utilities.setAlertDefaults
-			destination.selectAllFunc = Utilities.setAllAlertDefaults
+			if (sender as! UITableViewCell).textLabel?.text == "Show Alerts" {
+				let destination = segue.destination as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Show Alerts"
+				destination.getFunc = Utilities.getAlertDefaults
+				destination.selectFunc = Utilities.setAlertDefaults
+				destination.selectAllFunc = Utilities.setAllAlertDefaults
+				destination.updateFacilities = updateFacilities
+			}
+			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {
+				let destination = segue.destination as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Show Campuses"
+				destination.getFunc = Utilities.getCampusDefaults
+				destination.selectFunc = Utilities.setCampusDefaults
+				destination.selectAllFunc = Utilities.setAllCampusDefaults
+				destination.updateFacilities = updateFacilities
+			}
 		}
     }
 	
