@@ -12,26 +12,18 @@ class Utilities: NSObject {
 
     static func isOpen(facility: Facility) -> Bool {
         var open = false
-        if (isSpecialSchedule(facility) == true) {
-            if (!(facility.specialSchedule!.openTimes.isEmpty)) {
-                if today(facility: facility, special: true) != nil {
-                    open = time(facility)
-                }
-            }
-        } else {
-            if(isMainSchedule(facility:facility)) {
-                if facility.mainSchedule!.twentyFourHours {
-                    return true
-                }
-                if(!facility.mainSchedule!.openTimes.isEmpty) {
-                    if today(facility: facility) != nil {
-                        open = time(facility)
-                    }
-                }
-            } else {
-                open = false
-            }
-        }
+		let current = getCurrentSchedule(facility)
+		if current!.twentyFourHours {
+		  	return true
+	  	}
+	  	if !(current!.openTimes.isEmpty) {
+			if today(facility: facility) != nil {
+				open = time(facility)
+			}
+	  	}
+		else {
+			open = false
+		}
 
         return open
     }
@@ -98,17 +90,14 @@ class Utilities: NSObject {
 
     //Gets the current day of the week.
     static func today(facility: Facility, special: Bool = false) -> OpenTimes? {
-        let scheduleValid     = special ? self.isSpecialSchedule(facility) : self.isMainSchedule(facility: facility)
-        let scheduleOpenTimes = special ? facility.specialSchedule!.openTimes : facility.mainSchedule!.openTimes
+        let scheduleOpenTimes = getCurrentSchedule(facility)?.openTimes
 
         let currentDay = getCurrentDayOfWeek()
-        if(scheduleValid) {
-            for openTime in scheduleOpenTimes {
-                if(currentDay! >= openTime.startDay && currentDay! <= openTime.endDay) {
-                    return openTime
-                }
-            }
-        }
+		for openTime in scheduleOpenTimes! {
+			if(currentDay! >= openTime.startDay && currentDay! <= openTime.endDay) {
+				return openTime
+			}
+		}
         return nil
     }
 
@@ -235,9 +224,28 @@ class Utilities: NSObject {
         return returning
     }
 
+	/*
     static func isSpecialSchedule(_ facility: Facility) -> Bool {
-        return facility.specialSchedule!.isValid
+		let special = facility.specialSchedule
+		return !(special!.lastModified.isEmpty && special!.name.isEmpty && special!.validEnd.isEmpty && special!.validStart.isEmpty)
     }
+	*/
+	
+	static func getCurrentSchedule(_ facility: Facility) -> Schedule? {
+		let formatter = ISO8601DateFormatter()
+		let now = Date()
+		if(facility.specialSchedules != nil) {
+			for schedule in facility.specialSchedules! {
+				let start = formatter.date(from: schedule.validStart)
+				let end = formatter.date(from: schedule.validEnd)
+				
+				if start! < now && end! > now {
+					return schedule
+				}
+			}
+		}
+		return facility.mainSchedule
+	}
 
     static func isMainSchedule(facility: Facility) -> Bool {
         return facility.mainSchedule != nil

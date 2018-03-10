@@ -626,6 +626,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			
 			cell.openClosedLabel.text = Utilities.openOrClosedUntil(facility)
 			
+			// TODO: Change the name of this label
 			cell.timeDescriptionLabel.text = facility.facilityLocation?.building
 			
 			//change appearence based on open state

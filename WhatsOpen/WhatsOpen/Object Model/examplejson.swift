@@ -3,6 +3,7 @@
 import Foundation
 import RealmSwift
 import ObjectMapper
+import ObjectMapper_Realm
 //
 // MARK: - Data Model
 //
@@ -25,8 +26,8 @@ class Facility: Object, MapContext, Mappable {
     @objc dynamic var facilityLocation: Locations? = Locations()
     @objc dynamic var category: Categories? = Categories()
 	var facilityTags: List<FacilityTag>?  = List<FacilityTag>()
-    @objc dynamic var mainSchedule: MainSchedule? = MainSchedule()
-    @objc dynamic var specialSchedule: SpecialSchedule? = SpecialSchedule()
+    @objc dynamic var mainSchedule: Schedule? = Schedule()
+	var specialSchedules: List<Schedule>? = List<Schedule>()
 	var labels: List<FacilityTag>? = List<FacilityTag>()
 	@objc dynamic var tapingoURL = ""
 	@objc dynamic var note = ""
@@ -42,7 +43,7 @@ class Facility: Object, MapContext, Mappable {
         category <- map["facility_category"]
         facilityTags <- (map["facility_product_tags"], TagTransform())
         mainSchedule <- map["main_schedule"]
-        specialSchedule <- map["special_schedules"]
+        specialSchedules <- (map["special_schedules"], ListTransform<Schedule>())
 		labels <- (map["facility_labels"], TagTransform())
 		tapingoURL <- map["tapingo_url"]
 		note <- map["note"]
@@ -130,7 +131,7 @@ class FacilityTag: Object, Mappable {
 	
 }
 
-class MainSchedule: Object, Mappable {
+class Schedule: Object, Mappable {
     @objc dynamic var id = 0
     var openTimes = List<OpenTimes>()
     @objc dynamic var lastModified = ""
@@ -163,10 +164,6 @@ class MainSchedule: Object, Mappable {
 }
 
 class SpecialSchedule: Object, Mappable {
-
-    var isValid: Bool {
-        return !(self.lastModified.isEmpty && self.name.isEmpty && self.validEnd.isEmpty && self.validStart.isEmpty)
-    }
 
     convenience required init?(map: Map) {
         self.init()

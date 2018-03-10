@@ -123,13 +123,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if(Utilities.isSpecialSchedule(facility) == true) {
-            return (facility.specialSchedule?.openTimes.count)!
-        }
-        else {
-            return (facility.mainSchedule?.openTimes.count)!
-        }
+		return Utilities.getCurrentSchedule(facility)!.openTimes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -137,16 +131,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
 		cell.selectionStyle = .none
 		
-        if(Utilities.isSpecialSchedule(facility) == true) {
-            let openTime = facility.specialSchedule?.openTimes[indexPath.row]
-            cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
-            cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
-        }
-        else {
-            let openTime = facility.mainSchedule?.openTimes[indexPath.row]
-            cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime!.startDay)!)
-            cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime!)
-        }
+		let schedule = Utilities.getCurrentSchedule(facility)
+		let openTime = schedule!.openTimes[indexPath.row]
+		cell.textLabel?.text = Utilities.getDayOfWeek(Day(rawValue: openTime.startDay)!)
+		cell.detailTextLabel?.text = Utilities.getFormattedStartandEnd(openTime)
 
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)

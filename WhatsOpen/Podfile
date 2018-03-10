@@ -4,20 +4,27 @@
 platform :ios, '11.0'
 use_frameworks!
 
+def ios_pods
+  pod 'RealmSwift'
+
+  pod 'ObjectMapper', '~> 3.0'
+  pod "ObjectMapper+Realm"
+
+  #pod 'Segmentio', '~> 2.1'
+
+  pod 'DeckTransition', '~> 1.4.0'
+
+  pod 'Fabric'
+  pod 'Crashlytics'
+end
+
 
 target 'WhatsOpen' do
+  ios_pods
+end
 
-pod 'RealmSwift'
-
-pod 'ObjectMapper', '~> 3.0'
-
-#pod 'Segmentio', '~> 2.1'
-
-pod 'DeckTransition', '~> 1.4.0'
-
-pod 'Fabric'
-pod 'Crashlytics'
-
+target 'WhatsOpen - AppStore' do
+  ios_pods
 end
 
 

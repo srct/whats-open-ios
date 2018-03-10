@@ -124,9 +124,19 @@ class Filters {
     private func separateOpenAndClosed(_ facilities: List<Facility>) -> (open: List<Facility>, closed: List<Facility>) {
         let open = List<Facility>()
         let closed = List<Facility>()
-        facilities.forEach {
+		/*
+		facilities.forEach {
             Utilities.isOpen(facility: $0) ? open.append($0) : closed.append($0)
         }
+		*/
+		for facility in facilities {
+			if Utilities.isOpen(facility: facility) {
+				open.append(facility)
+			}
+			else {
+				closed.append(facility)
+			}
+		}
         return (open, closed)
     }
     

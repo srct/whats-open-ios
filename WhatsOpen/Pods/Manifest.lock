@@ -4,6 +4,9 @@ PODS:
   - DeckTransition (1.4.2)
   - Fabric (1.7.2)
   - ObjectMapper (3.1.0)
+  - ObjectMapper+Realm (0.5):
+    - ObjectMapper
+    - RealmSwift
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -15,6 +18,7 @@ DEPENDENCIES:
   - DeckTransition (~> 1.4.0)
   - Fabric
   - ObjectMapper (~> 3.0)
+  - ObjectMapper+Realm
   - RealmSwift
 
 SPEC CHECKSUMS:
@@ -22,9 +26,10 @@ SPEC CHECKSUMS:
   DeckTransition: 56330226ddbefd2ddc9f57b8b56d37e0e93e6b91
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  ObjectMapper+Realm: 3188789fb77c189c7a83cb625333a607eb61a08f
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
 
-PODFILE CHECKSUM: 0b5576cd93312d1f26dde9d10d699be17abbb7ce
+PODFILE CHECKSUM: 577e38cbdd4f8b4f85f53b0cc34e2a960a6c1c33
 
 COCOAPODS: 1.3.1
