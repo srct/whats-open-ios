@@ -87,7 +87,7 @@
 		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
-		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen___AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
 		92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitiesListViewController.swift; sourceTree = "<group>"; };
@@ -768,7 +768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -797,7 +797,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -829,7 +829,7 @@
 				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
 				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -911,7 +911,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1063,7 +1063,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1092,7 +1092,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

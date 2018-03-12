@@ -230,6 +230,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		let nc = NotificationCenter.default
+		nc.addObserver(self, selector: #selector(anyRefresh(_:)), name: .UIApplicationWillEnterForeground, object: nil)
 		
 		self.definesPresentationContext = true
 		
@@ -251,7 +253,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 
-		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+		refreshControl.addTarget(self, action: #selector(forceRefresh(_:)), for: .valueChanged)
 		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
@@ -390,6 +392,14 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         return filtered
     }
 	
+	
+	// These functions are for use by selectors
+	@objc private func forceRefresh(_ sender: Any) {
+		refresh(sender, forceUpdate: true)
+	}
+	@objc private func anyRefresh(_ sender: Any) {
+		refresh(sender, forceUpdate: false)
+	}
 	/*
 	* Reloads data, either calling update() to attempt a download
 	* or simply pulling from the realm
