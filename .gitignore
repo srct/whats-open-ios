@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+.idea/
 
 ## Various settings
 *.pbxuser
@@ -63,3 +64,12 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+.DS_Store
+
+WhatsOpen/crashlyticsbuild.sh
+WhatsOpen/WhatsOpen/crashlyticsbuild.sh
+
+# fastlane
+# Maybe this should be in VC but it's only going to be used by people pushing builds out
+# and has a Slack webhook token in it
+WhatsOpen/fastlane/

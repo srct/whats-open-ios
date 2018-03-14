@@ -1,22 +1,40 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
+platform :ios, '11.0'
 use_frameworks!
 
-target 'WhatsOpen' do
+def ios_pods
+  pod 'RealmSwift'
 
-# pod 'RealmSwift'
-# pod 'ObjectMapper+Realm', '~> 0.2'
+  pod 'ObjectMapper', '~> 3.0'
+  pod "ObjectMapper+Realm"
 
-# pod 'Segmentio', '~> 2.1'
+  #pod 'Segmentio', '~> 2.1'
 
+  pod 'DeckTransition', '~> 1.4.0'
+
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
 
-# post_install do |installer|
-#   installer.pods_project.targets.each do |target|
-#     target.build_configurations.each do |config|
-#       config.build_settings['SWIFT_VERSION'] = '3.0'
-#     end
-#   end
-# end
+target 'WhatsOpen' do
+  ios_pods
+end
+
+target 'WhatsOpen - AppStore' do
+  ios_pods
+end
+
+
+post_install do |installer|
+   installer.pods_project.targets.each do |target|
+     target.build_configurations.each do |config|
+       config.build_settings['SWIFT_VERSION'] = '3.1'
+     end
+   end
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-Acknowledgements.plist', 'WhatsOpen/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+
+end

@@ -3,10 +3,14 @@
 //  WhatsOpen
 //
 //  Created by Patrick Murray on 25/10/2016.
-//  Copyright © 2016 Patrick Murray. All rights reserved.
+//  Copyright © 2016 SRCT. Some rights reserved.
 //
 
 import UIKit
+import RealmSwift
+
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +20,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+		
+		#if APPSTORE
+			Fabric.with([Crashlytics.self])
+		#endif
+		
+		let defaults = UserDefaults.standard
+		initAlerts(defaults)
+		initCampuses(defaults)
+		
         return true
     }
+	
+	func initAlerts(_ defaults: UserDefaults) {
+		let alerts = defaults.dictionary(forKey: "alerts")
+		if alerts == nil {
+			var setAlerts = [String: Bool]()
+			setAlerts.updateValue(true, forKey: "informational")
+			setAlerts.updateValue(true, forKey: "minor alerts")
+			setAlerts.updateValue(true, forKey: "major alerts")
+			defaults.set(setAlerts, forKey: "alerts")
+		}
+	}
+	
+	func initCampuses(_ defaults: UserDefaults) {
+		let campuses = defaults.dictionary(forKey: "campuses")
+		if campuses == nil {
+			defaults.set([String: Bool](), forKey: "campuses")
+		}
+	}
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
