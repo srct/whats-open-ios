@@ -1,10 +1,15 @@
 
 
-What's Open for iOS
-===
 
-Simple iOS app to ingest the What's Open API, cache its contents in a local datastore and display it in a user friendly way. Plans to take advantage of iPhone specific technologies not available to the web.
+<p align="center">
+  <img src="WhatsOpenCurvedIcon.png" alt="What's Open app icon" />
+  <br />
+  <h1>What's Open for iOS</h1>
+  <img src="AppStoreBadge.png" alt="Download on the App Store" href="https://itunes.apple.com/us/app/whats-open-at-mason/id1331260366" />
+</p>
 
+
+iOS client for SRCT's [What's Open API](https://api.srct.gmu.edu/WhatsOpen/v2/), designed for your iPhone and iPad and built with native Swift and UIKit.
 
 
 On Contributing

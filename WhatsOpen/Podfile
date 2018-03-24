@@ -29,11 +29,17 @@ end
 
 
 post_install do |installer|
-   installer.pods_project.targets.each do |target|
-     target.build_configurations.each do |config|
-       config.build_settings['SWIFT_VERSION'] = '3.1'
-     end
-   end
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '3.1'
+      end
+    
+    # From https://twitter.com/nathan
+    plist_buddy = "/usr/libexec/PlistBuddy"
+    plist = "Pods/Target Support Files/#{target}/Info.plist"
+    `#{plist_buddy} -c "Add UIRequiredDeviceCapabilities array" "#{plist}"`
+    `#{plist_buddy} -c "Add UIRequiredDeviceCapabilities:0 string arm64" "#{plist}"`
+  end
   require 'fileutils'
   FileUtils.cp_r('Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-Acknowledgements.plist', 'WhatsOpen/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 
