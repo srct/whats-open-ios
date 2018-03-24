@@ -1,11 +1,11 @@
 
 
 
-<p align="center">
+<p align="center" class="text-center">
   <img src="WhatsOpenCurvedIcon.png" alt="What's Open app icon" />
-  <br />
+  <br /><br />
   <h1>What's Open for iOS</h1>
-  <img src="AppStoreBadge.png" alt="Download on the App Store" href="https://itunes.apple.com/us/app/whats-open-at-mason/id1331260366" />
+  <a href="https://itunes.apple.com/us/app/whats-open-at-mason/id1331260366"><img src="AppStoreBadge.png" alt="Download on the App Store"/></a>
 </p>
 
 
