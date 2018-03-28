@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -67,6 +68,19 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
+	}
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(true)
+		// MARK - Begging for App Reviews
+		let prompt = UserDefaults.standard.integer(forKey: "reviewPrompt")
+		if(arc4random_uniform(100) > 85 && prompt >= 4) {
+			SKStoreReviewController.requestReview()
+			UserDefaults.standard.set(0, forKey: "reviewPrompt")
+		}
+		else {
+			UserDefaults.standard.set(prompt + 1, forKey: "reviewPrompt")
+		}
+		
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
