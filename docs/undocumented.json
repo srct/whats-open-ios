@@ -1,0 +1,2854 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 11,
+      "symbol": "AlertCollectionViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 13,
+      "symbol": "AlertCollectionViewCell.imageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 14,
+      "symbol": "AlertCollectionViewCell.messageLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 15,
+      "symbol": "AlertCollectionViewCell.alert",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 16,
+      "symbol": "AlertCollectionViewCell.tapRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 19,
+      "symbol": "AlertCollectionViewCell.viewWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AlertCollectionViewCell.swift",
+      "line": 21,
+      "symbol": "AlertCollectionViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 18,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 21,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 35,
+      "symbol": "AppDelegate.initAlerts(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 46,
+      "symbol": "AppDelegate.initCampuses(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 53,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 58,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 63,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 67,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/AppDelegate.swift",
+      "line": 71,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 11,
+      "symbol": "CheckingTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 13,
+      "symbol": "CheckingTableViewCell.onlyOne",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 14,
+      "symbol": "CheckingTableViewCell.cellIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 15,
+      "symbol": "CheckingTableViewCell.selectingEnum",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 16,
+      "symbol": "CheckingTableViewCell.selectFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 18,
+      "symbol": "CheckingTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 23,
+      "symbol": "CheckingTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 36,
+      "symbol": "OnlyOneChecked",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 38,
+      "symbol": "OnlyOneChecked.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 39,
+      "symbol": "OnlyOneChecked.cellChecked",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 41,
+      "symbol": "OnlyOneChecked.init(tableView:tableCellChecked:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/CheckingTableViewCell.swift",
+      "line": 46,
+      "symbol": "OnlyOneChecked.setCheckToCellWithID(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 12,
+      "symbol": "FacilityCollectionViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 13,
+      "symbol": "FacilityCollectionViewCell.nameLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 14,
+      "symbol": "FacilityCollectionViewCell.timeDescriptionLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 15,
+      "symbol": "FacilityCollectionViewCell.openClosedLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 16,
+      "symbol": "FacilityCollectionViewCell.categoryLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 17,
+      "symbol": "FacilityCollectionViewCell.facility",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 18,
+      "symbol": "FacilityCollectionViewCell.tapRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 20,
+      "symbol": "FacilityCollectionViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 48,
+      "symbol": "FacilityCollectionViewCell.touchesBegan(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 55,
+      "symbol": "FacilityCollectionViewCell.touchesEnded(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/FacilityCollectionViewCell.swift",
+      "line": 62,
+      "symbol": "FacilityCollectionViewCell.touchesCancelled(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 14,
+      "symbol": "Filters",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 15,
+      "symbol": "Filters.showOpen",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 16,
+      "symbol": "Filters.showClosed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 17,
+      "symbol": "Filters.sortBy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 18,
+      "symbol": "Filters.openFirst",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 20,
+      "symbol": "Filters.showAlerts",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 22,
+      "symbol": "Filters.onlyFromLocations",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 23,
+      "symbol": "Filters.onlyFromCategories",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 24,
+      "symbol": "Filters.onlyFromCampuses",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 26,
+      "symbol": "Filters.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 30,
+      "symbol": "Filters.applyFiltersOnFacilities(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 124,
+      "symbol": "Filters.separateOpenAndClosed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 145,
+      "symbol": "Filters.sortAlphabetically(_:reverse:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 160,
+      "symbol": "Filters.sortByLocation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 170,
+      "symbol": "Filters.setShowOpen(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 175,
+      "symbol": "Filters.setShowClosed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 180,
+      "symbol": "Filters.setOpenFirst(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 185,
+      "symbol": "Filters.setCategory(_:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 195,
+      "symbol": "Filters.setLocation(_:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 209,
+      "symbol": "SortMethod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 210,
+      "symbol": "SortMethod.alphabetical",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 211,
+      "symbol": "SortMethod.reverseAlphabetical",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 212,
+      "symbol": "SortMethod.byLocation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 217,
+      "symbol": "SortMethod.count",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 224,
+      "symbol": "Array.asRealmList()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Filters.swift",
+      "line": 232,
+      "symbol": "List.asArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/IconSelectionTableViewCell.swift",
+      "line": 11,
+      "symbol": "IconSelectionTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/IconSelectionTableViewCell.swift",
+      "line": 13,
+      "symbol": "IconSelectionTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/IconSelectionTableViewCell.swift",
+      "line": 19,
+      "symbol": "IconSelectionTableViewCell.iconThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/IconSelectionTableViewCell.swift",
+      "line": 20,
+      "symbol": "IconSelectionTableViewCell.iconName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/IconSelectionTableViewCell.swift",
+      "line": 22,
+      "symbol": "IconSelectionTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 12,
+      "symbol": "MainTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 14,
+      "symbol": "MainTableViewController.facilitiesArray",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 16,
+      "symbol": "MainTableViewController.mainNavigationBar",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 18,
+      "symbol": "MainTableViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 22,
+      "symbol": "MainTableViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 26,
+      "symbol": "MainTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 42,
+      "symbol": "MainTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 49,
+      "symbol": "MainTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 56,
+      "symbol": "MainTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 70,
+      "symbol": "MainTableViewController.placeOpenFacilitiesFirstInArray(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 86,
+      "symbol": "MainTableViewController.countForOpenAndClosedFacilities(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 102,
+      "symbol": "MainTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/MainTableViewController.swift",
+      "line": 124,
+      "symbol": "MainTableViewController.SearchButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 11,
+      "symbol": "Day",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 12,
+      "symbol": "Day.Monday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 13,
+      "symbol": "Day.Tuesday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 14,
+      "symbol": "Day.Wednesday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 15,
+      "symbol": "Day.Thursday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 16,
+      "symbol": "Day.Friday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 17,
+      "symbol": "Day.Saturday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 18,
+      "symbol": "Day.Sunday",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 23,
+      "symbol": "Facility",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 24,
+      "symbol": "Facility.slug",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 25,
+      "symbol": "Facility.facilityName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 26,
+      "symbol": "Facility.facilityLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 27,
+      "symbol": "Facility.category",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 28,
+      "symbol": "Facility.facilityTags",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 29,
+      "symbol": "Facility.mainSchedule",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 30,
+      "symbol": "Facility.specialSchedules",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 31,
+      "symbol": "Facility.labels",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 32,
+      "symbol": "Facility.tapingoURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 33,
+      "symbol": "Facility.note",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 34,
+      "symbol": "Facility.logoURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 36,
+      "symbol": "Facility.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 39,
+      "symbol": "Facility.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 57,
+      "symbol": "Locations",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 58,
+      "symbol": "Locations.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 59,
+      "symbol": "Locations.created",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 60,
+      "symbol": "Locations.lastmodified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 61,
+      "symbol": "Locations.building",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 62,
+      "symbol": "Locations.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 63,
+      "symbol": "Locations.campus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 64,
+      "symbol": "Locations.onCampus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 65,
+      "symbol": "Locations.abbreviation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 67,
+      "symbol": "Locations.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 71,
+      "symbol": "Locations.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 82,
+      "symbol": "Locations.equals(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 96,
+      "symbol": "Categories",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 97,
+      "symbol": "Categories.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 98,
+      "symbol": "Categories.created",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 99,
+      "symbol": "Categories.modified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 100,
+      "symbol": "Categories.categoryName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 102,
+      "symbol": "Categories.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 105,
+      "symbol": "Categories.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 112,
+      "symbol": "Categories.equals(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 118,
+      "symbol": "FacilityTag",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 119,
+      "symbol": "FacilityTag.tag",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 122,
+      "symbol": "FacilityTag.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 126,
+      "symbol": "FacilityTag.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 134,
+      "symbol": "Schedule",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 135,
+      "symbol": "Schedule.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 136,
+      "symbol": "Schedule.openTimes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 137,
+      "symbol": "Schedule.lastModified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 138,
+      "symbol": "Schedule.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 139,
+      "symbol": "Schedule.validStart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 140,
+      "symbol": "Schedule.validEnd",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 141,
+      "symbol": "Schedule.twentyFourHours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 144,
+      "symbol": "Schedule.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 148,
+      "symbol": "Schedule.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 166,
+      "symbol": "SpecialSchedule",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 168,
+      "symbol": "SpecialSchedule.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 172,
+      "symbol": "SpecialSchedule.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 173,
+      "symbol": "SpecialSchedule.openTimes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 174,
+      "symbol": "SpecialSchedule.lastModified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 175,
+      "symbol": "SpecialSchedule.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 176,
+      "symbol": "SpecialSchedule.validStart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 177,
+      "symbol": "SpecialSchedule.validEnd",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 178,
+      "symbol": "SpecialSchedule.twentyFourHours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 180,
+      "symbol": "SpecialSchedule.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 200,
+      "symbol": "OpenTimes",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 201,
+      "symbol": "OpenTimes.schedule",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 202,
+      "symbol": "OpenTimes.lastModified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 203,
+      "symbol": "OpenTimes.startDay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 204,
+      "symbol": "OpenTimes.endDay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 205,
+      "symbol": "OpenTimes.startTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 206,
+      "symbol": "OpenTimes.endTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 208,
+      "symbol": "OpenTimes.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 212,
+      "symbol": "OpenTimes.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 223,
+      "symbol": "Alert",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 224,
+      "symbol": "Alert.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 225,
+      "symbol": "Alert.created",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 226,
+      "symbol": "Alert.lastModified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 227,
+      "symbol": "Alert.urgency",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 228,
+      "symbol": "Alert.message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 229,
+      "symbol": "Alert.startDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 230,
+      "symbol": "Alert.endDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 232,
+      "symbol": "Alert.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 236,
+      "symbol": "Alert.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 248,
+      "symbol": "TagTransform",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 252,
+      "symbol": "TagTransform.transformFromJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 264,
+      "symbol": "TagTransform.transformToJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 445,
+      "symbol": "Date.cacheQueue",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 446,
+      "symbol": "Date.formatterCache",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 447,
+      "symbol": "Date.dateFormatter(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 458,
+      "symbol": "Date.parse(string:format:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 464,
+      "symbol": "Date.init(json:key:format:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 472,
+      "symbol": "URL.init(json:key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 479,
+      "symbol": "Double.init(json:key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 490,
+      "symbol": "Array.toDoubleArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 496,
+      "symbol": "Array.toDateArray(withFormat:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 505,
+      "symbol": "Array.toURLArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 516,
+      "symbol": "Array.toOptionalValueArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 520,
+      "symbol": "Array.toOptionalDateArray(withFormat:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 527,
+      "symbol": "Array.toOptionalDoubleArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Object Model/examplejson.swift",
+      "line": 534,
+      "symbol": "Array.toOptionalURLArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": null,
+      "symbol": "PaddedUILabel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 15,
+      "symbol": "PaddedUILabel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 17,
+      "symbol": "PaddedUILabel.textInsets",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 21,
+      "symbol": "PaddedUILabel.textRect(forBounds:limitedToNumberOfLines:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 31,
+      "symbol": "PaddedUILabel.drawText(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 43,
+      "symbol": "PaddedUILabel.leftTextInset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PaddedUILabel.swift",
+      "line": 49,
+      "symbol": "PaddedUILabel.rightTextInset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 11,
+      "symbol": "PickingTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 13,
+      "symbol": "PickingTableViewCell.pickerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 14,
+      "symbol": "PickingTableViewCell.pickerStrings",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 15,
+      "symbol": "PickingTableViewCell.pickerItems",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 16,
+      "symbol": "PickingTableViewCell.pickerChecked",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 17,
+      "symbol": "PickingTableViewCell.pickFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 19,
+      "symbol": "PickingTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 28,
+      "symbol": "PickingTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 34,
+      "symbol": "PickingTableViewCell.numberOfComponents(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 38,
+      "symbol": "PickingTableViewCell.pickerView(_:numberOfRowsInComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 42,
+      "symbol": "PickingTableViewCell.pickerView(_:titleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/PickingTableViewCell.swift",
+      "line": 46,
+      "symbol": "PickingTableViewCell.pickerView(_:didSelectRow:inComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTNetworkController.swift",
+      "line": 15,
+      "symbol": "SRCTNetworkController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTNetworkController.swift",
+      "line": 18,
+      "symbol": "SRCTNetworkController.performDownload(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTNetworkController.swift",
+      "line": 57,
+      "symbol": "SRCTNetworkController.performAlertsDownload(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 11,
+      "symbol": "SRCTSimpleTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 14,
+      "symbol": "SRCTSimpleTableViewCell.openClosedLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 15,
+      "symbol": "SRCTSimpleTableViewCell.nameLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 16,
+      "symbol": "SRCTSimpleTableViewCell.timeDescriptionLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 18,
+      "symbol": "SRCTSimpleTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTSimpleTableViewCell.swift",
+      "line": 23,
+      "symbol": "SRCTSimpleTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 11,
+      "symbol": "Utilities",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 13,
+      "symbol": "Utilities.isOpen(facility:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 31,
+      "symbol": "Utilities.getDayOfWeek(_:small:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 71,
+      "symbol": "Utilities.getCurrentDayOfWeek()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 80,
+      "symbol": "Utilities.getCurrentTime()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 92,
+      "symbol": "Utilities.today(facility:special:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 104,
+      "symbol": "Utilities.getStartEndDates(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 125,
+      "symbol": "Utilities.time(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 141,
+      "symbol": "Utilities.timeUntilFacility(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 177,
+      "symbol": "Utilities.openOrClosedUntil(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 207,
+      "symbol": "Utilities.getFormattedStartandEnd(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 234,
+      "symbol": "Utilities.getCurrentSchedule(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 250,
+      "symbol": "Utilities.isMainSchedule(facility:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 455,
+      "symbol": "DateFormatter.easternCoastTimeFormat",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 463,
+      "symbol": "DateFormatter.easternCoastTimeFormatForViewing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 474,
+      "symbol": "Date.endOfCurrentDay()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SRCTUtilities.swift",
+      "line": 480,
+      "symbol": "Date.startOfCurrentDay()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SettingTableViewCell.swift",
+      "line": 12,
+      "symbol": "SettingTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SettingTableViewCell.swift",
+      "line": 14,
+      "symbol": "SettingTableViewCell.linkURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SettingTableViewCell.swift",
+      "line": 16,
+      "symbol": "SettingTableViewCell.initMail(subject:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SettingTableViewCell.swift",
+      "line": 26,
+      "symbol": "SettingTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SettingTableViewCell.swift",
+      "line": 32,
+      "symbol": "SettingTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 11,
+      "symbol": "SwitchingTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 13,
+      "symbol": "SwitchingTableViewCell.switchControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 14,
+      "symbol": "SwitchingTableViewCell.toggleFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 16,
+      "symbol": "SwitchingTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 24,
+      "symbol": "SwitchingTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/SwitchingTableViewCell.swift",
+      "line": 30,
+      "symbol": "SwitchingTableViewCell.toggleSwitch(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 12,
+      "symbol": "AboutScreenViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 14,
+      "symbol": "AboutScreenViewController.versionLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 16,
+      "symbol": "AboutScreenViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 20,
+      "symbol": "AboutScreenViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 35,
+      "symbol": "AboutScreenViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 40,
+      "symbol": "AboutScreenViewController.contributors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 49,
+      "symbol": "AboutScreenViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 60,
+      "symbol": "AboutScreenViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 71,
+      "symbol": "AboutScreenViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 88,
+      "symbol": "AboutScreenViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AboutScreenViewController.swift",
+      "line": 96,
+      "symbol": "AboutScreenViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 11,
+      "symbol": "AlertDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 13,
+      "symbol": "AlertDetailViewController.imageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 14,
+      "symbol": "AlertDetailViewController.nameLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 15,
+      "symbol": "AlertDetailViewController.messageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 16,
+      "symbol": "AlertDetailViewController.alert",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 18,
+      "symbol": "AlertDetailViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/AlertDetailViewController.swift",
+      "line": 46,
+      "symbol": "AlertDetailViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": null,
+      "symbol": "FacilitiesListViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 14,
+      "symbol": "FacilitiesModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 15,
+      "symbol": "FacilitiesModel.facilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 16,
+      "symbol": "FacilitiesModel.alerts",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 17,
+      "symbol": "FacilitiesModel.lastUpdated",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 18,
+      "symbol": "FacilitiesModel.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 22,
+      "symbol": "FacilitiesListViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 25,
+      "symbol": "FacilitiesListViewController.realm",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 34,
+      "symbol": "FacilitiesListViewController.facilitiesArray",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 35,
+      "symbol": "FacilitiesListViewController.alertsList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 37,
+      "symbol": "FacilitiesListViewController.currentAlerts",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 40,
+      "symbol": "FacilitiesListViewController.filteredFacilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 43,
+      "symbol": "FacilitiesListViewController.shownFacilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 46,
+      "symbol": "FacilitiesListViewController.searchController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 48,
+      "symbol": "FacilitiesListViewController.filters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 50,
+      "symbol": "FacilitiesListViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 54,
+      "symbol": "FacilitiesListViewController.LeftButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 56,
+      "symbol": "FacilitiesListViewController.settingsButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 58,
+      "symbol": "FacilitiesListViewController.LocationsList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 60,
+      "symbol": "FacilitiesListViewController.LocationsListLayout",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 62,
+      "symbol": "FacilitiesListViewController.favoritesControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 63,
+      "symbol": "FacilitiesListViewController.showFavorites",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 65,
+      "symbol": "FacilitiesListViewController.LastUpdatedLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 67,
+      "symbol": "FacilitiesListViewController.refreshControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 69,
+      "symbol": "FacilitiesListViewController.favoritesControlChanges(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 102,
+      "symbol": "FacilitiesListViewController.viewWillLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 126,
+      "symbol": "FacilitiesListViewController.RefreshButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 131,
+      "symbol": "FacilitiesListViewController.checkFilterState()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 157,
+      "symbol": "FacilitiesListViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 163,
+      "symbol": "FacilitiesListViewController.tapRecognizer(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 185,
+      "symbol": "FacilitiesListViewController.presentDetailView(_:tapped:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 222,
+      "symbol": "FacilitiesListViewController.configureSearchController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 231,
+      "symbol": "FacilitiesListViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 266,
+      "symbol": "FacilitiesListViewController.reloadWithFilters()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 323,
+      "symbol": "FacilitiesListViewController.isSearchBarEmpty()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 327,
+      "symbol": "FacilitiesListViewController.isSearching()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 397,
+      "symbol": "FacilitiesListViewController.forceRefresh(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 400,
+      "symbol": "FacilitiesListViewController.anyRefresh(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 407,
+      "symbol": "FacilitiesListViewController.refresh(_:forceUpdate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 441,
+      "symbol": "FacilitiesListViewController.updateFiltersLists()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 463,
+      "symbol": "FacilitiesListViewController.update(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 558,
+      "symbol": "FacilitiesListViewController.shortDateFormat(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 568,
+      "symbol": "FacilitiesListViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 573,
+      "symbol": "FacilitiesListViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 582,
+      "symbol": "FacilitiesListViewController.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 593,
+      "symbol": "FacilitiesListViewController.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 709,
+      "symbol": "FacilitiesListViewController.collectionView(_:layout:sizeForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 738,
+      "symbol": "FacilitiesListViewController.collectionView(_:layout:minimumLineSpacingForSectionAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 747,
+      "symbol": "FacilitiesListViewController.collectionView(_:layout:minimumInteritemSpacingForSectionAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 756,
+      "symbol": "FacilitiesListViewController.collectionView(_:layout:insetForSectionAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 769,
+      "symbol": "FacilitiesListViewController.getLocationArray(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 784,
+      "symbol": "FacilitiesListViewController.placeOpenFacilitiesFirstInArray(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 801,
+      "symbol": "FacilitiesListViewController.countForOpenAndClosedFacilities(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 822,
+      "symbol": "FacilitiesListViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 855,
+      "symbol": "FacilitiesListViewController.previewingContext(_:viewControllerForLocation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 872,
+      "symbol": "FacilitiesListViewController.previewingContext(_:commit:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 886,
+      "symbol": "FacilitiesListViewController.updateSearchResults(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 894,
+      "symbol": "Date.isGreaterThanDate(dateToCompare:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 907,
+      "symbol": "Date.isLessThanDate(dateToCompare:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilitiesListViewController.swift",
+      "line": 920,
+      "symbol": "Date.equalToDate(dateToCompare:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 11,
+      "symbol": "FacilityDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 13,
+      "symbol": "FacilityDetailViewController.NameLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 14,
+      "symbol": "FacilityDetailViewController.PlaceLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 15,
+      "symbol": "FacilityDetailViewController.OpenLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 16,
+      "symbol": "FacilityDetailViewController.CategoryLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 17,
+      "symbol": "FacilityDetailViewController.OpenTimesList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 18,
+      "symbol": "FacilityDetailViewController.favoritesButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 20,
+      "symbol": "FacilityDetailViewController.facility",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 22,
+      "symbol": "FacilityDetailViewController.previewActionItems",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 64,
+      "symbol": "FacilityDetailViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 68,
+      "symbol": "FacilityDetailViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 71,
+      "symbol": "FacilityDetailViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 115,
+      "symbol": "FacilityDetailViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 120,
+      "symbol": "FacilityDetailViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 125,
+      "symbol": "FacilityDetailViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 129,
+      "symbol": "FacilityDetailViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FacilityDetailViewController.swift",
+      "line": 145,
+      "symbol": "FacilityDetailViewController.markAsFavoritePreviewAction(_:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 11,
+      "symbol": "FilterSelectionTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 14,
+      "symbol": "FilterSelectionTableViewController.getFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 15,
+      "symbol": "FilterSelectionTableViewController.selectFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 16,
+      "symbol": "FilterSelectionTableViewController.selectAllFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 17,
+      "symbol": "FilterSelectionTableViewController.updateFacilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 19,
+      "symbol": "FilterSelectionTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 29,
+      "symbol": "FilterSelectionTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 36,
+      "symbol": "FilterSelectionTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 41,
+      "symbol": "FilterSelectionTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 47,
+      "symbol": "FilterSelectionTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 76,
+      "symbol": "FilterSelectionTableViewController.tableView(_:titleForFooterInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 83,
+      "symbol": "FilterSelectionTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FilterSelectionTableViewController.swift",
+      "line": 107,
+      "symbol": "FilterSelectionTableViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 12,
+      "symbol": "FiltersTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 14,
+      "symbol": "FiltersTableViewController.updateFacilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 16,
+      "symbol": "FiltersTableViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 20,
+      "symbol": "FiltersTableViewController.doneButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 24,
+      "symbol": "FiltersTableViewController.resetButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 42,
+      "symbol": "FiltersTableViewController.filters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 43,
+      "symbol": "FiltersTableViewController.facilities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 47,
+      "symbol": "FiltersTableViewController.openFirst",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 47,
+      "symbol": "FiltersTableViewController.showClosed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 47,
+      "symbol": "FiltersTableViewController.showOpen",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 48,
+      "symbol": "FiltersTableViewController.sortOptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 49,
+      "symbol": "FiltersTableViewController.onlyOne",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 51,
+      "symbol": "FiltersTableViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 56,
+      "symbol": "FiltersTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 79,
+      "symbol": "FiltersTableViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 83,
+      "symbol": "FiltersTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 90,
+      "symbol": "FiltersTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 95,
+      "symbol": "FiltersTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 111,
+      "symbol": "FiltersTableViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 124,
+      "symbol": "FiltersTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 247,
+      "symbol": "FiltersTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 255,
+      "symbol": "FiltersTableViewController.updateOpenFirstEnabledState(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 262,
+      "symbol": "FiltersTableViewController.onlyCheckOne(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/FiltersTableViewController.swift",
+      "line": 307,
+      "symbol": "FiltersTableViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 11,
+      "symbol": "PullingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 13,
+      "symbol": "PullingViewController.containerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 14,
+      "symbol": "PullingViewController.currentViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 16,
+      "symbol": "PullingViewController.pullDown",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 18,
+      "symbol": "PullingViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 22,
+      "symbol": "PullingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 39,
+      "symbol": "PullingViewController.willDismiss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 43,
+      "symbol": "PullingViewController.addSubview(_:toView:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/PullingViewController.swift",
+      "line": 54,
+      "symbol": "PullingViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 11,
+      "symbol": "SetIconTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 13,
+      "symbol": "SetIconTableViewController.secretCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 15,
+      "symbol": "SetIconTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 25,
+      "symbol": "SetIconTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 32,
+      "symbol": "SetIconTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 37,
+      "symbol": "SetIconTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 43,
+      "symbol": "SetIconTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 73,
+      "symbol": "SetIconTableViewController.setCellInfo(_:display:cell:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 89,
+      "symbol": "SetIconTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SetIconTableViewController.swift",
+      "line": 128,
+      "symbol": "SetIconTableViewController.setIcon(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 14,
+      "symbol": "SettingsTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 16,
+      "symbol": "SettingsTableViewController.preferredStatusBarStyle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 20,
+      "symbol": "SettingsTableViewController.doneButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 24,
+      "symbol": "SettingsTableViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 28,
+      "symbol": "SettingsTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 41,
+      "symbol": "SettingsTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 48,
+      "symbol": "SettingsTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 52,
+      "symbol": "SettingsTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 71,
+      "symbol": "SettingsTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 153,
+      "symbol": "SettingsTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 200,
+      "symbol": "SettingsTableViewController.initMail(subject:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 211,
+      "symbol": "SettingsTableViewController.mailComposeController(_:didFinishWith:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 254,
+      "symbol": "SettingsTableViewController.updateFacilities()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen/WhatsOpen/Views/SettingsTableViewController.swift",
+      "line": 262,
+      "symbol": "SettingsTableViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/zach/Development/SRCT/WhatsOpeniOS/WhatsOpen"
+}
