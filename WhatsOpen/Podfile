@@ -12,7 +12,7 @@ def ios_pods
 
   #pod 'Segmentio', '~> 2.1'
 
-  pod 'DeckTransition', '~> 1.4.0'
+  pod 'DeckTransition', '~> 2.0'
 
   pod 'Fabric'
   pod 'Crashlytics'
