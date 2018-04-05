@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import MapKit
 
 class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -17,7 +18,9 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var CategoryLabel: UILabel!
 	@IBOutlet var OpenTimesList: UITableView!
     @IBOutlet var favoritesButton: UIButton!
-    
+	@IBOutlet var directionsButton: UIButton!
+	@IBOutlet var shareButton: UIButton!
+	
     var facility: Facility!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
@@ -48,7 +51,27 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		setFavoriteButtonText()
 	}
     
-    /**
+	@IBAction func getDirections(_ sender: Any) {
+		let regionDistance:CLLocationDistance = 100
+		print("Lat: \(String(describing: facility.facilityLocation?.coordinates?.coords?.first)) Long: \(String(describing: facility.facilityLocation?.coordinates?.coords?.last))")
+		let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
+		dump(coordinates)
+		let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+		let options = [
+			MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+			MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+		]
+		let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+		let mapItem = MKMapItem(placemark: placemark)
+		mapItem.name = facility.facilityName
+		mapItem.openInMaps(launchOptions: options)
+	}
+	
+	
+	@IBAction func shareFacility(_ sender: Any) {
+	}
+	
+	/**
      Change the favorite button text depending on if the facility is a favorite
      */
 	func setFavoriteButtonText() {
@@ -112,6 +135,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		favoritesButton.tintColor = UIColor.white
 		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		favoritesButton.layer.cornerRadius = 10
+		directionsButton.tintColor = UIColor.white
+		directionsButton.backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
+		directionsButton.layer.cornerRadius = 10
+		directionsButton.setTitle("View in Maps", for: .normal)
 
 		OpenTimesList.bounces = false
 		

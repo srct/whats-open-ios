@@ -63,6 +63,7 @@ class Locations: Object, Mappable {
     @objc dynamic var campus = ""
     @objc dynamic var onCampus = false
     @objc dynamic var abbreviation = ""
+	@objc dynamic var coordinates: Coordinates? = Coordinates()
 
     required convenience init?(map: Map){
 		self.init()
@@ -77,6 +78,7 @@ class Locations: Object, Mappable {
         campus <- map["campus_region"]
         onCampus <- map["on_campus"]
         abbreviation <- map["friendly_building"]
+		coordinates <- map["coordinate_location"]
     }
 	
 	func equals(_ another: Locations) -> Bool {
@@ -91,6 +93,20 @@ class Locations: Object, Mappable {
 		}
 	}
 
+}
+
+class Coordinates: Object, Mappable {
+	var coords: List<Double>? = List<Double>()
+	@objc dynamic var type = ""
+	
+	required convenience init?(map: Map){
+		self.init()
+	}
+	
+	func mapping(map: Map) {
+		coords <- (map["coordinates"], CoordTransform())
+		type <- map["type"]
+	}
 }
 
 class Categories: Object, Mappable {
@@ -273,6 +289,34 @@ class TagTransform : TransformType {
 	}
 }
 
+class CoordTransform: TransformType {
+	typealias Object = List<Double>
+	typealias JSON = [String]
+	
+	func transformFromJSON(_ value: Any?) -> List<Double>? {
+		let result = List<Double>()
+		if let tempArr = value as! [Double]? {
+			var count = 0
+			for entry in tempArr {
+				result.insert(entry, at: count)
+				count += 1
+			}
+		}
+		return result
+	}
+	
+	func transformToJSON(_ value: List<Double>?) -> [String]? {
+		if (value!.count > 0) {
+			var result = [String]()
+			for entry in value! {
+				result.append("\(entry)")
+			}
+			return result
+		}
+		return nil
+	}
+	
+}
 
 
 /**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
