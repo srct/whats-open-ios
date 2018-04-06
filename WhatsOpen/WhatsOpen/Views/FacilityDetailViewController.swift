@@ -69,6 +69,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	
 	@IBAction func shareFacility(_ sender: Any) {
+		let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
+		let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+		let shareSheet = UIActivityViewController(activityItems: [facility.facilityName], applicationActivities: nil)
+		present(shareSheet, animated: true, completion: nil)
 	}
 	
 	/**
@@ -139,6 +143,11 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		directionsButton.backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
 		directionsButton.layer.cornerRadius = 10
 		directionsButton.setTitle("View in Maps", for: .normal)
+		shareButton.tintColor = UIColor.white
+		shareButton.backgroundColor = UIColor.orange
+		shareButton.layer.cornerRadius = 10
+		shareButton.setImage(#imageLiteral(resourceName: "shareIcon"), for: .normal)
+		shareButton.setTitle("", for: .normal)
 
 		OpenTimesList.bounces = false
 		
