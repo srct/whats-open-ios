@@ -52,19 +52,32 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	}
     
 	@IBAction func getDirections(_ sender: Any) {
-		let regionDistance:CLLocationDistance = 100
-		print("Lat: \(String(describing: facility.facilityLocation?.coordinates?.coords?.first)) Long: \(String(describing: facility.facilityLocation?.coordinates?.coords?.last))")
-		let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
-		dump(coordinates)
-		let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-		let options = [
-			MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-			MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-		]
-		let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-		let mapItem = MKMapItem(placemark: placemark)
-		mapItem.name = facility.facilityName
-		mapItem.openInMaps(launchOptions: options)
+		let appToUse = UserDefaults.standard.value(forKey: "mapsApp") as? String
+		
+		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+			if let url = URL(string: "comgooglemaps://?q=\((facility.facilityLocation?.coordinates?.coords?.last)!)),\((facility.facilityLocation?.coordinates?.coords?.first)!)") {
+				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+			}
+		}
+		else if appToUse == "Waze" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+			if let url = URL(string: "https://waze.com/ul?ll=\((facility.facilityLocation?.coordinates?.coords?.last)!)),\((facility.facilityLocation?.coordinates?.coords?.first)!))") {
+				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+			}
+		}
+		else {
+			let regionDistance:CLLocationDistance = 100
+			let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
+			dump(coordinates)
+			let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+			let options = [
+				MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+				MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+			]
+			let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+			let mapItem = MKMapItem(placemark: placemark)
+			mapItem.name = facility.facilityName
+			mapItem.openInMaps(launchOptions: options)
+		}
 	}
 	
 	
@@ -142,7 +155,17 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		directionsButton.tintColor = UIColor.white
 		directionsButton.backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
 		directionsButton.layer.cornerRadius = 10
-		directionsButton.setTitle("View in Maps", for: .normal)
+		
+		let appToUse = UserDefaults.standard.value(forKey: "mapsApp") as? String
+		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+			directionsButton.setTitle("View in Google Maps", for: .normal)
+		}
+		else if appToUse == "Waze" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+			directionsButton.setTitle("View in Waze", for: .normal)
+		}
+		else {
+			directionsButton.setTitle("View in Maps", for: .normal)
+		}
 		shareButton.tintColor = UIColor.white
 		shareButton.backgroundColor = UIColor.orange
 		shareButton.layer.cornerRadius = 10

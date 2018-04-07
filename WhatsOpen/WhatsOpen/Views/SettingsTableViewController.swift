@@ -55,7 +55,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 1
 		}
 		else if(section == 1) {
-			return 1
+			return 2
 		}
 		else if(section == 2) {
 			return 2
@@ -76,10 +76,22 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			cell.textLabel!.text = "Are Our Hours Wrong?"
 			return cell
 		case 1:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
-			cell.textLabel!.text = "Select App Icon"
-			cell.accessoryType = .disclosureIndicator
-			return cell
+			if indexPath.row == 0 {
+				let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
+				cell.textLabel!.text = "Select App Icon"
+				cell.accessoryType = .disclosureIndicator
+				return cell
+			}
+			else if indexPath.row == 1 {
+				let cell = tableView.dequeueReusableCell(withIdentifier: "settingDefaultCell", for: indexPath)
+				cell.textLabel!.text = "Select Maps App"
+				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+				cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+				cell.detailTextLabel?.text = UserDefaults.standard.value(forKey: "mapsApp") as? String
+				cell.accessoryType = .disclosureIndicator
+				return cell
+			}
+
 		case 2:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
@@ -279,6 +291,21 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				destination.selectFunc = Utilities.setCampusDefaults
 				destination.selectAllFunc = Utilities.setAllCampusDefaults
 				destination.updateFacilities = updateFacilities
+			}
+		}
+		else if segue.identifier == "settingDefault" {
+			if (sender as! UITableViewCell).textLabel?.text == "Select Maps App" {
+				let destination = segue.destination as! SelectOneDefaultTableViewController
+				destination.navigationItem.title = "Select Maps App"
+				destination.defaultKey = "mapsApp"
+				var options = ["Apple Maps"]
+				if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+					options.append("Google Maps")
+				}
+				if UIApplication.shared.canOpenURL(URL(string:"waze://")!) {
+					options.append("Waze")
+				}
+				destination.options = options
 			}
 		}
     }
