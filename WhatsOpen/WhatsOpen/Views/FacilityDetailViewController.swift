@@ -82,9 +82,9 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	
 	@IBAction func shareFacility(_ sender: Any) {
-		let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
-		let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-		let shareSheet = UIActivityViewController(activityItems: [facility.facilityName], applicationActivities: nil)
+		let str = "\(facility.facilityName) is \(Utilities.openOrClosedUntil(facility)!.lowercased())"
+		let shareSheet = UIActivityViewController(activityItems: ["\(str) https://whatsopen.gmu.edu/"], applicationActivities: nil)
+		shareSheet.excludedActivityTypes = [.print, .openInIBooks, .addToReadingList] // Sorry you can't print a Facility
 		present(shareSheet, animated: true, completion: nil)
 	}
 	
@@ -113,7 +113,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		super.viewDidDisappear(true)
 		// MARK - Begging for App Reviews
 		let prompt = UserDefaults.standard.integer(forKey: "reviewPrompt")
-		if(arc4random_uniform(100) > 85 && prompt >= 4) {
+		if(arc4random_uniform(100) > 90 && prompt >= 4) {
 			SKStoreReviewController.requestReview()
 			UserDefaults.standard.set(0, forKey: "reviewPrompt")
 		}
