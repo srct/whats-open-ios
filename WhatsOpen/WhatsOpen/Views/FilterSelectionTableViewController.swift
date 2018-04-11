@@ -15,6 +15,7 @@ class FilterSelectionTableViewController: UITableViewController {
 	var selectFunc: ((String, Bool) -> Bool)!
 	var selectAllFunc: (() -> Bool)!
     var updateFacilities: (() -> Void)!
+	var canSelectAll = true
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,10 @@ class FilterSelectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1 + getFunc().count
+		if canSelectAll {
+			return 1 + getFunc().count
+		}
+		return getFunc().count
     }
 
 	
@@ -49,12 +52,18 @@ class FilterSelectionTableViewController: UITableViewController {
 
 		let values = getFunc()
         // Configure the cell...
-		if(indexPath.row == 0) {
+		if(indexPath.row == 0 && canSelectAll) {
 			cell.textLabel?.text = "Select All/None"
 			cell.accessoryType = .none
 		}
 		else {
-			var i = 1
+			var i: Int
+			if canSelectAll {
+				i = 1
+			}
+			else {
+				i = 0
+			}
 			for v in values {
 				if i == indexPath.row {
 					cell.textLabel?.text = v.key.capitalized
@@ -76,6 +85,9 @@ class FilterSelectionTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if navigationItem.title == "Show Alerts" {
 			return "Emergency Alerts are always enabled in the app for your safety. We will never send a notification to your device without your consent."
+		}
+		else if navigationItem.title == "Select Maps App" {
+			return "The app selected here will be used when opening a map from a facility's detail page."
 		}
 		return nil
 	}

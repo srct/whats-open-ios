@@ -178,7 +178,7 @@ class Utilities: NSObject {
         let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
 
         let startEnd = getStartEndDates(facility)
-        if facility.mainSchedule!.twentyFourHours {
+        if isMainSchedule(facility: facility) && facility.mainSchedule!.twentyFourHours {
             return "Open all day"
         }
         if(Utilities.isOpen(facility: facility)) {

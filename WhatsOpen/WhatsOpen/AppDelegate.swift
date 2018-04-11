@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let defaults = UserDefaults.standard
 		initAlerts(defaults)
 		initCampuses(defaults)
+		if defaults.value(forKey: "mapsApp") == nil {
+			defaults.set("Apple Maps", forKey: "mapsApp")
+		}
 		
         return true
     }
