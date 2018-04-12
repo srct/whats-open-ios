@@ -7,11 +7,11 @@ PODS:
   - ObjectMapper+Realm (0.5):
     - ObjectMapper
     - RealmSwift
-  - Realm (3.3.1):
-    - Realm/Headers (= 3.3.1)
-  - Realm/Headers (3.3.1)
-  - RealmSwift (3.3.1):
-    - Realm (= 3.3.1)
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
+  - RealmSwift (3.3.2):
+    - Realm (= 3.3.2)
 
 DEPENDENCIES:
   - Crashlytics
@@ -27,8 +27,8 @@ SPEC CHECKSUMS:
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   ObjectMapper+Realm: 3188789fb77c189c7a83cb625333a607eb61a08f
-  Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
-  RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
+  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
 
 PODFILE CHECKSUM: 1225e83da50847e17730900da3b05d9d69748392
 
