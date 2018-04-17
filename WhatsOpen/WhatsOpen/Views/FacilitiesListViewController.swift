@@ -183,26 +183,36 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
+		var trueDest: UIViewController
+		if destination is FacilityDetailViewController {
+			let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
+			detailViewWithButtons?.detailViewController = (destination as! FacilityDetailViewController)
+			detailViewWithButtons?.facility = (destination as! FacilityDetailViewController).facility
+			trueDest = detailViewWithButtons!
+		}
+		else {
+			trueDest = destination
+		}
 		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
 			//do a popover here for the iPad
 			//iPads are cool right?
-			destination.modalPresentationStyle = .popover
-			let popoverController = destination.popoverPresentationController
+			trueDest.modalPresentationStyle = .popover
+			let popoverController = trueDest.popoverPresentationController
 			popoverController?.permittedArrowDirections = .any
 			popoverController?.sourceView = tapped.contentView
 			popoverController?.sourceRect = tapped.bounds
             
             // present the detail view over the search controller if we're searching
             if searchController.isActive {
-                searchController.present(destination, animated: true, completion: nil)
+                searchController.present(trueDest, animated: true, completion: nil)
             }
             else {
-                present(destination, animated: true, completion: nil)
+                present(trueDest, animated: true, completion: nil)
             }
 		}
 		else {
 			let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
-			finalDestination?.currentViewController = destination
+			finalDestination?.currentViewController = trueDest
 			let destDelegate = DeckTransitioningDelegate()
 			finalDestination?.modalPresentationStyle = .custom
 			finalDestination?.transitioningDelegate = destDelegate
@@ -871,13 +881,28 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		guard let facilityDetailView = viewControllerToCommit as? FacilityDetailViewController
+			else {
+				let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+				finalDestination?.currentViewController = viewControllerToCommit
+				let destDelegate = DeckTransitioningDelegate()
+				finalDestination?.modalPresentationStyle = .custom
+				finalDestination?.transitioningDelegate = destDelegate
+				//If one day 3D touch comes to the iPad, this is no longer good.
+				present(finalDestination!, animated: true, completion: nil)
+				return
+			}
+	  	let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
+		detailViewWithButtons?.detailViewController = facilityDetailView
+		detailViewWithButtons?.facility = facilityDetailView.facility
 		let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
-		finalDestination?.currentViewController = viewControllerToCommit
+		finalDestination?.currentViewController = detailViewWithButtons
 		let destDelegate = DeckTransitioningDelegate()
 		finalDestination?.modalPresentationStyle = .custom
 		finalDestination?.transitioningDelegate = destDelegate
 		//If one day 3D touch comes to the iPad, this is no longer good.
 		present(finalDestination!, animated: true, completion: nil)
+
 	}
 	
 }
