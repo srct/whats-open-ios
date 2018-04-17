@@ -145,18 +145,19 @@ class Utilities: NSObject {
         dateComponentsFormatter.maximumUnitCount = 1
         dateComponentsFormatter.unitsStyle = .full
         let startEnd = getStartEndDates(facility)
-        if facility.mainSchedule!.twentyFourHours {
+		let current = getCurrentSchedule(facility)
+		if current!.twentyFourHours {
             return "Open all day"
         }
         if(Utilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
             if(isMainSchedule(facility: facility)) {
-                if(!facility.mainSchedule!.openTimes.isEmpty) {
+                if(!current!.openTimes.isEmpty) {
                     if startEnd != nil {
                         let time = dateComponentsFormatter.string(from: getCurrentTime(), to: (startEnd!.endTime))
                         return "Closes in \(time!)"
                     }
-            }
+            	}
 			//Eventually add more detailled text here, allowing for more custom
 			//messages as it gets closer to closing time
         } else {
@@ -173,26 +174,24 @@ class Utilities: NSObject {
         return nil
     }
 	
-	//TODO: THIS PROBABLY DOESN'T WORK WITH SPECIAL SCHEDULES
     static func openOrClosedUntil(_ facility: Facility) -> String? {
         let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
 
         let startEnd = getStartEndDates(facility)
-        if isMainSchedule(facility: facility) && facility.mainSchedule!.twentyFourHours {
+		let current = getCurrentSchedule(facility)
+        if current!.twentyFourHours {
             return "Open all day"
         }
         if(Utilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
-            if(isMainSchedule(facility: facility)) {
-                if(!facility.mainSchedule!.openTimes.isEmpty) {
-                    if startEnd != nil {
-                        let time = viewingFormatter.string(from: startEnd!.endTime)
-                        return "Open until \(time)"
-                    }
-                }
-                //Eventually add more detailled text here, allowing for more custom
-                //messages as it gets closer to closing time
-            }
+			if(!current!.openTimes.isEmpty) {
+				if startEnd != nil {
+					let time = viewingFormatter.string(from: startEnd!.endTime)
+					return "Open until \(time)"
+				}
+			}
+			//Eventually add more detailled text here, allowing for more custom
+			//messages as it gets closer to closing time
         } else {
 			if startEnd != nil {
 				let time = viewingFormatter.string(from: startEnd!.startTime)
