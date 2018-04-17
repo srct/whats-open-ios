@@ -40,6 +40,8 @@
 		92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
 		92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
 		924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
+		924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
+		924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
 		92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
@@ -89,6 +91,7 @@
 		92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitiesListViewController.swift; sourceTree = "<group>"; };
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
+		924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButtonsViewController.swift; sourceTree = "<group>"; };
 		9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOneDefaultTableViewController.swift; sourceTree = "<group>"; };
 		9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +173,7 @@
 				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
 				9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */,
 				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
+				924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */,
 				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
 				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
 				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
@@ -639,6 +643,7 @@
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
 				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
 				9203CB8D2023D51A006ACC3B /* Model.swift in Sources */,
+				924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
 				9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */,
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
@@ -668,6 +673,7 @@
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */,
 				CD763A7A1DE24EF100ADFD6B /* Model.swift in Sources */,
+				924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
 				92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */,
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
