@@ -27,7 +27,7 @@
 		9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
 		9203CB972023D51A006ACC3B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
-		9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
+		9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
 		9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
 		9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
@@ -58,7 +58,7 @@
 		92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
 		A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
-		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
+		CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
 		CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
@@ -106,7 +106,7 @@
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
-		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
+		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
 		CD763A7D1DE253B900ADFD6B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CD81F5191DC0334600009FBD /* WhatsOpen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOpen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +232,7 @@
 		CD81F51B1DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXGroup;
 			children = (
-				CD81F5301DC03AA700009FBD /* DataModel */,
+				CD81F5301DC03AA700009FBD /* Data Retrieval */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
 				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
@@ -248,13 +248,13 @@
 			path = WhatsOpen;
 			sourceTree = "<group>";
 		};
-		CD81F5301DC03AA700009FBD /* DataModel */ = {
+		CD81F5301DC03AA700009FBD /* Data Retrieval */ = {
 			isa = PBXGroup;
 			children = (
 				CD763A791DE24EF100ADFD6B /* examplejson.swift */,
-				CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */,
+				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 			);
-			name = DataModel;
+			name = "Data Retrieval";
 			sourceTree = "<group>";
 		};
 		FD2AE174B8FDE3008F34206E /* Frameworks */ = {
@@ -650,7 +650,7 @@
 				9203CB972023D51A006ACC3B /* Utilities.swift in Sources */,
 				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
 				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
-				9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */,
+				9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */,
 				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
 				9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */,
 				9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */,
@@ -679,7 +679,7 @@
 				CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */,
 				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
-				CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */,
+				CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */,
 				92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */,
 				9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */,
 				CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */,

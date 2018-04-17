@@ -12,8 +12,7 @@ import RealmSwift
 import Realm
 import ObjectMapper
 
-class SRCTNetworkController: NSObject {
-    //Use this for testing with the new API, might make it possible to get stuff moving pre official release 
+class DownloadController: NSObject {
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json
     public static func performDownload(completion: @escaping (_ result: List<Facility>?) -> Void) {
 

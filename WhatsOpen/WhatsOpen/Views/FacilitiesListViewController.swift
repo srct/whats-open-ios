@@ -462,7 +462,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	* and place that new information into Realm
 	*/
 	func update(_ sender: Any) {
-		SRCTNetworkController.performDownload { (facilities) in
+		DownloadController.performDownload { (facilities) in
 			if(facilities == nil) {
 				DispatchQueue.main.async {
 					let results = self.realm.objects(FacilitiesModel.self)
@@ -514,7 +514,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				}
 			}
 		}
-		SRCTNetworkController.performAlertsDownload { (alerts) in
+		DownloadController.performAlertsDownload { (alerts) in
 			if(alerts == nil) {
 				DispatchQueue.main.async {
 					let results = self.realm.objects(FacilitiesModel.self)
