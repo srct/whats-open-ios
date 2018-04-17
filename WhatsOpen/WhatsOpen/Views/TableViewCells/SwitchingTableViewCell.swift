@@ -28,8 +28,6 @@ class SwitchingTableViewCell: UITableViewCell {
     }
 
 	@objc func toggleSwitch(_ sender: Any) {
-		print("toggle")
-		
 		let res = toggleFunc(self.switchControl.isOn)
 		if( res == false ) {
 			// Probably should do some error handling here

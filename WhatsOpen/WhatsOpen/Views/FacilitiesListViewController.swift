@@ -433,6 +433,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 				
 		updateFiltersLists()
+		checkFilterState()
 		reloadWithFilters()
         
 		refreshControl.endRefreshing()

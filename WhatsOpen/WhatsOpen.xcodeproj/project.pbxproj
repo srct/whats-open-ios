@@ -12,7 +12,6 @@
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
-		9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
 		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
@@ -20,17 +19,15 @@
 		9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
 		9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
-		9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
 		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9203CB942023D51A006ACC3B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
-		9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */; };
+		9203CB972023D51A006ACC3B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
-		9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */; };
 		9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
 		9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
 		9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
@@ -52,7 +49,6 @@
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
-		929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
@@ -63,10 +59,8 @@
 		92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
 		A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
-		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
-		CD763A7C1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */; };
-		CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */; };
+		CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
 		CD81F5221DC0334600009FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5201DC0334600009FBD /* Main.storyboard */; };
 		CD81F5241DC0334600009FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5231DC0334600009FBD /* Assets.xcassets */; };
@@ -104,20 +98,17 @@
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIconTableViewController.swift; sourceTree = "<group>"; };
-		929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingTableViewCell.swift; sourceTree = "<group>"; };
 		92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionTableViewController.swift; sourceTree = "<group>"; };
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		92B89E2F2009444E00928284 /* PullingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingViewController.swift; sourceTree = "<group>"; };
 		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
 		92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-WhatsOpen-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
-		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
-		CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTSimpleTableViewCell.swift; sourceTree = "<group>"; };
-		CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTUtilities.swift; sourceTree = "<group>"; };
+		CD763A7D1DE253B900ADFD6B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CD81F5191DC0334600009FBD /* WhatsOpen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOpen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD81F51C1DC0334600009FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD81F5211DC0334600009FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +164,8 @@
 		920D17961F6C5CD200D63295 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9255418520857CF40058E420 /* CollectionViewCells */,
+				9255418420857CE40058E420 /* TableViewCells */,
 				92B89E2F2009444E00928284 /* PullingViewController.swift */,
 				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
 				9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */,
@@ -185,6 +178,26 @@
 				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9255418420857CE40058E420 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */,
+				9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */,
+				92108A321ED755F100675E16 /* CheckingTableViewCell.swift */,
+				92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		9255418520857CF40058E420 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
+				92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		928794021FA27C8A008860FF /* Recovered References */ = {
@@ -222,18 +235,9 @@
 				CD81F5301DC03AA700009FBD /* DataModel */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
-				9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */,
-				9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */,
-				92108A321ED755F100675E16 /* CheckingTableViewCell.swift */,
-				CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */,
-				CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */,
-				CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */,
-				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
+				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
 				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
-				92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */,
-				929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */,
-				92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */,
 				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
 				CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */,
@@ -630,7 +634,6 @@
 			files = (
 				9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */,
 				9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */,
-				9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */,
 				9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */,
 				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
@@ -638,18 +641,16 @@
 				9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */,
 				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
 				9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */,
-				9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */,
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
 				9203CB942023D51A006ACC3B /* Filters.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
-				9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */,
+				9203CB972023D51A006ACC3B /* Utilities.swift in Sources */,
 				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
 				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
 				9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */,
-				9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */,
 				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
 				9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */,
 				9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */,
@@ -662,7 +663,6 @@
 			files = (
 				92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */,
 				92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */,
-				929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */,
 				92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
@@ -670,18 +670,16 @@
 				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
 				92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */,
-				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
 				9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
-				CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */,
+				CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */,
 				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
 				CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */,
-				CD763A7C1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift in Sources */,
 				92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */,
 				9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */,
 				CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */,
