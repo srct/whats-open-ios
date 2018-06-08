@@ -35,6 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 	
+	func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+		guard userActivity?.activityType == NSUserActivityTypeBrowsingWeb,
+			let incomingURL = userActivity?.webpageURL else {
+				return false
+		}
+		print(incomingURL)
+		return true
+	}
+	
 	func initAlerts(_ defaults: UserDefaults) {
 		let alerts = defaults.dictionary(forKey: "alerts")
 		if alerts == nil {

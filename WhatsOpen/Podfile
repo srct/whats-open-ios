@@ -7,7 +7,7 @@ use_frameworks!
 def ios_pods
   pod 'RealmSwift'
 
-  pod 'ObjectMapper', '~> 3.0'
+  pod 'ObjectMapper', '~> 3.2'
   pod "ObjectMapper+Realm"
 
   #pod 'Segmentio', '~> 2.1'

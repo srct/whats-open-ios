@@ -17,6 +17,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	@IBOutlet var OpenLabel: UILabel!
     @IBOutlet var CategoryLabel: UILabel!
 	@IBOutlet var OpenTimesList: UITableView!
+	let activity = NSUserActivity(activityType: "facility")
 
 	
     var facility: Facility!
@@ -37,6 +38,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		activity.resignCurrent()
 	}
 	
     override func viewDidLoad() {
@@ -70,6 +75,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
 		}
+		
+		setActivityUp()
         
 //        NameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
 //        PlaceLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
@@ -77,6 +84,17 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 //        favoritesButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
     }
+	
+	func setActivityUp() {
+		activity.isEligibleForHandoff = true
+		activity.addUserInfoEntries(from: ["facility": facility.facilityName])
+		activity.title = facility.facilityName
+		activity.keywords = Set<String>(arrayLiteral: facility.facilityName, facility.facilityLocation!.building)
+		//activity.keywords = [facility.facilityName, facility.facilityLocation?.building]
+		activity.webpageURL = URL(string: "https://whatsopen.gmu.edu/")
+		
+		activity.becomeCurrent()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

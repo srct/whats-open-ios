@@ -17,7 +17,7 @@ DEPENDENCIES:
   - Crashlytics
   - DeckTransition (~> 2.0)
   - Fabric
-  - ObjectMapper (~> 3.0)
+  - ObjectMapper (~> 3.2)
   - ObjectMapper+Realm
   - RealmSwift
 
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
   RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
 
-PODFILE CHECKSUM: 1225e83da50847e17730900da3b05d9d69748392
+PODFILE CHECKSUM: 999bfe9f7d07d176c0bb5bff060455f38135f947
 
 COCOAPODS: 1.4.0

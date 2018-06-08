@@ -1,0 +1,14 @@
+{
+   "webcredentials": {
+       "apps": [    "K5MMVK2UFR.edu.gmu.srct.whatsopen"]
+    },
+   "applinks": {
+       "apps": [],
+       "details": [
+           {
+              "appID": "K5MMVK2UFR.edu.gmu.srct.whatsopen",
+              "paths": ["/"]
+           }
+        ]
+    }
+}

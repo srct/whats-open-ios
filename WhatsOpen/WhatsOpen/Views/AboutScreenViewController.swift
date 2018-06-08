@@ -68,6 +68,19 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		}
 	}
 	
+	func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+		if let headerView = view as? UITableViewHeaderFooterView {
+			switch section {
+			case 0:
+				headerView.textLabel?.text = "What's Open for iOS is an open source project created by students at George Mason University"
+			case 1:
+				headerView.textLabel?.text = "Thanks to the contributors to What's Open!"
+			default:
+				headerView.textLabel?.text = ""
+			}
+		}
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Contributor", for: indexPath) as! SettingTableViewCell
 		
