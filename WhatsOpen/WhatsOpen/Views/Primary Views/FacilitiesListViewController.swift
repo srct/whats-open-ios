@@ -63,7 +63,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
 
-	@IBOutlet var LastUpdatedLabel: UIBarButtonItem!
+	// TODO: Put this in a new place
+	var LastUpdatedLabel = UIBarButtonItem()
     
     let refreshControl = UIRefreshControl()
 
