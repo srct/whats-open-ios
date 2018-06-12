@@ -40,8 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let incomingURL = userActivity?.webpageURL else {
 				return false
 		}
-		print(incomingURL)
-		return true
+		if userActivity?.userInfo?["facility"] != nil {
+			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity!.userInfo!["facility"]!]))
+			return true
+		} else {
+			return false
+		}
 	}
 	
 	func initAlerts(_ defaults: UserDefaults) {
