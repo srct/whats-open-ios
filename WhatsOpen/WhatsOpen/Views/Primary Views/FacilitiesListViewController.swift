@@ -62,9 +62,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	@IBOutlet var favoritesControl: UISegmentedControl!
 	var showFavorites = false
-
-	// TODO: Put this in a new place
-	var LastUpdatedLabel = UIBarButtonItem()
     
     let refreshControl = UIRefreshControl()
 
@@ -157,7 +154,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
-		LastUpdatedLabel.isEnabled = false
 		checkFilterState()
 		reloadWithFilters()
 	}
@@ -268,7 +264,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsListLayout.invalidateLayout()
 		
 		settingsButton.accessibilityLabel = "Settings"
-		LastUpdatedLabel.accessibilityHint = ""
 		
 		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
 
@@ -276,6 +271,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		LocationsList.refreshControl = refreshControl
 		LocationsList.alwaysBounceVertical = true
 
+		refreshControl.beginRefreshing()
 		refresh(self, forceUpdate: false)
 		
 		reloadWithFilters()
@@ -442,7 +438,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				else {
 					facilitiesArray = facilities
 					alertsList = alerts
-					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
+					self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
 				}
 			}
 			else {
@@ -493,7 +489,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						self.facilitiesArray = facilitiesFromDB
 						self.updateFiltersLists()
 						self.reloadWithFilters()
-						self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(lastUpdated)
+						self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
+						self.refreshControl.endRefreshing()
 					}
 					else {
 						self.facilitiesArray = List<Facility>()
@@ -505,7 +502,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				
 				DispatchQueue.main.async {
 					let date = Date()
-					self.LastUpdatedLabel.title = "Updated: " + self.shortDateFormat(date)
+					self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(date))
 
 					let results = self.realm.objects(FacilitiesModel.self)
 					if results.count == 0 {
@@ -530,6 +527,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					}
 					self.updateFiltersLists()
 					self.reloadWithFilters()
+					self.refreshControl.endRefreshing()
 				}
 			}
 		}

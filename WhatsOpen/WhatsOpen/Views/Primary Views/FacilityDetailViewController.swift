@@ -87,6 +87,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 	func setActivityUp() {
 		activity.isEligibleForHandoff = true
+		activity.isEligibleForSearch = true
 		activity.addUserInfoEntries(from: ["facility": facility.facilityName])
 		activity.title = facility.facilityName
 		activity.keywords = Set<String>(arrayLiteral: facility.facilityName, facility.facilityLocation!.building)
