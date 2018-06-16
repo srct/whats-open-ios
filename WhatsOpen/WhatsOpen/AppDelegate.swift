@@ -34,14 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
         return true
     }
-	
-	func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
-		guard userActivity?.activityType == NSUserActivityTypeBrowsingWeb,
-			let incomingURL = userActivity?.webpageURL else {
-				return false
+
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+		dump(userActivity.userInfo)
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+			let _ = userActivity.webpageURL
+			return true // TODO for future release with URL scheme support
 		}
-		if userActivity?.userInfo?["facility"] != nil {
-			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity!.userInfo!["facility"]!]))
+		else if userActivity.userInfo?["facility"] != nil {
+			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity.userInfo!["facility"]!]))
 			return true
 		} else {
 			return false

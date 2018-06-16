@@ -182,8 +182,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	@objc func toDetailFromSearch(_ notification: Notification) {
 		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
-		let facility = facilitiesArray.filter("ANY facilityName = '" + notification.name.rawValue + "'")[0]
-		dest.facility = facility
+		let userActivity = notification.object as? NSUserActivity
+		if(userActivity == nil) {
+			return // don't do anything
+		}
+		let facility = facilitiesArray.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
+		if(facility == nil) {
+			return // don't do anything
+		}
+		dest.facility = facility!
 		
 		let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
 		detailViewWithButtons?.detailViewController = dest
