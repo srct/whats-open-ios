@@ -186,6 +186,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		if(userActivity == nil) {
 			return // don't do anything
 		}
+		while(facilitiesArray.count == 0) { // because I'm too lazy to have the downloader post a notification here
+			sleep(1)
+		}
 		let facility = facilitiesArray.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
 		if(facility == nil) {
 			return // don't do anything
