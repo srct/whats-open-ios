@@ -180,40 +180,46 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	}
 	
+	var goodToGo = false
 	@objc func toDetailFromSearch(_ notification: Notification) {
-		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
-		let userActivity = notification.object as? NSUserActivity
-		if(userActivity == nil) {
-			return // don't do anything
+		func toDetailCompletion() {
+			let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
+			let userActivity = notification.object as? NSUserActivity
+			if(userActivity == nil) {
+				return // don't do anything
+			}
+			let facility = realm.objects(FacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
+			if(facility == nil) {
+				return // don't do anything
+			}
+			dest.facility = facility!
+			
+			let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
+			detailViewWithButtons?.detailViewController = dest
+			detailViewWithButtons?.facility = dest.facility
+			let buttonDest = detailViewWithButtons!
+			
+			let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+			finalDestination?.currentViewController = buttonDest
+			let destDelegate = DeckTransitioningDelegate(isSwipeToDismissEnabled: true, dismissCompletion: begForReviews)
+			finalDestination?.modalPresentationStyle = .custom
+			finalDestination?.transitioningDelegate = destDelegate
+			
+			// present the detail view over the search controller if we're searching
+			if searchController.isActive {
+				searchController.present(finalDestination!, animated: true, completion: nil)
+			}
+			else {
+				present(finalDestination!, animated: true, completion: nil)
+			}
 		}
-		while(facilitiesArray.count == 0) { // because I'm too lazy to have the downloader post a notification here
+		
+		if(goodToGo) {
+			toDetailCompletion()
+		} else {
 			sleep(1)
+			update(notification, completion: toDetailCompletion)
 		}
-		let facility = facilitiesArray.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
-		if(facility == nil) {
-			return // don't do anything
-		}
-		dest.facility = facility!
-		
-		let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
-		detailViewWithButtons?.detailViewController = dest
-		detailViewWithButtons?.facility = dest.facility
-		let buttonDest = detailViewWithButtons!
-		
-		let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
-		finalDestination?.currentViewController = buttonDest
-		let destDelegate = DeckTransitioningDelegate(isSwipeToDismissEnabled: true, dismissCompletion: begForReviews)
-		finalDestination?.modalPresentationStyle = .custom
-		finalDestination?.transitioningDelegate = destDelegate
-		
-		// present the detail view over the search controller if we're searching
-		if searchController.isActive {
-			searchController.present(finalDestination!, animated: true, completion: nil)
-		}
-		else {
-			present(finalDestination!, animated: true, completion: nil)
-		}
-		
 	}
 	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
 		var trueDest: UIViewController
@@ -469,13 +475,15 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				let alerts = model.alerts
 				let lastUpdated = model.lastUpdated
 				
-				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare: Date(timeIntervalSinceNow: -43200.0))) {
+				if((facilities.isEmpty && alerts.isEmpty) || lastUpdated.isLessThanDate(dateToCompare:
+				  	Date(timeIntervalSinceNow: -43200.0))) {
 					update(sender)
 				}
 				else {
 					facilitiesArray = facilities
 					alertsList = alerts
 					self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
+				  	goodToGo = true
 				}
 			}
 			else {
@@ -513,7 +521,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	* Attempts to update facilitiesArray from the network
 	* and place that new information into Realm
 	*/
-	func update(_ sender: Any) {
+	func update(_ sender: Any, completion: (() -> ())? = nil) {
 		DownloadController.performDownload { (facilities) in
 			if(facilities == nil) {
 				DispatchQueue.main.async {
@@ -528,6 +536,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						self.reloadWithFilters()
 						self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
 						self.refreshControl.endRefreshing()
+						self.goodToGo = true
+						if(completion != nil) {
+							completion!()
+						}
 					}
 					else {
 						self.facilitiesArray = List<Facility>()
@@ -551,6 +563,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						try! self.realm.write {
 							self.realm.add(model)
 						}
+						self.goodToGo = true
+						if(completion != nil) {
+							completion!()
+						}
 					}
 					else {
 						let fromRealm = results[0]
@@ -565,6 +581,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					self.updateFiltersLists()
 					self.reloadWithFilters()
 					self.refreshControl.endRefreshing()
+					self.goodToGo = true
+					if(completion != nil) {
+						completion!()
+					}
 				}
 			}
 		}
