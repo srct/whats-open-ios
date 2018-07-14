@@ -1,35 +1,45 @@
 PODS:
-  - Crashlytics (3.9.3):
-    - Fabric (~> 1.7.2)
-  - DeckTransition (1.4.2)
-  - Fabric (1.7.2)
-  - ObjectMapper (3.1.0)
-  - ObjectMapper+Realm (0.5):
+  - Crashlytics (3.10.2):
+    - Fabric (~> 1.7.7)
+  - DeckTransition (2.0.0)
+  - Fabric (1.7.7)
+  - ObjectMapper (3.2.0)
+  - ObjectMapper+Realm (0.6):
     - ObjectMapper
     - RealmSwift
-  - Realm (3.0.2):
-    - Realm/Headers (= 3.0.2)
-  - Realm/Headers (3.0.2)
-  - RealmSwift (3.0.2):
-    - Realm (= 3.0.2)
+  - Realm (3.7.1):
+    - Realm/Headers (= 3.7.1)
+  - Realm/Headers (3.7.1)
+  - RealmSwift (3.7.1):
+    - Realm (= 3.7.1)
 
 DEPENDENCIES:
   - Crashlytics
-  - DeckTransition (~> 1.4.0)
+  - DeckTransition (~> 2.0)
   - Fabric
-  - ObjectMapper (~> 3.0)
+  - ObjectMapper (from `https://github.com/alecdoconnor/ObjectMapper.git`, branch `Swift-4.2`)
   - ObjectMapper+Realm
   - RealmSwift
 
-SPEC CHECKSUMS:
-  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  DeckTransition: 56330226ddbefd2ddc9f57b8b56d37e0e93e6b91
-  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  ObjectMapper+Realm: 3188789fb77c189c7a83cb625333a607eb61a08f
-  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+EXTERNAL SOURCES:
+  ObjectMapper:
+    :branch: Swift-4.2
+    :git: https://github.com/alecdoconnor/ObjectMapper.git
 
-PODFILE CHECKSUM: c947fc1ca20537a2e287e824029a7f9af0d9e588
+CHECKOUT OPTIONS:
+  ObjectMapper:
+    :commit: af7966b567860596fad270bb44b27f495cd8691d
+    :git: https://github.com/alecdoconnor/ObjectMapper.git
+
+SPEC CHECKSUMS:
+  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
+  DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
+  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
+  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  ObjectMapper+Realm: 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
+  Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
+  RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
+
+PODFILE CHECKSUM: f77678c4bb98cdb953f0eb4226354e2455803d42
 
 COCOAPODS: 1.4.0

@@ -7,12 +7,14 @@ use_frameworks!
 def ios_pods
   pod 'RealmSwift'
 
-  pod 'ObjectMapper', '~> 3.0'
+  #pod 'ObjectMapper', '~> 3.2'
+  # TEMPORARY BECAUSE Xcode 10
+  pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git', :branch => 'Swift-4.2'
   pod "ObjectMapper+Realm"
 
   #pod 'Segmentio', '~> 2.1'
 
-  pod 'DeckTransition', '~> 1.4.0'
+  pod 'DeckTransition', '~> 2.0'
 
   pod 'Fabric'
   pod 'Crashlytics'

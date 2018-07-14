@@ -28,9 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let defaults = UserDefaults.standard
 		initAlerts(defaults)
 		initCampuses(defaults)
+		if defaults.value(forKey: "mapsApp") == nil {
+			defaults.set("Apple Maps", forKey: "mapsApp")
+		}
 		
         return true
     }
+
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+		dump(userActivity.userInfo)
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+			let _ = userActivity.webpageURL
+			return true // TODO for future release with URL scheme support
+		}
+		else if userActivity.userInfo?["facility"] != nil {
+			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity.userInfo!["facility"]!]))
+			return true
+		} else {
+			return false
+		}
+	}
 	
 	func initAlerts(_ defaults: UserDefaults) {
 		let alerts = defaults.dictionary(forKey: "alerts")
