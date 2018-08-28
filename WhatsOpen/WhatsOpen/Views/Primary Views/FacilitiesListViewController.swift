@@ -294,7 +294,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
         super.viewDidLoad()
 		let nc = NotificationCenter.default
-		nc.addObserver(self, selector: #selector(anyRefresh(_:)), name: .UIApplicationWillEnterForeground, object: nil)
+		nc.addObserver(self, selector: #selector(anyRefresh(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
 		
 		self.definesPresentationContext = true
         
@@ -308,7 +308,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		settingsButton.accessibilityLabel = "Settings"
 		
-		LocationsListLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+		LocationsListLayout.sectionInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
 
 		refreshControl.addTarget(self, action: #selector(forceRefresh(_:)), for: .valueChanged)
 		LocationsList.refreshControl = refreshControl
@@ -904,7 +904,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         // Get the new view controller using segue.destinationViewController.
         if(segue.identifier == "toDetailView") {
             let destination = segue.destination as! PullingViewController
-			var destChild = destination.childViewControllers[0] as! FacilityDetailViewController
+			var destChild = destination.children[0] as! FacilityDetailViewController
 			destChild = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
             let destDelegate = DeckTransitioningDelegate()
             destination.transitioningDelegate = destDelegate

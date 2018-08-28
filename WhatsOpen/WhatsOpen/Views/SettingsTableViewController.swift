@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         super.viewDidLoad()
 		
 		tableView.estimatedRowHeight = 44.0
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -196,7 +196,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				let urlString = "itms-apps://itunes.apple.com/us/app/whats-open-at-mason/id\(appId)?action=write-review"
 				
 				if let url = URL(string: urlString) {
-					UIApplication.shared.open((url), options: [:], completionHandler: nil)
+					UIApplication.shared.open((url), options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 				}
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
@@ -311,4 +311,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
 	
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

@@ -87,8 +87,8 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		switch indexPath.section {
 		case 0:
 			cell.textLabel!.text = "Check out our code on Gitlab"
-			cell.selectionStyle = UITableViewCellSelectionStyle.blue
-			cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+			cell.selectionStyle = UITableViewCell.SelectionStyle.blue
+			cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
 		case 1:
 			cell.textLabel!.text = contributors[indexPath.row]
 		default:

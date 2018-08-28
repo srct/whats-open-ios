@@ -374,6 +374,7 @@
 					};
 					9203CB822023D51A006ACC3B = {
 						DevelopmentTeam = K5MMVK2UFR;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
@@ -804,8 +805,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
 				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -835,8 +835,7 @@
 				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
 				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -868,8 +867,7 @@
 				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
 				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

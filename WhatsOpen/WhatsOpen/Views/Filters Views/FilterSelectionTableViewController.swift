@@ -100,7 +100,7 @@ class FilterSelectionTableViewController: UITableViewController {
 		else {
 			let tableCell = tableView.cellForRow(at: indexPath)
 			var res: Bool
-			if(tableCell?.accessoryType == UITableViewCellAccessoryType.none) {
+			if(tableCell?.accessoryType == UITableViewCell.AccessoryType.none) {
 				res = true
 			}
 			else {

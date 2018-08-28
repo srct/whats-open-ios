@@ -40,19 +40,19 @@ class DetailViewButtonsViewController: UIViewController {
 		
 		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
 			if let url = URL(string: "comgooglemaps://?q=\((facility.facilityLocation?.coordinates?.coords?.last)!)),\((facility.facilityLocation?.coordinates?.coords?.first)!)") {
-				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 			}
 		}
 		else if appToUse == "Waze" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
 			if let url = URL(string: "https://waze.com/ul?ll=\((facility.facilityLocation?.coordinates?.coords?.last)!)),\((facility.facilityLocation?.coordinates?.coords?.first)!))") {
-				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 			}
 		}
 		else {
 			let regionDistance:CLLocationDistance = 100
 			let coordinates = CLLocationCoordinate2DMake((facility.facilityLocation?.coordinates?.coords?.last)!, (facility.facilityLocation?.coordinates?.coords?.first)!)
 			dump(coordinates)
-			let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+			let regionSpan = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
 			let options = [
 				MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
 				MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
@@ -90,7 +90,7 @@ class DetailViewButtonsViewController: UIViewController {
 		// Dealing with container views and subviews
 		// https://spin.atomicobject.com/2015/10/13/switching-child-view-controllers-ios-auto-layout/
 		self.detailViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-		self.addChildViewController(self.detailViewController!)
+		self.addChild(self.detailViewController!)
 		self.addSubview(self.detailViewController!.view, toView: self.facilityDetailView)
         super.viewDidLoad()
 
@@ -149,4 +149,9 @@ class DetailViewButtonsViewController: UIViewController {
     }
     */
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

@@ -26,7 +26,7 @@ class PullingViewController: UIViewController {
 		// Dealing with container views and subviews
 		// https://spin.atomicobject.com/2015/10/13/switching-child-view-controllers-ios-auto-layout/
 		self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-		self.addChildViewController(self.currentViewController!)
+		self.addChild(self.currentViewController!)
 		self.addSubview(self.currentViewController!.view, toView: self.containerView)
 		self.accessibilityCustomActions = [
 			UIAccessibilityCustomAction(name: "Dismiss Detail View", target: self, selector: #selector(PullingViewController.willDismiss))

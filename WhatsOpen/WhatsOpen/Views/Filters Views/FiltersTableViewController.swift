@@ -57,7 +57,7 @@ class FiltersTableViewController: UITableViewController {
         super.viewDidLoad()
         
 		tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
 		/*
 		for f in facilities {
 			if(!allLocations.contains(f.facilityLocation!)) {
