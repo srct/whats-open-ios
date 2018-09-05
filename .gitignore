@@ -73,3 +73,6 @@ WhatsOpen/WhatsOpen/crashlyticsbuild.sh
 # Maybe this should be in VC but it's only going to be used by people pushing builds out
 # and has a Slack webhook token in it
 WhatsOpen/fastlane/
+
+#crashlytics file
+crashlyticsbuild.sh
