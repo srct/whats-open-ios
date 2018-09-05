@@ -1,16 +1,21 @@
 
 
-What's Open for iOS
-===
 
-Simple iOS app to ingest the What's Open API, cache its contents in a local datastore and display it in a user friendly way. Plans to take advantage of iPhone specific technologies not available to the web.
+<p align="center" class="text-center">
+  <img src="WhatsOpenCurvedIcon.png" alt="What's Open app icon" />
+  <br /><br />
+  <h1>What's Open for iOS</h1>
+  <a href="https://itunes.apple.com/us/app/whats-open-at-mason/id1331260366"><img src="AppStoreBadge.png" alt="Download on the App Store"/></a>
+</p>
 
+
+iOS client for SRCT's [What's Open API](https://api.srct.gmu.edu/WhatsOpen/v2/), designed for your iPhone and iPad and built with native Swift and UIKit.
 
 
 On Contributing
 ---
 
-WhatsOpeniOS welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers.
+Whats Open iOS  welcomes all the help it can get. Even if you don't feel like you can be helpful the more technical aspects, we definitely need designers, technical writers, and testers.
 
 There are many things that can be done with this project (see the "To Do" section), but sometimes it's the small things that count, so don't be afraid of contributing just a small spelling mistake.
 
@@ -29,9 +34,9 @@ Requirements:
 To get started, you'll need the following installed:
 * [Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
-* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 9* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
+* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 10* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
 
-* The latest **public** release of Swift. *Currently Swift 4.0* (bundled with Xcode)
+* The latest **public** release of Swift. *Currently Swift 4.2* (bundled with Xcode)
 
 * Cocoapods, for dependency management. You can install this by running `sudo gem install cocoapods` in your terminal. (Dependency management may change in the future)
 
@@ -56,6 +61,7 @@ What Won't Work During Development
 ---
 - Crashlytics won't load in under the "WhatsOpen" Scheme. Use Xcode's debugger.
 - Alternate app icons won't work (and will probably crash if you try to use them) due to the build method of adding them to the info.plist file. If you're an artist and have some cool alternate app icons to add, you can still do so in the `AlternateAppIcons.xcassets` file in the main project folder, and adding a cell for them in the SetIconTableViewController.
+- Any App Extensions will likely be unable to connect to your database, as App Groups used for this require a special entitlement.
 
 Troubleshooting
 ---

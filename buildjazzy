@@ -1,0 +1,9 @@
+#!/bin/bash
+jazzy \
+    --clean \
+    --source-directory WhatsOpen \
+    --output docs \
+    -a "Mason SRCT" \
+    -u https://srct.gmu.edu/ \
+    --readme README.md \
+    --min-acl private

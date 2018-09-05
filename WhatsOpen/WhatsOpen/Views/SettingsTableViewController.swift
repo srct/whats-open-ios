@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         super.viewDidLoad()
 		
 		tableView.estimatedRowHeight = 44.0
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,10 +55,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 1
 		}
 		else if(section == 1) {
-			return 1
+			return 2
 		}
 		else if(section == 2) {
-			return 1
+			return 2
 		}
 		else if(section == 3) {
 			return 3
@@ -76,44 +76,70 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			cell.textLabel!.text = "Are Our Hours Wrong?"
 			return cell
 		case 1:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
-			cell.textLabel!.text = "Select App Icon"
-			cell.accessoryType = .disclosureIndicator
-			return cell
+			if indexPath.row == 0 {
+				let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
+				cell.textLabel!.text = "Select App Icon"
+				cell.accessoryType = .disclosureIndicator
+				return cell
+			}
+			else if indexPath.row == 1 {
+				let cell = tableView.dequeueReusableCell(withIdentifier: "settingDefaultCell", for: indexPath)
+				cell.textLabel!.text = "Select Maps App"
+				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+				cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+				cell.detailTextLabel?.text = UserDefaults.standard.value(forKey: "mapsApp") as? String
+				cell.accessoryType = .disclosureIndicator
+				return cell
+			}
+
 		case 2:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingSelection", for: indexPath)
 			cell.accessoryType = .disclosureIndicator
-			
-			cell.textLabel?.text = "Show Alerts"
-			
-			/*
-			let defaults = UserDefaults.standard
-			let alertsFromDefaults = defaults.dictionary(forKey: "alerts")
-			if alertsFromDefaults == nil {
-				var setAlerts = [String: Bool]()
-				setAlerts.updateValue(true, forKey: "Informational")
-				setAlerts.updateValue(true, forKey: "Minor Alerts")
-				setAlerts.updateValue(true, forKey: "Major Alerts")
-				defaults.set(setAlerts, forKey: "alerts")
-			}
-			*/
-			
-			let alerts = Utilities.getAlertDefaults()
+			switch indexPath.row {
+			case 0:
+				cell.textLabel?.text = "Show Alerts"
+            	cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+				let alerts = Utilities.getAlertDefaults()
 				var i = 0
-			for c in alerts {
+				for c in alerts {
 					if(c.value == true) {
 						i += 1
 					}
 				}
 				var detail: String
-			if(i == alerts.count) {
+				if(i == alerts.count) {
 					detail = "All Selected"
 				}
 				else {
 					detail = "\(i) Selected"
 				}
 				cell.detailTextLabel?.text = detail
-			return cell
+				return cell
+			case 1:
+				cell.textLabel?.text = "Show Campuses"
+				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+				let campuses = Utilities.getCampusDefaults()
+				var i = 0
+				for c in campuses {
+					if(c.value == true) {
+						i += 1
+					}
+				}
+				var detail: String
+				if(i == campuses.count) {
+					detail = "All Selected"
+				}
+				else {
+					detail = "\(i) Selected"
+				}
+				cell.detailTextLabel?.text = detail
+				return cell
+			default:
+				return UITableViewCell() // don't do this
+			}
+
 		case 3:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			switch indexPath.row {
@@ -170,7 +196,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				let urlString = "itms-apps://itunes.apple.com/us/app/whats-open-at-mason/id\(appId)?action=write-review"
 				
 				if let url = URL(string: urlString) {
-					UIApplication.shared.open((url), options: [:], completionHandler: nil)
+					UIApplication.shared.open((url), options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 				}
 			}
 			else if settingcell.textLabel!.text == "About What's Open" {
@@ -237,6 +263,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     */
 
+	func updateFacilities() {
+		// This isn't important for settings but is required for segueing to the views below
+		return
+	}
 	
     // MARK: - Navigation
 
@@ -246,13 +276,44 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         // Pass the selected object to the new view controller.
 		
 		if segue.identifier == "settingSelection" {
-			let destination = segue.destination as! FilterSelectionTableViewController
-			destination.navigationItem.title = "Show Alerts"
-			destination.getFunc = Utilities.getAlertDefaults
-			destination.selectFunc = Utilities.setAlertDefaults
-			destination.selectAllFunc = Utilities.setAllAlertDefaults
+			if (sender as! UITableViewCell).textLabel?.text == "Show Alerts" {
+				let destination = segue.destination as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Show Alerts"
+				destination.getFunc = Utilities.getAlertDefaults
+				destination.selectFunc = Utilities.setAlertDefaults
+				destination.selectAllFunc = Utilities.setAllAlertDefaults
+				destination.updateFacilities = updateFacilities
+			}
+			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {
+				let destination = segue.destination as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Show Campuses"
+				destination.getFunc = Utilities.getCampusDefaults
+				destination.selectFunc = Utilities.setCampusDefaults
+				destination.selectAllFunc = Utilities.setAllCampusDefaults
+				destination.updateFacilities = updateFacilities
+			}
+		}
+		else if segue.identifier == "settingDefault" {
+			if (sender as! UITableViewCell).textLabel?.text == "Select Maps App" {
+				let destination = segue.destination as! SelectOneDefaultTableViewController
+				destination.navigationItem.title = "Select Maps App"
+				destination.defaultKey = "mapsApp"
+				var options = ["Apple Maps"]
+				if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+					options.append("Google Maps")
+				}
+				if UIApplication.shared.canOpenURL(URL(string:"waze://")!) {
+					options.append("Waze")
+				}
+				destination.options = options
+			}
 		}
     }
 	
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

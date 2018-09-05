@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
 		#if APPSTORE
@@ -26,6 +26,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#endif
 		
 		let defaults = UserDefaults.standard
+		initAlerts(defaults)
+		initCampuses(defaults)
+		if defaults.value(forKey: "mapsApp") == nil {
+			defaults.set("Apple Maps", forKey: "mapsApp")
+		}
+		
+        return true
+    }
+
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+		dump(userActivity.userInfo)
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+			let _ = userActivity.webpageURL
+			return true // TODO for future release with URL scheme support
+		}
+		else if userActivity.userInfo?["facility"] != nil {
+			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity.userInfo!["facility"]!]))
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	func initAlerts(_ defaults: UserDefaults) {
 		let alerts = defaults.dictionary(forKey: "alerts")
 		if alerts == nil {
 			var setAlerts = [String: Bool]()
@@ -34,9 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			setAlerts.updateValue(true, forKey: "major alerts")
 			defaults.set(setAlerts, forKey: "alerts")
 		}
-		
-        return true
-    }
+	}
+	
+	func initCampuses(_ defaults: UserDefaults) {
+		let campuses = defaults.dictionary(forKey: "campuses")
+		if campuses == nil {
+			defaults.set([String: Bool](), forKey: "campuses")
+		}
+	}
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

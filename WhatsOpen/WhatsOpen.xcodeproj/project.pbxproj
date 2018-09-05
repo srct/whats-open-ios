@@ -8,32 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
+		3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
-		9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
 		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
 		9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
-		9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
+		9203CB8D2023D51A006ACC3B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* Model.swift */; };
 		9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
-		9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
 		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
 		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9203CB942023D51A006ACC3B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
-		9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */; };
+		9203CB972023D51A006ACC3B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
-		9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
-		9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */; };
+		9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
 		9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
 		9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
-		9203CB9F2023D51A006ACC3B /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		9203CBA12023D51A006ACC3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */; };
 		9203CBA22023D51A006ACC3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5231DC0334600009FBD /* Assets.xcassets */; };
 		9203CBA32023D51A006ACC3B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
@@ -43,6 +40,10 @@
 		92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
 		92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
 		924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
+		924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
+		924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
+		92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
+		9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
@@ -50,7 +51,6 @@
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
-		929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */; };
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
@@ -59,11 +59,10 @@
 		92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
 		92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
-		CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */; };
-		CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */; };
-		CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* examplejson.swift */; };
-		CD763A7C1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */; };
-		CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */; };
+		A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
+		CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
+		CD763A7A1DE24EF100ADFD6B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* Model.swift */; };
+		CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
 		CD81F5221DC0334600009FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5201DC0334600009FBD /* Main.storyboard */; };
 		CD81F5241DC0334600009FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5231DC0334600009FBD /* Assets.xcassets */; };
@@ -81,16 +80,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
+		310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.debug.xcconfig"; sourceTree = "<group>"; };
+		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
-		850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
-		872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.debug.xcconfig"; sourceTree = "<group>"; };
-		8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
+		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
 		92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitiesListViewController.swift; sourceTree = "<group>"; };
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
+		924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButtonsViewController.swift; sourceTree = "<group>"; };
+		9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOneDefaultTableViewController.swift; sourceTree = "<group>"; };
 		9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,26 +101,27 @@
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIconTableViewController.swift; sourceTree = "<group>"; };
-		929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingTableViewCell.swift; sourceTree = "<group>"; };
 		92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionTableViewController.swift; sourceTree = "<group>"; };
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		92B89E2F2009444E00928284 /* PullingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingViewController.swift; sourceTree = "<group>"; };
+		92DA57CC20C99C0C00EFDE7C /* WhatsOpen - AppStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WhatsOpen - AppStore.entitlements"; sourceTree = "<group>"; };
 		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
 		92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-WhatsOpen-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
-		CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTNetworkController.swift; sourceTree = "<group>"; };
-		CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		CD763A791DE24EF100ADFD6B /* examplejson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = examplejson.swift; path = "Object Model/examplejson.swift"; sourceTree = "<group>"; };
-		CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTSimpleTableViewCell.swift; sourceTree = "<group>"; };
-		CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCTUtilities.swift; sourceTree = "<group>"; };
+		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
+		CD763A791DE24EF100ADFD6B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "Object Model/Model.swift"; sourceTree = "<group>"; };
+		CD763A7D1DE253B900ADFD6B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CD81F5191DC0334600009FBD /* WhatsOpen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOpen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD81F51C1DC0334600009FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD81F5211DC0334600009FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD81F5231DC0334600009FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD81F5261DC0334600009FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD81F5281DC0334600009FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.release.xcconfig"; sourceTree = "<group>"; };
+		F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.debug.xcconfig"; sourceTree = "<group>"; };
+		F9776DBFE496D6125BCDE676 /* Pods-WhatsOpen - AppStore.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.app store.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9203CB9F2023D51A006ACC3B /* Pods_WhatsOpen.framework in Frameworks */,
+				3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */,
+				A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,9 +155,12 @@
 		2EAE8AD7B1F0ADDED5057982 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */,
-				850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */,
-				8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */,
+				F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */,
+				4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */,
+				2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */,
+				310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */,
+				D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */,
+				F9776DBFE496D6125BCDE676 /* Pods-WhatsOpen - AppStore.app store.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -161,17 +168,38 @@
 		920D17961F6C5CD200D63295 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92A2757220C8993200E1A102 /* Filters Views */,
+				9255418520857CF40058E420 /* CollectionViewCells */,
+				9255418420857CE40058E420 /* TableViewCells */,
 				92B89E2F2009444E00928284 /* PullingViewController.swift */,
-				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
 				9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */,
-				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
+				92A2757120C8992600E1A102 /* Primary Views */,
+				924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */,
 				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
 				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
-				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
-				92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */,
-				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
+				9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9255418420857CE40058E420 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */,
+				9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */,
+				92108A321ED755F100675E16 /* CheckingTableViewCell.swift */,
+				92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		9255418520857CF40058E420 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
+				92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		928794021FA27C8A008860FF /* Recovered References */ = {
@@ -182,9 +210,29 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		92A2757120C8992600E1A102 /* Primary Views */ = {
+			isa = PBXGroup;
+			children = (
+				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
+				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
+				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
+			);
+			path = "Primary Views";
+			sourceTree = "<group>";
+		};
+		92A2757220C8993200E1A102 /* Filters Views */ = {
+			isa = PBXGroup;
+			children = (
+				927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */,
+				92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */,
+			);
+			path = "Filters Views";
+			sourceTree = "<group>";
+		};
 		CD81F5101DC0334600009FBD = {
 			isa = PBXGroup;
 			children = (
+				92DA57CC20C99C0C00EFDE7C /* WhatsOpen - AppStore.entitlements */,
 				CD81F51B1DC0334600009FBD /* WhatsOpen */,
 				CD81F51A1DC0334600009FBD /* Products */,
 				2EAE8AD7B1F0ADDED5057982 /* Pods */,
@@ -206,21 +254,12 @@
 		CD81F51B1DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXGroup;
 			children = (
-				CD81F5301DC03AA700009FBD /* DataModel */,
+				CD81F5301DC03AA700009FBD /* Data Retrieval */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
-				9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */,
-				9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */,
-				92108A321ED755F100675E16 /* CheckingTableViewCell.swift */,
-				CD466DD11DC12E1200E44DF5 /* MainTableViewController.swift */,
-				CD763A7D1DE253B900ADFD6B /* SRCTUtilities.swift */,
-				CD763A7B1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift */,
-				924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */,
+				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
 				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
-				92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */,
-				929157211FF4662F00ED63C7 /* PickingTableViewCell.swift */,
-				92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */,
 				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
 				CD81F5251DC0334600009FBD /* LaunchScreen.storyboard */,
@@ -231,19 +270,20 @@
 			path = WhatsOpen;
 			sourceTree = "<group>";
 		};
-		CD81F5301DC03AA700009FBD /* DataModel */ = {
+		CD81F5301DC03AA700009FBD /* Data Retrieval */ = {
 			isa = PBXGroup;
 			children = (
-				CD763A791DE24EF100ADFD6B /* examplejson.swift */,
-				CD3C97481DC18AB300A84434 /* SRCTNetworkController.swift */,
+				CD763A791DE24EF100ADFD6B /* Model.swift */,
+				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 			);
-			name = DataModel;
+			name = "Data Retrieval";
 			sourceTree = "<group>";
 		};
 		FD2AE174B8FDE3008F34206E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				927A8466141434969CE74044 /* Pods_WhatsOpen.framework */,
+				857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,15 +313,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9203CBAA2023D51A006ACC3B /* Build configuration list for PBXNativeTarget "WhatsOpen - AppStore" */;
 			buildPhases = (
-				9203CB832023D51A006ACC3B /* [CP] Check Pods Manifest.lock */,
+				FFEF2697C05596C39AE92A08 /* [CP] Check Pods Manifest.lock */,
 				9203CB842023D51A006ACC3B /* ShellScript */,
 				9203CB852023D51A006ACC3B /* Sources */,
 				9203CB9E2023D51A006ACC3B /* Frameworks */,
 				9203CBA02023D51A006ACC3B /* Resources */,
-				9203CBA62023D51A006ACC3B /* [CP] Embed Pods Frameworks */,
-				9203CBA72023D51A006ACC3B /* [CP] Copy Pods Resources */,
 				9203CBA82023D51A006ACC3B /* Run Script */,
 				9203CBA92023D51A006ACC3B /* ShellScript */,
+				2CAF8F8BA1ACFF36190F4FE1 /* [CP] Embed Pods Frameworks */,
+				DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,7 +374,13 @@
 					};
 					9203CB822023D51A006ACC3B = {
 						DevelopmentTeam = K5MMVK2UFR;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
@@ -408,6 +454,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -415,6 +462,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -423,25 +471,33 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		50D6F624F16EB519DDA7AD66 /* [CP] Check Pods Manifest.lock */ = {
+		2CAF8F8BA1ACFF36190F4FE1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WhatsOpen-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9203CB832023D51A006ACC3B /* [CP] Check Pods Manifest.lock */ = {
+		50D6F624F16EB519DDA7AD66 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -471,45 +527,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
-		};
-		9203CBA62023D51A006ACC3B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9203CBA72023D51A006ACC3B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		9203CBA82023D51A006ACC3B /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -580,6 +597,21 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    $SRCROOT/crashlyticsbuild.sh\nfi";
 		};
+		DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +625,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFEF2697C05596C39AE92A08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhatsOpen - AppStore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -612,25 +662,24 @@
 			files = (
 				9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */,
 				9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */,
-				9203CB882023D51A006ACC3B /* PickingTableViewCell.swift in Sources */,
 				9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */,
 				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
 				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
-				9203CB8D2023D51A006ACC3B /* examplejson.swift in Sources */,
+				9203CB8D2023D51A006ACC3B /* Model.swift in Sources */,
+				924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
 				9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */,
-				9203CB902023D51A006ACC3B /* MainTableViewController.swift in Sources */,
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
 				9203CB942023D51A006ACC3B /* Filters.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
-				9203CB972023D51A006ACC3B /* SRCTUtilities.swift in Sources */,
+				9203CB972023D51A006ACC3B /* Utilities.swift in Sources */,
+				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
 				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
-				9203CB992023D51A006ACC3B /* SRCTNetworkController.swift in Sources */,
-				9203CB9A2023D51A006ACC3B /* SRCTSimpleTableViewCell.swift in Sources */,
+				9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */,
 				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
 				9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */,
 				9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */,
@@ -643,25 +692,24 @@
 			files = (
 				92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */,
 				92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */,
-				929157221FF4662F00ED63C7 /* PickingTableViewCell.swift in Sources */,
 				92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */,
-				CD763A7A1DE24EF100ADFD6B /* examplejson.swift in Sources */,
+				CD763A7A1DE24EF100ADFD6B /* Model.swift in Sources */,
+				924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
 				92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */,
-				CD466DD21DC12E1200E44DF5 /* MainTableViewController.swift in Sources */,
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
 				9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
-				CD763A7E1DE253B900ADFD6B /* SRCTUtilities.swift in Sources */,
+				CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */,
+				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
-				CD3C97491DC18AB300A84434 /* SRCTNetworkController.swift in Sources */,
-				CD763A7C1DE251C400ADFD6B /* SRCTSimpleTableViewCell.swift in Sources */,
+				CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */,
 				92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */,
 				9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */,
 				CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */,
@@ -735,17 +783,19 @@
 		};
 		9203CBAB2023D51A006ACC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */;
+			baseConfigurationReference = 310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -753,9 +803,9 @@
 				PRIMARYICON = "appicon-dev";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
+				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -763,17 +813,18 @@
 		};
 		9203CBAC2023D51A006ACC3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */;
+			baseConfigurationReference = D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -781,10 +832,10 @@
 				PRIMARYICON = "appicon-dev";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
+				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -792,9 +843,10 @@
 		};
 		9203CBAD2023D51A006ACC3B /* App Store */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */;
+			baseConfigurationReference = F9776DBFE496D6125BCDE676 /* Pods-WhatsOpen - AppStore.app store.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
+				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -803,7 +855,7 @@
 				DEVELOPMENT_TEAM = K5MMVK2UFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/WhatsOpen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -815,8 +867,7 @@
 				PROVISIONING_PROFILE = "b7d91eb0-1140-4c4c-8a3e-a4b698a70a43";
 				PROVISIONING_PROFILE_SPECIFIER = "What's Open Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -874,7 +925,7 @@
 		};
 		928C96001FFDAEBF0071B3B0 /* App Store */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F015127235262238FB6B04D /* Pods-WhatsOpen.app store.xcconfig */;
+			baseConfigurationReference = 2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -892,12 +943,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D APPSTORE";
 				PRIMARYICON = appicon;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1030,7 +1081,7 @@
 		};
 		CD81F52C1DC0334600009FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 872CF49056BDED7BF0032929 /* Pods-WhatsOpen.debug.xcconfig */;
+			baseConfigurationReference = F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1046,10 +1097,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIMARYICON = "appicon-dev";
-				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1058,7 +1109,7 @@
 		};
 		CD81F52D1DC0334600009FBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 850A3B437386146F08E37C9C /* Pods-WhatsOpen.release.xcconfig */;
+			baseConfigurationReference = 4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1074,11 +1125,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIMARYICON = "appicon-dev";
-				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

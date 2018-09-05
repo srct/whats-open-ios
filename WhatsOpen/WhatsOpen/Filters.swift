@@ -33,7 +33,7 @@ class Filters {
         let specifiedFacilities = List<Facility>()
         // facility must be within both a specified location and category
         for f in facilities {
-            if(onlyFromLocations[(f.facilityLocation?.building)!.lowercased()] == true && onlyFromCategories[(f.category?.categoryName)!.lowercased()] == true && onlyFromCampuses[(f.facilityLocation?.campus)!.lowercased()] == true) {
+            if  onlyFromLocations[(f.facilityLocation?.building)!.lowercased()] == true && onlyFromCategories[(f.category?.categoryName)!.lowercased()] == true {
                 specifiedFacilities.append(f)
             }
         }
@@ -124,9 +124,19 @@ class Filters {
     private func separateOpenAndClosed(_ facilities: List<Facility>) -> (open: List<Facility>, closed: List<Facility>) {
         let open = List<Facility>()
         let closed = List<Facility>()
-        facilities.forEach {
+		/*
+		facilities.forEach {
             Utilities.isOpen(facility: $0) ? open.append($0) : closed.append($0)
         }
+		*/
+		for facility in facilities {
+			if Utilities.isOpen(facility: facility) {
+				open.append(facility)
+			}
+			else {
+				closed.append(facility)
+			}
+		}
         return (open, closed)
     }
     
