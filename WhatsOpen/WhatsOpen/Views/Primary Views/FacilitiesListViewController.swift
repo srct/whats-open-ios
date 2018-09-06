@@ -297,7 +297,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		nc.addObserver(self, selector: #selector(anyRefresh(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
 		
 		self.definesPresentationContext = true
-        
+		
+		if(traitCollection.forceTouchCapability == .available) {
+			registerForPreviewing(with: self, sourceView: self.LocationsList!)
+		}
+		
         navigationItem.title = "What's Open"
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.largeTitleDisplayMode = .always
@@ -744,10 +748,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.layer.masksToBounds = false
 			cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.layer.cornerRadius).cgPath
 			self.reloadInputViews()
-			
-			if(traitCollection.forceTouchCapability == .available) {
-				self.registerForPreviewing(with: self, sourceView: cell)
-			}
+
 			return cell
 		}
 		else {
@@ -778,9 +779,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			}
 			cell.messageLabel.text = currentAlerts[indexPath.row].message
 
-			if(traitCollection.forceTouchCapability == .available) {
-				self.registerForPreviewing(with: self, sourceView: cell)
-			}
 			return cell
 		}
 
@@ -937,7 +935,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
 		if(indexPath.section == 1 || currentAlerts.count == 0) {
 			let cell = LocationsList?.cellForItem(at: indexPath) as? FacilityCollectionViewCell
-			previewingContext.sourceRect = (cell?.bounds)!
 			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
 			detailView.facility = cell?.facility
 			return detailView
