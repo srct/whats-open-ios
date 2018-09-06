@@ -30,7 +30,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		else {
 			title = "Add to Favorites"
 		}
-		let favoritePreviewItem = UIPreviewAction(title: title, style: UIPreviewAction.style.default, handler: markAsFavoritePreviewAction)
+		let favoritePreviewItem = UIPreviewAction(title: title, style: UIPreviewAction.Style.default, handler: markAsFavoritePreviewAction)
 	    return [favoritePreviewItem]
 	}
 	
