@@ -247,8 +247,6 @@ class Alert: Object, MapContext, Mappable {
 	
 	convenience required init?(map: Map) {
 		self.init()
-        self.urgency = "no network"
-        self.message = "No Network Connection Found"
 	}
 	
 	func mapping(map: Map){
@@ -262,8 +260,8 @@ class Alert: Object, MapContext, Mappable {
 	}
     
     func noNetwork(){
-        urgency = "network"
-        message = "No Network Connection"
+        urgency = "emergency"
+        message = "No Internet Connection"
     }
     
 }
