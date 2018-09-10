@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */; };
+		7B2F14EF214705EF006FB94A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F14EE214705EF006FB94A /* Reachability.swift */; };
+		7B2F14F0214705EF006FB94A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F14EE214705EF006FB94A /* Reachability.swift */; };
+		7B2F14F1214705EF006FB94A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F14EE214705EF006FB94A /* Reachability.swift */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
@@ -83,6 +86,7 @@
 		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
 		310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
+		7B2F14EE214705EF006FB94A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
 		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +279,7 @@
 			children = (
 				CD763A791DE24EF100ADFD6B /* Model.swift */,
 				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
+				7B2F14EE214705EF006FB94A /* Reachability.swift */,
 			);
 			name = "Data Retrieval";
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2F14F0214705EF006FB94A /* Reachability.swift in Sources */,
 				7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,6 +683,7 @@
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
 				9203CB942023D51A006ACC3B /* Filters.swift in Sources */,
+				7B2F14F1214705EF006FB94A /* Reachability.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
 				9203CB972023D51A006ACC3B /* Utilities.swift in Sources */,
@@ -707,6 +714,7 @@
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
 				9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */,
+				7B2F14EF214705EF006FB94A /* Reachability.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
 				CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */,

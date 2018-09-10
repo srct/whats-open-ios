@@ -356,6 +356,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		formatter.timeZone = TimeZone(identifier: "America/New_York")
 		let now = Date()
 		let alertFilers = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+        var noNetwork = Reachability.isConnectedToNetwork()
+        let noNetworkAlert = Alert()
+        noNetworkAlert.noNetwork()
+        if !noNetwork {
+            shown.append(noNetworkAlert)
+        }
+        
 		for alert in alertsList {
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
 				switch alert.urgency {
