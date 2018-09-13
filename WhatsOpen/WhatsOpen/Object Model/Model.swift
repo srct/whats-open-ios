@@ -258,7 +258,14 @@ class Alert: Object, MapContext, Mappable {
 		startDate <- map["start_datetime"]
 		endDate <- map["end_datetime"]
 	}
+    
+    func noNetwork(){
+        urgency = "emergency"
+        message = "No Internet Connection"
+    }
+    
 }
+
 
 // Updated for Swift 4, based on https://gist.github.com/Jerrot/fe233a94c5427a4ec29b but I removed the generics sorry code reuse
 class TagTransform : TransformType {
