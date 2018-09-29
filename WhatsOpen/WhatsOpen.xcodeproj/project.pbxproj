@@ -79,6 +79,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9255C5B521556E410094C947 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
 		310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +105,8 @@
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
 		924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButtonsViewController.swift; sourceTree = "<group>"; };
+		9255C5AA21556E410094C947 /* WhatsOpenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatsOpenKit.h; sourceTree = "<group>"; };
+		9255C5AB21556E410094C947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOneDefaultTableViewController.swift; sourceTree = "<group>"; };
 		9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +217,15 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		9255C5A921556E410094C947 /* WhatsOpenKit */ = {
+			isa = PBXGroup;
+			children = (
+				9255C5AA21556E410094C947 /* WhatsOpenKit.h */,
+				9255C5AB21556E410094C947 /* Info.plist */,
+			);
+			path = WhatsOpenKit;
+			sourceTree = "<group>";
+		};
 		928794021FA27C8A008860FF /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +258,7 @@
 			children = (
 				92DA57CC20C99C0C00EFDE7C /* WhatsOpen - AppStore.entitlements */,
 				CD81F51B1DC0334600009FBD /* WhatsOpen */,
+				9255C5A921556E410094C947 /* WhatsOpenKit */,
 				CD81F51A1DC0334600009FBD /* Products */,
 				2EAE8AD7B1F0ADDED5057982 /* Pods */,
 				FD2AE174B8FDE3008F34206E /* Frameworks */,
@@ -345,6 +370,7 @@
 				E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */,
 				92FF6C7820017E1C00D836AE /* Run Script */,
 				922C3C1B200306F5008E1146 /* ShellScript */,
+				9255C5B521556E410094C947 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1086,6 +1112,7 @@
 			baseConfigurationReference = F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1114,6 +1141,7 @@
 			baseConfigurationReference = 4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;

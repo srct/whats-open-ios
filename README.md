@@ -34,7 +34,7 @@ Requirements:
 To get started, you'll need the following installed:
 * [Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
-* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 9* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
+* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
 
 * The latest **public** release of Swift. *Currently Swift 4.0* (bundled with Xcode)
 
