@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import WhatsOpenKit
 
 class FiltersTableViewController: UITableViewController {
 
@@ -39,8 +40,8 @@ class FiltersTableViewController: UITableViewController {
 		tableView.reloadData()
         updateFacilities()
 	}
-	var filters: Filters!
-	var facilities: List<Facility>!
+	var filters: WOKFilters!
+	var facilities: List<WOKFacility>!
 	//var allLocations: [Locations] = [Locations]()
 	//var allCategories: [Categories]! = [Categories]()
 	
@@ -100,7 +101,7 @@ class FiltersTableViewController: UITableViewController {
 		case 1:
 			return 1
 		case 2:
-			return SortMethod.count
+			return WOKSortMethod.count
 		case 3:
 			return 2
 		default:
@@ -162,20 +163,20 @@ class FiltersTableViewController: UITableViewController {
             }
 			return cell
 		  case 2:
-			let method: SortMethod
+			let method: WOKSortMethod
 			let cellText: String
 			switch indexPath.row {
 			case 0:
-				method = SortMethod.alphabetical
+				method = WOKSortMethod.alphabetical
 				cellText = "Alphabetically (A-Z)"
 			case 1:
-				method = SortMethod.reverseAlphabetical
+				method = WOKSortMethod.reverseAlphabetical
 				cellText = "Reverse Alphabetically (Z-A)"
 			case 2:
-				method = SortMethod.byLocation
+				method = WOKSortMethod.byLocation
 				cellText = "By Location Name (A-Z)"
 			default:
-				method = SortMethod.alphabetical
+				method = WOKSortMethod.alphabetical
 				cellText = "Alphabetically (A-Z)"
 			}
 			let cell: CheckingTableViewCell
@@ -260,7 +261,7 @@ class FiltersTableViewController: UITableViewController {
 	}
 	
 	func onlyCheckOne(_ method: Any?) -> Bool {
-		filters.sortBy = method as! SortMethod // Be careful when calling this
+		filters.sortBy = method as! WOKSortMethod // Be careful when calling this
 		tableView.reloadData()
 		return true
 	}

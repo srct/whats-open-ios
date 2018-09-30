@@ -8,7 +8,7 @@ import ObjectMapper_Realm
 // MARK: - Data Model
 //
 
-enum Day: Int {
+public enum WOKDay: Int {
     case Monday = 0
     case Tuesday = 1
     case Wednesday = 2
@@ -21,22 +21,22 @@ enum Day: Int {
 }
 
 public class WOKFacility: Object, MapContext, Mappable {
-    @objc dynamic var slug = ""
-    @objc dynamic var facilityName = ""
-    @objc dynamic var facilityLocation: WOKLocations? = WOKLocations()
-    @objc dynamic var category: WOKCategories? = WOKCategories()
-	var facilityTags: List<WOKFacilityTag>?  = List<WOKFacilityTag>()
-    @objc dynamic var mainSchedule: WOKSchedule? = WOKSchedule()
-	var specialSchedules: List<WOKSchedule>? = List<WOKSchedule>()
-	var labels: List<WOKFacilityTag>? = List<WOKFacilityTag>()
-	@objc dynamic var tapingoURL = ""
-	@objc dynamic var note = ""
-	@objc dynamic var logoURL = ""
+    @objc public dynamic var slug = ""
+    @objc public dynamic var facilityName = ""
+    @objc public dynamic var facilityLocation: WOKLocations? = WOKLocations()
+    @objc public dynamic var category: WOKCategories? = WOKCategories()
+	public var facilityTags: List<WOKFacilityTag>?  = List<WOKFacilityTag>()
+    @objc public dynamic var mainSchedule: WOKSchedule? = WOKSchedule()
+	public var specialSchedules: List<WOKSchedule>? = List<WOKSchedule>()
+	public var labels: List<WOKFacilityTag>? = List<WOKFacilityTag>()
+	@objc public dynamic var tapingoURL = ""
+	@objc public dynamic var note = ""
+	@objc public dynamic var logoURL = ""
 	
-    required convenience init?(map: Map) {
+	required convenience public init?(map: Map) {
         self.init()
     }
-    func mapping(map: Map){
+	public func mapping(map: Map){
         slug <- map["slug"]
         facilityName <- map["facility_name"]
         facilityLocation <- map["facility_location"]
@@ -55,21 +55,21 @@ public class WOKFacility: Object, MapContext, Mappable {
 }
 
 public class WOKLocations: Object, Mappable {
-    @objc dynamic var id = 0
-    @objc dynamic var created = ""
-    @objc dynamic var lastmodified = ""
-    @objc dynamic var building = ""
-    @objc dynamic var address = ""
-    @objc dynamic var campus = ""
-    @objc dynamic var onCampus = false
-    @objc dynamic var abbreviation = ""
-	@objc dynamic var coordinates: WOKCoordinates? = WOKCoordinates()
+    @objc public dynamic var id = 0
+    @objc public dynamic var created = ""
+    @objc public dynamic var lastmodified = ""
+    @objc public dynamic var building = ""
+    @objc public dynamic var address = ""
+    @objc public dynamic var campus = ""
+    @objc public dynamic var onCampus = false
+    @objc public dynamic var abbreviation = ""
+	@objc public dynamic var coordinates: WOKCoordinates? = WOKCoordinates()
 
-    required convenience init?(map: Map){
+	required convenience public init?(map: Map){
 		self.init()
     }
 	
-	func mapping(map: Map){
+	public func mapping(map: Map){
         id <- map["id"]
         created <- map["created"]
         lastmodified <- map["modified"]
@@ -96,29 +96,29 @@ public class WOKLocations: Object, Mappable {
 }
 
 public class WOKCoordinates: Object, Mappable {
-	var coords: List<Double>? = List<Double>()
-	@objc dynamic var type = ""
+	public var coords: List<Double>? = List<Double>()
+	@objc public dynamic var type = ""
 	
-	required convenience init?(map: Map){
+	required convenience public init?(map: Map){
 		self.init()
 	}
 	
-	func mapping(map: Map) {
+	public func mapping(map: Map) {
 		coords <- (map["coordinates"], CoordTransform())
 		type <- map["type"]
 	}
 }
 
 public class WOKCategories: Object, Mappable {
-    @objc dynamic var id = 0
-    @objc dynamic var created = ""
-    @objc dynamic var modified = ""
-    @objc dynamic var categoryName = ""
+    @objc public dynamic var id = 0
+    @objc public dynamic var created = ""
+    @objc public dynamic var modified = ""
+    @objc public dynamic var categoryName = ""
 
-    required convenience init?(map: Map){
+	required convenience public init?(map: Map){
         self.init()
     }
-    func mapping(map: Map){
+	public func mapping(map: Map){
         id <- map["id"]
         created <- map["created"]
         modified <- map["modified"]
@@ -132,14 +132,14 @@ public class WOKCategories: Object, Mappable {
 }
 
 public class WOKFacilityTag: Object, Mappable {
-    @objc dynamic var tag = ""
+    @objc public dynamic var tag = ""
 	
 	
-	required convenience init?(map: Map){
+	required convenience public init?(map: Map){
 		self.init()
 	}
 	
-	func mapping(map: Map) {
+	public func mapping(map: Map) {
 		tag <- map["facility_product_tags"]
 		tag <- map["facility_labels"]
 	}
@@ -148,20 +148,20 @@ public class WOKFacilityTag: Object, Mappable {
 }
 
 public class WOKSchedule: Object, Mappable {
-    @objc dynamic var id = 0
-    var openTimes = List<WOKOpenTimes>()
-    @objc dynamic var lastModified = ""
-    @objc dynamic var name = ""
-    @objc dynamic var validStart = ""
-    @objc dynamic var validEnd = ""
-    @objc dynamic var twentyFourHours = false
+    @objc public dynamic var id = 0
+    public var openTimes = List<WOKOpenTimes>()
+    @objc public dynamic var lastModified = ""
+    @objc public dynamic var name = ""
+    @objc public dynamic var validStart = ""
+    @objc public dynamic var validEnd = ""
+    @objc public dynamic var twentyFourHours = false
 
 
-    required convenience init?(map: Map){
+	required convenience public init?(map: Map){
         self.init()
     }
 
-    func mapping(map: Map){
+	public func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
         var openTimesList: [WOKOpenTimes]?
@@ -181,19 +181,19 @@ public class WOKSchedule: Object, Mappable {
 
 public class WOKSpecialSchedule: Object, Mappable {
 
-    convenience required init?(map: Map) {
+	convenience required public init?(map: Map) {
         self.init()
     }
 
-    @objc dynamic var id = 0
-    var openTimes = List<WOKOpenTimes>()
-    @objc dynamic var lastModified = ""
-    @objc dynamic var name = ""
-    @objc dynamic var validStart = ""
-    @objc dynamic var validEnd = ""
-    @objc dynamic var twentyFourHours = false
+    @objc public dynamic var id = 0
+    public var openTimes = List<WOKOpenTimes>()
+    @objc public dynamic var lastModified = ""
+    @objc public dynamic var name = ""
+    @objc public dynamic var validStart = ""
+    @objc public dynamic var validEnd = ""
+    @objc public dynamic var twentyFourHours = false
 
-    func mapping(map: Map){
+	public func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
         var openTimesList: [WOKOpenTimes]?
@@ -214,18 +214,18 @@ public class WOKSpecialSchedule: Object, Mappable {
 
 
 public class WOKOpenTimes: Object, Mappable {
-    @objc dynamic var schedule = 0
-    @objc dynamic var lastModified = ""
-    @objc dynamic var startDay = 0
-    @objc dynamic var endDay = 0
-    @objc dynamic var startTime = ""
-    @objc dynamic var endTime = ""
+    @objc public dynamic var schedule = 0
+    @objc public dynamic var lastModified = ""
+    @objc public dynamic var startDay = 0
+    @objc public dynamic var endDay = 0
+    @objc public dynamic var startTime = ""
+    @objc public dynamic var endTime = ""
 
-    convenience required init?(map: Map) {
+	convenience required public init?(map: Map) {
         self.init()
     }
 
-    func mapping(map: Map){
+	public func mapping(map: Map){
         schedule <- map["schedule"]
         lastModified <- map["modified"]
         startDay <- map["start_day"]
@@ -237,19 +237,19 @@ public class WOKOpenTimes: Object, Mappable {
 }
 
 public class WOKAlert: Object, MapContext, Mappable {
-	@objc dynamic var id = 0
-	@objc dynamic var created = ""
-	@objc dynamic var lastModified = ""
-	@objc dynamic var urgency = ""
-	@objc dynamic var message = ""
-	@objc dynamic var startDate = ""
-	@objc dynamic var endDate = ""
+	@objc public dynamic var id = 0
+	@objc public dynamic var created = ""
+	@objc public dynamic var lastModified = ""
+	@objc public dynamic var urgency = ""
+	@objc public dynamic var message = ""
+	@objc public dynamic var startDate = ""
+	@objc public dynamic var endDate = ""
 	
-	convenience required init?(map: Map) {
+	convenience required public init?(map: Map) {
 		self.init()
 	}
 	
-	func mapping(map: Map){
+	public func mapping(map: Map){
 		id <- map["id"]
 		created <- map["created"]
 		lastModified <- map["modified"]
@@ -262,14 +262,14 @@ public class WOKAlert: Object, MapContext, Mappable {
 
 // Updated for Swift 4, based on https://gist.github.com/Jerrot/fe233a94c5427a4ec29b but I removed the generics sorry code reuse
 class TagTransform : TransformType {
-	typealias Object = List<FacilityTag>
+	typealias Object = List<WOKFacilityTag>
 	typealias JSON = [String]
 	
-	func transformFromJSON(_ value: Any?) -> List<FacilityTag>? {
-		let result = List<FacilityTag>()
+	func transformFromJSON(_ value: Any?) -> List<WOKFacilityTag>? {
+		let result = List<WOKFacilityTag>()
 		if let tempArr = value as! [String]? {
 			for entry in tempArr {
-				let tag = FacilityTag()
+				let tag = WOKFacilityTag()
 				tag.tag = entry
 				result.append(tag)
 			}
@@ -277,7 +277,7 @@ class TagTransform : TransformType {
 		return result
 	}
 	
-	func transformToJSON(_ value: List<FacilityTag>?) -> [String]? {
+	func transformToJSON(_ value: List<WOKFacilityTag>?) -> [String]? {
 		if (value!.count > 0) {
 			var result = [String]()
 			for entry in value! {

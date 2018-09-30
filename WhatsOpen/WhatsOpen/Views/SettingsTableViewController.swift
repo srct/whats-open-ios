@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import MessageUI
 import StoreKit
+import WhatsOpenKit
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -100,7 +101,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				cell.textLabel?.text = "Show Alerts"
             	cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
             	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-				let alerts = Utilities.getAlertDefaults()
+				let alerts = WOKUtilities.getAlertDefaults()
 				var i = 0
 				for c in alerts {
 					if(c.value == true) {
@@ -120,7 +121,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				cell.textLabel?.text = "Show Campuses"
 				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
             	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-				let campuses = Utilities.getCampusDefaults()
+				let campuses = WOKUtilities.getCampusDefaults()
 				var i = 0
 				for c in campuses {
 					if(c.value == true) {
@@ -279,17 +280,17 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			if (sender as! UITableViewCell).textLabel?.text == "Show Alerts" {
 				let destination = segue.destination as! FilterSelectionTableViewController
 				destination.navigationItem.title = "Show Alerts"
-				destination.getFunc = Utilities.getAlertDefaults
-				destination.selectFunc = Utilities.setAlertDefaults
-				destination.selectAllFunc = Utilities.setAllAlertDefaults
+				destination.getFunc = WOKUtilities.getAlertDefaults
+				destination.selectFunc = WOKUtilities.setAlertDefaults
+				destination.selectAllFunc = WOKUtilities.setAllAlertDefaults
 				destination.updateFacilities = updateFacilities
 			}
 			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {
 				let destination = segue.destination as! FilterSelectionTableViewController
 				destination.navigationItem.title = "Show Campuses"
-				destination.getFunc = Utilities.getCampusDefaults
-				destination.selectFunc = Utilities.setCampusDefaults
-				destination.selectAllFunc = Utilities.setAllCampusDefaults
+				destination.getFunc = WOKUtilities.getCampusDefaults
+				destination.selectFunc = WOKUtilities.setCampusDefaults
+				destination.selectAllFunc = WOKUtilities.setAllCampusDefaults
 				destination.updateFacilities = updateFacilities
 			}
 		}

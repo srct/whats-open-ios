@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import WhatsOpenKit
 
 class AlertCollectionViewCell: UICollectionViewCell {
 	
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var messageLabel: UILabel!
-	var alert: Alert!
+	var alert: WOKAlert!
 	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
 	

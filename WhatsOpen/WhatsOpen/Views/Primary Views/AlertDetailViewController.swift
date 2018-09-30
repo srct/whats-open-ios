@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import WhatsOpenKit
 
 class AlertDetailViewController: UIViewController {
 
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var messageView: UITextView!
-	var alert: Alert!
+	var alert: WOKAlert!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()

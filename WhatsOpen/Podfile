@@ -4,14 +4,16 @@
 platform :ios, '11.0'
 use_frameworks!
 
-def ios_pods
+def important_pods
   pod 'RealmSwift'
 
   #pod 'ObjectMapper', '~> 3.2'
   # TEMPORARY BECAUSE Xcode 10
   pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git', :branch => 'Swift-4.2'
   pod "ObjectMapper+Realm"
+end
 
+def ios_pods
   #pod 'Segmentio', '~> 2.1'
 
   pod 'DeckTransition', '~> 2.0'
@@ -22,13 +24,18 @@ end
 
 
 target 'WhatsOpen' do
+  important_pods
   ios_pods
 end
 
 target 'WhatsOpen - AppStore' do
+  important_pods
   ios_pods
 end
 
+target 'WhatsOpenKit' do
+  important_pods
+end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|

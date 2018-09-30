@@ -8,12 +8,13 @@
 
 import UIKit
 import MapKit
+import WhatsOpenKit
 
 class DetailViewButtonsViewController: UIViewController {
 
 	@IBOutlet var facilityDetailView: UIView!
 	var detailViewController: FacilityDetailViewController?
-	var facility: Facility!
+	var facility: WOKFacility!
 	
 	@IBOutlet var favoritesButton: UIButton!
 	@IBOutlet var directionsButton: UIButton!
@@ -26,11 +27,11 @@ class DetailViewButtonsViewController: UIViewController {
 	removes from favorites if it is a favorite.
 	*/
 	@IBAction func setFavButton(_ sender: Any) {
-		if(Utilities.isFavoriteFacility(facility)) { // if the facility is a favorite
-			_ = Utilities.removeFavoriteFacility(facility) // remove it from favorites
+		if(WOKUtilities.isFavoriteFacility(facility)) { // if the facility is a favorite
+			_ = WOKUtilities.removeFavoriteFacility(facility) // remove it from favorites
 		}
 		else { // else add it to favorites
-			_ = Utilities.addFavoriteFacility(facility)
+			_ = WOKUtilities.addFavoriteFacility(facility)
 		}
 		setFavoriteButtonText()
 	}
@@ -66,7 +67,7 @@ class DetailViewButtonsViewController: UIViewController {
 	
 	
 	@IBAction func shareFacility(_ sender: Any) {
-		let str = "\(facility.facilityName) is \(Utilities.openOrClosedUntil(facility)!.lowercased())"
+		let str = "\(facility.facilityName) is \(WOKUtilities.openOrClosedUntil(facility)!.lowercased())"
 		let shareSheet = UIActivityViewController(activityItems: ["\(str) https://whatsopen.gmu.edu/"], applicationActivities: nil)
 		shareSheet.excludedActivityTypes = [.print, .openInIBooks, .addToReadingList] // Sorry you can't print a Facility
 		present(shareSheet, animated: true, completion: nil)
@@ -76,7 +77,7 @@ class DetailViewButtonsViewController: UIViewController {
 	Change the favorite button text depending on if the facility is a favorite
 	*/
 	func setFavoriteButtonText() {
-		if(Utilities.isFavoriteFacility(facility)) {
+		if(WOKUtilities.isFavoriteFacility(facility)) {
 			favoritesButton.setTitle("Remove from Favorites", for: .normal)
 			favoritesButton.titleLabel?.text = "Remove from Favorites"
 		}
