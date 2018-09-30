@@ -11,10 +11,10 @@ import RealmSwift
 
 //This may be a stupid way to handle filters, but it should work; at least for now
 
-public class WOKFilters {
+public class WOPFilters {
     public var showOpen = true
     public var showClosed = true
-	public var sortBy = WOKSortMethod.alphabetical
+	public var sortBy = WOPSortMethod.alphabetical
     public var openFirst = true
 	
 	public var showAlerts = ["Informational":true, "Minor Alerts":true, "Major Alerts":true]
@@ -27,10 +27,10 @@ public class WOKFilters {
         //nothing to do here
     }
     
-    public func applyFiltersOnFacilities(_ facilities: List<WOKFacility>) -> List<WOKFacility> {
+    public func applyFiltersOnFacilities(_ facilities: List<WOPFacility>) -> List<WOPFacility> {
         //TODO: Add checks for onlyFromLocations and onlyFromCategories here before doing the rest
         
-        let specifiedFacilities = List<WOKFacility>()
+        let specifiedFacilities = List<WOPFacility>()
         // facility must be within both a specified location and category
         for f in facilities {
             if  onlyFromLocations[(f.facilityLocation?.building)!.lowercased()] == true && onlyFromCategories[(f.category?.categoryName)!.lowercased()] == true {
@@ -44,7 +44,7 @@ public class WOKFilters {
         switch sortBy {
         case .alphabetical:
             if(openFirst) {
-                var returning = List<WOKFacility>()
+                var returning = List<WOPFacility>()
                 if(showOpen) {
                     returning += sortAlphabetically(open)
                 }
@@ -64,12 +64,12 @@ public class WOKFilters {
                     return sortAlphabetically(closed)
                 }
                 else {
-                    return List<WOKFacility>()
+                    return List<WOPFacility>()
                 }
             }
         case .reverseAlphabetical:
             if(openFirst) {
-                var returning = List<WOKFacility>()
+                var returning = List<WOPFacility>()
                 if(showOpen) {
                     returning += sortAlphabetically(open, reverse: true)
                 }
@@ -89,12 +89,12 @@ public class WOKFilters {
                     return sortAlphabetically(closed, reverse: true)
                 }
                 else {
-                    return List<WOKFacility>()
+                    return List<WOPFacility>()
                 }
             }
         case .byLocation:
             if(openFirst) {
-                var returning = List<WOKFacility>()
+                var returning = List<WOPFacility>()
                 if(showOpen) {
                     returning += sortByLocation(open)
                 }
@@ -114,23 +114,23 @@ public class WOKFilters {
                     return sortByLocation(closed)
                 }
                 else {
-                    return List<WOKFacility>()
+                    return List<WOPFacility>()
                 }
             }
         }
     }
     
     // Takes in array of Facilities, separates them into those open and closed, returning a tuple of 2 arrays
-    private func separateOpenAndClosed(_ facilities: List<WOKFacility>) -> (open: List<WOKFacility>, closed: List<WOKFacility>) {
-        let open = List<WOKFacility>()
-        let closed = List<WOKFacility>()
+    private func separateOpenAndClosed(_ facilities: List<WOPFacility>) -> (open: List<WOPFacility>, closed: List<WOPFacility>) {
+        let open = List<WOPFacility>()
+        let closed = List<WOPFacility>()
 		/*
 		facilities.forEach {
             Utilities.isOpen(facility: $0) ? open.append($0) : closed.append($0)
         }
 		*/
 		for facility in facilities {
-			if WOKUtilities.isOpen(facility: facility) {
+			if WOPUtilities.isOpen(facility: facility) {
 				open.append(facility)
 			}
 			else {
@@ -142,7 +142,7 @@ public class WOKFilters {
     
     //TODO
     // Sorts items in the given Facility array by name alphabetically (reverse if told)
-    private func sortAlphabetically(_ facilities: List<WOKFacility>, reverse: Bool = false) -> List<WOKFacility> {
+    private func sortAlphabetically(_ facilities: List<WOPFacility>, reverse: Bool = false) -> List<WOPFacility> {
         // Convert to a swift array because the realm sorting method crashes the list object for some reason?
         var facilitiesArray = facilities.asArray()
 		if !reverse {
@@ -157,7 +157,7 @@ public class WOKFilters {
     
     //TODO
     // Sorts Facilities by their given location's name, and within those sorts A->Z
-    private func sortByLocation(_ facilities: List<WOKFacility>) -> List<WOKFacility> {
+    private func sortByLocation(_ facilities: List<WOPFacility>) -> List<WOPFacility> {
         var facilitiesArray = facilities.asArray()
         facilitiesArray.sort { (facility, nextFacility) in
             guard let location = facility.facilityLocation else { return true }
@@ -206,7 +206,7 @@ public class WOKFilters {
 }
 
 //Is this a viable way to do this?
-public enum WOKSortMethod {
+public enum WOPSortMethod {
 	case alphabetical //A -> Z
 	case reverseAlphabetical //Z -> A
 	case byLocation // A -> Z Locations, w/ A -> Z Facilities inside

@@ -14,8 +14,8 @@ import WhatsOpenKit
 
 //Realm Model
 class FacilitiesModel: Object {
-	let facilities = List<WOKFacility>()
-	let alerts = List<WOKAlert>()
+	let facilities = List<WOPFacility>()
+	let alerts = List<WOPAlert>()
 	@objc dynamic var lastUpdated = Date()
 	@objc dynamic let id = 0
 }
@@ -33,21 +33,21 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		deleteRealmIfMigrationNeeded: true
 	  ))
 
-	var facilitiesArray = List<WOKFacility>()
-	var alertsList = List<WOKAlert>()
+	var facilitiesArray = List<WOPFacility>()
+	var alertsList = List<WOPAlert>()
 	
-	var currentAlerts = List<WOKAlert>()
+	var currentAlerts = List<WOPAlert>()
     
     // array of facilities that pass the current filters
-    var filteredFacilities = List<WOKFacility>()
+    var filteredFacilities = List<WOPFacility>()
 	
 	// List which actually pertains to what is shown
-	var shownFacilities = List<WOKFacility>()
+	var shownFacilities = List<WOPFacility>()
     
     // passing in nil sets the search controller to be this controller
     let searchController = UISearchController(searchResultsController: nil)
 
-	var filters = WOKFilters()
+	var filters = WOPFilters()
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
@@ -88,12 +88,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
      - returns:
         List of facilities that are favorited
      */
-    func filterFacilitiesForFavorites() -> List<WOKFacility> {
-        var favoriteFacilites = List<WOKFacility>()
+    func filterFacilitiesForFavorites() -> List<WOPFacility> {
+        var favoriteFacilites = List<WOPFacility>()
         
         // add the facility to favorites list if it is a favorite
-        favoriteFacilites = filteredFacilities.filter({ (facility: WOKFacility) -> Bool in
-			return WOKUtilities.isFavoriteFacility(facility)
+        favoriteFacilites = filteredFacilities.filter({ (facility: WOPFacility) -> Bool in
+			return WOPUtilities.isFavoriteFacility(facility)
         })
         
         return favoriteFacilites
@@ -129,7 +129,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func checkFilterState() {
-		if(filters.showOpen && filters.showClosed && filters.openFirst && filters.sortBy == WOKSortMethod.alphabetical) {
+		if(filters.showOpen && filters.showClosed && filters.openFirst && filters.sortBy == WOPSortMethod.alphabetical) {
 			for f in filters.onlyFromCategories {
 				if(f.value != true) {
 					LeftButton.title = "Filter (On)"
@@ -340,7 +340,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		// all campuses via updateFilterLists
 		let campusFilters = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		
-		let filteredByCampus = List<WOKFacility>()
+		let filteredByCampus = List<WOPFacility>()
 		for facility in filteredFacilities {
 			if campusFilters![(facility.facilityLocation?.campus.lowercased())!]! {
 				filteredByCampus.append(facility)
@@ -352,7 +352,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		favoritesControlChanges(self)
 		
 		// Alerts
-		let shown = List<WOKAlert>()
+		let shown = List<WOPAlert>()
 		let formatter = ISO8601DateFormatter()
 		formatter.timeZone = TimeZone(identifier: "America/New_York")
 		let now = Date()
@@ -399,8 +399,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
      - returns:
         List of filtered facilities. Facilities whose names, buildings, or categories match the search text are included.
      */
-    func filterFacilitiesForSearchText(_ searchText: String) -> List<WOKFacility> {
-        var filtered: List<WOKFacility>
+    func filterFacilitiesForSearchText(_ searchText: String) -> List<WOPFacility> {
+        var filtered: List<WOPFacility>
 		
 		/*
         if showFavorites {
@@ -425,7 +425,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			LocationsList.reloadData()
 			return shownFacilities
 		}
-		filtered = filteredFacilities.filter({(facility: WOKFacility) -> Bool in
+		filtered = filteredFacilities.filter({(facility: WOPFacility) -> Bool in
 			let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
 			let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
             let hasAbbreviation = facility.facilityLocation?.abbreviation.lowercased().contains(searchText.lowercased()) ?? false
@@ -527,7 +527,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	* and place that new information into Realm
 	*/
 	func update(_ sender: Any, completion: (() -> ())? = nil) {
-		WOKDownloadController.performDownload { (facilities) in
+		WOPDownloadController.performDownload { (facilities) in
 			if(facilities == nil) {
 				DispatchQueue.main.async {
 					let results = self.realm.objects(FacilitiesModel.self)
@@ -547,7 +547,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						}
 					}
 					else {
-						self.facilitiesArray = List<WOKFacility>()
+						self.facilitiesArray = List<WOPFacility>()
 					}
 				}
 			}
@@ -593,7 +593,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				}
 			}
 		}
-		WOKDownloadController.performAlertsDownload { (alerts) in
+		WOPDownloadController.performAlertsDownload { (alerts) in
 			if(alerts == nil) {
 				DispatchQueue.main.async {
 					let results = self.realm.objects(FacilitiesModel.self)
@@ -602,7 +602,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						self.alertsList = model.alerts
 					}
 					else {
-						self.alertsList = List<WOKAlert>()
+						self.alertsList = List<WOPAlert>()
 					}
 				}
 			}
@@ -687,7 +687,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.gestureRecognizers?.append(cell.tapRecognizer)
 			
 			
-			let facility: WOKFacility
+			let facility: WOPFacility
 			//let dataArray: [Facility]
 			
 			/*
@@ -714,13 +714,13 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			cell.nameLabel.text = name
 			cell.categoryLabel.text = facility.category?.categoryName.uppercased()
 			
-			cell.openClosedLabel.text = WOKUtilities.openOrClosedUntil(facility)
+			cell.openClosedLabel.text = WOPUtilities.openOrClosedUntil(facility)
 			
 			// TODO: Change the name of this label
 			cell.timeDescriptionLabel.text = facility.facilityLocation?.building
 			
 			//change appearence based on open state
-			let open = WOKUtilities.isOpen(facility: facility)
+			let open = WOPUtilities.isOpen(facility: facility)
 			if(open == true) {
 				//cell.openClosedLabel.text = "Open"
 				cell.openClosedLabel.textColor = UIColor.black
@@ -846,7 +846,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	
 	//unused
-	func getLocationArray(_ facilitiesArray: List<WOKFacility>) -> [WOKFacility] {
+	func getLocationArray(_ facilitiesArray: List<WOPFacility>) -> [WOPFacility] {
 		if(!showFavorites) {
 			return placeOpenFacilitiesFirstInArray(facilitiesArray)
 		}
@@ -861,12 +861,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	// Returns an array which has the open locations listed first
 	// Could be improved in the future because currently this means you're checking
 	// open status twice per cell
-	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<WOKFacility>) -> [WOKFacility] {
-		var open = [WOKFacility]()
-		var closed = [WOKFacility]()
+	func placeOpenFacilitiesFirstInArray(_ facilitiesArray: List<WOPFacility>) -> [WOPFacility] {
+		var open = [WOPFacility]()
+		var closed = [WOPFacility]()
 
 		for i in facilitiesArray {
-			if(WOKUtilities.isOpen(facility: i)) {
+			if(WOPUtilities.isOpen(facility: i)) {
 				open.append(i)
 			}
 			else {
@@ -878,12 +878,12 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 
 	//unused
-	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<WOKFacility>) -> (open: Int, closed: Int) {
+	func countForOpenAndClosedFacilities(_ facilitiesArray: Array<WOPFacility>) -> (open: Int, closed: Int) {
 		var open = 0
 		var closed = 0
 
 		for i in facilitiesArray {
-			if(WOKUtilities.isOpen(facility: i)) {
+			if(WOPUtilities.isOpen(facility: i)) {
 				open += 1
 			}
 			else {

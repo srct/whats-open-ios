@@ -13,7 +13,7 @@ class AlertCollectionViewCell: UICollectionViewCell {
 	
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var messageLabel: UILabel!
-	var alert: WOKAlert!
+	var alert: WOPAlert!
 	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
 	

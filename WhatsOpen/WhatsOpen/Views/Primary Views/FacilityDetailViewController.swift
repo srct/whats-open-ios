@@ -21,11 +21,11 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	let activity = NSUserActivity(activityType: "facility")
 
 	
-    var facility: WOKFacility!
+    var facility: WOPFacility!
 	
 	override var previewActionItems: [UIPreviewActionItem] {
 		var title: String
-		if(WOKUtilities.isFavoriteFacility(facility)) {
+		if(WOPUtilities.isFavoriteFacility(facility)) {
 			title = "Remove from Favorites"
 		}
 		else {
@@ -60,8 +60,8 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
         CategoryLabel.text = facility.category?.categoryName.uppercased()
 
 		
-		let open = WOKUtilities.isOpen(facility: facility)
-        OpenLabel.text = WOKUtilities.openOrClosedUntil(facility)
+		let open = WOPUtilities.isOpen(facility: facility)
+        OpenLabel.text = WOPUtilities.openOrClosedUntil(facility)
         OpenLabel.layer.cornerRadius = 4
         OpenLabel.layer.masksToBounds = true
 		if(open) {
@@ -109,7 +109,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return WOKUtilities.getCurrentSchedule(facility)!.openTimes.count
+		return WOPUtilities.getCurrentSchedule(facility)!.openTimes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,10 +117,10 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
 		cell.selectionStyle = .none
 		
-		let schedule = WOKUtilities.getCurrentSchedule(facility)
+		let schedule = WOPUtilities.getCurrentSchedule(facility)
 		let openTime = schedule!.openTimes[indexPath.row]
-		cell.textLabel?.text = WOKUtilities.getDayOfWeek(WOKDay(rawValue: openTime.startDay)!)
-		cell.detailTextLabel?.text = WOKUtilities.getFormattedStartandEnd(openTime)
+		cell.textLabel?.text = WOPUtilities.getDayOfWeek(WOPDay(rawValue: openTime.startDay)!)
+		cell.detailTextLabel?.text = WOPUtilities.getFormattedStartandEnd(openTime)
 
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -129,11 +129,11 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
 			
 	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
-		if(WOKUtilities.isFavoriteFacility(facility)) {
-			_ = WOKUtilities.removeFavoriteFacility(facility)
+		if(WOPUtilities.isFavoriteFacility(facility)) {
+			_ = WOPUtilities.removeFavoriteFacility(facility)
 		}
 		else {
-			_ = WOKUtilities.addFavoriteFacility(facility)
+			_ = WOPUtilities.addFavoriteFacility(facility)
 		}
 	}
 }

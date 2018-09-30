@@ -8,7 +8,7 @@ import ObjectMapper_Realm
 // MARK: - Data Model
 //
 
-public enum WOKDay: Int {
+public enum WOPDay: Int {
     case Monday = 0
     case Tuesday = 1
     case Wednesday = 2
@@ -20,15 +20,15 @@ public enum WOKDay: Int {
     // Add functions here later if we need them
 }
 
-public class WOKFacility: Object, MapContext, Mappable {
+public class WOPFacility: Object, MapContext, Mappable {
     @objc public dynamic var slug = ""
     @objc public dynamic var facilityName = ""
-    @objc public dynamic var facilityLocation: WOKLocations? = WOKLocations()
-    @objc public dynamic var category: WOKCategories? = WOKCategories()
-	public var facilityTags: List<WOKFacilityTag>?  = List<WOKFacilityTag>()
-    @objc public dynamic var mainSchedule: WOKSchedule? = WOKSchedule()
-	public var specialSchedules: List<WOKSchedule>? = List<WOKSchedule>()
-	public var labels: List<WOKFacilityTag>? = List<WOKFacilityTag>()
+    @objc public dynamic var facilityLocation: WOPLocations? = WOPLocations()
+    @objc public dynamic var category: WOPCategories? = WOPCategories()
+	public var facilityTags: List<WOPFacilityTag>?  = List<WOPFacilityTag>()
+    @objc public dynamic var mainSchedule: WOPSchedule? = WOPSchedule()
+	public var specialSchedules: List<WOPSchedule>? = List<WOPSchedule>()
+	public var labels: List<WOPFacilityTag>? = List<WOPFacilityTag>()
 	@objc public dynamic var tapingoURL = ""
 	@objc public dynamic var note = ""
 	@objc public dynamic var logoURL = ""
@@ -43,7 +43,7 @@ public class WOKFacility: Object, MapContext, Mappable {
         category <- map["facility_category"]
         facilityTags <- (map["facility_product_tags"], TagTransform())
         mainSchedule <- map["main_schedule"]
-        specialSchedules <- (map["special_schedules"], ListTransform<WOKSchedule>())
+        specialSchedules <- (map["special_schedules"], ListTransform<WOPSchedule>())
 		labels <- (map["facility_labels"], TagTransform())
 		tapingoURL <- map["tapingo_url"]
 		note <- map["note"]
@@ -54,7 +54,7 @@ public class WOKFacility: Object, MapContext, Mappable {
 
 }
 
-public class WOKLocations: Object, Mappable {
+public class WOPLocations: Object, Mappable {
     @objc public dynamic var id = 0
     @objc public dynamic var created = ""
     @objc public dynamic var lastmodified = ""
@@ -63,7 +63,7 @@ public class WOKLocations: Object, Mappable {
     @objc public dynamic var campus = ""
     @objc public dynamic var onCampus = false
     @objc public dynamic var abbreviation = ""
-	@objc public dynamic var coordinates: WOKCoordinates? = WOKCoordinates()
+	@objc public dynamic var coordinates: WOPCoordinates? = WOPCoordinates()
 
 	required convenience public init?(map: Map){
 		self.init()
@@ -81,7 +81,7 @@ public class WOKLocations: Object, Mappable {
 		coordinates <- map["coordinate_location"]
     }
 	
-	func equals(_ another: WOKLocations) -> Bool {
+	func equals(_ another: WOPLocations) -> Bool {
 		if  self.building == another.building &&
 		    self.address == another.address &&
 		    self.campus == another.campus &&
@@ -95,7 +95,7 @@ public class WOKLocations: Object, Mappable {
 
 }
 
-public class WOKCoordinates: Object, Mappable {
+public class WOPCoordinates: Object, Mappable {
 	public var coords: List<Double>? = List<Double>()
 	@objc public dynamic var type = ""
 	
@@ -109,7 +109,7 @@ public class WOKCoordinates: Object, Mappable {
 	}
 }
 
-public class WOKCategories: Object, Mappable {
+public class WOPCategories: Object, Mappable {
     @objc public dynamic var id = 0
     @objc public dynamic var created = ""
     @objc public dynamic var modified = ""
@@ -125,13 +125,13 @@ public class WOKCategories: Object, Mappable {
         categoryName <- map["name"]
     }
 	
-	func equals(_ another: WOKCategories) -> Bool {
+	func equals(_ another: WOPCategories) -> Bool {
 		return another.categoryName == self.categoryName
 	}
 
 }
 
-public class WOKFacilityTag: Object, Mappable {
+public class WOPFacilityTag: Object, Mappable {
     @objc public dynamic var tag = ""
 	
 	
@@ -147,9 +147,9 @@ public class WOKFacilityTag: Object, Mappable {
 	
 }
 
-public class WOKSchedule: Object, Mappable {
+public class WOPSchedule: Object, Mappable {
     @objc public dynamic var id = 0
-    public var openTimes = List<WOKOpenTimes>()
+    public var openTimes = List<WOPOpenTimes>()
     @objc public dynamic var lastModified = ""
     @objc public dynamic var name = ""
     @objc public dynamic var validStart = ""
@@ -164,7 +164,7 @@ public class WOKSchedule: Object, Mappable {
 	public func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
-        var openTimesList: [WOKOpenTimes]?
+        var openTimesList: [WOPOpenTimes]?
         openTimesList <- map["open_times"]
         if let openTimesList = openTimesList {
             for openTime in openTimesList {
@@ -179,14 +179,14 @@ public class WOKSchedule: Object, Mappable {
     }
 }
 
-public class WOKSpecialSchedule: Object, Mappable {
+public class WOPSpecialSchedule: Object, Mappable {
 
 	convenience required public init?(map: Map) {
         self.init()
     }
 
     @objc public dynamic var id = 0
-    public var openTimes = List<WOKOpenTimes>()
+    public var openTimes = List<WOPOpenTimes>()
     @objc public dynamic var lastModified = ""
     @objc public dynamic var name = ""
     @objc public dynamic var validStart = ""
@@ -196,7 +196,7 @@ public class WOKSpecialSchedule: Object, Mappable {
 	public func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
-        var openTimesList: [WOKOpenTimes]?
+        var openTimesList: [WOPOpenTimes]?
         openTimesList <- map["open_times"]
         if let openTimesList = openTimesList {
             for openTime in openTimesList {
@@ -213,7 +213,7 @@ public class WOKSpecialSchedule: Object, Mappable {
 }
 
 
-public class WOKOpenTimes: Object, Mappable {
+public class WOPOpenTimes: Object, Mappable {
     @objc public dynamic var schedule = 0
     @objc public dynamic var lastModified = ""
     @objc public dynamic var startDay = 0
@@ -236,7 +236,7 @@ public class WOKOpenTimes: Object, Mappable {
 
 }
 
-public class WOKAlert: Object, MapContext, Mappable {
+public class WOPAlert: Object, MapContext, Mappable {
 	@objc public dynamic var id = 0
 	@objc public dynamic var created = ""
 	@objc public dynamic var lastModified = ""
@@ -262,14 +262,14 @@ public class WOKAlert: Object, MapContext, Mappable {
 
 // Updated for Swift 4, based on https://gist.github.com/Jerrot/fe233a94c5427a4ec29b but I removed the generics sorry code reuse
 class TagTransform : TransformType {
-	typealias Object = List<WOKFacilityTag>
+	typealias Object = List<WOPFacilityTag>
 	typealias JSON = [String]
 	
-	func transformFromJSON(_ value: Any?) -> List<WOKFacilityTag>? {
-		let result = List<WOKFacilityTag>()
+	func transformFromJSON(_ value: Any?) -> List<WOPFacilityTag>? {
+		let result = List<WOPFacilityTag>()
 		if let tempArr = value as! [String]? {
 			for entry in tempArr {
-				let tag = WOKFacilityTag()
+				let tag = WOPFacilityTag()
 				tag.tag = entry
 				result.append(tag)
 			}
@@ -277,7 +277,7 @@ class TagTransform : TransformType {
 		return result
 	}
 	
-	func transformToJSON(_ value: List<WOKFacilityTag>?) -> [String]? {
+	func transformToJSON(_ value: List<WOPFacilityTag>?) -> [String]? {
 		if (value!.count > 0) {
 			var result = [String]()
 			for entry in value! {

@@ -40,8 +40,8 @@ class FiltersTableViewController: UITableViewController {
 		tableView.reloadData()
         updateFacilities()
 	}
-	var filters: WOKFilters!
-	var facilities: List<WOKFacility>!
+	var filters: WOPFilters!
+	var facilities: List<WOPFacility>!
 	//var allLocations: [Locations] = [Locations]()
 	//var allCategories: [Categories]! = [Categories]()
 	
@@ -101,7 +101,7 @@ class FiltersTableViewController: UITableViewController {
 		case 1:
 			return 1
 		case 2:
-			return WOKSortMethod.count
+			return WOPSortMethod.count
 		case 3:
 			return 2
 		default:
@@ -163,20 +163,20 @@ class FiltersTableViewController: UITableViewController {
             }
 			return cell
 		  case 2:
-			let method: WOKSortMethod
+			let method: WOPSortMethod
 			let cellText: String
 			switch indexPath.row {
 			case 0:
-				method = WOKSortMethod.alphabetical
+				method = WOPSortMethod.alphabetical
 				cellText = "Alphabetically (A-Z)"
 			case 1:
-				method = WOKSortMethod.reverseAlphabetical
+				method = WOPSortMethod.reverseAlphabetical
 				cellText = "Reverse Alphabetically (Z-A)"
 			case 2:
-				method = WOKSortMethod.byLocation
+				method = WOPSortMethod.byLocation
 				cellText = "By Location Name (A-Z)"
 			default:
-				method = WOKSortMethod.alphabetical
+				method = WOPSortMethod.alphabetical
 				cellText = "Alphabetically (A-Z)"
 			}
 			let cell: CheckingTableViewCell
@@ -261,7 +261,7 @@ class FiltersTableViewController: UITableViewController {
 	}
 	
 	func onlyCheckOne(_ method: Any?) -> Bool {
-		filters.sortBy = method as! WOKSortMethod // Be careful when calling this
+		filters.sortBy = method as! WOPSortMethod // Be careful when calling this
 		tableView.reloadData()
 		return true
 	}

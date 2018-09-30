@@ -101,7 +101,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				cell.textLabel?.text = "Show Alerts"
             	cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
             	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-				let alerts = WOKUtilities.getAlertDefaults()
+				let alerts = WOPUtilities.getAlertDefaults()
 				var i = 0
 				for c in alerts {
 					if(c.value == true) {
@@ -121,7 +121,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				cell.textLabel?.text = "Show Campuses"
 				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
             	cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-				let campuses = WOKUtilities.getCampusDefaults()
+				let campuses = WOPUtilities.getCampusDefaults()
 				var i = 0
 				for c in campuses {
 					if(c.value == true) {
@@ -280,17 +280,17 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			if (sender as! UITableViewCell).textLabel?.text == "Show Alerts" {
 				let destination = segue.destination as! FilterSelectionTableViewController
 				destination.navigationItem.title = "Show Alerts"
-				destination.getFunc = WOKUtilities.getAlertDefaults
-				destination.selectFunc = WOKUtilities.setAlertDefaults
-				destination.selectAllFunc = WOKUtilities.setAllAlertDefaults
+				destination.getFunc = WOPUtilities.getAlertDefaults
+				destination.selectFunc = WOPUtilities.setAlertDefaults
+				destination.selectAllFunc = WOPUtilities.setAllAlertDefaults
 				destination.updateFacilities = updateFacilities
 			}
 			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {
 				let destination = segue.destination as! FilterSelectionTableViewController
 				destination.navigationItem.title = "Show Campuses"
-				destination.getFunc = WOKUtilities.getCampusDefaults
-				destination.selectFunc = WOKUtilities.setCampusDefaults
-				destination.selectAllFunc = WOKUtilities.setAllCampusDefaults
+				destination.getFunc = WOPUtilities.getCampusDefaults
+				destination.selectFunc = WOPUtilities.setCampusDefaults
+				destination.selectAllFunc = WOPUtilities.setAllCampusDefaults
 				destination.updateFacilities = updateFacilities
 			}
 		}

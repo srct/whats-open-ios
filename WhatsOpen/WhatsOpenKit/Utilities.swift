@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class WOKUtilities: NSObject {
+public class WOPUtilities: NSObject {
 
-    public static func isOpen(facility: WOKFacility) -> Bool {
+    public static func isOpen(facility: WOPFacility) -> Bool {
         var open = false
 		let current = getCurrentSchedule(facility)
 		if current!.twentyFourHours {
@@ -28,7 +28,7 @@ public class WOKUtilities: NSObject {
         return open
     }
 
-    public static func getDayOfWeek(_ day: WOKDay, small: Bool = false) -> String? {
+    public static func getDayOfWeek(_ day: WOPDay, small: Bool = false) -> String? {
         if !small {
             switch day {
             case .Monday:
@@ -89,7 +89,7 @@ public class WOKUtilities: NSObject {
     }
 
     //Gets the current day of the week.
-    public static func today(facility: WOKFacility, special: Bool = false) -> WOKOpenTimes? {
+    public static func today(facility: WOPFacility, special: Bool = false) -> WOPOpenTimes? {
         let scheduleOpenTimes = getCurrentSchedule(facility)?.openTimes
 
         let currentDay = getCurrentDayOfWeek()
@@ -101,7 +101,7 @@ public class WOKUtilities: NSObject {
         return nil
     }
 
-    public static func getStartEndDates(_ facility: WOKFacility) -> (startTime: Date, endTime: Date)? {
+    public static func getStartEndDates(_ facility: WOPFacility) -> (startTime: Date, endTime: Date)? {
         let dateFormatter = DateFormatter.easternCoastTimeFormat
         // 24 Hour Case
         if self.isMainSchedule(facility: facility) && facility.mainSchedule!.twentyFourHours {
@@ -122,7 +122,7 @@ public class WOKUtilities: NSObject {
         return nil
     }
 
-    public static func time(_ facility: WOKFacility) -> Bool {
+    public static func time(_ facility: WOPFacility) -> Bool {
         let nowTime        = getCurrentTime()
         guard let startEnd = getStartEndDates(facility) else { return false }
         let startTime      = startEnd.startTime
@@ -138,7 +138,7 @@ public class WOKUtilities: NSObject {
         return (nowTime >= startTime) && nowTime <= (endTime)
     }
 
-    public static func timeUntilFacility(_ facility: WOKFacility) -> String? {
+    public static func timeUntilFacility(_ facility: WOPFacility) -> String? {
         //var currentTime = getCurrentTime()
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
@@ -149,7 +149,7 @@ public class WOKUtilities: NSObject {
 		if current!.twentyFourHours {
             return "Open all day"
         }
-		if(WOKUtilities.isOpen(facility: facility)) {
+		if(WOPUtilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
             if(isMainSchedule(facility: facility)) {
                 if(!current!.openTimes.isEmpty) {
@@ -174,7 +174,7 @@ public class WOKUtilities: NSObject {
         return nil
     }
 	
-    public static func openOrClosedUntil(_ facility: WOKFacility) -> String? {
+    public static func openOrClosedUntil(_ facility: WOPFacility) -> String? {
         let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
 
         let startEnd = getStartEndDates(facility)
@@ -182,7 +182,7 @@ public class WOKUtilities: NSObject {
         if current!.twentyFourHours {
             return "Open all day"
         }
-        if(WOKUtilities.isOpen(facility: facility)) {
+        if(WOPUtilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
 			if(!current!.openTimes.isEmpty) {
 				if startEnd != nil {
@@ -203,7 +203,7 @@ public class WOKUtilities: NSObject {
         return nil
     }
     
-    public static func getFormattedStartandEnd(_ openTime: WOKOpenTimes) -> String? {
+    public static func getFormattedStartandEnd(_ openTime: WOPOpenTimes) -> String? {
         //Is it inelegant to go from string to date to string? maybe.
         //Does it work? absolutely.
         
@@ -215,7 +215,7 @@ public class WOKUtilities: NSObject {
         var returning = viewingFormatter.string(from: startTime!) + " - "
         
         if(openTime.startDay != openTime.endDay) {
-            returning += getDayOfWeek((WOKDay(rawValue: openTime.endDay))!, small: true)! + " "
+            returning += getDayOfWeek((WOPDay(rawValue: openTime.endDay))!, small: true)! + " "
         }
         
         returning += viewingFormatter.string(from: endTime!)
@@ -230,7 +230,7 @@ public class WOKUtilities: NSObject {
     }
 	*/
 	
-	public static func getCurrentSchedule(_ facility: WOKFacility) -> WOKSchedule? {
+	public static func getCurrentSchedule(_ facility: WOPFacility) -> WOPSchedule? {
 		let formatter = ISO8601DateFormatter()
 		let now = Date()
 		if(facility.specialSchedules != nil) {
@@ -246,7 +246,7 @@ public class WOKUtilities: NSObject {
 		return facility.mainSchedule
 	}
 
-    public static func isMainSchedule(facility: WOKFacility) -> Bool {
+    public static func isMainSchedule(facility: WOPFacility) -> Bool {
         return facility.mainSchedule != nil
     }
     
@@ -258,7 +258,7 @@ public class WOKUtilities: NSObject {
      - returns:
         true if the facility is a favorite, false if it isn't
      */
-    public static func isFavoriteFacility(_ facility: WOKFacility) -> Bool {
+    public static func isFavoriteFacility(_ facility: WOPFacility) -> Bool {
         let defaults = UserDefaults.standard
         let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
 		if( favoriteStrings == nil ) {
@@ -276,7 +276,7 @@ public class WOKUtilities: NSObject {
      - returns:
         true if the facility was added correctly, false if the facility is already a favorite.
      */
-    public static func addFavoriteFacility(_ facility: WOKFacility) -> Bool {
+    public static func addFavoriteFacility(_ facility: WOPFacility) -> Bool {
         if(isFavoriteFacility(facility)) {
             return false
         }
@@ -298,7 +298,7 @@ public class WOKUtilities: NSObject {
      - returns:
         true if the facility was removed correctly, false if the facility is not a favorite.
      */
-    public static func removeFavoriteFacility(_ facility: WOKFacility) -> Bool {
+    public static func removeFavoriteFacility(_ facility: WOPFacility) -> Bool {
         if(isFavoriteFacility(facility)) {
             let defaults = UserDefaults.standard
             var favoriteStrings = defaults.array(forKey: "favorites") as! [String]

@@ -14,7 +14,7 @@ class AlertDetailViewController: UIViewController {
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var messageView: UITextView!
-	var alert: WOKAlert!
+	var alert: WOPAlert!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()

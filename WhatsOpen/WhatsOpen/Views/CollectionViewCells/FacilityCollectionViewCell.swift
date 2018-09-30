@@ -15,7 +15,7 @@ class FacilityCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var timeDescriptionLabel: UILabel!
 	@IBOutlet var openClosedLabel: PaddedUILabel!
     @IBOutlet var categoryLabel: UILabel!
-    var facility: WOKFacility!
+    var facility: WOPFacility!
 	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 	
 	override func awakeFromNib() {
