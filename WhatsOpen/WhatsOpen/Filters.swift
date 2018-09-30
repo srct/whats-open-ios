@@ -11,7 +11,7 @@ import RealmSwift
 
 //This may be a stupid way to handle filters, but it should work; at least for now
 
-class Filters {
+public class WOKFilters {
     var showOpen = true
     var showClosed = true
     var sortBy = SortMethod.alphabetical

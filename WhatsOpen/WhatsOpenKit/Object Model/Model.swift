@@ -20,15 +20,15 @@ enum Day: Int {
     // Add functions here later if we need them
 }
 
-class Facility: Object, MapContext, Mappable {
+public class WOKFacility: Object, MapContext, Mappable {
     @objc dynamic var slug = ""
     @objc dynamic var facilityName = ""
-    @objc dynamic var facilityLocation: Locations? = Locations()
-    @objc dynamic var category: Categories? = Categories()
-	var facilityTags: List<FacilityTag>?  = List<FacilityTag>()
-    @objc dynamic var mainSchedule: Schedule? = Schedule()
-	var specialSchedules: List<Schedule>? = List<Schedule>()
-	var labels: List<FacilityTag>? = List<FacilityTag>()
+    @objc dynamic var facilityLocation: WOKLocations? = WOKLocations()
+    @objc dynamic var category: WOKCategories? = WOKCategories()
+	var facilityTags: List<WOKFacilityTag>?  = List<WOKFacilityTag>()
+    @objc dynamic var mainSchedule: WOKSchedule? = WOKSchedule()
+	var specialSchedules: List<WOKSchedule>? = List<WOKSchedule>()
+	var labels: List<WOKFacilityTag>? = List<WOKFacilityTag>()
 	@objc dynamic var tapingoURL = ""
 	@objc dynamic var note = ""
 	@objc dynamic var logoURL = ""
@@ -43,7 +43,7 @@ class Facility: Object, MapContext, Mappable {
         category <- map["facility_category"]
         facilityTags <- (map["facility_product_tags"], TagTransform())
         mainSchedule <- map["main_schedule"]
-        specialSchedules <- (map["special_schedules"], ListTransform<Schedule>())
+        specialSchedules <- (map["special_schedules"], ListTransform<WOKSchedule>())
 		labels <- (map["facility_labels"], TagTransform())
 		tapingoURL <- map["tapingo_url"]
 		note <- map["note"]
@@ -54,7 +54,7 @@ class Facility: Object, MapContext, Mappable {
 
 }
 
-class Locations: Object, Mappable {
+public class WOKLocations: Object, Mappable {
     @objc dynamic var id = 0
     @objc dynamic var created = ""
     @objc dynamic var lastmodified = ""
@@ -63,7 +63,7 @@ class Locations: Object, Mappable {
     @objc dynamic var campus = ""
     @objc dynamic var onCampus = false
     @objc dynamic var abbreviation = ""
-	@objc dynamic var coordinates: Coordinates? = Coordinates()
+	@objc dynamic var coordinates: WOKCoordinates? = WOKCoordinates()
 
     required convenience init?(map: Map){
 		self.init()
@@ -81,7 +81,7 @@ class Locations: Object, Mappable {
 		coordinates <- map["coordinate_location"]
     }
 	
-	func equals(_ another: Locations) -> Bool {
+	func equals(_ another: WOKLocations) -> Bool {
 		if  self.building == another.building &&
 		    self.address == another.address &&
 		    self.campus == another.campus &&
@@ -95,7 +95,7 @@ class Locations: Object, Mappable {
 
 }
 
-class Coordinates: Object, Mappable {
+public class WOKCoordinates: Object, Mappable {
 	var coords: List<Double>? = List<Double>()
 	@objc dynamic var type = ""
 	
@@ -109,7 +109,7 @@ class Coordinates: Object, Mappable {
 	}
 }
 
-class Categories: Object, Mappable {
+public class WOKCategories: Object, Mappable {
     @objc dynamic var id = 0
     @objc dynamic var created = ""
     @objc dynamic var modified = ""
@@ -125,13 +125,13 @@ class Categories: Object, Mappable {
         categoryName <- map["name"]
     }
 	
-	func equals(_ another: Categories) -> Bool {
+	func equals(_ another: WOKCategories) -> Bool {
 		return another.categoryName == self.categoryName
 	}
 
 }
 
-class FacilityTag: Object, Mappable {
+public class WOKFacilityTag: Object, Mappable {
     @objc dynamic var tag = ""
 	
 	
@@ -147,9 +147,9 @@ class FacilityTag: Object, Mappable {
 	
 }
 
-class Schedule: Object, Mappable {
+public class WOKSchedule: Object, Mappable {
     @objc dynamic var id = 0
-    var openTimes = List<OpenTimes>()
+    var openTimes = List<WOKOpenTimes>()
     @objc dynamic var lastModified = ""
     @objc dynamic var name = ""
     @objc dynamic var validStart = ""
@@ -164,7 +164,7 @@ class Schedule: Object, Mappable {
     func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
-        var openTimesList: [OpenTimes]?
+        var openTimesList: [WOKOpenTimes]?
         openTimesList <- map["open_times"]
         if let openTimesList = openTimesList {
             for openTime in openTimesList {
@@ -179,14 +179,14 @@ class Schedule: Object, Mappable {
     }
 }
 
-class SpecialSchedule: Object, Mappable {
+public class WOKSpecialSchedule: Object, Mappable {
 
     convenience required init?(map: Map) {
         self.init()
     }
 
     @objc dynamic var id = 0
-    var openTimes = List<OpenTimes>()
+    var openTimes = List<WOKOpenTimes>()
     @objc dynamic var lastModified = ""
     @objc dynamic var name = ""
     @objc dynamic var validStart = ""
@@ -196,7 +196,7 @@ class SpecialSchedule: Object, Mappable {
     func mapping(map: Map){
         id <- map["id"]
         // This is a way around mapping to a list object
-        var openTimesList: [OpenTimes]?
+        var openTimesList: [WOKOpenTimes]?
         openTimesList <- map["open_times"]
         if let openTimesList = openTimesList {
             for openTime in openTimesList {
@@ -213,7 +213,7 @@ class SpecialSchedule: Object, Mappable {
 }
 
 
-class OpenTimes: Object, Mappable {
+public class WOKOpenTimes: Object, Mappable {
     @objc dynamic var schedule = 0
     @objc dynamic var lastModified = ""
     @objc dynamic var startDay = 0
@@ -236,7 +236,7 @@ class OpenTimes: Object, Mappable {
 
 }
 
-class Alert: Object, MapContext, Mappable {
+public class WOKAlert: Object, MapContext, Mappable {
 	@objc dynamic var id = 0
 	@objc dynamic var created = ""
 	@objc dynamic var lastModified = ""
@@ -318,117 +318,6 @@ class CoordTransform: TransformType {
 	
 }
 
-
-/**struct OpenTimes: CreatableFromJSON { // TODO: Rename this struct
-    let endDay: Int
-    let endTime: Date
-    let id: Int
-    let lastModified: Date
-    let schedule: Int
-    let startDay: Int
-    let startTime: Date
-    init(endDay: Int, endTime: Date, id: Int, lastModified: Date, schedule: Int, startDay: Int, startTime: Date) {
-        self.endDay = endDay
-        self.endTime = endTime
-        self.id = id
-        self.lastModified = lastModified
-        self.schedule = schedule
-        self.startDay = startDay
-        self.startTime = startTime
-    }
-    init?(json: [String: Any]) {
-        guard let endDay = json["end_day"] as? Int else { return nil }
-        guard let endTime = Date(json: json, key: "end_time", format: "HH:mm:ss") else { return nil }
-        guard let id = json["id"] as? Int else { return nil }
-        guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-        guard let schedule = json["schedule"] as? Int else { return nil }
-        guard let startDay = json["start_day"] as? Int else { return nil }
-        guard let startTime = Date(json: json, key: "start_time", format: "HH:mm:ss") else { return nil }
-        self.init(endDay: endDay, endTime: endTime, id: id, lastModified: lastModified, schedule: schedule, startDay: startDay, startTime: startTime)
-    }
-}
-
-
-struct Facility: CreatableFromJSON { // TODO: Rename this struct
-    let category: Any?
-    let id: Int
-    let lastModified: Date
-    let location: String
-    let mainSchedule: MainSchedule
-    let name: String
-    let specialSchedules: SpecialSchedules?
-    init(category: Any?, id: Int, lastModified: Date, location: String, mainSchedule: MainSchedule, name: String, specialSchedules: SpecialSchedules?) {
-        self.category = category
-        self.id = id
-        self.lastModified = lastModified
-        self.location = location
-        self.mainSchedule = mainSchedule
-        self.name = name
-        self.specialSchedules = specialSchedules
-    }
-    init?(json: [String: Any]) {
-        guard let id = json["id"] as? Int else { return nil }
-        guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-        guard let location = json["location"] as? String else { return nil }
-        guard let mainSchedule = MainSchedule(json: json, key: "main_schedule") else { return nil }
-        guard let name = json["name"] as? String else { return nil }
-        let specialSchedules = SpecialSchedules(json: json, key: "special_schedules")
-        let category = json["category"] as? [Any?]
-        self.init(category: category, id: id, lastModified: lastModified, location: location, mainSchedule: mainSchedule, name: name, specialSchedules: specialSchedules)
-    }
-    struct MainSchedule: CreatableFromJSON { // TODO: Rename this struct
-        let id: Int
-        let lastModified: Date
-        let name: String
-        let openTimes: [OpenTimes]
-        let validEnd: Date
-        let validStart: Date
-        init(id: Int, lastModified: Date, name: String, openTimes: [OpenTimes], validEnd: Date, validStart: Date) {
-            self.id = id
-            self.lastModified = lastModified
-            self.name = name
-            self.openTimes = openTimes
-            self.validEnd = validEnd
-            self.validStart = validStart
-        }
-        init?(json: [String: Any]) {
-            guard let id = json["id"] as? Int else { return nil }
-            guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-            guard let name = json["name"] as? String else { return nil }
-            guard let openTimes = OpenTimes.createRequiredInstances(from: json, arrayKey: "open_times") else { return nil }
-            guard let validEnd = Date(json: json, key: "valid_end", format: "yyyy-MM-dd") else { return nil }
-            guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
-            self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
-        }
-
-    }
-    struct SpecialSchedules: CreatableFromJSON { // TODO: Rename this struct
-        let id: Int
-        let lastModified: Date
-        let name: String
-        let openTimes: [OpenTimes]
-        let validEnd: Date
-        let validStart: Date
-        init(id: Int, lastModified: Date, name: String, openTimes: [OpenTimes], validEnd: Date, validStart: Date) {
-            self.id = id
-            self.lastModified = lastModified
-            self.name = name
-            self.openTimes = openTimes
-            self.validEnd = validEnd
-            self.validStart = validStart
-        }
-        init?(json: [String: Any]) {
-            guard let id = json["id"] as? Int else { return nil }
-            guard let lastModified = Date(json: json, key: "last_modified", format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") else { return nil }
-            guard let name = json["name"] as? String else { return nil }
-            guard let openTimes = OpenTimes.createRequiredInstances(from: json, arrayKey: "open_times") else { return nil }
-            guard let validEnd = Date(json: json, key: "valid_end", format: "yyyy-MM-dd") else { return nil }
-            guard let validStart = Date(json: json, key: "valid_start", format: "yyyy-MM-dd") else { return nil }
-            self.init(id: id, lastModified: lastModified, name: name, openTimes: openTimes, validEnd: validEnd, validStart: validStart)
-        }
-    }
-}
-**/
 //
 // MARK: - JSON Utilities
 //
@@ -484,7 +373,7 @@ extension CreatableFromJSON {
     }
 }
 
-extension Date {
+public extension Date {
     // Date formatters are cached because they are expensive to create. All cache access is performed on a serial queue.
     private static let cacheQueue = DispatchQueue(label: "DateFormatterCacheQueue")
     private static var formatterCache = [String: DateFormatter]()
@@ -512,7 +401,7 @@ extension Date {
     }
 }
 
-extension URL {
+public extension URL {
     init?(json: [String: Any], key: String) {
         guard let string = json[key] as? String else { return nil }
         self.init(string: string)

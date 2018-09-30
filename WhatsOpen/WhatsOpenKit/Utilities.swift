@@ -6,9 +6,9 @@
 //  Copyright © 2016 SRCT. Some rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Utilities: NSObject {
+public class WOKUtilities: NSObject {
 
     static func isOpen(facility: Facility) -> Bool {
         var open = false

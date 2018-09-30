@@ -22,10 +22,8 @@
 		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
 		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
-		9203CB942023D51A006ACC3B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
-		9203CB972023D51A006ACC3B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */; };
@@ -47,10 +45,14 @@
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
-		9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
+		928EC2592160475A00D8F9FE /* WhatsOpenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; };
+		928EC25A2160475A00D8F9FE /* WhatsOpenKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		928EC2612160497400D8F9FE /* WhatsOpenKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		928EC262216049F900D8F9FE /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DC1EC0010300DFBDA3 /* Filters.swift */; };
+		928EC26321604ADD00D8F9FE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
@@ -62,7 +64,6 @@
 		A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		CD763A7A1DE24EF100ADFD6B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* Model.swift */; };
-		CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A7D1DE253B900ADFD6B /* Utilities.swift */; };
 		CD81F51D1DC0334600009FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81F51C1DC0334600009FBD /* AppDelegate.swift */; };
 		CD81F5221DC0334600009FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5201DC0334600009FBD /* Main.storyboard */; };
 		CD81F5241DC0334600009FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD81F5231DC0334600009FBD /* Assets.xcassets */; };
@@ -77,7 +78,39 @@
 			remoteGlobalIDString = CD81F5181DC0334600009FBD;
 			remoteInfo = WhatsOpen;
 		};
+		928EC2572160475A00D8F9FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928EC2512160475900D8F9FE;
+			remoteInfo = WhatsOpenKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9255C5B521556E410094C947 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				928EC25A2160475A00D8F9FE /* WhatsOpenKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928EC2602160495800D8F9FE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				928EC2612160497400D8F9FE /* WhatsOpenKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
@@ -92,15 +125,18 @@
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
 		924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButtonsViewController.swift; sourceTree = "<group>"; };
+		9255C5AA21556E410094C947 /* WhatsOpenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatsOpenKit.h; sourceTree = "<group>"; };
+		9255C5AB21556E410094C947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOneDefaultTableViewController.swift; sourceTree = "<group>"; };
 		9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingTableViewCell.swift; sourceTree = "<group>"; };
-		9270A4DC1EC0010300DFBDA3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		9270A4DC1EC0010300DFBDA3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filters.swift; path = ../WhatsOpen/Filters.swift; sourceTree = "<group>"; };
 		927A8466141434969CE74044 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIconTableViewController.swift; sourceTree = "<group>"; };
+		928EC2522160475900D8F9FE /* WhatsOpenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsOpenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionTableViewController.swift; sourceTree = "<group>"; };
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		92B89E2F2009444E00928284 /* PullingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +146,8 @@
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
-		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
-		CD763A791DE24EF100ADFD6B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "Object Model/Model.swift"; sourceTree = "<group>"; };
+		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloadController.swift; path = ../DownloadController.swift; sourceTree = "<group>"; };
+		CD763A791DE24EF100ADFD6B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "../Object Model/Model.swift"; sourceTree = "<group>"; };
 		CD763A7D1DE253B900ADFD6B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CD81F5191DC0334600009FBD /* WhatsOpen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOpen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD81F51C1DC0334600009FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,11 +176,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		928EC24F2160475900D8F9FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD81F5161DC0334600009FBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */,
+				928EC2592160475A00D8F9FE /* WhatsOpenKit.framework in Frameworks */,
 				A59CFF110A3F520FC73EF32E /* Pods_WhatsOpen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +246,18 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		9255C5A921556E410094C947 /* WhatsOpenKit */ = {
+			isa = PBXGroup;
+			children = (
+				CD81F5301DC03AA700009FBD /* Data Retrieval */,
+				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
+				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
+				9255C5AA21556E410094C947 /* WhatsOpenKit.h */,
+				9255C5AB21556E410094C947 /* Info.plist */,
+			);
+			path = WhatsOpenKit;
+			sourceTree = "<group>";
+		};
 		928794021FA27C8A008860FF /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +290,7 @@
 			children = (
 				92DA57CC20C99C0C00EFDE7C /* WhatsOpen - AppStore.entitlements */,
 				CD81F51B1DC0334600009FBD /* WhatsOpen */,
+				9255C5A921556E410094C947 /* WhatsOpenKit */,
 				CD81F51A1DC0334600009FBD /* Products */,
 				2EAE8AD7B1F0ADDED5057982 /* Pods */,
 				FD2AE174B8FDE3008F34206E /* Frameworks */,
@@ -247,6 +304,7 @@
 				CD81F5191DC0334600009FBD /* WhatsOpen.app */,
 				7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */,
 				9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */,
+				928EC2522160475900D8F9FE /* WhatsOpenKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,10 +312,7 @@
 		CD81F51B1DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXGroup;
 			children = (
-				CD81F5301DC03AA700009FBD /* Data Retrieval */,
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
-				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
-				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
 				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
 				920D17961F6C5CD200D63295 /* Views */,
@@ -277,6 +332,7 @@
 				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 			);
 			name = "Data Retrieval";
+			path = WhatsOpen;
 			sourceTree = "<group>";
 		};
 		FD2AE174B8FDE3008F34206E /* Frameworks */ = {
@@ -289,6 +345,16 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		928EC24D2160475900D8F9FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		7F4743171E11C7D100E6E3D1 /* WhatsOpenTests */ = {
@@ -322,6 +388,7 @@
 				9203CBA92023D51A006ACC3B /* ShellScript */,
 				2CAF8F8BA1ACFF36190F4FE1 /* [CP] Embed Pods Frameworks */,
 				DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */,
+				928EC2602160495800D8F9FE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +398,24 @@
 			productName = WhatsOpen;
 			productReference = 9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */;
 			productType = "com.apple.product-type.application";
+		};
+		928EC2512160475900D8F9FE /* WhatsOpenKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 928EC25E2160475A00D8F9FE /* Build configuration list for PBXNativeTarget "WhatsOpenKit" */;
+			buildPhases = (
+				928EC24D2160475900D8F9FE /* Headers */,
+				928EC24E2160475900D8F9FE /* Sources */,
+				928EC24F2160475900D8F9FE /* Frameworks */,
+				928EC2502160475900D8F9FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsOpenKit;
+			productName = WhatsOpenKit;
+			productReference = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		CD81F5181DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXNativeTarget;
@@ -345,10 +430,12 @@
 				E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */,
 				92FF6C7820017E1C00D836AE /* Run Script */,
 				922C3C1B200306F5008E1146 /* ShellScript */,
+				9255C5B521556E410094C947 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				928EC2582160475A00D8F9FE /* PBXTargetDependency */,
 			);
 			name = WhatsOpen;
 			productName = WhatsOpen;
@@ -385,6 +472,11 @@
 							};
 						};
 					};
+					928EC2512160475900D8F9FE = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = N5GM564QWL;
+						ProvisioningStyle = Automatic;
+					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = N5GM564QWL;
@@ -409,6 +501,7 @@
 				CD81F5181DC0334600009FBD /* WhatsOpen */,
 				7F4743171E11C7D100E6E3D1 /* WhatsOpenTests */,
 				9203CB822023D51A006ACC3B /* WhatsOpen - AppStore */,
+				928EC2512160475900D8F9FE /* WhatsOpenKit */,
 			);
 		};
 /* End PBXProject section */
@@ -430,6 +523,13 @@
 				9203CBA32023D51A006ACC3B /* Settings.bundle in Resources */,
 				9203CBA42023D51A006ACC3B /* Main.storyboard in Resources */,
 				9203CBA52023D51A006ACC3B /* Pods-WhatsOpen-acknowledgements.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928EC2502160475900D8F9FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,16 +776,23 @@
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
-				9203CB942023D51A006ACC3B /* Filters.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
-				9203CB972023D51A006ACC3B /* Utilities.swift in Sources */,
 				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
 				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
 				9203CB992023D51A006ACC3B /* DownloadController.swift in Sources */,
 				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
 				9203CB9C2023D51A006ACC3B /* SwitchingTableViewCell.swift in Sources */,
 				9203CB9D2023D51A006ACC3B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928EC24E2160475900D8F9FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				928EC26321604ADD00D8F9FE /* Utilities.swift in Sources */,
+				928EC262216049F900D8F9FE /* Filters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,10 +813,8 @@
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
-				9270A4DD1EC0010300DFBDA3 /* Filters.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
-				CD763A7E1DE253B900ADFD6B /* Utilities.swift in Sources */,
 				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
 				CD3C97491DC18AB300A84434 /* DownloadController.swift in Sources */,
@@ -726,6 +831,11 @@
 			isa = PBXTargetDependency;
 			target = CD81F5181DC0334600009FBD /* WhatsOpen */;
 			targetProxy = 7F47431D1E11C7D100E6E3D1 /* PBXContainerItemProxy */;
+		};
+		928EC2582160475A00D8F9FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928EC2512160475900D8F9FE /* WhatsOpenKit */;
+			targetProxy = 928EC2572160475A00D8F9FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -788,6 +898,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
 				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -818,6 +929,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
 				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -848,6 +960,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9776DBFE496D6125BCDE676 /* Pods-WhatsOpen - AppStore.app store.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				CODE_SIGN_ENTITLEMENTS = "WhatsOpen - AppStore.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -930,6 +1043,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -972,6 +1086,109 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsOpen.app/WhatsOpen";
+			};
+			name = "App Store";
+		};
+		928EC25B2160475A00D8F9FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N5GM564QWL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = WhatsOpenKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.WhatsOpenKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		928EC25C2160475A00D8F9FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N5GM564QWL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = WhatsOpenKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.WhatsOpenKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		928EC25D2160475A00D8F9FE /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = WhatsOpenKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.WhatsOpenKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = "App Store";
 		};
@@ -1086,7 +1303,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1114,7 +1333,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "appicon-dev";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1158,6 +1379,16 @@
 				9203CBAB2023D51A006ACC3B /* Debug */,
 				9203CBAC2023D51A006ACC3B /* Release */,
 				9203CBAD2023D51A006ACC3B /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		928EC25E2160475A00D8F9FE /* Build configuration list for PBXNativeTarget "WhatsOpenKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				928EC25B2160475A00D8F9FE /* Debug */,
+				928EC25C2160475A00D8F9FE /* Release */,
+				928EC25D2160475A00D8F9FE /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

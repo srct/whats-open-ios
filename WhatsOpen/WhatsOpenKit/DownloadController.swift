@@ -6,13 +6,12 @@
 //  Copyright © 2016 SRCT. All rights reserved.
 //
 
-import UIKit
 import Foundation
 import RealmSwift
 import Realm
 import ObjectMapper
 
-class DownloadController: NSObject {
+class WOKDownloadController: NSObject {
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json
     public static func performDownload(completion: @escaping (_ result: List<Facility>?) -> Void) {
 
