@@ -12,6 +12,8 @@ import RealmSwift
 import Fabric
 import Crashlytics
 
+import WhatsOpenKit
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,11 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
+		var defaults: UserDefaults
 		#if APPSTORE
 			Fabric.with([Crashlytics.self])
+			defaults = WOPDatabaseController.getDefaults(true)
+		#else
+			defaults = WOPDatabaseController.getDefaults(false)
 		#endif
 		
-		let defaults = UserDefaults.standard
+		
 		initAlerts(defaults)
 		initCampuses(defaults)
 		if defaults.value(forKey: "mapsApp") == nil {

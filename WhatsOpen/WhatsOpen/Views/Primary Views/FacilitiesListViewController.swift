@@ -12,26 +12,10 @@ import RealmSwift
 import StoreKit
 import WhatsOpenKit
 
-//Realm Model
-class FacilitiesModel: Object {
-	let facilities = List<WOPFacility>()
-	let alerts = List<WOPAlert>()
-	@objc dynamic var lastUpdated = Date()
-	@objc dynamic let id = 0
-}
-
-
 class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDelegateFlowLayout {
 
 	// Tell Realm to use this new configuration object for the default Realm
-	let realm = try! Realm(configuration: Realm.Configuration(
-		// Set the new schema version. This must be greater than the previously used
-		// version (if you've never set a schema version before, the version is 0).
-		schemaVersion: 3,
-		// We replace the data stored every 12 hours, do we _really_ need to worry about schema updates?
-		// I say nay.
-		deleteRealmIfMigrationNeeded: true
-	  ))
+	let realm = try! Realm(configuration: WOPDatabaseController.getConfig())
 
 	var facilitiesArray = List<WOPFacility>()
 	var alertsList = List<WOPAlert>()
@@ -189,7 +173,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			if(userActivity == nil) {
 				return // don't do anything
 			}
-			let facility = realm.objects(FacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
+			let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
 			if(facility == nil) {
 				return // don't do anything
 			}
@@ -473,7 +457,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			update(sender);
 		}
 		else {
-			let results = realm.objects(FacilitiesModel.self)
+			let results = realm.objects(WOPFacilitiesModel.self)
 			if results.count > 0 {
 				let model = results[0]
 				let facilities = model.facilities
@@ -530,7 +514,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		WOPDownloadController.performDownload { (facilities) in
 			if(facilities == nil) {
 				DispatchQueue.main.async {
-					let results = self.realm.objects(FacilitiesModel.self)
+					let results = self.realm.objects(WOPFacilitiesModel.self)
 					if results.count > 0 {
 						let model = results[0]
 						let facilitiesFromDB = model.facilities
@@ -558,9 +542,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					let date = Date()
 					self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(date))
 
-					let results = self.realm.objects(FacilitiesModel.self)
+					let results = self.realm.objects(WOPFacilitiesModel.self)
 					if results.count == 0 {
-						let model = FacilitiesModel()
+						let model = WOPFacilitiesModel()
 						for f in facilities! {
 							model.facilities.append(f)
 						}
@@ -596,7 +580,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		WOPDownloadController.performAlertsDownload { (alerts) in
 			if(alerts == nil) {
 				DispatchQueue.main.async {
-					let results = self.realm.objects(FacilitiesModel.self)
+					let results = self.realm.objects(WOPFacilitiesModel.self)
 					if results.count > 0 {
 						let model = results[0]
 						self.alertsList = model.alerts
@@ -610,10 +594,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.alertsList = alerts!
 				
 				DispatchQueue.main.async {
-					let results = self.realm.objects(FacilitiesModel.self)
+					let results = self.realm.objects(WOPFacilitiesModel.self)
 					if results.count == 0 {
 						try! self.realm.write {
-							let model = FacilitiesModel()
+							let model = WOPFacilitiesModel()
 							for a in alerts! {
 								model.alerts.append(a)
 							}
