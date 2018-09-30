@@ -206,6 +206,39 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			update(notification, completion: toDetailCompletion)
 		}
 	}
+
+	@objc func toDetailFromURL(_ notification: Notification) {
+		let facilityEncoded = notification.userInfo!["facility"] as? String
+		let facilityDecoded = facilityEncoded?.removingPercentEncoding
+		
+		let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (facilityDecoded)! + "'")).first
+		if(facility == nil) {
+			return // don't do anything
+		}
+		
+		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
+		dest.facility = facility!
+		
+		let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
+		detailViewWithButtons?.detailViewController = dest
+		detailViewWithButtons?.facility = dest.facility
+		let buttonDest = detailViewWithButtons!
+		
+		let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+		finalDestination?.currentViewController = buttonDest
+		let destDelegate = DeckTransitioningDelegate(isSwipeToDismissEnabled: true, dismissCompletion: begForReviews)
+		finalDestination?.modalPresentationStyle = .custom
+		finalDestination?.transitioningDelegate = destDelegate
+		
+		// present the detail view over the search controller if we're searching
+		if searchController.isActive {
+			searchController.present(finalDestination!, animated: true, completion: nil)
+		}
+		else {
+			present(finalDestination!, animated: true, completion: nil)
+		}
+	}
+
 	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
 		var trueDest: UIViewController
 		if destination is FacilityDetailViewController {
@@ -276,6 +309,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	override func viewDidLoad() {
 		NotificationCenter.default.addObserver(self, selector: #selector(toDetailFromSearch(_:)), name: NSNotification.Name(rawValue: "launchToFacility"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toDetailFromURL(_:)), name: NSNotification.Name(rawValue: "openFacilityFromURL"), object: nil)
 		
         super.viewDidLoad()
 		let nc = NotificationCenter.default

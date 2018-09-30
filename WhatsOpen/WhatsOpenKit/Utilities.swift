@@ -259,12 +259,7 @@ public class WOPUtilities: NSObject {
         true if the facility is a favorite, false if it isn't
      */
     public static func isFavoriteFacility(_ facility: WOPFacility) -> Bool {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
         let favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
 		if( favoriteStrings == nil ) {
 			return false
@@ -286,12 +281,7 @@ public class WOPUtilities: NSObject {
 			return false
 		}
 		else {
-		  var defaults: UserDefaults
-		  #if APPSTORE
-		  defaults = WOPDatabaseController.getDefaults(true)
-		  #else
-		  defaults = WOPDatabaseController.getDefaults(false)
-		  #endif
+		  let defaults = WOPDatabaseController.getDefaults()
 		  var favoriteStrings = defaults.array(forKey: "favorites") as! [String]?
 		  if(favoriteStrings == nil) {
 			  favoriteStrings = []
@@ -310,12 +300,7 @@ public class WOPUtilities: NSObject {
      */
     public static func removeFavoriteFacility(_ facility: WOPFacility) -> Bool {
         if(isFavoriteFacility(facility)) {
-			var defaults: UserDefaults
-			#if APPSTORE
-			defaults = WOPDatabaseController.getDefaults(true)
-			#else
-			defaults = WOPDatabaseController.getDefaults(false)
-			#endif
+			let defaults = WOPDatabaseController.getDefaults()
             var favoriteStrings = defaults.array(forKey: "favorites") as! [String]
             let removing = favoriteStrings.index(of: facility.facilityName)
             favoriteStrings.remove(at: removing!)
@@ -336,12 +321,7 @@ public class WOPUtilities: NSObject {
 	true if the alerts was added correctly.
 	*/
 	public static func setAlertDefaults(_ key: String, value: Bool) -> Bool {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 		if alerts != nil {
 			alerts!.updateValue(value, forKey: key)
@@ -360,12 +340,7 @@ public class WOPUtilities: NSObject {
 	true if the alerts was changed correctly, false if nil was retrieved from User Defaults.
 	*/
 	public static func setAllAlertDefaults() -> Bool {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		var alerts = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 
 		if alerts != nil {
@@ -394,12 +369,7 @@ public class WOPUtilities: NSObject {
 	item stored in User Defaults for key 'alerts'
 	*/
 	public static func getAlertDefaults() -> [String: Bool] {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		let returning = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
 		if returning == nil {
 			return [:]
@@ -419,12 +389,7 @@ public class WOPUtilities: NSObject {
 	true if the campus was added correctly.
 	*/
 	public static func setCampusDefaults(_ key: String, value: Bool) -> Bool {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		var campuses = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		if campuses != nil {
 			campuses!.updateValue(value, forKey: key)
@@ -443,12 +408,7 @@ public class WOPUtilities: NSObject {
 	true if the campuses were changed correctly, false if nil was retrieved from User Defaults.
 	*/
 	public static func setAllCampusDefaults() -> Bool {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		var campuses = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		
 		if campuses != nil {
@@ -477,12 +437,7 @@ public class WOPUtilities: NSObject {
 	item stored in User Defaults for key 'campuses'
 	*/
 	public static func getCampusDefaults() -> [String: Bool] {
-		var defaults: UserDefaults
-		#if APPSTORE
-		defaults = WOPDatabaseController.getDefaults(true)
-		#else
-		defaults = WOPDatabaseController.getDefaults(false)
-		#endif
+		let defaults = WOPDatabaseController.getDefaults()
 		let returning = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		if returning == nil {
 			return [:]

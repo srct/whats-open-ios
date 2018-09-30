@@ -39,11 +39,11 @@ public class WOPDatabaseController {
 		return config
 	}
 	
-	public static func getDefaults(_ isAppstore: Bool = false) -> UserDefaults {
-		if isAppstore {
-			return UserDefaults.init(suiteName: "group.edu.gmu.srct.whatsopen")!
-		} else {
-			return UserDefaults.standard
-		}
+	public static func getDefaults() -> UserDefaults {
+		#if APPSTORE
+		return UserDefaults.init(suiteName: "group.edu.gmu.srct.whatsopen")!
+		#else
+		return UserDefaults.standard
+		#endif
 	}
 }

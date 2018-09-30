@@ -23,14 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
-		var defaults: UserDefaults
 		#if APPSTORE
 			Fabric.with([Crashlytics.self])
-			defaults = WOPDatabaseController.getDefaults(true)
-		#else
-			defaults = WOPDatabaseController.getDefaults(false)
 		#endif
 		
+		let defaults = WOPDatabaseController.getDefaults()
 		
 		initAlerts(defaults)
 		initCampuses(defaults)
@@ -50,6 +47,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		else if userActivity.userInfo?["facility"] != nil {
 			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToFacility"), object: userActivity, userInfo: ["facility": userActivity.userInfo!["facility"]!]))
 			return true
+		} else {
+			return false
+		}
+	}
+	
+	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+		let base = URL(string: "/", relativeTo: url)?.absoluteString
+		if base == "whatsopen://open/" {
+			let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems
+			let facilityParam = queryItems?.filter({$0.name == "facility"}).first
+			if facilityParam != nil {
+				NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "openFacilityFromURL"), object: url, userInfo: ["facility": facilityParam!.value]))
+				return true
+			}
+			
+			return false
 		} else {
 			return false
 		}
