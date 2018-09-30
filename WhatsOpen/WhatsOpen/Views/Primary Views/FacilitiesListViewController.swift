@@ -210,8 +210,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@objc func toDetailFromURL(_ notification: Notification) {
 		let facilityEncoded = notification.userInfo!["facility"] as? String
 		let facilityDecoded = facilityEncoded?.removingPercentEncoding
-		
-		let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (facilityDecoded)! + "'")).first
+		print(facilityDecoded)
+		let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = \"" + (facilityDecoded)! + "\"")).first
 		if(facility == nil) {
 			return // don't do anything
 		}
