@@ -15,7 +15,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 
 	@IBOutlet var NameLabel: UILabel!
 	@IBOutlet var PlaceLabel: UILabel!
-	@IBOutlet var OpenLabel: UILabel!
+	@IBOutlet var OpenLabel: PaddedUILabel!
     @IBOutlet var CategoryLabel: UILabel!
 	@IBOutlet var OpenTimesList: UITableView!
 	let activity = NSUserActivity(activityType: "facility")
@@ -76,6 +76,9 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never
 		}
+		
+	  	OpenLabel.layer.cornerRadius = 16
+	  	OpenLabel.layer.masksToBounds = true
 		
 		setActivityUp()
         
