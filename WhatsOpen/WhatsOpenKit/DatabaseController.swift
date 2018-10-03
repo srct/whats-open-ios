@@ -32,7 +32,7 @@ public class WOPDatabaseController {
 		// If appstore, use an app group for the DB
 		#if APPSTORE
 		let fileURL = FileManager.default
-			.containerURL(forSecurityApplicationGroupIdentifier: "group.edu.gmu.srct.whatsopen")
+			.containerURL(forSecurityApplicationGroupIdentifier: "group.edu.gmu.srct.whatsopen")?.appendingPathComponent("Library/Application Support/", isDirectory: true)
 		config.fileURL = fileURL!.deletingLastPathComponent().appendingPathComponent("whatsopen.realm")
 		#endif
 		

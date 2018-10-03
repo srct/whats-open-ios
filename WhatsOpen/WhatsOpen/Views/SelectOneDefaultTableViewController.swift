@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import WhatsOpenKit
 
 class SelectOneDefaultTableViewController: UITableViewController {
 
 	// Passing functions rather than direct objects to make this class reusable
 	var options: [String]!
 	var defaultKey: String!
-	let defaults = UserDefaults.standard
+	let defaults = WOPDatabaseController.getDefaults()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

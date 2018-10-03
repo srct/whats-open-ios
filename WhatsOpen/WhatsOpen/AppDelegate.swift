@@ -24,10 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		
 		#if APPSTORE
-			Fabric.with([Crashlytics.self])
+		Fabric.with([Crashlytics.self])
+		
+		migrateDefaults()
 		#endif
 		
 		let defaults = WOPDatabaseController.getDefaults()
+		
 		
 		initAlerts(defaults)
 		initCampuses(defaults)
@@ -65,6 +68,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			return false
 		} else {
 			return false
+		}
+	}
+	
+	func migrateDefaults() {
+		let oldDefaults = UserDefaults.standard
+		if oldDefaults.integer(forKey: "migrated") <= 0 && oldDefaults.value(forKey: "mapsApp") != nil {
+			// migrating from a pre 1.2 release
+			let defaults = WOPDatabaseController.getDefaults()
+			defaults.set(oldDefaults.string(forKey: "mapsApp"), forKey: "mapsApp")
+			defaults.set(oldDefaults.dictionary(forKey: "alerts"), forKey: "alerts")
+			defaults.set(oldDefaults.dictionary(forKey: "campuses"), forKey: "campuses")
+			defaults.set(oldDefaults.array(forKey: "favorites") ?? [], forKey: "favorites")
+			defaults.set(1, forKey: "migrated")
+		} else if oldDefaults.value(forKey: "mapsApp") != nil {
+			// if initial launch, consider it migrated
+			let defaults = WOPDatabaseController.getDefaults()
+			defaults.set(1, forKey: "migrated")
 		}
 	}
 	

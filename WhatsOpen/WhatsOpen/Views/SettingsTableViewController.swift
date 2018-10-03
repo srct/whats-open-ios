@@ -88,7 +88,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				cell.textLabel!.text = "Select Maps App"
 				cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
 				cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-				cell.detailTextLabel?.text = UserDefaults.standard.value(forKey: "mapsApp") as? String
+				cell.detailTextLabel?.text = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 				cell.accessoryType = .disclosureIndicator
 				return cell
 			}

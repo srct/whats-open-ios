@@ -37,7 +37,7 @@ class DetailViewButtonsViewController: UIViewController {
 	}
 	
 	@IBAction func getDirections(_ sender: Any) {
-		let appToUse = UserDefaults.standard.value(forKey: "mapsApp") as? String
+		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 		
 		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
 			if let url = URL(string: "comgooglemaps://?q=\((facility.facilityLocation?.coordinates?.coords?.last)!)),\((facility.facilityLocation?.coordinates?.coords?.first)!)") {
@@ -103,7 +103,7 @@ class DetailViewButtonsViewController: UIViewController {
 		directionsButton.backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
 		directionsButton.layer.cornerRadius = 10
 		
-		let appToUse = UserDefaults.standard.value(forKey: "mapsApp") as? String
+		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
 			directionsButton.setTitle("View in Google Maps", for: .normal)
 		}

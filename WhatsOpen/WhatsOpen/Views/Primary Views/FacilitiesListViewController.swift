@@ -210,7 +210,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@objc func toDetailFromURL(_ notification: Notification) {
 		let facilityEncoded = notification.userInfo!["facility"] as? String
 		let facilityDecoded = facilityEncoded?.removingPercentEncoding
-		print(facilityDecoded)
 		let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = \"" + (facilityDecoded)! + "\"")).first
 		if(facility == nil) {
 			return // don't do anything
@@ -288,13 +287,14 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func begForReviews(_ dismissed: Bool) {
 		// MARK - Begging for App Reviews
-		let prompt = UserDefaults.standard.integer(forKey: "reviewPrompt")
+		let defaults = WOPDatabaseController.getDefaults()
+		let prompt = defaults.integer(forKey: "reviewPrompt")
 		if(arc4random_uniform(100) > 92 && prompt >= 4) {
 			SKStoreReviewController.requestReview()
-			UserDefaults.standard.set(0, forKey: "reviewPrompt")
+			defaults.set(0, forKey: "reviewPrompt")
 		}
 		else {
-			UserDefaults.standard.set(prompt + 1, forKey: "reviewPrompt")
+			defaults.set(prompt + 1, forKey: "reviewPrompt")
 		}
 	}
     
@@ -350,7 +350,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		filteredFacilities = filters.applyFiltersOnFacilities(facilitiesArray)
 
 		
-		let defaults = UserDefaults.standard
+		let defaults = WOPDatabaseController.getDefaults()
 
 		
 		// Campuses
@@ -524,7 +524,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	
 	func updateFiltersLists() {
 		// Add locations and categories to filters
-		let defaults = UserDefaults.standard
+		let defaults = WOPDatabaseController.getDefaults()
 		var campusFilters = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
 		for f in facilitiesArray {
 			if(!filters.onlyFromCategories.keys.contains((f.category?.categoryName)!)) {

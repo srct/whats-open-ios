@@ -43,7 +43,7 @@
 		92589A6521612D0E0002814F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92589A6421612D0E0002814F /* TodayViewController.swift */; };
 		92589A6821612D0E0002814F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92589A6621612D0E0002814F /* MainInterface.storyboard */; };
 		92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 92589A6021612D0D0002814F /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		92589A74216132850002814F /* WhatsOpenKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92589A752162DBF20002814F /* WhatsOpenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; };
 		9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
@@ -121,16 +121,6 @@
 				92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92589A732161327A0002814F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				92589A74216132850002814F /* WhatsOpenKit.framework in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		928EC2602160495800D8F9FE /* Embed Frameworks */ = {
@@ -229,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92589A752162DBF20002814F /* WhatsOpenKit.framework in Frameworks */,
 				92589A6221612D0D0002814F /* NotificationCenter.framework in Frameworks */,
 				F818083D0B4F94441442C5C1 /* Pods_TodayWidget.framework in Frameworks */,
 			);
@@ -314,13 +305,13 @@
 		9255C5A921556E410094C947 /* WhatsOpenKit */ = {
 			isa = PBXGroup;
 			children = (
+				928EC26621611E5900D8F9FE /* DatabaseController.swift */,
+				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
+				CD763A791DE24EF100ADFD6B /* Model.swift */,
 				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
 				9255C5AA21556E410094C947 /* WhatsOpenKit.h */,
-				CD763A791DE24EF100ADFD6B /* Model.swift */,
-				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 				9255C5AB21556E410094C947 /* Info.plist */,
-				928EC26621611E5900D8F9FE /* DatabaseController.swift */,
 			);
 			path = WhatsOpenKit;
 			sourceTree = "<group>";
@@ -482,7 +473,6 @@
 				92589A5C21612D0D0002814F /* Sources */,
 				92589A5D21612D0D0002814F /* Frameworks */,
 				92589A5E21612D0D0002814F /* Resources */,
-				92589A732161327A0002814F /* CopyFiles */,
 				B6B1E55889B1F6531E83B1F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
