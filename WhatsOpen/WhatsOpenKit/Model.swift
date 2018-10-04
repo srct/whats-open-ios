@@ -4,6 +4,7 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 import ObjectMapper_Realm
+import Intents
 //
 // MARK: - Data Model
 //
@@ -51,6 +52,14 @@ public class WOPFacility: Object, MapContext, Mappable {
 		
 		
     }
+	
+	public func createIntent() -> WOPViewFacilityIntent {
+		let viewFacilityIntent = WOPViewFacilityIntent()
+		viewFacilityIntent.facility = INObject(identifier: self.facilityName, display: self.facilityName)
+		viewFacilityIntent.name = self.facilityName
+		
+		return viewFacilityIntent
+	}
 
 }
 

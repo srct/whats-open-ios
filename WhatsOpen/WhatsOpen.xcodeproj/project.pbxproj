@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */; };
+		3DF3A9DAA7C88962F1C55979 /* Pods_ShortcutsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */; };
+		7763844D410056E36EE45D03 /* Pods_ShortcutsExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
@@ -48,6 +50,20 @@
 		9273EEC221658B0200CE63DC /* WOPSharedUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */; };
 		9273EEC321658BCC00CE63DC /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
 		9273EEC421658BF000CE63DC /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
+		9273EECE21659B6200CE63DC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273EECD21659B6200CE63DC /* IntentHandler.swift */; };
+		9273EED621659B6200CE63DC /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9273EED521659B6200CE63DC /* IntentsUI.framework */; };
+		9273EED921659B6200CE63DC /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273EED821659B6200CE63DC /* IntentViewController.swift */; };
+		9273EEDC21659B6200CE63DC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9273EEDA21659B6200CE63DC /* MainInterface.storyboard */; };
+		9273EEE021659B6200CE63DC /* ShortcutsExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9273EED421659B6200CE63DC /* ShortcutsExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9273EEE321659B6200CE63DC /* ShortcutsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9273EECB21659B6200CE63DC /* ShortcutsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9273EEEF21659D6C00CE63DC /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */; };
+		9273EEF12165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEF02165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift */; };
+		9273EEF52165B2CF00CE63DC /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		9273EEF62165B2D000CE63DC /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		9273EEF72165B2D100CE63DC /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		9273EEF82165B2D200CE63DC /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		9273EEF92165B7EF00CE63DC /* WhatsOpenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; };
+		9273EEFA2165B7F400CE63DC /* WhatsOpenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
@@ -90,6 +106,20 @@
 			remoteGlobalIDString = 92589A5F21612D0D0002814F;
 			remoteInfo = TodayWidget;
 		};
+		9273EEDE21659B6200CE63DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9273EED321659B6200CE63DC;
+			remoteInfo = ShortcutsExtensionUI;
+		};
+		9273EEE121659B6200CE63DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9273EECA21659B6200CE63DC;
+			remoteInfo = ShortcutsExtension;
+		};
 		928EC2572160475A00D8F9FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
@@ -117,7 +147,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				9273EEE021659B6200CE63DC /* ShortcutsExtensionUI.appex in Embed App Extensions */,
 				92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */,
+				9273EEE321659B6200CE63DC /* ShortcutsExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,12 +171,15 @@
 		1DC9CEB7900C4AEBE0625A64 /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
 		310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.debug.xcconfig"; sourceTree = "<group>"; };
+		39495C344A4E1A462BF30731 /* Pods-ShortcutsExtensionUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.release.xcconfig"; sourceTree = "<group>"; };
+		45E129A4447EC838CF89C8AC /* Pods-ShortcutsExtension.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.app store.xcconfig"; sourceTree = "<group>"; };
 		460AB0309856213847CDB16C /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		55A0C09478B7DBC1FC75A8DC /* Pods-WhatsOpenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
 		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		869F4DC6A4433FB76695E722 /* Pods-ShortcutsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
 		92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitiesListViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +200,18 @@
 		9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingTableViewCell.swift; sourceTree = "<group>"; };
 		9270A4DC1EC0010300DFBDA3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filters.swift; path = ../WhatsOpen/Filters.swift; sourceTree = "<group>"; };
 		9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WOPSharedUI.storyboard; sourceTree = "<group>"; };
+		9273EECB21659B6200CE63DC /* ShortcutsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShortcutsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9273EECD21659B6200CE63DC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		9273EECF21659B6200CE63DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9273EED421659B6200CE63DC /* ShortcutsExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShortcutsExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9273EED521659B6200CE63DC /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		9273EED821659B6200CE63DC /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		9273EEDB21659B6200CE63DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9273EEDD21659B6200CE63DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9273EEEC21659C0A00CE63DC /* ShortcutsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShortcutsExtension.entitlements; sourceTree = "<group>"; };
+		9273EEED21659C1400CE63DC /* ShortcutsExtensionUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShortcutsExtensionUI.entitlements; sourceTree = "<group>"; };
+		9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		9273EEF02165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOPViewFacilityIntentHandler.swift; sourceTree = "<group>"; };
 		927A8466141434969CE74044 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +227,9 @@
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortcutsExtensionUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortcutsExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A20E0036105B944C0F901B /* Pods-ShortcutsExtensionUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CB841F0B185710285842956F /* Pods-WhatsOpenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.release.xcconfig"; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
 		CD763A791DE24EF100ADFD6B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -191,6 +241,8 @@
 		CD81F5261DC0334600009FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD81F5281DC0334600009FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.release.xcconfig"; sourceTree = "<group>"; };
+		D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.app store.xcconfig"; sourceTree = "<group>"; };
+		D63A18437F44F3D06B8F94D4 /* Pods-ShortcutsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D83C5750929E8AD66295CF5C /* Pods-TodayWidget.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.app store.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.app store.xcconfig"; sourceTree = "<group>"; };
 		DB22D6AE95603F809C4B3FFC /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07255E2520C5F76ABB7A176 /* Pods-WhatsOpenKit.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.app store.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +274,25 @@
 				92589A752162DBF20002814F /* WhatsOpenKit.framework in Frameworks */,
 				92589A6221612D0D0002814F /* NotificationCenter.framework in Frameworks */,
 				F818083D0B4F94441442C5C1 /* Pods_TodayWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9273EEC821659B6200CE63DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9273EEF92165B7EF00CE63DC /* WhatsOpenKit.framework in Frameworks */,
+				3DF3A9DAA7C88962F1C55979 /* Pods_ShortcutsExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9273EED121659B6200CE63DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9273EEFA2165B7F400CE63DC /* WhatsOpenKit.framework in Frameworks */,
+				9273EED621659B6200CE63DC /* IntentsUI.framework in Frameworks */,
+				7763844D410056E36EE45D03 /* Pods_ShortcutsExtensionUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +332,12 @@
 				460AB0309856213847CDB16C /* Pods-TodayWidget.debug.xcconfig */,
 				1DC9CEB7900C4AEBE0625A64 /* Pods-TodayWidget.release.xcconfig */,
 				D83C5750929E8AD66295CF5C /* Pods-TodayWidget.app store.xcconfig */,
+				D63A18437F44F3D06B8F94D4 /* Pods-ShortcutsExtension.debug.xcconfig */,
+				869F4DC6A4433FB76695E722 /* Pods-ShortcutsExtension.release.xcconfig */,
+				45E129A4447EC838CF89C8AC /* Pods-ShortcutsExtension.app store.xcconfig */,
+				C2A20E0036105B944C0F901B /* Pods-ShortcutsExtensionUI.debug.xcconfig */,
+				39495C344A4E1A462BF30731 /* Pods-ShortcutsExtensionUI.release.xcconfig */,
+				D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -315,6 +392,8 @@
 				9255C5AA21556E410094C947 /* WhatsOpenKit.h */,
 				9255C5AB21556E410094C947 /* Info.plist */,
 				9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */,
+				9273EEEE21659D6C00CE63DC /* Intents.intentdefinition */,
+				9273EEF02165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift */,
 			);
 			path = WhatsOpenKit;
 			sourceTree = "<group>";
@@ -328,6 +407,27 @@
 				92589A6921612D0E0002814F /* Info.plist */,
 			);
 			path = TodayWidget;
+			sourceTree = "<group>";
+		};
+		9273EECC21659B6200CE63DC /* ShortcutsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				9273EEEC21659C0A00CE63DC /* ShortcutsExtension.entitlements */,
+				9273EECD21659B6200CE63DC /* IntentHandler.swift */,
+				9273EECF21659B6200CE63DC /* Info.plist */,
+			);
+			path = ShortcutsExtension;
+			sourceTree = "<group>";
+		};
+		9273EED721659B6200CE63DC /* ShortcutsExtensionUI */ = {
+			isa = PBXGroup;
+			children = (
+				9273EEED21659C1400CE63DC /* ShortcutsExtensionUI.entitlements */,
+				9273EED821659B6200CE63DC /* IntentViewController.swift */,
+				9273EEDA21659B6200CE63DC /* MainInterface.storyboard */,
+				9273EEDD21659B6200CE63DC /* Info.plist */,
+			);
+			path = ShortcutsExtensionUI;
 			sourceTree = "<group>";
 		};
 		928794021FA27C8A008860FF /* Recovered References */ = {
@@ -363,6 +463,8 @@
 				CD81F51B1DC0334600009FBD /* WhatsOpen */,
 				9255C5A921556E410094C947 /* WhatsOpenKit */,
 				92589A6321612D0D0002814F /* TodayWidget */,
+				9273EECC21659B6200CE63DC /* ShortcutsExtension */,
+				9273EED721659B6200CE63DC /* ShortcutsExtensionUI */,
 				CD81F51A1DC0334600009FBD /* Products */,
 				2EAE8AD7B1F0ADDED5057982 /* Pods */,
 				FD2AE174B8FDE3008F34206E /* Frameworks */,
@@ -378,6 +480,8 @@
 				9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */,
 				928EC2522160475900D8F9FE /* WhatsOpenKit.framework */,
 				92589A6021612D0D0002814F /* TodayWidget.appex */,
+				9273EECB21659B6200CE63DC /* ShortcutsExtension.appex */,
+				9273EED421659B6200CE63DC /* ShortcutsExtensionUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,6 +509,9 @@
 				FF3718A2AEE4A2CD5BCC3B38 /* Pods_WhatsOpenKit.framework */,
 				92589A6121612D0D0002814F /* NotificationCenter.framework */,
 				DB22D6AE95603F809C4B3FFC /* Pods_TodayWidget.framework */,
+				9273EED521659B6200CE63DC /* IntentsUI.framework */,
+				B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */,
+				93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -460,6 +567,8 @@
 			);
 			dependencies = (
 				92589A6B21612D0E0002814F /* PBXTargetDependency */,
+				9273EEDF21659B6200CE63DC /* PBXTargetDependency */,
+				9273EEE221659B6200CE63DC /* PBXTargetDependency */,
 			);
 			name = "WhatsOpen - AppStore";
 			productName = WhatsOpen;
@@ -483,6 +592,44 @@
 			name = TodayWidget;
 			productName = TodayWidget;
 			productReference = 92589A6021612D0D0002814F /* TodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		9273EECA21659B6200CE63DC /* ShortcutsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9273EEE821659B6200CE63DC /* Build configuration list for PBXNativeTarget "ShortcutsExtension" */;
+			buildPhases = (
+				F31B89186CA019530B7F6449 /* [CP] Check Pods Manifest.lock */,
+				9273EEC721659B6200CE63DC /* Sources */,
+				9273EEC821659B6200CE63DC /* Frameworks */,
+				9273EEC921659B6200CE63DC /* Resources */,
+				848897D0F86D83EA0F16016D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShortcutsExtension;
+			productName = ShortcutsExtension;
+			productReference = 9273EECB21659B6200CE63DC /* ShortcutsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		9273EED321659B6200CE63DC /* ShortcutsExtensionUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9273EEE421659B6200CE63DC /* Build configuration list for PBXNativeTarget "ShortcutsExtensionUI" */;
+			buildPhases = (
+				BFB110D778755DB64A054ABC /* [CP] Check Pods Manifest.lock */,
+				9273EED021659B6200CE63DC /* Sources */,
+				9273EED121659B6200CE63DC /* Frameworks */,
+				9273EED221659B6200CE63DC /* Resources */,
+				63A9139880FF4D4AF77CC61E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShortcutsExtensionUI;
+			productName = ShortcutsExtensionUI;
+			productReference = 9273EED421659B6200CE63DC /* ShortcutsExtensionUI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		928EC2512160475900D8F9FE /* WhatsOpenKit */ = {
@@ -559,9 +706,32 @@
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
 					};
 					92589A5F21612D0D0002814F = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = K5MMVK2UFR;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					9273EECA21659B6200CE63DC = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = K5MMVK2UFR;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					9273EED321659B6200CE63DC = {
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = K5MMVK2UFR;
 						ProvisioningStyle = Automatic;
@@ -602,6 +772,8 @@
 				9203CB822023D51A006ACC3B /* WhatsOpen - AppStore */,
 				928EC2512160475900D8F9FE /* WhatsOpenKit */,
 				92589A5F21612D0D0002814F /* TodayWidget */,
+				9273EECA21659B6200CE63DC /* ShortcutsExtension */,
+				9273EED321659B6200CE63DC /* ShortcutsExtensionUI */,
 			);
 		};
 /* End PBXProject section */
@@ -631,6 +803,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				92589A6821612D0E0002814F /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9273EEC921659B6200CE63DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9273EED221659B6200CE63DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9273EEDC21659B6200CE63DC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +914,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		63A9139880FF4D4AF77CC61E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7BC7709F873C5C424EF1271F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -743,6 +945,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		848897D0F86D83EA0F16016D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		850CD1FD8C4AD32D27662A75 /* [CP] Check Pods Manifest.lock */ = {
@@ -875,6 +1092,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BFB110D778755DB64A054ABC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShortcutsExtensionUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -903,6 +1138,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F31B89186CA019530B7F6449 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShortcutsExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FFEF2697C05596C39AE92A08 /* [CP] Check Pods Manifest.lock */ = {
@@ -950,6 +1203,7 @@
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
+				9273EEF62165B2D000CE63DC /* Intents.intentdefinition in Sources */,
 				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
 				9203CB982023D51A006ACC3B /* SettingsTableViewController.swift in Sources */,
 				9203CB9B2023D51A006ACC3B /* IconSelectionTableViewCell.swift in Sources */,
@@ -966,6 +1220,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9273EEC721659B6200CE63DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9273EEF72165B2D100CE63DC /* Intents.intentdefinition in Sources */,
+				9273EECE21659B6200CE63DC /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9273EED021659B6200CE63DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9273EEF82165B2D200CE63DC /* Intents.intentdefinition in Sources */,
+				9273EED921659B6200CE63DC /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		928EC24E2160475900D8F9FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -974,8 +1246,10 @@
 				928EC26421604DD800D8F9FE /* DownloadController.swift in Sources */,
 				928EC26321604ADD00D8F9FE /* Utilities.swift in Sources */,
 				928EC262216049F900D8F9FE /* Filters.swift in Sources */,
+				9273EEF12165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift in Sources */,
 				9273EEC421658BF000CE63DC /* PaddedUILabel.swift in Sources */,
 				9273EEC321658BCC00CE63DC /* FacilityDetailViewController.swift in Sources */,
+				9273EEEF21659D6C00CE63DC /* Intents.intentdefinition in Sources */,
 				928EC26521605CD700D8F9FE /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -996,6 +1270,7 @@
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
+				9273EEF52165B2CF00CE63DC /* Intents.intentdefinition in Sources */,
 				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
 				927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */,
 				92FF6C7520016CF900D836AE /* IconSelectionTableViewCell.swift in Sources */,
@@ -1017,6 +1292,16 @@
 			target = 92589A5F21612D0D0002814F /* TodayWidget */;
 			targetProxy = 92589A6A21612D0E0002814F /* PBXContainerItemProxy */;
 		};
+		9273EEDF21659B6200CE63DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9273EED321659B6200CE63DC /* ShortcutsExtensionUI */;
+			targetProxy = 9273EEDE21659B6200CE63DC /* PBXContainerItemProxy */;
+		};
+		9273EEE221659B6200CE63DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9273EECA21659B6200CE63DC /* ShortcutsExtension */;
+			targetProxy = 9273EEE121659B6200CE63DC /* PBXContainerItemProxy */;
+		};
 		928EC2582160475A00D8F9FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 928EC2512160475900D8F9FE /* WhatsOpenKit */;
@@ -1029,6 +1314,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				92589A6721612D0E0002814F /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		9273EEDA21659B6200CE63DC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9273EEDB21659B6200CE63DC /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1264,6 +1557,176 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "App Store";
+		};
+		9273EEE521659B6200CE63DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A20E0036105B944C0F901B /* Pods-ShortcutsExtensionUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtensionUI/ShortcutsExtensionUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtensionUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9273EEE621659B6200CE63DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39495C344A4E1A462BF30731 /* Pods-ShortcutsExtensionUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtensionUI/ShortcutsExtensionUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtensionUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9273EEE721659B6200CE63DC /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtensionUI/ShortcutsExtensionUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtensionUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "App Store";
+		};
+		9273EEE921659B6200CE63DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D63A18437F44F3D06B8F94D4 /* Pods-ShortcutsExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtension/ShortcutsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9273EEEA21659B6200CE63DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 869F4DC6A4433FB76695E722 /* Pods-ShortcutsExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtension/ShortcutsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9273EEEB21659B6200CE63DC /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45E129A4447EC838CF89C8AC /* Pods-ShortcutsExtension.app store.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShortcutsExtension/ShortcutsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShortcutsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.ShortcutsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1674,6 +2137,26 @@
 				92589A6E21612D0E0002814F /* Debug */,
 				92589A6F21612D0E0002814F /* Release */,
 				92589A7021612D0E0002814F /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9273EEE421659B6200CE63DC /* Build configuration list for PBXNativeTarget "ShortcutsExtensionUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9273EEE521659B6200CE63DC /* Debug */,
+				9273EEE621659B6200CE63DC /* Release */,
+				9273EEE721659B6200CE63DC /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9273EEE821659B6200CE63DC /* Build configuration list for PBXNativeTarget "ShortcutsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9273EEE921659B6200CE63DC /* Debug */,
+				9273EEEA21659B6200CE63DC /* Release */,
+				9273EEEB21659B6200CE63DC /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

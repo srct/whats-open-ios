@@ -9,8 +9,11 @@
 import UIKit
 import MapKit
 import WhatsOpenKit
+import Intents
+import IntentsUI
 
-class DetailViewButtonsViewController: UIViewController {
+class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutViewControllerDelegate {
+	
 
 	@IBOutlet var facilityDetailView: UIView!
 	var detailViewController: WOPFacilityDetailViewController?
@@ -19,7 +22,10 @@ class DetailViewButtonsViewController: UIViewController {
 	@IBOutlet var favoritesButton: UIButton!
 	@IBOutlet var directionsButton: UIButton!
 	@IBOutlet var shareButton: UIButton!
+	@IBOutlet var addToSiriButton: UIButton!
 	
+	let activity = NSUserActivity(activityType: "facility")
+
 	/**
 	Favorites button touch handler
 	
@@ -119,10 +125,35 @@ class DetailViewButtonsViewController: UIViewController {
 		shareButton.setImage(#imageLiteral(resourceName: "shareIcon"), for: .normal)
 		shareButton.setTitle("", for: .normal)
 
+		setActivityUp()
 		
+		let interaction = INInteraction(intent: facility.createIntent(), response: WOPViewFacilityIntentUtils.getIntentResponse(facility, userActivity: activity))
+		interaction.donate(completion: nil)
         // Do any additional setup after loading the view.
     }
 	
+	func setActivityUp() {
+		activity.isEligibleForHandoff = true
+		activity.isEligibleForSearch = true
+		activity.addUserInfoEntries(from: ["facility": facility.facilityName])
+		activity.title = facility.facilityName
+		activity.keywords = Set<String>(arrayLiteral: facility.facilityName, facility.facilityLocation!.building)
+		//activity.keywords = [facility.facilityName, facility.facilityLocation?.building]
+		activity.webpageURL = URL(string: "https://whatsopen.gmu.edu/")
+		
+		activity.becomeCurrent()
+	}
+	
+	@IBAction func addToSiri(_ sender: Any) {
+		let intent = facility.createIntent()
+		if let shortcut = INShortcut(intent: intent) {
+			let viewController = INUIAddVoiceShortcutViewController(shortcut: INShortcut(intent: intent)!)
+			viewController.modalPresentationStyle = .formSheet
+			viewController.delegate = self // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+			present(viewController, animated: true, completion: nil)
+		}
+	}
+
 	func addSubview(_ subView: UIView, toView parentView: UIView) {
 		parentView.addSubview(subView)
 		
@@ -138,7 +169,16 @@ class DetailViewButtonsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	// MARK: INUIAdd... Delegate
+	
+	func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+		controller.dismiss(animated: true, completion: nil)
+	}
+	
+	func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+		controller.dismiss(animated: true, completion: nil)
+	}
 
     /*
     // MARK: - Navigation

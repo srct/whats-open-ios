@@ -174,20 +174,29 @@ public class WOPUtilities: NSObject {
         return nil
     }
 	
-    public static func openOrClosedUntil(_ facility: WOPFacility) -> String? {
+	public static func openOrClosedUntil(_ facility: WOPFacility, includePreamble: Bool = true) -> String? {
         let viewingFormatter = DateFormatter.easternCoastTimeFormatForViewing
 
         let startEnd = getStartEndDates(facility)
 		let current = getCurrentSchedule(facility)
         if current!.twentyFourHours {
-            return "Open all day"
+			if includePreamble {
+				return "Open all day"
+			} else {
+				return nil
+			}
         }
         if(WOPUtilities.isOpen(facility: facility)) {
             // Might be a better way of doing this, but for now, this works.
 			if(!current!.openTimes.isEmpty) {
 				if startEnd != nil {
 					let time = viewingFormatter.string(from: startEnd!.endTime)
-					return "Open until \(time)"
+					if includePreamble {
+						return "Open until \(time)"
+					} else {
+						return time
+					}
+					
 				}
 			}
 			//Eventually add more detailled text here, allowing for more custom
@@ -195,9 +204,19 @@ public class WOPUtilities: NSObject {
         } else {
 			if startEnd != nil {
 				let time = viewingFormatter.string(from: startEnd!.startTime)
-				return "Closed until \(time)"
+				if includePreamble {
+					return "Closed until \(time)"
+				} else {
+					return time
+				}
+				
 			} else {
-				return "Closed"
+				if includePreamble {
+					return "Closed"
+				} else {
+					return nil
+				}
+				
 			}
         }
         return nil

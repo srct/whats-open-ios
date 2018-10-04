@@ -734,7 +734,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-hc-vWv">
-                                <rect key="frame" x="16" y="596" width="343" height="51"/>
+                                <rect key="frame" x="16" y="596" width="275" height="51"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="0LG-d5-1dD"/>
@@ -779,19 +779,36 @@
                                     <action selector="shareFacility:" destination="NAf-lT-JCD" eventType="touchUpInside" id="mdd-wn-v6b"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-jZ-W8U" userLabel="Siri Button">
+                                <rect key="frame" x="299" y="596" width="60" height="51"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="TDB-m2-H2C"/>
+                                    <constraint firstAttribute="height" constant="51" id="kvz-hJ-x9x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <state key="normal" title="Siri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToSiri:" destination="NAf-lT-JCD" eventType="touchUpInside" id="am3-3Y-AGJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rd0-fz-V4r" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" id="1wo-Gz-1kd"/>
                             <constraint firstItem="tPh-uh-8zb" firstAttribute="baseline" secondItem="Rd0-fz-V4r" secondAttribute="firstBaseline" id="94e-aV-Mjr"/>
                             <constraint firstItem="1VL-kk-arL" firstAttribute="leading" secondItem="fo3-mS-Mxq" secondAttribute="leading" id="KPT-Uu-PmZ"/>
-                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="centerX" secondItem="fo3-mS-Mxq" secondAttribute="centerX" id="KcF-YS-Tws"/>
+                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="centerX" secondItem="fo3-mS-Mxq" secondAttribute="centerX" constant="-34" id="KcF-YS-Tws"/>
                             <constraint firstItem="tPh-uh-8zb" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" symbolic="YES" id="QfV-0N-meh"/>
                             <constraint firstItem="fo3-mS-Mxq" firstAttribute="trailing" secondItem="1VL-kk-arL" secondAttribute="trailing" id="ZlT-eF-6pp"/>
                             <constraint firstItem="Mbm-hc-vWv" firstAttribute="top" secondItem="Rd0-fz-V4r" secondAttribute="bottom" constant="8" id="bu2-dc-0M3"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="baseline" secondItem="Mbm-hc-vWv" secondAttribute="baseline" id="iuv-u1-9sA"/>
                             <constraint firstItem="fo3-mS-Mxq" firstAttribute="bottom" secondItem="Mbm-hc-vWv" secondAttribute="bottom" constant="20" id="kWd-aJ-Tk2"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" id="ne6-b2-0Of"/>
-                            <constraint firstItem="fo3-mS-Mxq" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="16" id="qvu-Jk-9lw"/>
+                            <constraint firstItem="tPh-uh-8zb" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="68" id="ne6-b2-0Of"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="leading" secondItem="tPh-uh-8zb" secondAttribute="leading" id="ov1-gk-biP"/>
+                            <constraint firstItem="fo3-mS-Mxq" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="84" id="qvu-Jk-9lw"/>
                             <constraint firstItem="1VL-kk-arL" firstAttribute="top" secondItem="fo3-mS-Mxq" secondAttribute="top" id="sH0-Pb-3f8"/>
                             <constraint firstItem="tPh-uh-8zb" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" id="scv-dq-6Ri"/>
                             <constraint firstItem="tPh-uh-8zb" firstAttribute="leading" secondItem="Rd0-fz-V4r" secondAttribute="trailing" constant="8" symbolic="YES" id="tRn-21-tqE"/>
@@ -801,6 +818,7 @@
                         <viewLayoutGuide key="safeArea" id="fo3-mS-Mxq"/>
                     </view>
                     <connections>
+                        <outlet property="addToSiriButton" destination="uBr-jZ-W8U" id="Am3-u0-j5Y"/>
                         <outlet property="directionsButton" destination="Rd0-fz-V4r" id="4Eg-BB-g2o"/>
                         <outlet property="facilityDetailView" destination="1VL-kk-arL" id="Un1-Pm-5gH"/>
                         <outlet property="favoritesButton" destination="Mbm-hc-vWv" id="CLZ-N6-AGv"/>
