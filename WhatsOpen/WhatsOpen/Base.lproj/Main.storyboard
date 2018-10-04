@@ -787,9 +787,7 @@
                                     <constraint firstAttribute="height" constant="51" id="kvz-hJ-x9x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Siri">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <state key="normal" title="Siri"/>
                                 <connections>
                                     <action selector="addToSiri:" destination="NAf-lT-JCD" eventType="touchUpInside" id="am3-3Y-AGJ"/>
                                 </connections>

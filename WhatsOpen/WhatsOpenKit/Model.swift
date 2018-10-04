@@ -57,6 +57,7 @@ public class WOPFacility: Object, MapContext, Mappable {
 		let viewFacilityIntent = WOPViewFacilityIntent()
 		viewFacilityIntent.facility = INObject(identifier: self.facilityName, display: self.facilityName)
 		viewFacilityIntent.name = self.facilityName
+		viewFacilityIntent.suggestedInvocationPhrase = "Is \(facilityName) open?"
 		
 		return viewFacilityIntent
 	}

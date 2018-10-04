@@ -127,6 +127,12 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 
 		setActivityUp()
 		
+		addToSiriButton.tintColor = UIColor.black
+		addToSiriButton.backgroundColor = UIColor.white
+		addToSiriButton.layer.borderWidth = 3
+		addToSiriButton.layer.borderColor = UIColor.black.cgColor
+		addToSiriButton.layer.cornerRadius = 10
+		
 		let interaction = INInteraction(intent: facility.createIntent(), response: WOPViewFacilityIntentUtils.getIntentResponse(facility, userActivity: activity))
 		interaction.donate(completion: nil)
         // Do any additional setup after loading the view.
@@ -146,8 +152,9 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	
 	@IBAction func addToSiri(_ sender: Any) {
 		let intent = facility.createIntent()
+		let shortcuts = INVoiceShortcutCenter.shared
 		if let shortcut = INShortcut(intent: intent) {
-			let viewController = INUIAddVoiceShortcutViewController(shortcut: INShortcut(intent: intent)!)
+			let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
 			viewController.modalPresentationStyle = .formSheet
 			viewController.delegate = self // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
 			present(viewController, animated: true, completion: nil)

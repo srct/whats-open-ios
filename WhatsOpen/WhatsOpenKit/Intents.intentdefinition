@@ -106,7 +106,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>${facilityName} is open 24/7</string>
+						<string>${facilityName} is open all day</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>Nt8YD7</string>
 						<key>INIntentResponseCodeName</key>
