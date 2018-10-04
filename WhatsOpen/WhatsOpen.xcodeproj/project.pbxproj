@@ -11,13 +11,11 @@
 		3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
-		9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
 		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
 		9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
-		9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
 		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
 		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
@@ -34,7 +32,6 @@
 		9203CBA52023D51A006ACC3B /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
 		92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
-		92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
 		924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
 		924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
@@ -48,6 +45,9 @@
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
 		9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9270A4DB1EB5565400DFBDA3 /* SwitchingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */; };
+		9273EEC221658B0200CE63DC /* WOPSharedUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */; };
+		9273EEC321658BCC00CE63DC /* FacilityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */; };
+		9273EEC421658BF000CE63DC /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
 		927C80DA1EB02566009079AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80D91EB02566009079AD /* SettingsTableViewController.swift */; };
 		927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */; };
 		9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
@@ -62,7 +62,6 @@
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
-		92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */; };
 		92F681581FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
 		92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
 		92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
@@ -165,6 +164,7 @@
 		9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		9270A4DA1EB5565400DFBDA3 /* SwitchingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingTableViewCell.swift; sourceTree = "<group>"; };
 		9270A4DC1EC0010300DFBDA3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filters.swift; path = ../WhatsOpen/Filters.swift; sourceTree = "<group>"; };
+		9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WOPSharedUI.storyboard; sourceTree = "<group>"; };
 		927A8466141434969CE74044 /* Pods_WhatsOpen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927C80D91EB02566009079AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		927C80DB1EB18B89009079AD /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		92B89E2F2009444E00928284 /* PullingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingViewController.swift; sourceTree = "<group>"; };
 		92DA57CC20C99C0C00EFDE7C /* WhatsOpen - AppStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WhatsOpen - AppStore.entitlements"; sourceTree = "<group>"; };
-		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpen/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
+		92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaddedUILabel.swift; path = WhatsOpenKit/PaddedUILabel.swift; sourceTree = SOURCE_ROOT; };
 		92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-WhatsOpen-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92F681591FC137CF00393DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -305,6 +305,8 @@
 		9255C5A921556E410094C947 /* WhatsOpenKit */ = {
 			isa = PBXGroup;
 			children = (
+				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
+				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
 				928EC26621611E5900D8F9FE /* DatabaseController.swift */,
 				CD3C97481DC18AB300A84434 /* DownloadController.swift */,
 				9270A4DC1EC0010300DFBDA3 /* Filters.swift */,
@@ -312,6 +314,7 @@
 				CD763A7D1DE253B900ADFD6B /* Utilities.swift */,
 				9255C5AA21556E410094C947 /* WhatsOpenKit.h */,
 				9255C5AB21556E410094C947 /* Info.plist */,
+				9273EEC121658B0200CE63DC /* WOPSharedUI.storyboard */,
 			);
 			path = WhatsOpenKit;
 			sourceTree = "<group>";
@@ -339,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
-				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
 				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
 			);
 			path = "Primary Views";
@@ -384,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				CD81F51C1DC0334600009FBD /* AppDelegate.swift */,
-				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				CD81F5201DC0334600009FBD /* Main.storyboard */,
 				920D17961F6C5CD200D63295 /* Views */,
 				CD81F5231DC0334600009FBD /* Assets.xcassets */,
@@ -637,6 +638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9273EEC221658B0200CE63DC /* WOPSharedUI.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,14 +939,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */,
-				9203CB872023D51A006ACC3B /* FacilityDetailViewController.swift in Sources */,
 				9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */,
 				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
 				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
 				924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
-				9203CB8F2023D51A006ACC3B /* PaddedUILabel.swift in Sources */,
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
@@ -974,6 +974,8 @@
 				928EC26421604DD800D8F9FE /* DownloadController.swift in Sources */,
 				928EC26321604ADD00D8F9FE /* Utilities.swift in Sources */,
 				928EC262216049F900D8F9FE /* Filters.swift in Sources */,
+				9273EEC421658BF000CE63DC /* PaddedUILabel.swift in Sources */,
+				9273EEC321658BCC00CE63DC /* FacilityDetailViewController.swift in Sources */,
 				928EC26521605CD700D8F9FE /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,14 +985,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */,
-				92182EC41E95C38400192ABA /* FacilityDetailViewController.swift in Sources */,
 				92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */,
 				924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
-				92EA81971FB7D1B500B1F6E3 /* PaddedUILabel.swift in Sources */,
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,

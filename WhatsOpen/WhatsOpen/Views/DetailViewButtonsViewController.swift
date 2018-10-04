@@ -13,7 +13,7 @@ import WhatsOpenKit
 class DetailViewButtonsViewController: UIViewController {
 
 	@IBOutlet var facilityDetailView: UIView!
-	var detailViewController: FacilityDetailViewController?
+	var detailViewController: WOPFacilityDetailViewController?
 	var facility: WOPFacility!
 	
 	@IBOutlet var favoritesButton: UIButton!

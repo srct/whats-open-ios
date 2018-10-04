@@ -9,21 +9,20 @@
 import UIKit
 import StoreKit
 import MapKit
-import WhatsOpenKit
 
-class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class WOPFacilityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-	@IBOutlet var NameLabel: UILabel!
-	@IBOutlet var PlaceLabel: UILabel!
-	@IBOutlet var OpenLabel: PaddedUILabel!
-    @IBOutlet var CategoryLabel: UILabel!
-	@IBOutlet var OpenTimesList: UITableView!
-	let activity = NSUserActivity(activityType: "facility")
+	@IBOutlet public var NameLabel: UILabel!
+	@IBOutlet public var PlaceLabel: UILabel!
+	@IBOutlet public var OpenLabel: WOPPaddedUILabel!
+    @IBOutlet public var CategoryLabel: UILabel!
+	@IBOutlet public var OpenTimesList: UITableView!
+	public let activity = NSUserActivity(activityType: "facility")
 
 	
-    var facility: WOPFacility!
+    public var facility: WOPFacility!
 	
-	override var previewActionItems: [UIPreviewActionItem] {
+	override public var previewActionItems: [UIPreviewActionItem] {
 		var title: String
 		if(WOPUtilities.isFavoriteFacility(facility)) {
 			title = "Remove from Favorites"
@@ -37,15 +36,15 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 	
 
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
+	override public var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 	
-	override func viewDidDisappear(_ animated: Bool) {
+	override public func viewDidDisappear(_ animated: Bool) {
 		activity.resignCurrent()
 	}
 	
-    override func viewDidLoad() {
+	override public func viewDidLoad() {
         super.viewDidLoad()
 		
 		modalPresentationCapturesStatusBarAppearance = true
@@ -101,21 +100,21 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
 		activity.becomeCurrent()
 	}
 
-    override func didReceiveMemoryWarning() {
+	override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return WOPUtilities.getCurrentSchedule(facility)!.openTimes.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = OpenTimesList.dequeueReusableCell(withIdentifier: "LocationDetailCell", for: indexPath)
 
 		cell.selectionStyle = .none
@@ -131,7 +130,7 @@ class FacilityDetailViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
 			
-	func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
+	public func markAsFavoritePreviewAction(_ sendingAction: UIPreviewAction, sender: UIViewController) {
 		if(WOPUtilities.isFavoriteFacility(facility)) {
 			_ = WOPUtilities.removeFavoriteFacility(facility)
 		}

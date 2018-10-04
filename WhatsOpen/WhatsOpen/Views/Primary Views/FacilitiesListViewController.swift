@@ -150,7 +150,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		if(indexPath != nil) {
 			if(indexPath?.section == 1 || currentAlerts.count == 0) {
-				let destination =  self.storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController
+				let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
+				let destination = storyboard.instantiateViewController(withIdentifier: "detailView") as? WOPFacilityDetailViewController
 				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! FacilityCollectionViewCell
 				destination?.facility = tapped.facility
 				self.presentDetailView(destination!, tapped: tapped)
@@ -168,7 +169,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	var goodToGo = false
 	@objc func toDetailFromSearch(_ notification: Notification) {
 		func toDetailCompletion() {
-			let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
+			let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
+			let dest = storyboard.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
 			let userActivity = notification.object as? NSUserActivity
 			if(userActivity == nil) {
 				return // don't do anything
@@ -215,7 +217,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			return // don't do anything
 		}
 		
-		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
+		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
 		dest.facility = facility!
 		
 		let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
@@ -240,10 +242,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 
 	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
 		var trueDest: UIViewController
-		if destination is FacilityDetailViewController {
+		if destination is WOPFacilityDetailViewController {
 			let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
-			detailViewWithButtons?.detailViewController = (destination as! FacilityDetailViewController)
-			detailViewWithButtons?.facility = (destination as! FacilityDetailViewController).facility
+			detailViewWithButtons?.detailViewController = (destination as! WOPFacilityDetailViewController)
+			detailViewWithButtons?.facility = (destination as! WOPFacilityDetailViewController).facility
 			trueDest = detailViewWithButtons!
 		}
 		else {
@@ -921,8 +923,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         // Get the new view controller using segue.destinationViewController.
         if(segue.identifier == "toDetailView") {
             let destination = segue.destination as! PullingViewController
-			var destChild = destination.children[0] as! FacilityDetailViewController
-			destChild = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! FacilityDetailViewController
+			var destChild = destination.children[0] as! WOPFacilityDetailViewController
+			destChild = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
             let destDelegate = DeckTransitioningDelegate()
             destination.transitioningDelegate = destDelegate
             let tapped = sender as! FacilityCollectionViewCell //this is probably a bad idea just FYI future me
@@ -954,7 +956,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
 		if(indexPath.section == 1 || currentAlerts.count == 0) {
 			let cell = LocationsList?.cellForItem(at: indexPath) as? FacilityCollectionViewCell
-			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? FacilityDetailViewController else { return nil }
+			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? WOPFacilityDetailViewController else { return nil }
 			detailView.facility = cell?.facility
 			return detailView
 		}
@@ -968,7 +970,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	}
 	
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-		guard let facilityDetailView = viewControllerToCommit as? FacilityDetailViewController
+		guard let facilityDetailView = viewControllerToCommit as? WOPFacilityDetailViewController
 			else {
 				let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
 				finalDestination?.currentViewController = viewControllerToCommit
