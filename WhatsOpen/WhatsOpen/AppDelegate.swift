@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			defaults.set("Apple Maps", forKey: "mapsApp")
 		}
 		
+		application.setMinimumBackgroundFetchInterval(TimeInterval(exactly: 60)!)
+		
         return true
     }
 
@@ -104,6 +106,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if campuses == nil {
 			defaults.set([String: Bool](), forKey: "campuses")
 		}
+	}
+	
+	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		WOPDownloadController.performDownload(completion: { facilities in
+			if facilities != nil {
+				WOPDownloadController.performAlertsDownload(completion: { alerts in
+					if alerts != nil {
+						DispatchQueue.main.async {
+							let date = Date()
+							let realm = try! Realm(configuration: WOPDatabaseController.getConfig())
+							let results = realm.objects(WOPFacilitiesModel.self)
+							if results.count == 0 {
+								let model = WOPFacilitiesModel()
+								for f in facilities! {
+									model.facilities.append(f)
+								}
+								for a in alerts! {
+									model.alerts.append(a)
+								}
+								model.lastUpdated = date
+								try! realm.write {
+									realm.add(model)
+								}
+								completionHandler(UIBackgroundFetchResult.newData)
+
+							}
+							else {
+								let fromRealm = results[0]
+								try! realm.write {
+									fromRealm.facilities.removeAll()
+									for f in facilities! {
+										fromRealm.facilities.append(f)
+									}
+									for a in alerts! {
+										fromRealm.alerts.append(a)
+									}
+									fromRealm.lastUpdated = date
+								}
+							}
+							completionHandler(UIBackgroundFetchResult.newData)
+						}
+					} else {
+						completionHandler(UIBackgroundFetchResult.failed)
+				  }
+				})
+			} else {
+				completionHandler(UIBackgroundFetchResult.failed)
+			}
+		})
 	}
 
     func applicationWillResignActive(_ application: UIApplication) {

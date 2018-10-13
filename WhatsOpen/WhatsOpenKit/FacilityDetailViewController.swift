@@ -6,6 +6,7 @@
 //  Copyright © 2017 SRCT. Some rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import StoreKit
 import MapKit
@@ -139,3 +140,4 @@ public class WOPFacilityDetailViewController: UIViewController, UITableViewDeleg
 		}
 	}
 }
+#endif

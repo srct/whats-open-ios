@@ -6,6 +6,7 @@
 //  Copyright © 2017 SRCT. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 
@@ -52,3 +53,4 @@ public extension WOPPaddedUILabel {
     }
     
 }
+#endif

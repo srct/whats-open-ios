@@ -154,6 +154,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		925C04F52171643F002E53C0 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		928EC2602160495800D8F9FE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,13 +178,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B85D752545FC8E461B435E6 /* Pods-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		1DC9CEB7900C4AEBE0625A64 /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
+		1E9590D5B3D5422DF9E67201 /* Pods-WhatsOpenKitWatch.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKitWatch.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKitWatch/Pods-WhatsOpenKitWatch.app store.xcconfig"; sourceTree = "<group>"; };
 		2A5CE0045EF9683B296DF70C /* Pods-WhatsOpen.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.app store.xcconfig"; sourceTree = "<group>"; };
 		310EA38816D0F5ADA89E7E4E /* Pods-WhatsOpen - AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		39495C344A4E1A462BF30731 /* Pods-ShortcutsExtensionUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.release.xcconfig"; sourceTree = "<group>"; };
 		45E129A4447EC838CF89C8AC /* Pods-ShortcutsExtension.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.app store.xcconfig"; sourceTree = "<group>"; };
 		460AB0309856213847CDB16C /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		47BB6AEACA56FBC52D8EC078 /* Pods-WhatsOpenKitWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKitWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKitWatch/Pods-WhatsOpenKitWatch.release.xcconfig"; sourceTree = "<group>"; };
 		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
+		4EE3CD0842CD297B8F2FEEA4 /* Pods_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A0C09478B7DBC1FC75A8DC /* Pods-WhatsOpenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
@@ -228,7 +242,10 @@
 		92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCollectionViewCell.swift; path = WhatsOpen/Views/CollectionViewCells/AlertCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92FF6C7420016CF900D836AE /* IconSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortcutsExtensionUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2562EACCE7D7C2F0779973 /* Pods-Watch Extension.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.app store.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.app store.xcconfig"; sourceTree = "<group>"; };
+		ABAAA7AD48CF2CBD44512166 /* Pods_Watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortcutsExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24927C6145B885F338AB092 /* Pods-WhatsOpenKitWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKitWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKitWatch/Pods-WhatsOpenKitWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		C2A20E0036105B944C0F901B /* Pods-ShortcutsExtensionUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CB841F0B185710285842956F /* Pods-WhatsOpenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.release.xcconfig"; sourceTree = "<group>"; };
 		CD3C97481DC18AB300A84434 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
@@ -240,14 +257,19 @@
 		CD81F5231DC0334600009FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD81F5261DC0334600009FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD81F5281DC0334600009FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D024256135674B9023108E02 /* Pods_WhatsOpenKitWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpenKitWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.release.xcconfig"; sourceTree = "<group>"; };
 		D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.app store.xcconfig"; sourceTree = "<group>"; };
 		D63A18437F44F3D06B8F94D4 /* Pods-ShortcutsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D83C5750929E8AD66295CF5C /* Pods-TodayWidget.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.app store.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.app store.xcconfig"; sourceTree = "<group>"; };
+		D9A85F15BFE8CA836B232CCB /* Pods-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		DB22D6AE95603F809C4B3FFC /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07255E2520C5F76ABB7A176 /* Pods-WhatsOpenKit.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.app store.xcconfig"; sourceTree = "<group>"; };
+		E85DD13283597C10EE2509E9 /* Pods-Watch.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.app store.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.app store.xcconfig"; sourceTree = "<group>"; };
+		EC7371204777AB993F9F8AB7 /* Pods-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.debug.xcconfig"; sourceTree = "<group>"; };
 		F92A491DB8E91DDE3DCB7ED2 /* Pods-WhatsOpen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.debug.xcconfig"; sourceTree = "<group>"; };
 		F9776DBFE496D6125BCDE676 /* Pods-WhatsOpen - AppStore.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.app store.xcconfig"; sourceTree = "<group>"; };
+		FE3AFE07AFC14384CEB36374 /* Pods-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		FF3718A2AEE4A2CD5BCC3B38 /* Pods_WhatsOpenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -338,6 +360,15 @@
 				C2A20E0036105B944C0F901B /* Pods-ShortcutsExtensionUI.debug.xcconfig */,
 				39495C344A4E1A462BF30731 /* Pods-ShortcutsExtensionUI.release.xcconfig */,
 				D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */,
+				1B85D752545FC8E461B435E6 /* Pods-Watch Extension.debug.xcconfig */,
+				D9A85F15BFE8CA836B232CCB /* Pods-Watch Extension.release.xcconfig */,
+				AB2562EACCE7D7C2F0779973 /* Pods-Watch Extension.app store.xcconfig */,
+				EC7371204777AB993F9F8AB7 /* Pods-Watch.debug.xcconfig */,
+				FE3AFE07AFC14384CEB36374 /* Pods-Watch.release.xcconfig */,
+				E85DD13283597C10EE2509E9 /* Pods-Watch.app store.xcconfig */,
+				C24927C6145B885F338AB092 /* Pods-WhatsOpenKitWatch.debug.xcconfig */,
+				47BB6AEACA56FBC52D8EC078 /* Pods-WhatsOpenKitWatch.release.xcconfig */,
+				1E9590D5B3D5422DF9E67201 /* Pods-WhatsOpenKitWatch.app store.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -512,6 +543,9 @@
 				9273EED521659B6200CE63DC /* IntentsUI.framework */,
 				B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */,
 				93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */,
+				ABAAA7AD48CF2CBD44512166 /* Pods_Watch_Extension.framework */,
+				4EE3CD0842CD297B8F2FEEA4 /* Pods_Watch.framework */,
+				D024256135674B9023108E02 /* Pods_WhatsOpenKitWatch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -559,9 +593,9 @@
 				9203CBA82023D51A006ACC3B /* Run Script */,
 				9203CBA92023D51A006ACC3B /* ShellScript */,
 				2CAF8F8BA1ACFF36190F4FE1 /* [CP] Embed Pods Frameworks */,
-				DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */,
 				928EC2602160495800D8F9FE /* Embed Frameworks */,
 				92589A7121612D0E0002814F /* Embed App Extensions */,
+				925C04F52171643F002E53C0 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -580,11 +614,10 @@
 			buildConfigurationList = 92589A6D21612D0E0002814F /* Build configuration list for PBXNativeTarget "TodayWidget" */;
 			buildPhases = (
 				850CD1FD8C4AD32D27662A75 /* [CP] Check Pods Manifest.lock */,
-				92CAA54E21665A0000CAF0D4 /* ShellScript */,
+				92CAA54E21665A0000CAF0D4 /* Run Script */,
 				92589A5C21612D0D0002814F /* Sources */,
 				92589A5D21612D0D0002814F /* Frameworks */,
 				92589A5E21612D0D0002814F /* Resources */,
-				B6B1E55889B1F6531E83B1F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -604,7 +637,6 @@
 				9273EEC721659B6200CE63DC /* Sources */,
 				9273EEC821659B6200CE63DC /* Frameworks */,
 				9273EEC921659B6200CE63DC /* Resources */,
-				848897D0F86D83EA0F16016D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -624,7 +656,6 @@
 				9273EED021659B6200CE63DC /* Sources */,
 				9273EED121659B6200CE63DC /* Frameworks */,
 				9273EED221659B6200CE63DC /* Resources */,
-				63A9139880FF4D4AF77CC61E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -644,7 +675,6 @@
 				928EC24E2160475900D8F9FE /* Sources */,
 				928EC24F2160475900D8F9FE /* Frameworks */,
 				928EC2502160475900D8F9FE /* Resources */,
-				A6A7C78678901FC75C0640E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -665,7 +695,6 @@
 				CD81F5161DC0334600009FBD /* Frameworks */,
 				CD81F5171DC0334600009FBD /* Resources */,
 				050652C69FEE801081A19D85 /* [CP] Embed Pods Frameworks */,
-				E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */,
 				92FF6C7820017E1C00D836AE /* Run Script */,
 				922C3C1B200306F5008E1146 /* ShellScript */,
 				9255C5B521556E410094C947 /* Embed Frameworks */,
@@ -704,6 +733,9 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
@@ -917,21 +949,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63A9139880FF4D4AF77CC61E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7BC7709F873C5C424EF1271F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -948,21 +965,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		848897D0F86D83EA0F16016D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		850CD1FD8C4AD32D27662A75 /* [CP] Check Pods Manifest.lock */ = {
@@ -1008,7 +1010,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    $SRCROOT/crashlyticsbuild.sh\nfi";
+			shellScript = "if [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    $SRCROOT/crashlyticsbuild.sh\nfi\n";
 		};
 		9203CBA92023D51A006ACC3B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1051,17 +1053,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
-		92CAA54E21665A0000CAF0D4 /* ShellScript */ = {
+		92CAA54E21665A0000CAF0D4 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
-			outputFileListPaths = (
-			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1073,11 +1072,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -1090,11 +1085,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -1116,36 +1107,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$CONFIGURATION\" == \"App Store\" ]; then\n    $SRCROOT/crashlyticsbuild.sh\nfi\n";
 		};
-		A6A7C78678901FC75C0640E3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6B1E55889B1F6531E83B1F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BFB110D778755DB64A054ABC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1162,36 +1123,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCB809F5B784DCEDBEE626A6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E09CBA67A9A59A8E148F3FE7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F31B89186CA019530B7F6449 /* [CP] Check Pods Manifest.lock */ = {

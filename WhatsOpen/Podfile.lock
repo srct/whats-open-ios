@@ -4,7 +4,7 @@ PODS:
   - DeckTransition (2.0.0)
   - Fabric (1.7.7)
   - ObjectMapper (3.2.0)
-  - ObjectMapper+Realm (0.6):
+  - "ObjectMapper+Realm (0.6)":
     - ObjectMapper
     - RealmSwift
   - Realm (3.7.1):
@@ -18,8 +18,17 @@ DEPENDENCIES:
   - DeckTransition (~> 2.0)
   - Fabric
   - ObjectMapper (from `https://github.com/alecdoconnor/ObjectMapper.git`, branch `Swift-4.2`)
-  - ObjectMapper+Realm
+  - "ObjectMapper+Realm"
   - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - DeckTransition
+    - Fabric
+    - "ObjectMapper+Realm"
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   ObjectMapper:
@@ -36,10 +45,10 @@ SPEC CHECKSUMS:
   DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
   ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
-  ObjectMapper+Realm: 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
+  "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
   Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
 
 PODFILE CHECKSUM: e3da96824c5423fd0dd953a34113b2434bddd6b3
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
