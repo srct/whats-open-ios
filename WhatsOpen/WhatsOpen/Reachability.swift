@@ -14,7 +14,7 @@ public class Reachability {
         
         var status:Bool = false
         
-        let url = NSURL(string: "https://google.com")
+        let url = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "HEAD"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData

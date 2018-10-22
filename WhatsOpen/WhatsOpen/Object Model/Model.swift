@@ -20,6 +20,8 @@ enum Day: Int {
     // Add functions here later if we need them
 }
 
+
+
 class Facility: Object, MapContext, Mappable {
     @objc dynamic var slug = ""
     @objc dynamic var facilityName = ""
