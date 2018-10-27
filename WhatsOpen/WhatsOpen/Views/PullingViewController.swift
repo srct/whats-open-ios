@@ -21,7 +21,7 @@ class PullingViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		if animated {
-			let haptics = UIImpactFeedbackGenerator(style: .heavy)
+			let haptics = UIImpactFeedbackGenerator(style: .medium)
 			haptics.impactOccurred()
 		}
 	}
