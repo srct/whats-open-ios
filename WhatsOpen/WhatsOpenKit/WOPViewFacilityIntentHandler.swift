@@ -20,10 +20,9 @@ public class WOPViewFacilityIntentHandler: NSObject, WOPViewFacilityIntentHandli
 			let model = results[0]
 			let facilities = model.facilities
 			let found = facilities.filter({(facility: WOPFacility) -> Bool in
-				return facility.facilityName == (intent.facility?.identifier ?? "")
+				return facility.slug == (intent.facility?.identifier ?? "")
 			})
 			if found.count > 0 {
-				
 				
 				let activity = NSUserActivity(activityType: "facilityIntent")
 				activity.isEligibleForHandoff = true

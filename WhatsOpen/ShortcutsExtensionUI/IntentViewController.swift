@@ -40,7 +40,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
 					let model = results[0]
 					let facilities = model.facilities
 					let found = facilities.filter({(facility: WOPFacility) -> Bool in
-						return facility.facilityName == (facilityIntent!.facility?.identifier ?? "")
+						return facility.slug == (facilityIntent!.facility?.identifier ?? "")
 					})
 					if found.count > 0 {
 						let facility = found.first

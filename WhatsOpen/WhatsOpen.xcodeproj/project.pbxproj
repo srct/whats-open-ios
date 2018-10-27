@@ -1821,6 +1821,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55A0C09478B7DBC1FC75A8DC /* Pods-WhatsOpenKit.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1857,6 +1858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB841F0B185710285842956F /* Pods-WhatsOpenKit.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1892,6 +1894,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E07255E2520C5F76ABB7A176 /* Pods-WhatsOpenKit.app store.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;

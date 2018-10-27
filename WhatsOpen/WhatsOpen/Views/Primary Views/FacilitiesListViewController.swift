@@ -169,16 +169,23 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	var goodToGo = false
 	@objc func toDetailFromSearch(_ notification: Notification) {
 		func toDetailCompletion() {
-			let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
-			let dest = storyboard.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
 			let userActivity = notification.object as? NSUserActivity
 			if(userActivity == nil) {
 				return // don't do anything
 			}
-			let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = '" + (userActivity?.title)! + "'")).first
+			
+			var facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "slug = \"" + (userActivity?.title)! + "\"")).first
 			if(facility == nil) {
-				return // don't do anything
+				facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = \"" + (userActivity?.title)! + "\"")).first
+				if facility == nil {
+					return // don't do anything
+				}
 			}
+			
+			let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
+			let dest = storyboard.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
+
+
 			dest.facility = facility!
 			
 			let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
@@ -212,12 +219,16 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@objc func toDetailFromURL(_ notification: Notification) {
 		let facilityEncoded = notification.userInfo!["facility"] as? String
 		let facilityDecoded = facilityEncoded?.removingPercentEncoding
-		let facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = \"" + (facilityDecoded)! + "\"")).first
+		var facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "slug = \"" + (facilityDecoded)! + "\"")).first
 		if(facility == nil) {
-			return // don't do anything
+			facility = realm.objects(WOPFacilitiesModel.self)[0].facilities.filter(NSPredicate(format: "facilityName = \"" + (facilityDecoded)! + "\"")).first
+			if facility == nil {
+				return // don't do anything
+			}
 		}
 		
-		let dest = self.storyboard?.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
+		let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
+		let dest = storyboard.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
 		dest.facility = facility!
 		
 		let detailViewWithButtons = self.storyboard?.instantiateViewController(withIdentifier: "detailViewButtons") as? DetailViewButtonsViewController
@@ -368,6 +379,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		filteredFacilities = filteredByCampus
 		
+		//filteredFacilities = filteredFacilities.filter({ campusFilters![($0.facilityLocation?.campus.lowercased())!]! })
+
+		
 		shownFacilities = filteredFacilities
 		favoritesControlChanges(self)
 		
@@ -422,24 +436,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
     func filterFacilitiesForSearchText(_ searchText: String) -> List<WOPFacility> {
         var filtered: List<WOPFacility>
 		
-		/*
-        if showFavorites {
-            let favoriteFacilities = filterFacilitiesForFavorites()
-            
-            if searchText == "" { // if the search text is empty, just return the favorites.
-                filtered = favoriteFacilities
-            } else {
-                filtered = favoriteFacilities.filter({(facility: Facility) -> Bool in
-                    let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
-                    let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
-                    let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
-                    
-                    return hasName || hasBuilding || hasCategory
-                })
-            }
-
-        } else {
-		  */
 		if searchText == "" {
 			filtered = shownFacilities
 			LocationsList.reloadData()
@@ -694,13 +690,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		
 		if (indexPath.section == 1 || currentAlerts.count == 0) {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! FacilityCollectionViewCell
-			/*
-			let windowRect = self.view.window!.frame
-			let windowWidth = windowRect.size.width
-			if(windowWidth <= 320) {
-			cell.frame.size.width = 280
-			}
-			*/
 			//Get tap of the cell
 			cell.tapRecognizer.addTarget(self, action: #selector(FacilitiesListViewController.tapRecognizer(_:)))
 			cell.gestureRecognizers = []
@@ -708,18 +697,6 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			
 			
 			let facility: WOPFacility
-			//let dataArray: [Facility]
-			
-			/*
-			// if something has been searched for, we want to use the filtered array as the data source
-			if isSearching() || showFavorites {
-			dataArray = placeOpenFacilitiesFirstInArray(filteredFacilities)
-			} else {
-			dataArray = placeOpenFacilitiesFirstInArray(facilitiesArray)
-			}
-			*/
-			
-			
 			
 			facility = shownFacilities[indexPath.row]
 			
@@ -956,7 +933,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		guard let indexPath = LocationsList?.indexPathForItem(at: location) else { return nil }
 		if(indexPath.section == 1 || currentAlerts.count == 0) {
 			let cell = LocationsList?.cellForItem(at: indexPath) as? FacilityCollectionViewCell
-			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "detailView") as? WOPFacilityDetailViewController else { return nil }
+			let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPFacilityDetailViewController.self))
+			guard let detailView = storyboard.instantiateViewController(withIdentifier: "detailView") as? WOPFacilityDetailViewController else { return nil }
 			detailView.facility = cell?.facility
 			return detailView
 		}

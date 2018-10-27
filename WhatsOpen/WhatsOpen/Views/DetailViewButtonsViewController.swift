@@ -141,7 +141,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	func setActivityUp() {
 		activity.isEligibleForHandoff = true
 		activity.isEligibleForSearch = true
-		activity.addUserInfoEntries(from: ["facility": facility.facilityName])
+		activity.addUserInfoEntries(from: ["facility": facility.slug])
 		activity.title = facility.facilityName
 		activity.keywords = Set<String>(arrayLiteral: facility.facilityName, facility.facilityLocation!.building)
 		//activity.keywords = [facility.facilityName, facility.facilityLocation?.building]

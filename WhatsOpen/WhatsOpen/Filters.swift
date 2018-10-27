@@ -30,13 +30,15 @@ public class WOPFilters {
     public func applyFiltersOnFacilities(_ facilities: List<WOPFacility>) -> List<WOPFacility> {
         //TODO: Add checks for onlyFromLocations and onlyFromCategories here before doing the rest
         
-        let specifiedFacilities = List<WOPFacility>()
+		let specifiedFacilities = List<WOPFacility>()
         // facility must be within both a specified location and category
         for f in facilities {
             if  onlyFromLocations[(f.facilityLocation?.building)!.lowercased()] == true && onlyFromCategories[(f.category?.categoryName)!.lowercased()] == true {
                 specifiedFacilities.append(f)
             }
         }
+		
+		// let filteredFacilities = facilities.filter({ self.onlyFromLocations[($0.facilityLocation?.building)!.lowercased()] ?? false && self.onlyFromCategories[($0.category?.categoryName)!.lowercased()] ?? false })
         
         let (open, closed) = separateOpenAndClosed(specifiedFacilities)
         
@@ -236,3 +238,6 @@ public extension List {
     }
 }
 
+func filterByLocation(_ facilities: [WOPFacility], filters: WOPFilters) -> [WOPFacility] {
+	return facilities.filter { filters.onlyFromLocations[($0.facilityLocation?.building)!.lowercased()] ?? false }
+}

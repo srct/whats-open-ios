@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			defaults.set("Apple Maps", forKey: "mapsApp")
 		}
 		
-		application.setMinimumBackgroundFetchInterval(TimeInterval(exactly: 60)!)
+		application.setMinimumBackgroundFetchInterval(3600)
 		
         return true
     }
