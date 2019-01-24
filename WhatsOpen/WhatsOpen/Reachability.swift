@@ -14,16 +14,17 @@ public class Reachability {
         
         var status:Bool = false
         
-        let url = NSURL(string: "https://google.com")
-        let request = NSMutableURLRequest(url: url! as URL)
+        let url = URL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")
+        var request = URLRequest(url: url! as URL)
         request.httpMethod = "HEAD"
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
         request.timeoutInterval = 10.0
         
         var response:URLResponse?
         
         do {
-            let _ = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: &response) as NSData?
+            //let _ = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: &response) as NSData?
+            let _ = try URLSession.dataTaskWithRequest(request as URLRequest, completionHandler: &response)
         }
         catch let error as NSError {
             print(error.localizedDescription)
