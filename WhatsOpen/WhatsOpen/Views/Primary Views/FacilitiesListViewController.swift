@@ -358,10 +358,9 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		let alertFilers = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
         
         // Probably a better way to do the check for network results, but it really doesn't matter so this will do for now.
-        var noNetwork = Reachability.isConnectedToNetwork()
         let noNetworkAlert = Alert()
         noNetworkAlert.noNetwork()
-        if !noNetwork {
+        if networkCheck.network == false {
             shown.append(noNetworkAlert)
         }
  
