@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>${SHARED_VERSION_NUMBER}</string>
 	<key>CFBundleVersion</key>
-	<string>45</string>
+	<string>${SHARED_BUILD_NUMBER}</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionMainStoryboard</key>

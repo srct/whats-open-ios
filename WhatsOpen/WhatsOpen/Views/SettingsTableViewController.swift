@@ -285,6 +285,14 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				destination.selectAllFunc = WOPUtilities.setAllAlertDefaults
 				destination.updateFacilities = updateFacilities
 			}
+			else if (sender as! UITableViewCell).textLabel?.text == "Alert Notifications" {
+				let destination = segue.destination as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Alert Notifications"
+				destination.getFunc = WOPUtilities.getCampusDefaults
+				destination.selectFunc = WOPUtilities.setCampusDefaults
+				destination.selectAllFunc = WOPUtilities.setAllCampusDefaults
+				destination.updateFacilities = updateFacilities
+			}
 			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {
 				let destination = segue.destination as! FilterSelectionTableViewController
 				destination.navigationItem.title = "Show Campuses"

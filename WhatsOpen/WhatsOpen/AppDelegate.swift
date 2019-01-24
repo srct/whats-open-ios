@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import RealmSwift
 
 import Fabric
@@ -33,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		initAlerts(defaults)
+		initAlertNotifications(defaults)
 		initCampuses(defaults)
 		if defaults.value(forKey: "mapsApp") == nil {
 			defaults.set("Apple Maps", forKey: "mapsApp")
@@ -100,6 +102,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			defaults.set(setAlerts, forKey: "alerts")
 		}
 	}
+
+	func initAlertNotifications(_ defaults: UserDefaults) {
+		let notifications = defaults.dictionary(forKey: "notificationDefaults")
+		if notifications == nil {
+			var setAlerts = [String: Bool]()
+			setAlerts.updateValue(false, forKey: "informational")
+			setAlerts.updateValue(false, forKey: "minor alerts")
+			setAlerts.updateValue(false, forKey: "major alerts")
+			setAlerts.updateValue(false, forKey: "emergency")
+			defaults.set(setAlerts, forKey: "notificationDefaults")
+		}
+		
+	}
 	
 	func initCampuses(_ defaults: UserDefaults) {
 		let campuses = defaults.dictionary(forKey: "campuses")
@@ -114,6 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				WOPDownloadController.performAlertsDownload(completion: { alerts in
 					if alerts != nil {
 						DispatchQueue.main.async {
+							// Add to Realm
 							let date = Date()
 							let realm = try! Realm(configuration: WOPDatabaseController.getConfig())
 							let results = realm.objects(WOPFacilitiesModel.self)
@@ -145,6 +161,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 									fromRealm.lastUpdated = date
 								}
 							}
+							
+							// Notification
+							
+							
 							completionHandler(UIBackgroundFetchResult.newData)
 						}
 					} else {

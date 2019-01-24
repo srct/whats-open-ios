@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGD-49-9Ue">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -733,61 +733,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-hc-vWv">
-                                <rect key="frame" x="16" y="596" width="275" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-hc-vWv">
+                                <rect key="frame" x="16" y="596" width="104" height="51"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="0LG-d5-1dD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Button">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="heart_empty">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="setFavButton:" destination="NAf-lT-JCD" eventType="touchUpInside" id="QKk-0C-GDD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-fz-V4r" userLabel="Directions Button">
-                                <rect key="frame" x="16" y="537" width="275" height="51"/>
-                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="getDirections:" destination="NAf-lT-JCD" eventType="touchUpInside" id="hNO-dV-uVE"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-kk-arL">
-                                <rect key="frame" x="0.0" y="20" width="375" height="509"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="572"/>
                                 <connections>
                                     <segue destination="1kS-1Q-PtR" kind="embed" id="lAt-8Z-xSi"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPh-uh-8zb" userLabel="Share Button">
-                                <rect key="frame" x="299" y="537" width="60" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPh-uh-8zb" userLabel="Share Button">
+                                <rect key="frame" x="245" y="596" width="114" height="51"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="GQk-nH-8Xz"/>
                                     <constraint firstAttribute="height" constant="51" id="Yzq-3h-3o2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="shareFacility:" destination="NAf-lT-JCD" eventType="touchUpInside" id="mdd-wn-v6b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-jZ-W8U" userLabel="Siri Button">
-                                <rect key="frame" x="299" y="596" width="60" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-jZ-W8U" userLabel="Siri Button">
+                                <rect key="frame" x="128" y="596" width="109" height="51"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="TDB-m2-H2C"/>
                                     <constraint firstAttribute="height" constant="51" id="kvz-hJ-x9x"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Siri"/>
+                                <state key="normal" image="addshortcut"/>
                                 <connections>
                                     <action selector="addToSiri:" destination="NAf-lT-JCD" eventType="touchUpInside" id="am3-3Y-AGJ"/>
                                 </connections>
@@ -795,29 +781,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rd0-fz-V4r" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" id="1wo-Gz-1kd"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="baseline" secondItem="Rd0-fz-V4r" secondAttribute="firstBaseline" id="94e-aV-Mjr"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="baseline" secondItem="Mbm-hc-vWv" secondAttribute="baseline" id="7QM-Oo-Otm"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="baseline" secondItem="tPh-uh-8zb" secondAttribute="baseline" id="DE2-sM-euW"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="centerX" secondItem="fo3-mS-Mxq" secondAttribute="centerX" id="Gnx-Ni-Em0"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="width" secondItem="tPh-uh-8zb" secondAttribute="width" id="InP-bs-Agf"/>
                             <constraint firstItem="1VL-kk-arL" firstAttribute="leading" secondItem="fo3-mS-Mxq" secondAttribute="leading" id="KPT-Uu-PmZ"/>
-                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="centerX" secondItem="fo3-mS-Mxq" secondAttribute="centerX" constant="-34" id="KcF-YS-Tws"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" symbolic="YES" id="QfV-0N-meh"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="leading" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="8" id="RtF-F9-P1Y"/>
+                            <constraint firstItem="tPh-uh-8zb" firstAttribute="leading" secondItem="uBr-jZ-W8U" secondAttribute="trailing" constant="8" id="SVQ-mW-mxL"/>
+                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="width" secondItem="uBr-jZ-W8U" secondAttribute="width" id="ZWN-n7-W7a"/>
                             <constraint firstItem="fo3-mS-Mxq" firstAttribute="trailing" secondItem="1VL-kk-arL" secondAttribute="trailing" id="ZlT-eF-6pp"/>
-                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="top" secondItem="Rd0-fz-V4r" secondAttribute="bottom" constant="8" id="bu2-dc-0M3"/>
-                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="baseline" secondItem="Mbm-hc-vWv" secondAttribute="baseline" id="iuv-u1-9sA"/>
-                            <constraint firstItem="fo3-mS-Mxq" firstAttribute="bottom" secondItem="Mbm-hc-vWv" secondAttribute="bottom" constant="20" id="kWd-aJ-Tk2"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="68" id="ne6-b2-0Of"/>
-                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="leading" secondItem="tPh-uh-8zb" secondAttribute="leading" id="ov1-gk-biP"/>
-                            <constraint firstItem="fo3-mS-Mxq" firstAttribute="trailing" secondItem="Mbm-hc-vWv" secondAttribute="trailing" constant="84" id="qvu-Jk-9lw"/>
+                            <constraint firstItem="uBr-jZ-W8U" firstAttribute="bottom" secondItem="tPh-uh-8zb" secondAttribute="bottom" id="bDp-0k-ykn"/>
+                            <constraint firstItem="tPh-uh-8zb" firstAttribute="trailing" secondItem="fo3-mS-Mxq" secondAttribute="trailing" constant="-16" id="eAW-QJ-UXp"/>
+                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="leading" secondItem="fo3-mS-Mxq" secondAttribute="leading" constant="16" id="k7T-K8-yQ7"/>
+                            <constraint firstItem="fo3-mS-Mxq" firstAttribute="bottom" secondItem="Mbm-hc-vWv" secondAttribute="bottom" constant="16" id="kWd-aJ-Tk2"/>
+                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="bottom" secondItem="uBr-jZ-W8U" secondAttribute="bottom" id="nbc-6k-cB3"/>
                             <constraint firstItem="1VL-kk-arL" firstAttribute="top" secondItem="fo3-mS-Mxq" secondAttribute="top" id="sH0-Pb-3f8"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" id="scv-dq-6Ri"/>
-                            <constraint firstItem="tPh-uh-8zb" firstAttribute="leading" secondItem="Rd0-fz-V4r" secondAttribute="trailing" constant="8" symbolic="YES" id="tRn-21-tqE"/>
-                            <constraint firstItem="Rd0-fz-V4r" firstAttribute="leading" secondItem="fo3-mS-Mxq" secondAttribute="leading" constant="16" id="xn4-32-G07"/>
-                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="leading" secondItem="fo3-mS-Mxq" secondAttribute="leading" constant="16" id="zdZ-4g-IFY"/>
+                            <constraint firstItem="Mbm-hc-vWv" firstAttribute="top" secondItem="1VL-kk-arL" secondAttribute="bottom" constant="8" id="uio-Yr-bYX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fo3-mS-Mxq"/>
                     </view>
                     <connections>
                         <outlet property="addToSiriButton" destination="uBr-jZ-W8U" id="Am3-u0-j5Y"/>
-                        <outlet property="directionsButton" destination="Rd0-fz-V4r" id="4Eg-BB-g2o"/>
                         <outlet property="facilityDetailView" destination="1VL-kk-arL" id="Un1-Pm-5gH"/>
                         <outlet property="favoritesButton" destination="Mbm-hc-vWv" id="CLZ-N6-AGv"/>
                         <outlet property="shareButton" destination="tPh-uh-8zb" id="12i-ow-Mdb"/>
@@ -847,7 +831,7 @@
             <objects>
                 <viewController id="1kS-1Q-PtR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uus-pO-zaY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="509"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gRZ-TI-P5X"/>
@@ -861,8 +845,10 @@
     <resources>
         <image name="Gear" width="12" height="12"/>
         <image name="WO_Black_TextLight" width="2355" height="692"/>
+        <image name="addshortcut" width="27" height="27"/>
         <image name="detailIndicator" width="6" height="9.8400001525878906"/>
         <image name="downPull" width="108" height="32"/>
+        <image name="heart_empty" width="27" height="27"/>
         <image name="info" width="63.840000152587891" height="63.840000152587891"/>
         <image name="major" width="63.840000152587891" height="63.840000152587891"/>
     </resources>

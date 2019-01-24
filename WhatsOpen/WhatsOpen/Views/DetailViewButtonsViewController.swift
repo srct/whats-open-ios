@@ -20,7 +20,6 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	var facility: WOPFacility!
 	
 	@IBOutlet var favoritesButton: UIButton!
-	@IBOutlet var directionsButton: UIButton!
 	@IBOutlet var shareButton: UIButton!
 	@IBOutlet var addToSiriButton: UIButton!
 	
@@ -42,7 +41,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		setFavoriteButtonText()
 	}
 	
-	@IBAction func getDirections(_ sender: Any) {
+	func getDirections(_ sender: Any) {
 		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 		
 		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
@@ -73,8 +72,10 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	
 	
 	@IBAction func shareFacility(_ sender: Any) {
+		
 		let str = "\(facility.facilityName) is \(WOPUtilities.openOrClosedUntil(facility)!.lowercased())"
-		let shareSheet = UIActivityViewController(activityItems: ["\(str) https://whatsopen.gmu.edu/"], applicationActivities: nil)
+		// TODO in future: add URL based on facility once web supports it
+		let shareSheet = UIActivityViewController(activityItems: [str, (URL(string: "https://whatsopen.gmu.edu") ?? nil), facility], applicationActivities: [ViewInMapsActionActivity()])
 		shareSheet.excludedActivityTypes = [.print, .openInIBooks, .addToReadingList] // Sorry you can't print a Facility
 		present(shareSheet, animated: true, completion: nil)
 	}
@@ -84,12 +85,14 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	*/
 	func setFavoriteButtonText() {
 		if(WOPUtilities.isFavoriteFacility(facility)) {
-			favoritesButton.setTitle("Remove from Favorites", for: .normal)
-			favoritesButton.titleLabel?.text = "Remove from Favorites"
+			favoritesButton.accessibilityLabel = "Remove from Favorites"
+			favoritesButton.titleLabel?.text = ""
+			favoritesButton.setImage(UIImage(named: "heart_filled"), for: .normal)
 		}
 		else {
-			favoritesButton.setTitle("Add to Favorites", for: .normal)
-			favoritesButton.titleLabel?.text = "Add to Favorites"
+			favoritesButton.accessibilityLabel = "Add to Favorites"
+			favoritesButton.titleLabel?.text = ""
+			favoritesButton.setImage(UIImage(named: "heart_empty"), for: .normal)
 		}
 	}
 	
@@ -105,33 +108,20 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		favoritesButton.tintColor = UIColor.white
 		favoritesButton.backgroundColor = UIColor(red:0.00, green:0.40, blue:0.20, alpha:1.0)
 		favoritesButton.layer.cornerRadius = 10
-		directionsButton.tintColor = UIColor.white
-		directionsButton.backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
-		directionsButton.layer.cornerRadius = 10
 		
-		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
-		if appToUse == "Google Maps" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
-			directionsButton.setTitle("View in Google Maps", for: .normal)
-		}
-		else if appToUse == "Waze" && UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
-			directionsButton.setTitle("View in Waze", for: .normal)
-		}
-		else {
-			directionsButton.setTitle("View in Maps", for: .normal)
-		}
 		shareButton.tintColor = UIColor.white
 		shareButton.backgroundColor = UIColor.orange
 		shareButton.layer.cornerRadius = 10
 		shareButton.setImage(#imageLiteral(resourceName: "shareIcon"), for: .normal)
 		shareButton.setTitle("", for: .normal)
+		shareButton.accessibilityLabel = "Share"
 
 		setActivityUp()
 		
-		addToSiriButton.tintColor = UIColor.black
-		addToSiriButton.backgroundColor = UIColor.white
-		addToSiriButton.layer.borderWidth = 3
-		addToSiriButton.layer.borderColor = UIColor.black.cgColor
+		addToSiriButton.tintColor = UIColor.white
+		addToSiriButton.backgroundColor = UIColor.black
 		addToSiriButton.layer.cornerRadius = 10
+		addToSiriButton.accessibilityLabel = "Add to Siri"
 		
 		let interaction = INInteraction(intent: facility.createIntent(), response: WOPViewFacilityIntentUtils.getIntentResponse(facility, userActivity: activity))
 		interaction.donate(completion: nil)

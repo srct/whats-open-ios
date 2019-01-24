@@ -89,6 +89,7 @@ public class WOPFacilityDetailViewController: UIViewController, UITableViewDeleg
         
     }
 	
+	// Creating an NSUserActivity for this facility
 	func setActivityUp() {
 		activity.isEligibleForHandoff = true
 		activity.isEligibleForSearch = true

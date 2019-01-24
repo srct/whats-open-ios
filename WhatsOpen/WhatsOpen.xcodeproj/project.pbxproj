@@ -75,6 +75,8 @@
 		928EC26421604DD800D8F9FE /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		928EC26521605CD700D8F9FE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* Model.swift */; };
 		928EC26721611E5900D8F9FE /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928EC26621611E5900D8F9FE /* DatabaseController.swift */; };
+		9296814D21CED36600FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
+		9296814E21CEDC3E00FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
 		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
@@ -232,6 +234,7 @@
 		9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIconTableViewController.swift; sourceTree = "<group>"; };
 		928EC2522160475900D8F9FE /* WhatsOpenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsOpenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928EC26621611E5900D8F9FE /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInMapsActionActivity.swift; sourceTree = "<group>"; };
 		92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionTableViewController.swift; sourceTree = "<group>"; };
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		92B89E2F2009444E00928284 /* PullingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +386,7 @@
 				9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */,
 				92A2757120C8992600E1A102 /* Primary Views */,
 				924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */,
+				9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */,
 				9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */,
 				927C80D91EB02566009079AD /* SettingsTableViewController.swift */,
 				9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */,
@@ -996,7 +1000,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellScript = "#!/bin/bash\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		9203CBA82023D51A006ACC3B /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1051,7 +1055,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellScript = "#!/bin/bash\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		92CAA54E21665A0000CAF0D4 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1065,7 +1069,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellScript = "#!/bin/bash\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		92CAA54F21665A1300CAF0D4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1078,7 +1082,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellScript = "#!/bin/bash\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		92CAA55021665A1F00CAF0D4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1091,7 +1095,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellScript = "#!/bin/bash\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		92FF6C7820017E1C00D836AE /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1178,6 +1182,7 @@
 			files = (
 				9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */,
 				9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */,
+				9296814E21CEDC3E00FA2238 /* ViewInMapsActionActivity.swift in Sources */,
 				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
 				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
@@ -1245,6 +1250,7 @@
 			files = (
 				92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */,
 				92FF6C731FFEEEE900D836AE /* AlertCollectionViewCell.swift in Sources */,
+				9296814D21CED36600FA2238 /* ViewInMapsActionActivity.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
 				92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */,
@@ -1762,6 +1768,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SHARED_BUILD_NUMBER = 49;
+				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1980,6 +1988,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SHARED_BUILD_NUMBER = 49;
+				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2030,6 +2040,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SHARED_BUILD_NUMBER = 49;
+				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 public class WOPUtilities: NSObject {
 
@@ -458,6 +459,101 @@ public class WOPUtilities: NSObject {
 	public static func getCampusDefaults() -> [String: Bool] {
 		let defaults = WOPDatabaseController.getDefaults()
 		let returning = defaults.dictionary(forKey: "campuses") as! [String: Bool]?
+		if returning == nil {
+			return [:]
+		}
+		else {
+			return returning!
+		}
+	}
+	
+	// MARK - Alert Notifications
+	
+	/**
+	Sets alert notification settings in User Defaults
+	
+	- returns:
+	true if the option was changed correctly.
+	*/
+	public static func setAlertNotificationDefaults(_ key: String, value: Bool) -> Bool {
+		if value == true {
+			let notificationCenter = UNUserNotificationCenter.current()
+			notificationCenter.getNotificationSettings { (settings) in
+				if settings.authorizationStatus == .notDetermined {
+					notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {state, error in
+						if state == true {
+							let defaults = WOPDatabaseController.getDefaults()
+							var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
+							if alerts != nil {
+								alerts!.updateValue(value, forKey: key)
+								defaults.set(alerts, forKey: "alerts")
+								return true
+							}
+							else {
+								return false
+							}
+						} else {
+							return
+						}
+					})
+				} else {
+					// Do not schedule notifications if not authorized.
+					guard settings.authorizationStatus == .authorized else {return}
+					
+					let defaults = WOPDatabaseController.getDefaults()
+					var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
+					if alerts != nil {
+						alerts!.updateValue(value, forKey: key)
+						defaults.set(alerts, forKey: "alerts")
+						return true
+					}
+					else {
+						return false
+					}
+				}
+			}
+		}
+
+	}
+	
+	/**
+	Sets all alert notification settings in User Defaults to true
+	
+	- returns:
+	true if the alerts was changed correctly, false if nil was retrieved from User Defaults.
+	*/
+	public static func setAllAlertNotificationDefaults() -> Bool {
+		let defaults = WOPDatabaseController.getDefaults()
+		var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
+		
+		if alerts != nil {
+			var foundFalse = false
+			for a in alerts! {
+				if a.value == false {
+					foundFalse = true
+					break
+				}
+			}
+			for alert in alerts! {
+				alerts!.updateValue(foundFalse, forKey: alert.key)
+			}
+			defaults.set(alerts, forKey: "alerts")
+			return true
+		}
+		else {
+			return false
+		}
+	}
+	
+	/**
+	Gets alerts settings in User Defaults
+	
+	- returns:
+	item stored in User Defaults for key 'notificationDefaults'
+	*/
+	public static func getAlertDefaults() -> [String: Bool] {
+		let defaults = WOPDatabaseController.getDefaults()
+		let returning = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
 		if returning == nil {
 			return [:]
 		}

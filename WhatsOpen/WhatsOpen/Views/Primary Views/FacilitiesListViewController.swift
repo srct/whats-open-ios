@@ -263,21 +263,29 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			trueDest = destination
 		}
 		if(self.view.traitCollection.horizontalSizeClass == .regular && self.view.traitCollection.verticalSizeClass == .regular) {
-			//do a popover here for the iPad
-			//iPads are cool right?
-			trueDest.modalPresentationStyle = .popover
-			let popoverController = trueDest.popoverPresentationController
-			popoverController?.permittedArrowDirections = .any
-			popoverController?.sourceView = tapped.contentView
-			popoverController?.sourceRect = tapped.bounds
-            
-            // present the detail view over the search controller if we're searching
-            if searchController.isActive {
-                searchController.present(trueDest, animated: true, completion: nil)
-            }
-            else {
-                present(trueDest, animated: true, completion: nil)
-            }
+			let external = UIScreen.screens
+			if external.count > 1 {
+				var window = UIWindow(frame: external[1].bounds)
+				window.screen = external[1]
+				window.rootViewController = trueDest
+				window.isHidden = false
+			} else {
+				//do a popover here for the iPad
+				//iPads are cool right?
+				trueDest.modalPresentationStyle = .popover
+				let popoverController = trueDest.popoverPresentationController
+				popoverController?.permittedArrowDirections = .any
+				popoverController?.sourceView = tapped.contentView
+				popoverController?.sourceRect = tapped.bounds
+				
+				// present the detail view over the search controller if we're searching
+				if searchController.isActive {
+					searchController.present(trueDest, animated: true, completion: nil)
+				}
+				else {
+					present(trueDest, animated: true, completion: nil)
+				}
+			}
 		}
 		else {
 			let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items

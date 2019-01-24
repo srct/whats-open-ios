@@ -49,6 +49,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
 						let detailVC = storyboard.instantiateViewController(withIdentifier: "detailView") as! WOPFacilityDetailViewController
 						
 						detailVC.facility = facility
+						//detailVC.preferredContentSize = CGSize(width: 300, height: 35)
 						
 						attachChild(detailVC)
 						completion(true, parameters, self.desiredSize)
@@ -72,6 +73,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         return self.extensionContext!.hostedViewMaximumAllowedSize
     }
 	
+	// Taken from Apple's SoupChef sample code
 	private func attachChild(_ viewController: UIViewController) {
 		addChild(viewController)
 		
