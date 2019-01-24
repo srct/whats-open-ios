@@ -20,7 +20,10 @@ enum Day: Int {
     // Add functions here later if we need them
 }
 
-
+struct networkCheck {
+    static var network:Bool = false
+    
+}
 
 class Facility: Object, MapContext, Mappable {
     @objc dynamic var slug = ""
