@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func migrateDefaults() {
-		let oldDefaults = UserDefaults.standard
+		let oldDefaults = WOPDatabaseController.getDefaults()
 		if oldDefaults.integer(forKey: "migrated") <= 0 && oldDefaults.value(forKey: "mapsApp") != nil {
 			// migrating from a pre 1.2 release
 			let defaults = WOPDatabaseController.getDefaults()
@@ -113,6 +113,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			setAlerts.updateValue(false, forKey: "emergency")
 			defaults.set(setAlerts, forKey: "notificationDefaults")
 		}
+		
+		let alertIDs = defaults.dictionary(forKey: "alertIDNotified")
+		if notifications == nil {
+			var setAlerts = [String: Bool]()
+			defaults.set(setAlerts, forKey: "alertIDNotified")
+		}
+		
 		
 	}
 	
@@ -163,7 +170,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 							}
 							
 							// Notification
-							
+							/*
+							let a = WOPAlert(JSONString: "{\"id\": 20,\"created\": \"2018-11-30T12:00:28.109052-05:00\",\"modified\": \"2019-01-23T10:30:32.313528-05:00\",\"urgency_tag\": \"info\",\"message\": \"Mason is closed Mon, Jan 21. Some services are open. Dining Hours: https://dining.gmu.edu/wp-content/uploads/2019/01/MLK-HOO-1.png\",\"start_datetime\": \"2019-01-21T00:00:00-05:00\",\"end_datetime\": \"2019-01-21T23:59:00-05:00\"}")
+							alerts?.append(a!)*/
+							self.scheduleNotifications(for: alerts!)
 							
 							completionHandler(UIBackgroundFetchResult.newData)
 						}
@@ -175,6 +185,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				completionHandler(UIBackgroundFetchResult.failed)
 			}
 		})
+	}
+	
+	func scheduleNotifications(for alerts: List<WOPAlert>) {
+		let notificationCenter = UNUserNotificationCenter.current()
+		notificationCenter.getNotificationSettings { (settings) in
+			// Do not schedule notifications if not authorized.
+			guard settings.authorizationStatus == .authorized else {return}
+			
+			let defaults = WOPDatabaseController.getDefaults()
+			let inAppSettings = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]
+			let alertIDs = defaults.dictionary(forKey: "alertIDNotified") as! [String: Bool]
+			
+			let formatter = ISO8601DateFormatter()
+			formatter.timeZone = TimeZone(identifier: "America/New_York")
+			let now = Date()
+			dump(alerts)
+			for alert in alerts {
+				if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
+					switch alert.urgency {
+					case "info":
+						if inAppSettings["informational"]! {
+							self.singleNotification(alert, nc: notificationCenter, ids: alertIDs, defaults: defaults)
+						}
+					case "minor":
+						if inAppSettings["minor alerts"]! {
+							self.singleNotification(alert, nc: notificationCenter, ids: alertIDs, defaults: defaults)
+						}
+					case "major":
+						if inAppSettings["major alerts"]! {
+							self.singleNotification(alert, nc: notificationCenter, ids: alertIDs, defaults: defaults)
+						}
+					case "emergency":
+						if inAppSettings["emergency"]! {
+							self.singleNotification(alert, nc: notificationCenter, ids: alertIDs, defaults: defaults)
+						}
+					default:
+						return
+					}
+				}
+			}
+
+		}
+	}
+	
+	func singleNotification(_ alert: WOPAlert, nc: UNUserNotificationCenter, ids: [String: Bool], defaults: UserDefaults) {
+		if ids["\(alert.id)"] == nil {
+			let content = UNMutableNotificationContent()
+			switch alert.urgency {
+			case "info":
+				content.title = "Information"
+			case "minor":
+				content.title = "Minor Alert"
+			case "major":
+				content.title = "Major Alert"
+			case "emergency":
+				content.title = "Emergency Alert"
+			default:
+				content.title = "Alert"
+			}
+			content.body = alert.message
+			content.badge = 1 as NSNumber
+			let sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "patriots.caf"))
+			content.sound = sound
+			content.userInfo = ["alert": alert.id]
+			
+			let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false))
+			nc.add(request, withCompletionHandler: {error in
+				if error == nil {
+					var updatedIDs = ids
+					updatedIDs["\(alert.id)"] = true
+					defaults.set(updatedIDs, forKey: "alertIDNotified")
+				}
+			})
+		} else {
+			return
+		}
 	}
 
     func applicationWillResignActive(_ application: UIApplication) {

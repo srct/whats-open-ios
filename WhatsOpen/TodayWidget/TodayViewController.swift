@@ -29,9 +29,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 		if results.count > 0 {
 			let model = results[0]
 			let facilities = model.facilities
-			facilitiesArray = facilities.filter({ (facility: WOPFacility) -> Bool in
-				return WOPUtilities.isFavoriteFacility(facility)
-			})
+			for facility in facilities {
+				if WOPUtilities.isFavoriteFacility(facility) {
+					facilitiesArray.append(facility)
+				}
+			}
 		}
         // Do any additional setup after loading the view from its nib.
 		
@@ -61,9 +63,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 		if results.count > 0 {
 			let model = results[0]
 			let facilities = model.facilities
-			facilitiesArray = facilities.filter({ (facility: WOPFacility) -> Bool in
-				return WOPUtilities.isFavoriteFacility(facility)
-			})
+			for facility in facilities {
+				if WOPUtilities.isFavoriteFacility(facility) {
+					facilitiesArray.append(facility)
+				}
+			}
 		}
 		tableView.reloadData()
         completionHandler(NCUpdateResult.newData)

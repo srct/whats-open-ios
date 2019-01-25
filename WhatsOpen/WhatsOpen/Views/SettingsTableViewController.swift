@@ -47,7 +47,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +62,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 			return 2
 		}
 		else if(section == 3) {
+			return 1
+		}
+		else if(section == 4) {
 			return 3
 		}
 		else {
@@ -143,6 +146,11 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
 		case 3:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
+			cell.textLabel!.text = "Alert Notifications"
+			cell.accessoryType = .disclosureIndicator
+			return cell
+		case 4:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Setting", for: indexPath) as! SettingTableViewCell
 			switch indexPath.row {
 			case 0:
 				cell.textLabel!.text = "Review on the App Store"
@@ -186,6 +194,14 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				else {
 					present(mailvc, animated: true)
 				}
+			} else if settingcell.textLabel?.text == "Alert Notifications" {
+				let destination = self.storyboard?.instantiateViewController(withIdentifier: "filtersVC") as! FilterSelectionTableViewController
+				destination.navigationItem.title = "Alert Notifications"
+				destination.getFunc = WOPUtilities.getAlertNotificationDefaults
+				destination.selectFunc = WOPUtilities.setAlertNotificationDefaults
+				destination.selectAllFunc = WOPUtilities.setAllAlertNotificationDefaults
+				destination.updateFacilities = updateFacilities
+				self.show(destination, sender: self)
 			}
 			else if settingcell.textLabel?.text == "Select App Icon" {
 				let vc = self.storyboard?.instantiateViewController(withIdentifier: "setAppIcon")
@@ -283,14 +299,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 				destination.getFunc = WOPUtilities.getAlertDefaults
 				destination.selectFunc = WOPUtilities.setAlertDefaults
 				destination.selectAllFunc = WOPUtilities.setAllAlertDefaults
-				destination.updateFacilities = updateFacilities
-			}
-			else if (sender as! UITableViewCell).textLabel?.text == "Alert Notifications" {
-				let destination = segue.destination as! FilterSelectionTableViewController
-				destination.navigationItem.title = "Alert Notifications"
-				destination.getFunc = WOPUtilities.getCampusDefaults
-				destination.selectFunc = WOPUtilities.setCampusDefaults
-				destination.selectAllFunc = WOPUtilities.setAllCampusDefaults
 				destination.updateFacilities = updateFacilities
 			}
 			else if (sender as! UITableViewCell).textLabel?.text == "Show Campuses" {

@@ -255,9 +255,12 @@ public class WOPUtilities: NSObject {
 		let now = Date()
 		if(facility.specialSchedules != nil) {
 			for schedule in facility.specialSchedules! {
+				if schedule.validStart == "" {
+					dump(schedule)
+				}
 				let start = formatter.date(from: schedule.validStart)
 				let end = formatter.date(from: schedule.validEnd)
-				
+
 				if start! < now && end! > now {
 					return schedule
 				}
@@ -476,6 +479,8 @@ public class WOPUtilities: NSObject {
 	true if the option was changed correctly.
 	*/
 	public static func setAlertNotificationDefaults(_ key: String, value: Bool) -> Bool {
+		var returning = false
+		
 		if value == true {
 			let notificationCenter = UNUserNotificationCenter.current()
 			notificationCenter.getNotificationSettings { (settings) in
@@ -486,11 +491,13 @@ public class WOPUtilities: NSObject {
 							var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
 							if alerts != nil {
 								alerts!.updateValue(value, forKey: key)
-								defaults.set(alerts, forKey: "alerts")
-								return true
+								defaults.set(alerts, forKey: "notificationDefaults")
+								returning = true
+								return
 							}
 							else {
-								return false
+								returning = false
+								return
 							}
 						} else {
 							return
@@ -504,16 +511,30 @@ public class WOPUtilities: NSObject {
 					var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
 					if alerts != nil {
 						alerts!.updateValue(value, forKey: key)
-						defaults.set(alerts, forKey: "alerts")
-						return true
+						defaults.set(alerts, forKey: "notificationDefaults")
+						returning = true
+						return
 					}
 					else {
-						return false
+						returning = false
+						return
 					}
 				}
 			}
+		} else {
+			let defaults = WOPDatabaseController.getDefaults()
+			var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
+			if alerts != nil {
+				alerts!.updateValue(value, forKey: key)
+				defaults.set(alerts, forKey: "notificationDefaults")
+				returning = true
+			}
+			else {
+				returning = false
+			}
 		}
-
+		
+		return returning
 	}
 	
 	/**
@@ -537,7 +558,7 @@ public class WOPUtilities: NSObject {
 			for alert in alerts! {
 				alerts!.updateValue(foundFalse, forKey: alert.key)
 			}
-			defaults.set(alerts, forKey: "alerts")
+			defaults.set(alerts, forKey: "notificationDefaults")
 			return true
 		}
 		else {
@@ -551,7 +572,7 @@ public class WOPUtilities: NSObject {
 	- returns:
 	item stored in User Defaults for key 'notificationDefaults'
 	*/
-	public static func getAlertDefaults() -> [String: Bool] {
+	public static func getAlertNotificationDefaults() -> [String: Bool] {
 		let defaults = WOPDatabaseController.getDefaults()
 		let returning = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
 		if returning == nil {

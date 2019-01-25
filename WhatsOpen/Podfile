@@ -1,22 +1,20 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
-platform :ios, '11.0'
+platform :ios, '12.0'
 use_frameworks!
 
 def important_pods
   pod 'RealmSwift'
 
-  #pod 'ObjectMapper', '~> 3.2'
-  # TEMPORARY BECAUSE Xcode 10
-  pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git', :branch => 'Swift-4.2'
+  pod 'ObjectMapper'
   pod "ObjectMapper+Realm"
 end
 
 def ios_pods
   #pod 'Segmentio', '~> 2.1'
 
-  pod 'DeckTransition', '~> 2.0'
+  pod 'DeckTransition'
 
   pod 'Fabric'
   pod 'Crashlytics'

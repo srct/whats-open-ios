@@ -41,7 +41,9 @@ public class WOPDownloadController: NSObject {
 							})
 							// This is where completion is called
 							// Right after the array is done mapping all facility objects
-							completion(List(facilities))
+							let list = List<WOPFacility>()
+							list.append(objectsIn: facilities)
+							completion(list)
 						}
 					}
 				}
@@ -80,7 +82,9 @@ public class WOPDownloadController: NSObject {
 							})
 							// This is where completion is called
 							// Right after the array is done mapping all facility objects
-							completion(List(alerts))
+							let list = List<WOPAlert>()
+							list.append(objectsIn: alerts)
+							completion(list)
 						}
 					}
 				}

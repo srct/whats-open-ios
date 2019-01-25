@@ -76,9 +76,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         var favoriteFacilites = List<WOPFacility>()
         
         // add the facility to favorites list if it is a favorite
-        favoriteFacilites = filteredFacilities.filter({ (facility: WOPFacility) -> Bool in
-			return WOPUtilities.isFavoriteFacility(facility)
-        })
+		for facility in filteredFacilities {
+			if WOPUtilities.isFavoriteFacility(facility) {
+				favoriteFacilites.append(facility)
+			}
+		}
         
         return favoriteFacilites
     }
@@ -442,17 +444,17 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
         List of filtered facilities. Facilities whose names, buildings, or categories match the search text are included.
      */
     func filterFacilitiesForSearchText(_ searchText: String) -> List<WOPFacility> {
-        var filtered: List<WOPFacility>
+		var filtered = List<WOPFacility>()
 		
 		if searchText == "" {
 			filtered = shownFacilities
 			LocationsList.reloadData()
 			return shownFacilities
 		}
-		filtered = filteredFacilities.filter({(facility: WOPFacility) -> Bool in
+		for facility in filteredFacilities {
 			let hasName = facility.facilityName.lowercased().contains(searchText.lowercased())
 			let hasBuilding = facility.facilityLocation?.building.lowercased().contains(searchText.lowercased()) ?? false
-            let hasAbbreviation = facility.facilityLocation?.abbreviation.lowercased().contains(searchText.lowercased()) ?? false
+			let hasAbbreviation = facility.facilityLocation?.abbreviation.lowercased().contains(searchText.lowercased()) ?? false
 			let hasCategory = facility.category?.categoryName.lowercased().contains(searchText.lowercased()) ?? false
 			var hasTag = false
 			for tag in facility.facilityTags! {
@@ -472,8 +474,10 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					hasLabel = true
 				}
 			}
-			return hasName || hasBuilding || hasCategory || hasTag || hasAbbreviation
-		})
+			if hasName || hasBuilding || hasCategory || hasTag || hasAbbreviation {
+				filtered.append(facility)
+			}
+		}
         
         LocationsList.reloadData()
         return filtered

@@ -35,7 +35,7 @@ class FilterSelectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-		if navigationItem.title = "Alert Notifications" {
+		if navigationItem.title == "Alert Notifications" {
 			return 2
 		}
 		return 1
@@ -55,7 +55,7 @@ class FilterSelectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section != 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "filterSelection", for: indexPath)
-			cell.accessoryType = .detailButton
+			cell.accessoryType = .disclosureIndicator
 			cell.textLabel?.text = "Open Notifications Settings"
 			return cell
 		}
@@ -95,8 +95,8 @@ class FilterSelectionTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-		if section != 0 {
-			return "The above settings will only apply if you have notifications enabled for What's Open in Settings."
+		if section != 0 && navigationItem.title == "Alert Notifications" {
+			return "The above settings will only apply if you have notifications enabled for What's Open in Settings.\n\nBackground App Refresh is required in order to recieve notifications."
 		}
 		
 		if navigationItem.title == "Show Alerts" {
@@ -110,7 +110,9 @@ class FilterSelectionTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.section != 0 {
-			UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, completionHandler: nil)
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+			let tableCell = tableView.cellForRow(at: indexPath)
+			tableCell?.isSelected = false
 			return
 		}
 		

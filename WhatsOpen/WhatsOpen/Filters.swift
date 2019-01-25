@@ -46,12 +46,12 @@ public class WOPFilters {
         switch sortBy {
         case .alphabetical:
             if(openFirst) {
-                var returning = List<WOPFacility>()
+				let returning = List<WOPFacility>()
                 if(showOpen) {
-                    returning += sortAlphabetically(open)
+                    returning.append(objectsIn: sortAlphabetically(open))
                 }
                 if(showClosed) {
-                    returning += sortAlphabetically(closed)
+                    returning.append(objectsIn: sortAlphabetically(closed))
                 }
                 return returning
             }
@@ -71,12 +71,12 @@ public class WOPFilters {
             }
         case .reverseAlphabetical:
             if(openFirst) {
-                var returning = List<WOPFacility>()
+				let returning = List<WOPFacility>()
                 if(showOpen) {
-                    returning += sortAlphabetically(open, reverse: true)
+                    returning.append(objectsIn: sortAlphabetically(open, reverse: true))
                 }
                 if(showClosed) {
-                    returning += sortAlphabetically(closed, reverse: true)
+                    returning.append(objectsIn: sortAlphabetically(closed, reverse: true))
                 }
                 return returning
             }
@@ -96,12 +96,12 @@ public class WOPFilters {
             }
         case .byLocation:
             if(openFirst) {
-                var returning = List<WOPFacility>()
+				let returning = List<WOPFacility>()
                 if(showOpen) {
-                    returning += sortByLocation(open)
+                    returning.append(objectsIn: sortByLocation(open))
                 }
                 if(showClosed) {
-                    returning += sortByLocation(closed)
+                    returning.append(objectsIn: sortByLocation(closed))
                 }
                 return returning
             }

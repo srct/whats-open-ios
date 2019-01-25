@@ -12,7 +12,7 @@
         <!--Filters-->
         <scene sceneID="92M-hL-B3A">
             <objects>
-                <tableViewController id="jkQ-vu-LQa" customClass="FiltersTableViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="jkQ-vu-LQa" customClass="FiltersTableViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="5kO-nm-yJp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
         <!--Filter Selection Table View Controller-->
         <scene sceneID="4jA-Yu-4Hs">
             <objects>
-                <tableViewController id="yIT-AR-gdn" customClass="FilterSelectionTableViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="filtersVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yIT-AR-gdn" customClass="FilterSelectionTableViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eE2-pe-hUF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -853,7 +853,7 @@
         <image name="major" width="63.840000152587891" height="63.840000152587891"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FRf-a6-Dgs"/>
+        <segue reference="lwF-fe-hI5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
