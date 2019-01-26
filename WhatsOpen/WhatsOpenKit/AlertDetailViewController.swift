@@ -6,17 +6,17 @@
 //  Copyright © 2018 SRCT. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
-import WhatsOpenKit
 
-class AlertDetailViewController: UIViewController {
+public class WOPAlertDetailViewController: UIViewController {
 
-	@IBOutlet var imageView: UIImageView!
-	@IBOutlet var nameLabel: UILabel!
-	@IBOutlet var messageView: UITextView!
-	var alert: WOPAlert!
+	@IBOutlet public var imageView: UIImageView!
+	@IBOutlet public var nameLabel: UILabel!
+	@IBOutlet public var messageView: UITextView!
+	public var alert: WOPAlert!
 	
-	override func viewDidLoad() {
+	override public func viewDidLoad() {
         super.viewDidLoad()
 
 		switch alert.urgency {
@@ -44,7 +44,7 @@ class AlertDetailViewController: UIViewController {
         self.messageView.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
-    override func didReceiveMemoryWarning() {
+	override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -61,3 +61,4 @@ class AlertDetailViewController: UIViewController {
     */
 
 }
+#endif

@@ -26,8 +26,20 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 		tableView.reloadData()
 	}
 	
+	@objc func toNotifications(_ notification: Notification?) {
+		let destination = self.storyboard?.instantiateViewController(withIdentifier: "filtersVC") as! FilterSelectionTableViewController
+		destination.navigationItem.title = "Alert Notifications"
+		destination.getFunc = WOPUtilities.getAlertNotificationDefaults
+		destination.selectFunc = WOPUtilities.setAlertNotificationDefaults
+		destination.selectAllFunc = WOPUtilities.setAllAlertNotificationDefaults
+		destination.updateFacilities = updateFacilities
+		self.show(destination, sender: self)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(toNotifications(_:)), name: NSNotification.Name(rawValue: "openNotificationsPane"), object: nil)
 		
 		tableView.estimatedRowHeight = 44.0
 		tableView.rowHeight = UITableView.automaticDimension
@@ -195,13 +207,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 					present(mailvc, animated: true)
 				}
 			} else if settingcell.textLabel?.text == "Alert Notifications" {
-				let destination = self.storyboard?.instantiateViewController(withIdentifier: "filtersVC") as! FilterSelectionTableViewController
-				destination.navigationItem.title = "Alert Notifications"
-				destination.getFunc = WOPUtilities.getAlertNotificationDefaults
-				destination.selectFunc = WOPUtilities.setAlertNotificationDefaults
-				destination.selectAllFunc = WOPUtilities.setAllAlertNotificationDefaults
-				destination.updateFacilities = updateFacilities
-				self.show(destination, sender: self)
+				toNotifications(nil)
 			}
 			else if settingcell.textLabel?.text == "Select App Icon" {
 				let vc = self.storyboard?.instantiateViewController(withIdentifier: "setAppIcon")

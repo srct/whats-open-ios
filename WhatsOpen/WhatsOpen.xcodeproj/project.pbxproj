@@ -16,7 +16,6 @@
 		9203CB892023D51A006ACC3B /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF6C721FFEEEE900D836AE /* AlertCollectionViewCell.swift */; };
 		9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92108A321ED755F100675E16 /* CheckingTableViewCell.swift */; };
 		9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */; };
-		9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A21F2C0B1500A54A21 /* AboutScreenViewController.swift */; };
 		9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */; };
 		9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
@@ -77,10 +76,15 @@
 		928EC26421604DD800D8F9FE /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C97481DC18AB300A84434 /* DownloadController.swift */; };
 		928EC26521605CD700D8F9FE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD763A791DE24EF100ADFD6B /* Model.swift */; };
 		928EC26721611E5900D8F9FE /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928EC26621611E5900D8F9FE /* DatabaseController.swift */; };
+		929680AC21FBBE2F00A87E86 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929680AB21FBBE2F00A87E86 /* UserNotifications.framework */; };
+		929680AE21FBBE2F00A87E86 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929680AD21FBBE2F00A87E86 /* UserNotificationsUI.framework */; };
+		929680B121FBBE2F00A87E86 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929680B021FBBE2F00A87E86 /* NotificationViewController.swift */; };
+		929680B421FBBE2F00A87E86 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929680B221FBBE2F00A87E86 /* MainInterface.storyboard */; };
+		929680B821FBBE2F00A87E86 /* AlertNotificationExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 929680AA21FBBE2F00A87E86 /* AlertNotificationExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		929680BD21FCCE3800A87E86 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		9296814D21CED36600FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
 		9296814E21CEDC3E00FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
 		92B2D2FF1FF8599500349E90 /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
-		92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		92B89E302009444E00928284 /* PullingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2F2009444E00928284 /* PullingViewController.swift */; };
 		92F681581FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F681571FC1353700393DF4 /* Pods-WhatsOpen-acknowledgements.plist */; };
 		92F6815A1FC137CF00393DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92F681591FC137CF00393DF4 /* Settings.bundle */; };
@@ -131,6 +135,13 @@
 			remoteGlobalIDString = 928EC2512160475900D8F9FE;
 			remoteInfo = WhatsOpenKit;
 		};
+		929680B621FBBE2F00A87E86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 929680A921FBBE2F00A87E86;
+			remoteInfo = AlertNotificationExtention;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +164,7 @@
 			files = (
 				9273EEE021659B6200CE63DC /* ShortcutsExtensionUI.appex in Embed App Extensions */,
 				92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */,
+				929680B821FBBE2F00A87E86 /* AlertNotificationExtention.appex in Embed App Extensions */,
 				9273EEE321659B6200CE63DC /* ShortcutsExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -237,6 +249,12 @@
 		9281AD7B2002CF1700D09203 /* SetIconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIconTableViewController.swift; sourceTree = "<group>"; };
 		928EC2522160475900D8F9FE /* WhatsOpenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsOpenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928EC26621611E5900D8F9FE /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		929680AA21FBBE2F00A87E86 /* AlertNotificationExtention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AlertNotificationExtention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		929680AB21FBBE2F00A87E86 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		929680AD21FBBE2F00A87E86 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		929680B021FBBE2F00A87E86 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		929680B321FBBE2F00A87E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		929680B521FBBE2F00A87E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInMapsActionActivity.swift; sourceTree = "<group>"; };
 		92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionTableViewController.swift; sourceTree = "<group>"; };
 		92B89E2D20093E3600928284 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +350,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		929680A721FBBE2F00A87E86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				929680AE21FBBE2F00A87E86 /* UserNotificationsUI.framework in Frameworks */,
+				929680AC21FBBE2F00A87E86 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD81F5161DC0334600009FBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +447,7 @@
 		9255C5A921556E410094C947 /* WhatsOpenKit */ = {
 			isa = PBXGroup;
 			children = (
+				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
 				92EA81961FB7D1B500B1F6E3 /* PaddedUILabel.swift */,
 				92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */,
 				928EC26621611E5900D8F9FE /* DatabaseController.swift */,
@@ -476,10 +504,19 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		929680AF21FBBE2F00A87E86 /* AlertNotificationExtention */ = {
+			isa = PBXGroup;
+			children = (
+				929680B021FBBE2F00A87E86 /* NotificationViewController.swift */,
+				929680B221FBBE2F00A87E86 /* MainInterface.storyboard */,
+				929680B521FBBE2F00A87E86 /* Info.plist */,
+			);
+			path = AlertNotificationExtention;
+			sourceTree = "<group>";
+		};
 		92A2757120C8992600E1A102 /* Primary Views */ = {
 			isa = PBXGroup;
 			children = (
-				92B89E2D20093E3600928284 /* AlertDetailViewController.swift */,
 				92182EBF1E95BD2C00192ABA /* FacilitiesListViewController.swift */,
 			);
 			path = "Primary Views";
@@ -503,6 +540,7 @@
 				92589A6321612D0D0002814F /* TodayWidget */,
 				9273EECC21659B6200CE63DC /* ShortcutsExtension */,
 				9273EED721659B6200CE63DC /* ShortcutsExtensionUI */,
+				929680AF21FBBE2F00A87E86 /* AlertNotificationExtention */,
 				CD81F51A1DC0334600009FBD /* Products */,
 				2EAE8AD7B1F0ADDED5057982 /* Pods */,
 				FD2AE174B8FDE3008F34206E /* Frameworks */,
@@ -520,6 +558,7 @@
 				92589A6021612D0D0002814F /* TodayWidget.appex */,
 				9273EECB21659B6200CE63DC /* ShortcutsExtension.appex */,
 				9273EED421659B6200CE63DC /* ShortcutsExtensionUI.appex */,
+				929680AA21FBBE2F00A87E86 /* AlertNotificationExtention.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -554,6 +593,8 @@
 				ABAAA7AD48CF2CBD44512166 /* Pods_Watch_Extension.framework */,
 				4EE3CD0842CD297B8F2FEEA4 /* Pods_Watch.framework */,
 				D024256135674B9023108E02 /* Pods_WhatsOpenKitWatch.framework */,
+				929680AB21FBBE2F00A87E86 /* UserNotifications.framework */,
+				929680AD21FBBE2F00A87E86 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -611,6 +652,7 @@
 				92589A6B21612D0E0002814F /* PBXTargetDependency */,
 				9273EEDF21659B6200CE63DC /* PBXTargetDependency */,
 				9273EEE221659B6200CE63DC /* PBXTargetDependency */,
+				929680B721FBBE2F00A87E86 /* PBXTargetDependency */,
 			);
 			name = "WhatsOpen - AppStore";
 			productName = WhatsOpen;
@@ -693,6 +735,23 @@
 			productReference = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		929680A921FBBE2F00A87E86 /* AlertNotificationExtention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 929680BC21FBBE2F00A87E86 /* Build configuration list for PBXNativeTarget "AlertNotificationExtention" */;
+			buildPhases = (
+				929680A621FBBE2F00A87E86 /* Sources */,
+				929680A721FBBE2F00A87E86 /* Frameworks */,
+				929680A821FBBE2F00A87E86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlertNotificationExtention;
+			productName = AlertNotificationExtention;
+			productReference = 929680AA21FBBE2F00A87E86 /* AlertNotificationExtention.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CD81F5181DC0334600009FBD /* WhatsOpen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD81F52B1DC0334600009FBD /* Build configuration list for PBXNativeTarget "WhatsOpen" */;
@@ -724,7 +783,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = SRCT;
 				TargetAttributes = {
@@ -789,6 +848,11 @@
 						DevelopmentTeam = N5GM564QWL;
 						ProvisioningStyle = Automatic;
 					};
+					929680A921FBBE2F00A87E86 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = K5MMVK2UFR;
+						ProvisioningStyle = Automatic;
+					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = N5GM564QWL;
@@ -817,6 +881,7 @@
 				92589A5F21612D0D0002814F /* TodayWidget */,
 				9273EECA21659B6200CE63DC /* ShortcutsExtension */,
 				9273EED321659B6200CE63DC /* ShortcutsExtensionUI */,
+				929680A921FBBE2F00A87E86 /* AlertNotificationExtention */,
 			);
 		};
 /* End PBXProject section */
@@ -870,6 +935,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9273EEC221658B0200CE63DC /* WOPSharedUI.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		929680A821FBBE2F00A87E86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				929680B421FBBE2F00A87E86 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,7 +1264,6 @@
 				9296814E21CEDC3E00FA2238 /* ViewInMapsActionActivity.swift in Sources */,
 				9203CB8A2023D51A006ACC3B /* CheckingTableViewCell.swift in Sources */,
 				9203CB8B2023D51A006ACC3B /* FacilitiesListViewController.swift in Sources */,
-				9203CB8C2023D51A006ACC3B /* AlertDetailViewController.swift in Sources */,
 				924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9203CB8E2023D51A006ACC3B /* AboutScreenViewController.swift in Sources */,
 				9203CB912023D51A006ACC3B /* SetIconTableViewController.swift in Sources */,
@@ -1240,6 +1312,7 @@
 			files = (
 				928EC26721611E5900D8F9FE /* DatabaseController.swift in Sources */,
 				928EC26421604DD800D8F9FE /* DownloadController.swift in Sources */,
+				929680BD21FCCE3800A87E86 /* AlertDetailViewController.swift in Sources */,
 				928EC26321604ADD00D8F9FE /* Utilities.swift in Sources */,
 				928EC262216049F900D8F9FE /* Filters.swift in Sources */,
 				9273EEF12165AFD400CE63DC /* WOPViewFacilityIntentHandler.swift in Sources */,
@@ -1247,6 +1320,14 @@
 				9273EEC321658BCC00CE63DC /* FacilityDetailViewController.swift in Sources */,
 				9273EEEF21659D6C00CE63DC /* Intents.intentdefinition in Sources */,
 				928EC26521605CD700D8F9FE /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		929680A621FBBE2F00A87E86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				929680B121FBBE2F00A87E86 /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,7 +1340,6 @@
 				9296814D21CED36600FA2238 /* ViewInMapsActionActivity.swift in Sources */,
 				92108A331ED755F100675E16 /* CheckingTableViewCell.swift in Sources */,
 				92182EC01E95BD2C00192ABA /* FacilitiesListViewController.swift in Sources */,
-				92B89E2E20093E3600928284 /* AlertDetailViewController.swift in Sources */,
 				924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */,
 				9265F3A31F2C0B1500A54A21 /* AboutScreenViewController.swift in Sources */,
 				9281AD7C2002CF1700D09203 /* SetIconTableViewController.swift in Sources */,
@@ -1304,6 +1384,11 @@
 			target = 928EC2512160475900D8F9FE /* WhatsOpenKit */;
 			targetProxy = 928EC2572160475A00D8F9FE /* PBXContainerItemProxy */;
 		};
+		929680B721FBBE2F00A87E86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 929680A921FBBE2F00A87E86 /* AlertNotificationExtention */;
+			targetProxy = 929680B621FBBE2F00A87E86 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1319,6 +1404,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				9273EEDB21659B6200CE63DC /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		929680B221FBBE2F00A87E86 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				929680B321FBBE2F00A87E86 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1942,6 +2035,85 @@
 			};
 			name = "App Store";
 		};
+		929680B921FBBE2F00A87E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AlertNotificationExtention/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.AlertNotificationExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		929680BA21FBBE2F00A87E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AlertNotificationExtention/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.AlertNotificationExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		929680BB21FBBE2F00A87E86 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AlertNotificationExtention/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gmu.srct.whatsopen.AlertNotificationExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "App Store";
+		};
 		CD81F5291DC0334600009FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2173,6 +2345,16 @@
 				928EC25B2160475A00D8F9FE /* Debug */,
 				928EC25C2160475A00D8F9FE /* Release */,
 				928EC25D2160475A00D8F9FE /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		929680BC21FBBE2F00A87E86 /* Build configuration list for PBXNativeTarget "AlertNotificationExtention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				929680B921FBBE2F00A87E86 /* Debug */,
+				929680BA21FBBE2F00A87E86 /* Release */,
+				929680BB21FBBE2F00A87E86 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

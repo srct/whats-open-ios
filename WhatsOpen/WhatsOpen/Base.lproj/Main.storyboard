@@ -565,60 +565,6 @@
             </objects>
             <point key="canvasLocation" x="-6034.3999999999996" y="-349.47526236881561"/>
         </scene>
-        <!--Alert Detail View Controller-->
-        <scene sceneID="fvA-S0-fxZ">
-            <objects>
-                <viewController storyboardIdentifier="alertDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CQV-Ih-fJc" customClass="AlertDetailViewController" customModule="WhatsOpen" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qgs-Jx-pkN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Major Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="uww-Cq-IAo">
-                                <rect key="frame" x="94" y="29.5" width="218.5" height="49"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2d-dH-ecC">
-                                <rect key="frame" x="16" y="94" width="343" height="553"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="major" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-gD-Oki">
-                                <rect key="frame" x="16" y="22" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Wjw-gD-Oki" secondAttribute="height" multiplier="1:1" id="3sg-43-UAK"/>
-                                    <constraint firstAttribute="width" constant="64" id="aRP-E2-NVT"/>
-                                    <constraint firstAttribute="height" constant="64" id="yKT-sg-64x"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="uww-Cq-IAo" firstAttribute="leading" secondItem="Wjw-gD-Oki" secondAttribute="trailing" constant="14" id="BFd-9D-ObM"/>
-                            <constraint firstItem="H2d-dH-ecC" firstAttribute="top" secondItem="Wjw-gD-Oki" secondAttribute="bottom" constant="8" id="Bm1-Db-h28"/>
-                            <constraint firstItem="0op-ia-1Jp" firstAttribute="trailing" secondItem="H2d-dH-ecC" secondAttribute="trailing" constant="16" id="Bvy-0L-Zya"/>
-                            <constraint firstItem="Wjw-gD-Oki" firstAttribute="leading" secondItem="0op-ia-1Jp" secondAttribute="leading" constant="16" id="LUT-Q5-9xh"/>
-                            <constraint firstItem="0op-ia-1Jp" firstAttribute="bottom" secondItem="H2d-dH-ecC" secondAttribute="bottom" constant="20" id="eXu-aN-yel"/>
-                            <constraint firstItem="H2d-dH-ecC" firstAttribute="leading" secondItem="0op-ia-1Jp" secondAttribute="leading" constant="16" id="ktv-cw-uJW"/>
-                            <constraint firstItem="Wjw-gD-Oki" firstAttribute="top" secondItem="0op-ia-1Jp" secondAttribute="top" constant="2" id="m6Z-EJ-92a"/>
-                            <constraint firstItem="uww-Cq-IAo" firstAttribute="centerY" secondItem="Wjw-gD-Oki" secondAttribute="centerY" id="zn8-kj-wd1"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="0op-ia-1Jp"/>
-                    </view>
-                    <connections>
-                        <outlet property="imageView" destination="Wjw-gD-Oki" id="EWb-jS-UDB"/>
-                        <outlet property="messageView" destination="H2d-dH-ecC" id="GDe-bW-ZII"/>
-                        <outlet property="nameLabel" destination="uww-Cq-IAo" id="Bpb-CV-Ts7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cyE-FJ-bCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-7327.1999999999998" y="-1887.7061469265368"/>
-        </scene>
         <!--Pulling View Controller-->
         <scene sceneID="9g0-2V-iaL">
             <objects>
@@ -690,7 +636,7 @@
         <!--Settings Navigation-->
         <scene sceneID="4nY-5A-CmH">
             <objects>
-                <navigationController title="Settings Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Uxx-wt-GfY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settings" title="Settings Navigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uxx-wt-GfY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U3x-0f-mCs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -850,10 +796,9 @@
         <image name="downPull" width="108" height="32"/>
         <image name="heart_empty" width="27" height="27"/>
         <image name="info" width="63.840000152587891" height="63.840000152587891"/>
-        <image name="major" width="63.840000152587891" height="63.840000152587891"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lwF-fe-hI5"/>
+        <segue reference="FRf-a6-Dgs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

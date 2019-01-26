@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import DeckTransition
 import RealmSwift
 import StoreKit
@@ -159,7 +160,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.presentDetailView(destination!, tapped: tapped)
 			}
 			else {
-				let destination = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController
+				let destination = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? WOPAlertDetailViewController
 				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! AlertCollectionViewCell
 				destination?.alert = tapped.alert
 				self.presentDetailView(destination!, tapped: tapped)
@@ -252,6 +253,42 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 			present(finalDestination!, animated: true, completion: nil)
 		}
 	}
+	
+	@objc func toAlertFromNotification(_ notification: Notification) {
+		let notification = notification.object as? UNNotification
+		
+		let alert = realm.objects(WOPFacilitiesModel.self)[0].alerts.filter(NSPredicate(format: "id = \" \((notification?.request.content.userInfo["alertID"])!) \"")).first
+		if(alert == nil) {
+			return // don't do anything
+		}
+		
+		let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPAlertDetailViewController.self))
+		let dest = storyboard.instantiateViewController(withIdentifier: "alertDetail") as! WOPAlertDetailViewController
+		
+		dest.alert = alert!
+		
+		let finalDestination = self.storyboard?.instantiateViewController(withIdentifier: "pulling") as? PullingViewController // Fox only, no items
+		finalDestination?.currentViewController = dest
+		let destDelegate = DeckTransitioningDelegate(isSwipeToDismissEnabled: true, dismissCompletion: begForReviews)
+		finalDestination?.modalPresentationStyle = .custom
+		finalDestination?.transitioningDelegate = destDelegate
+		
+		// present the detail view over the search controller if we're searching
+		if searchController.isActive {
+			searchController.present(finalDestination!, animated: true, completion: nil)
+		}
+		else {
+			present(finalDestination!, animated: true, completion: nil)
+		}
+	}
+	
+	@objc func toSettingsFromNotification(_ notification: Notification) {
+		let settings = self.storyboard?.instantiateViewController(withIdentifier: "settings")
+		
+		present(settings!, animated: true) {
+			NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "openNotificationsPane"), object: notification, userInfo: nil))
+		}
+	}
 
 	func presentDetailView(_ destination: UIViewController, tapped: UICollectionViewCell) {
 		var trueDest: UIViewController
@@ -333,6 +370,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	override func viewDidLoad() {
 		NotificationCenter.default.addObserver(self, selector: #selector(toDetailFromSearch(_:)), name: NSNotification.Name(rawValue: "launchToFacility"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(toDetailFromURL(_:)), name: NSNotification.Name(rawValue: "openFacilityFromURL"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toSettingsFromNotification(_:)), name: NSNotification.Name(rawValue: "launchToNotificationSettings"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toAlertFromNotification(_:)), name: NSNotification.Name(rawValue: "openAlert"), object: nil)
 		
         super.viewDidLoad()
 		let nc = NotificationCenter.default
@@ -952,7 +991,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		}
 		else {
 			let cell = LocationsList?.cellForItem(at: indexPath) as? AlertCollectionViewCell
-			guard let detailView = storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? AlertDetailViewController else { return nil }
+			let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPAlertDetailViewController.self))
+			guard let detailView = storyboard.instantiateViewController(withIdentifier: "alertDetail") as? WOPAlertDetailViewController else { return nil }
 			detailView.alert = cell?.alert
 			return detailView
 		}

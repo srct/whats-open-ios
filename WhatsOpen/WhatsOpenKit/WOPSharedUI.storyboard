@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -122,5 +122,62 @@
             </objects>
             <point key="canvasLocation" x="-6655.1999999999998" y="-1883.2083958020992"/>
         </scene>
+        <!--Alert Detail View Controller-->
+        <scene sceneID="UpQ-cU-zvH">
+            <objects>
+                <viewController storyboardIdentifier="alertDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ymm-w4-EUQ" customClass="WOPAlertDetailViewController" customModule="WhatsOpenKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fFH-fI-fwh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Major Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="lSK-qc-Uis">
+                                <rect key="frame" x="94" y="29.5" width="218.5" height="49"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN8-f7-qjd">
+                                <rect key="frame" x="16" y="94" width="343" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="major" translatesAutoresizingMaskIntoConstraints="NO" id="7p3-a2-wz4">
+                                <rect key="frame" x="16" y="22" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="1nu-jt-fRN"/>
+                                    <constraint firstAttribute="width" secondItem="7p3-a2-wz4" secondAttribute="height" multiplier="1:1" id="B2B-vq-Zv7"/>
+                                    <constraint firstAttribute="width" constant="64" id="esw-La-iPn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KTh-gG-Ygq" firstAttribute="bottom" secondItem="RN8-f7-qjd" secondAttribute="bottom" constant="20" id="9Q1-0E-LoL"/>
+                            <constraint firstItem="RN8-f7-qjd" firstAttribute="leading" secondItem="KTh-gG-Ygq" secondAttribute="leading" constant="16" id="BTq-qf-AKg"/>
+                            <constraint firstItem="7p3-a2-wz4" firstAttribute="leading" secondItem="KTh-gG-Ygq" secondAttribute="leading" constant="16" id="BXV-c8-S4r"/>
+                            <constraint firstItem="lSK-qc-Uis" firstAttribute="centerY" secondItem="7p3-a2-wz4" secondAttribute="centerY" id="Dyn-aP-deC"/>
+                            <constraint firstItem="lSK-qc-Uis" firstAttribute="leading" secondItem="7p3-a2-wz4" secondAttribute="trailing" constant="14" id="Xwb-sw-cs7"/>
+                            <constraint firstItem="7p3-a2-wz4" firstAttribute="top" secondItem="KTh-gG-Ygq" secondAttribute="top" constant="2" id="YLy-ft-VT1"/>
+                            <constraint firstItem="RN8-f7-qjd" firstAttribute="top" secondItem="7p3-a2-wz4" secondAttribute="bottom" constant="8" id="gaU-iy-WQX"/>
+                            <constraint firstItem="KTh-gG-Ygq" firstAttribute="trailing" secondItem="RN8-f7-qjd" secondAttribute="trailing" constant="16" id="xgt-os-3zp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KTh-gG-Ygq"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="7p3-a2-wz4" id="JMM-fp-c0W"/>
+                        <outlet property="messageView" destination="RN8-f7-qjd" id="3JO-GP-IVW"/>
+                        <outlet property="nameLabel" destination="lSK-qc-Uis" id="GJ3-wT-jaa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JLp-Vz-5uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7327.1999999999998" y="-1887.7061469265368"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="major" width="63.840000152587891" height="63.840000152587891"/>
+    </resources>
 </document>
