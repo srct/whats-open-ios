@@ -251,6 +251,9 @@ public class WOPAlert: Object, MapContext, Mappable {
 	@objc public dynamic var created = ""
 	@objc public dynamic var lastModified = ""
 	@objc public dynamic var urgency = ""
+	@objc public dynamic var subject = ""
+	@objc public dynamic var body = ""
+	@objc public dynamic var url = ""
 	@objc public dynamic var message = ""
 	@objc public dynamic var startDate = ""
 	@objc public dynamic var endDate = ""
@@ -264,6 +267,9 @@ public class WOPAlert: Object, MapContext, Mappable {
 		created <- map["created"]
 		lastModified <- map["modified"]
 		urgency <- map["urgency_tag"]
+		subject <- map["subject"]
+		body <- map["body"]
+		message <- map["url"]
 		message <- map["message"]
 		startDate <- map["start_datetime"]
 		endDate <- map["end_datetime"]

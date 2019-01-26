@@ -36,12 +36,21 @@ public class WOPAlertDetailViewController: UIViewController {
 			self.imageView.image = #imageLiteral(resourceName: "major")
 			self.nameLabel.text = "Alert"
 		}
-		self.messageView.text = alert.message
-        // Do any additional setup after loading the view.
-        
+		
+		if alert.message != "" { // API pre-2.2
+			self.messageView.text = alert.message
+		} else { // API 2.2+
+			let message = NSMutableAttributedString(string: alert.subject, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title1).bold()])
+			message.append(NSAttributedString(string: "\n\n"))
+			message.append(NSAttributedString(string: alert.body, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]))
+			message.append(NSAttributedString(string: "\n\n"))
+			message.append(NSAttributedString(string: alert.url, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .subheadline).bold()]))
+			
+			self.messageView.attributedText = message
+		}
+		        
         // dynamic font sizes
-        self.nameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        self.messageView.font = UIFont.preferredFont(forTextStyle: .body)
+        self.nameLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
     }
 
 	override public func didReceiveMemoryWarning() {
@@ -60,5 +69,21 @@ public class WOPAlertDetailViewController: UIViewController {
     }
     */
 
+}
+
+// https://spin.atomicobject.com/2018/02/02/swift-scaled-font-bold-italic/
+extension UIFont {
+	func withTraits(traits:UIFontDescriptor.SymbolicTraits) -> UIFont {
+		let descriptor = fontDescriptor.withSymbolicTraits(traits)
+		return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
+	}
+	
+	func bold() -> UIFont {
+		return withTraits(traits: .traitBold)
+	}
+	
+	func italic() -> UIFont {
+		return withTraits(traits: .traitItalic)
+	}
 }
 #endif

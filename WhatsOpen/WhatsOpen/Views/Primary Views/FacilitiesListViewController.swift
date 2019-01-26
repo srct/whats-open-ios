@@ -160,7 +160,8 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				self.presentDetailView(destination!, tapped: tapped)
 			}
 			else {
-				let destination = self.storyboard?.instantiateViewController(withIdentifier: "alertDetail") as? WOPAlertDetailViewController
+				let storyboard = UIStoryboard(name: "WOPSharedUI", bundle: Bundle(for: WOPAlertDetailViewController.self))
+				let destination = storyboard.instantiateViewController(withIdentifier: "alertDetail") as? WOPAlertDetailViewController
 				let tapped = self.LocationsList.cellForItem(at: indexPath!) as! AlertCollectionViewCell
 				destination?.alert = tapped.alert
 				self.presentDetailView(destination!, tapped: tapped)
@@ -257,7 +258,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 	@objc func toAlertFromNotification(_ notification: Notification) {
 		let notification = notification.object as? UNNotification
 		
-		let alert = realm.objects(WOPFacilitiesModel.self)[0].alerts.filter(NSPredicate(format: "id = \" \((notification?.request.content.userInfo["alertID"])!) \"")).first
+		let alert = realm.objects(WOPFacilitiesModel.self)[0].alerts.filter(NSPredicate(format: "id = \((notification?.request.content.userInfo["alertID"])!)")).first
 		if(alert == nil) {
 			return // don't do anything
 		}
@@ -826,7 +827,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 				cell.imageView.image = #imageLiteral(resourceName: "major")
 				cell.imageView.accessibilityLabel = "Alert"
 			}
-			cell.messageLabel.text = currentAlerts[indexPath.row].message
+			if currentAlerts[indexPath.row].message != "" {
+				cell.messageLabel.text = currentAlerts[indexPath.row].message
+			} else {
+				cell.messageLabel.text = currentAlerts[indexPath.row].subject
+			}
 
 			return cell
 		}

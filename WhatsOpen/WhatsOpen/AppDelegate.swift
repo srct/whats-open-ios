@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		application.applicationIconBadgeNumber = 0
+	}
+	
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
@@ -162,6 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 								let fromRealm = results[0]
 								try! realm.write {
 									fromRealm.facilities.removeAll()
+									fromRealm.alerts.removeAll()
 									for f in facilities! {
 										fromRealm.facilities.append(f)
 									}
@@ -176,10 +180,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 							/*
 							let a = WOPAlert(JSONString: "{\"id\": 20,\"created\": \"2018-11-30T12:00:28.109052-05:00\",\"modified\": \"2019-01-23T10:30:32.313528-05:00\",\"urgency_tag\": \"info\",\"message\": \"Mason is closed Mon, Jan 21. Some services are open. Dining Hours: https://dining.gmu.edu/wp-content/uploads/2019/01/MLK-HOO-1.png\",\"start_datetime\": \"2019-01-21T00:00:00-05:00\",\"end_datetime\": \"2019-01-21T23:59:00-05:00\"}")
 							alerts?.append(a!)*/
-							self.scheduleNotifications(for: alerts!)
 							
 							completionHandler(UIBackgroundFetchResult.newData)
 						}
+						
+						self.scheduleNotifications(for: alerts!)
 					} else {
 						completionHandler(UIBackgroundFetchResult.failed)
 				  }
@@ -203,9 +208,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let formatter = ISO8601DateFormatter()
 			formatter.timeZone = TimeZone(identifier: "America/New_York")
 			let now = Date()
-			dump(alerts)
 			for alert in alerts {
-				if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
+				if true || (now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!) && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!)) {
 					switch alert.urgency {
 					case "info":
 						if inAppSettings["informational"]! {
@@ -228,6 +232,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					}
 				}
 			}
+			
 
 		}
 	}
@@ -251,7 +256,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			content.badge = 1 as NSNumber
 			let sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "patriots.caf"))
 			content.sound = sound
-			content.userInfo = ["alert": alert.id]
+			content.userInfo = ["alertID": alert.id]
 			
 			let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false))
 			nc.add(request, withCompletionHandler: {error in
