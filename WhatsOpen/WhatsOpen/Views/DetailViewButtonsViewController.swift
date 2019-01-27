@@ -25,6 +25,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	
 	let activity = NSUserActivity(activityType: "facility")
 
+	let feedback = UISelectionFeedbackGenerator()
 	/**
 	Favorites button touch handler
 	
@@ -32,13 +33,15 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	removes from favorites if it is a favorite.
 	*/
 	@IBAction func setFavButton(_ sender: Any) {
+		feedback.selectionChanged()
+
 		if(WOPUtilities.isFavoriteFacility(facility)) { // if the facility is a favorite
 			_ = WOPUtilities.removeFavoriteFacility(facility) // remove it from favorites
 		}
 		else { // else add it to favorites
 			_ = WOPUtilities.addFavoriteFacility(facility)
 		}
-		setFavoriteButtonText()
+		setFavoriteButtonText()		
 	}
 	
 	func getDirections(_ sender: Any) {
@@ -72,7 +75,8 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	
 	
 	@IBAction func shareFacility(_ sender: Any) {
-		
+		feedback.selectionChanged()
+
 		let str = "\(facility.facilityName) is \(WOPUtilities.openOrClosedUntil(facility)!.lowercased())"
 		// TODO in future: add URL based on facility once web supports it
 		let shareSheet = UIActivityViewController(activityItems: [str, (URL(string: "https://whatsopen.gmu.edu") ?? nil), facility], applicationActivities: [ViewInMapsActionActivity()])
@@ -141,6 +145,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	}
 	
 	@IBAction func addToSiri(_ sender: Any) {
+		feedback.selectionChanged()
 		let intent = facility.createIntent()
 		let shortcuts = INVoiceShortcutCenter.shared
 		if let shortcut = INShortcut(intent: intent) {
