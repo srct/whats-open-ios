@@ -846,7 +846,7 @@
 					};
 					CD81F5181DC0334600009FBD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = N5GM564QWL;
+						DevelopmentTeam = HQSN7HX89U;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -1888,7 +1888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K5MMVK2UFR;
+				DEVELOPMENT_TEAM = HQSN7HX89U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1898,7 +1898,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D APPSTORE";
 				PRIMARYICON = appicon;
-				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2242,7 +2242,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N5GM564QWL;
+				DEVELOPMENT_TEAM = HQSN7HX89U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2251,7 +2251,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIMARYICON = "appicon-dev";
-				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -2272,7 +2272,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N5GM564QWL;
+				DEVELOPMENT_TEAM = HQSN7HX89U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2281,7 +2281,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIMARYICON = "appicon-dev";
-				PRODUCT_BUNDLE_IDENTIFIER = space.srct.whatsopen;
+				PRODUCT_BUNDLE_IDENTIFIER = io.srct.whatsopen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";

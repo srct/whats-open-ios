@@ -441,6 +441,14 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 		formatter.timeZone = TimeZone(identifier: "America/New_York")
 		let now = Date()
 		let alertFilers = defaults.dictionary(forKey: "alerts") as! [String: Bool]?
+        
+        // Probably a better way to do the check for network results, but it really doesn't matter so this will do for now.
+		let noNetworkAlert = WOPAlert()
+        noNetworkAlert.noNetwork()
+        if networkCheck.network == false {
+            shown.append(noNetworkAlert)
+        }
+ 
 		for alert in alertsList {
 			if now.isGreaterThanDate(dateToCompare: formatter.date(from: alert.startDate)!)  && now.isLessThanDate(dateToCompare: formatter.date(from: alert.endDate)!) {
 				switch alert.urgency {
@@ -556,6 +564,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					facilitiesArray = facilities
 					alertsList = alerts
 					self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
+					networkCheck.network = true
 				  	goodToGo = true
 				}
 			}
@@ -605,6 +614,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						let lastUpdated = model.lastUpdated
 						
 						self.facilitiesArray = facilitiesFromDB
+						networkCheck.network = false
 						self.updateFiltersLists()
 						self.reloadWithFilters()
 						self.refreshControl.attributedTitle = NSAttributedString(string: "Last Updated: " + self.shortDateFormat(lastUpdated))
@@ -615,6 +625,7 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 						}
 					}
 					else {
+						networkCheck.network = false
 						self.facilitiesArray = List<WOPFacility>()
 					}
 				}
@@ -667,9 +678,11 @@ class FacilitiesListViewController: UIViewController, UICollectionViewDelegate, 
 					let results = self.realm.objects(WOPFacilitiesModel.self)
 					if results.count > 0 {
 						let model = results[0]
+						networkCheck.network = false
 						self.alertsList = model.alerts
 					}
 					else {
+						networkCheck.network = false
 						self.alertsList = List<WOPAlert>()
 					}
 				}

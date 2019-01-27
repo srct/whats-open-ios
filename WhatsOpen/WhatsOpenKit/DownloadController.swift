@@ -30,6 +30,7 @@ public class WOPDownloadController: NSObject {
 				let httpResponse = response as! HTTPURLResponse
 				let statusCode = httpResponse.statusCode
 				if (statusCode == 200) {
+                    networkCheck.network = true
 					if let dataN = data {
 						if let json = try? JSONSerialization.jsonObject(with: dataN, options: []) as? [[String: Any]] {
 							// Map function to iterate through each JSON tree
