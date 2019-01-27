@@ -41,7 +41,6 @@
 		92589A6221612D0D0002814F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92589A6121612D0D0002814F /* NotificationCenter.framework */; };
 		92589A6521612D0E0002814F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92589A6421612D0E0002814F /* TodayViewController.swift */; };
 		92589A6821612D0E0002814F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92589A6621612D0E0002814F /* MainInterface.storyboard */; };
-		92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 92589A6021612D0D0002814F /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92589A752162DBF20002814F /* WhatsOpenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928EC2522160475900D8F9FE /* WhatsOpenKit.framework */; };
 		9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265F3A01F2969E500A54A21 /* SettingTableViewCell.swift */; };
@@ -81,7 +80,6 @@
 		929680AE21FBBE2F00A87E86 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929680AD21FBBE2F00A87E86 /* UserNotificationsUI.framework */; };
 		929680B121FBBE2F00A87E86 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929680B021FBBE2F00A87E86 /* NotificationViewController.swift */; };
 		929680B421FBBE2F00A87E86 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929680B221FBBE2F00A87E86 /* MainInterface.storyboard */; };
-		929680B821FBBE2F00A87E86 /* AlertNotificationExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 929680AA21FBBE2F00A87E86 /* AlertNotificationExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		929680BD21FCCE3800A87E86 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B89E2D20093E3600928284 /* AlertDetailViewController.swift */; };
 		9296814D21CED36600FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
 		9296814E21CEDC3E00FA2238 /* ViewInMapsActionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296814C21CED36600FA2238 /* ViewInMapsActionActivity.swift */; };
@@ -108,13 +106,6 @@
 			remoteGlobalIDString = CD81F5181DC0334600009FBD;
 			remoteInfo = WhatsOpen;
 		};
-		92589A6A21612D0E0002814F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92589A5F21612D0D0002814F;
-			remoteInfo = TodayWidget;
-		};
 		9273EEDE21659B6200CE63DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
@@ -135,13 +126,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 928EC2512160475900D8F9FE;
 			remoteInfo = WhatsOpenKit;
-		};
-		929680B621FBBE2F00A87E86 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD81F5111DC0334600009FBD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 929680A921FBBE2F00A87E86;
-			remoteInfo = AlertNotificationExtention;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -164,8 +148,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				9273EEE021659B6200CE63DC /* ShortcutsExtensionUI.appex in Embed App Extensions */,
-				92589A6C21612D0E0002814F /* TodayWidget.appex in Embed App Extensions */,
-				929680B821FBBE2F00A87E86 /* AlertNotificationExtention.appex in Embed App Extensions */,
 				9273EEE321659B6200CE63DC /* ShortcutsExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -211,7 +193,7 @@
 		5D0BB7B79A0B6EFAC6C6A64C /* Pods_AlertNotificationExtention.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertNotificationExtention.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
-		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen___AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		869F4DC6A4433FB76695E722 /* Pods-ShortcutsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
@@ -659,10 +641,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				92589A6B21612D0E0002814F /* PBXTargetDependency */,
 				9273EEDF21659B6200CE63DC /* PBXTargetDependency */,
 				9273EEE221659B6200CE63DC /* PBXTargetDependency */,
-				929680B721FBBE2F00A87E86 /* PBXTargetDependency */,
 			);
 			name = "WhatsOpen - AppStore";
 			productName = WhatsOpen;
@@ -1397,11 +1377,6 @@
 			target = CD81F5181DC0334600009FBD /* WhatsOpen */;
 			targetProxy = 7F47431D1E11C7D100E6E3D1 /* PBXContainerItemProxy */;
 		};
-		92589A6B21612D0E0002814F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92589A5F21612D0D0002814F /* TodayWidget */;
-			targetProxy = 92589A6A21612D0E0002814F /* PBXContainerItemProxy */;
-		};
 		9273EEDF21659B6200CE63DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9273EED321659B6200CE63DC /* ShortcutsExtensionUI */;
@@ -1416,11 +1391,6 @@
 			isa = PBXTargetDependency;
 			target = 928EC2512160475900D8F9FE /* WhatsOpenKit */;
 			targetProxy = 928EC2572160475A00D8F9FE /* PBXContainerItemProxy */;
-		};
-		929680B721FBBE2F00A87E86 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 929680A921FBBE2F00A87E86 /* AlertNotificationExtention */;
-			targetProxy = 929680B621FBBE2F00A87E86 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1900,7 +1870,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SHARED_BUILD_NUMBER = 50;
+				SHARED_BUILD_NUMBER = 51;
 				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -2202,7 +2172,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SHARED_BUILD_NUMBER = 50;
+				SHARED_BUILD_NUMBER = 51;
 				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2254,7 +2224,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SHARED_BUILD_NUMBER = 50;
+				SHARED_BUILD_NUMBER = 51;
 				SHARED_VERSION_NUMBER = 1.2;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
