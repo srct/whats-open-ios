@@ -8,13 +8,14 @@
 
 import UIKit
 import QuartzCore
+import WhatsOpenKit
 
 class FacilityCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var timeDescriptionLabel: UILabel!
-	@IBOutlet var openClosedLabel: PaddedUILabel!
+	@IBOutlet var openClosedLabel: WOPPaddedUILabel!
     @IBOutlet var categoryLabel: UILabel!
-    var facility: Facility!
+    var facility: WOPFacility!
 	internal let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 	
 	override func awakeFromNib() {

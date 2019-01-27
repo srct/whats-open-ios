@@ -6,7 +6,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -131,7 +131,11 @@ public final class Map {
 			}
 		} else if value == nil && T.self == [Float].self {
 			if let v = currentValue as? [Double] {
+				#if swift(>=4.1)
 				return v.compactMap{ Float($0) } as? T
+				#else
+				return v.flatMap{ Float($0) } as? T
+				#endif
 			}
 		} else if value == nil && T.self == [String:Float].self {
 			if let v = currentValue as? [String:Double] {

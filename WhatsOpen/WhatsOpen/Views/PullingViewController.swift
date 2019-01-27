@@ -19,6 +19,20 @@ class PullingViewController: UIViewController {
 		return .lightContent
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		if animated {
+			let haptics = UIImpactFeedbackGenerator(style: .medium)
+			haptics.impactOccurred()
+		}
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		if animated {
+			let haptics = UIImpactFeedbackGenerator(style: .medium)
+			haptics.impactOccurred()
+		}
+	}
+	
 	override func viewDidLoad() {
 		
 		modalPresentationCapturesStatusBarAppearance = true

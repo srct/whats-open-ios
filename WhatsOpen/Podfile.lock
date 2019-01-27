@@ -1,45 +1,45 @@
 PODS:
-  - Crashlytics (3.10.2):
-    - Fabric (~> 1.7.7)
-  - DeckTransition (2.0.0)
-  - Fabric (1.7.7)
-  - ObjectMapper (3.2.0)
-  - ObjectMapper+Realm (0.6):
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - DeckTransition (2.1.0)
+  - Fabric (1.9.0)
+  - ObjectMapper (3.4.2)
+  - "ObjectMapper+Realm (0.6)":
     - ObjectMapper
     - RealmSwift
-  - Realm (3.7.1):
-    - Realm/Headers (= 3.7.1)
-  - Realm/Headers (3.7.1)
-  - RealmSwift (3.7.1):
-    - Realm (= 3.7.1)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
 
 DEPENDENCIES:
   - Crashlytics
-  - DeckTransition (~> 2.0)
+  - DeckTransition
   - Fabric
-  - ObjectMapper (from `https://github.com/alecdoconnor/ObjectMapper.git`, branch `Swift-4.2`)
-  - ObjectMapper+Realm
+  - ObjectMapper
+  - "ObjectMapper+Realm"
   - RealmSwift
 
-EXTERNAL SOURCES:
-  ObjectMapper:
-    :branch: Swift-4.2
-    :git: https://github.com/alecdoconnor/ObjectMapper.git
-
-CHECKOUT OPTIONS:
-  ObjectMapper:
-    :commit: af7966b567860596fad270bb44b27f495cd8691d
-    :git: https://github.com/alecdoconnor/ObjectMapper.git
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - DeckTransition
+    - Fabric
+    - ObjectMapper
+    - "ObjectMapper+Realm"
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
-  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
-  DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
-  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
-  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
-  ObjectMapper+Realm: 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
-  Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
-  RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
 
-PODFILE CHECKSUM: f77678c4bb98cdb953f0eb4226354e2455803d42
+PODFILE CHECKSUM: 0589552d0fa556d4bb7ac2395184d9884a95f850
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

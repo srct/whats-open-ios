@@ -35,11 +35,16 @@ class FilterSelectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+		if navigationItem.title == "Alert Notifications" {
+			return 2
+		}
+		return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if section != 0 {
+			return 1
+		}
 		if canSelectAll {
 			return 1 + getFunc().count
 		}
@@ -48,7 +53,14 @@ class FilterSelectionTableViewController: UITableViewController {
 
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "filterSelection", for: indexPath)
+		if indexPath.section != 0 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "filterSelection", for: indexPath)
+			cell.accessoryType = .disclosureIndicator
+			cell.textLabel?.text = "Open Notifications Settings"
+			return cell
+		}
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "filterSelection", for: indexPath)
 
 		let values = getFunc()
         // Configure the cell...
@@ -83,6 +95,10 @@ class FilterSelectionTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		if section != 0 && navigationItem.title == "Alert Notifications" {
+			return "The above settings will only apply if you have notifications enabled for What's Open in Settings.\n\nBackground App Refresh is required in order to recieve notifications."
+		}
+		
 		if navigationItem.title == "Show Alerts" {
 			return "Emergency Alerts are always enabled in the app for your safety. We will never send a notification to your device without your consent."
 		}
@@ -93,6 +109,13 @@ class FilterSelectionTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.section != 0 {
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+			let tableCell = tableView.cellForRow(at: indexPath)
+			tableCell?.isSelected = false
+			return
+		}
+		
 		if(indexPath.row == 0) {
 			_ = selectAllFunc()
 			tableView.reloadData()

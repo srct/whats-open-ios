@@ -1,20 +1,20 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
-platform :ios, '11.0'
+platform :ios, '12.0'
 use_frameworks!
 
-def ios_pods
+def important_pods
   pod 'RealmSwift'
 
-  #pod 'ObjectMapper', '~> 3.2'
-  # TEMPORARY BECAUSE Xcode 10
-  pod 'ObjectMapper', :git => 'https://github.com/alecdoconnor/ObjectMapper.git', :branch => 'Swift-4.2'
+  pod 'ObjectMapper'
   pod "ObjectMapper+Realm"
+end
 
+def ios_pods
   #pod 'Segmentio', '~> 2.1'
 
-  pod 'DeckTransition', '~> 2.0'
+  pod 'DeckTransition'
 
   pod 'Fabric'
   pod 'Crashlytics'
@@ -22,13 +22,34 @@ end
 
 
 target 'WhatsOpen' do
+  important_pods
   ios_pods
 end
 
 target 'WhatsOpen - AppStore' do
+  important_pods
   ios_pods
 end
 
+target 'WhatsOpenKit' do
+  important_pods
+end
+
+target 'TodayWidget' do
+  important_pods
+end
+
+target 'ShortcutsExtension' do
+  important_pods
+end
+
+target 'ShortcutsExtensionUI' do
+  important_pods
+end
+
+target 'AlertNotificationExtention' do
+  important_pods
+end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
