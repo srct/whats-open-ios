@@ -480,58 +480,12 @@ public class WOPUtilities: NSObject {
 	*/
 	public static func setAlertNotificationDefaults(_ key: String, value: Bool) -> Bool {
 		var returning = false
-		
-		if value == true {
-			let notificationCenter = UNUserNotificationCenter.current()
-			notificationCenter.getNotificationSettings { (settings) in
-				if settings.authorizationStatus == .notDetermined {
-					notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {state, error in
-						if state == true {
-							let defaults = WOPDatabaseController.getDefaults()
-							var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
-							if alerts != nil {
-								alerts!.updateValue(value, forKey: key)
-								defaults.set(alerts, forKey: "notificationDefaults")
-								returning = true
-								return
-							}
-							else {
-								returning = false
-								return
-							}
-						} else {
-							return
-						}
-					})
-				} else {
-					// Do not schedule notifications if not authorized.
-					guard settings.authorizationStatus == .authorized else {return}
-					
-					let defaults = WOPDatabaseController.getDefaults()
-					var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
-					if alerts != nil {
-						alerts!.updateValue(value, forKey: key)
-						defaults.set(alerts, forKey: "notificationDefaults")
-						returning = true
-						return
-					}
-					else {
-						returning = false
-						return
-					}
-				}
-			}
-		} else {
-			let defaults = WOPDatabaseController.getDefaults()
-			var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
-			if alerts != nil {
-				alerts!.updateValue(value, forKey: key)
-				defaults.set(alerts, forKey: "notificationDefaults")
-				returning = true
-			}
-			else {
-				returning = false
-			}
+		let defaults = WOPDatabaseController.getDefaults()
+		var alerts = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]?
+		if alerts != nil {
+			alerts!.updateValue(value, forKey: key)
+			defaults.set(alerts, forKey: "notificationDefaults")
+			returning = true
 		}
 		
 		return returning

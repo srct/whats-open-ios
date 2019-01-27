@@ -10,6 +10,7 @@
 		230EC5797C17C0F859125EEE /* Pods_WhatsOpen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927A8466141434969CE74044 /* Pods_WhatsOpen.framework */; };
 		3BF943DF148D3237C16DEB97 /* Pods_WhatsOpen___AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */; };
 		3DF3A9DAA7C88962F1C55979 /* Pods_ShortcutsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C62BB82B914F67D36761C5 /* Pods_ShortcutsExtension.framework */; };
+		6DC43AA0115064AF0F1F6A46 /* Pods_AlertNotificationExtention.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0BB7B79A0B6EFAC6C6A64C /* Pods_AlertNotificationExtention.framework */; };
 		7763844D410056E36EE45D03 /* Pods_ShortcutsExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B9D7898D088AC69A0DB5B3 /* Pods_ShortcutsExtensionUI.framework */; };
 		7F4743271E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */; };
 		9203CB862023D51A006ACC3B /* FilterSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2D2FE1FF8599500349E90 /* FilterSelectionTableViewController.swift */; };
@@ -205,10 +206,12 @@
 		47BB6AEACA56FBC52D8EC078 /* Pods-WhatsOpenKitWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKitWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKitWatch/Pods-WhatsOpenKitWatch.release.xcconfig"; sourceTree = "<group>"; };
 		4CB5379771C173448AFCB711 /* Pods-WhatsOpen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen/Pods-WhatsOpen.release.xcconfig"; sourceTree = "<group>"; };
 		4EE3CD0842CD297B8F2FEEA4 /* Pods_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC90EBBB13D923843EA205C /* Pods-AlertNotificationExtention.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertNotificationExtention.app store.xcconfig"; path = "Pods/Target Support Files/Pods-AlertNotificationExtention/Pods-AlertNotificationExtention.app store.xcconfig"; sourceTree = "<group>"; };
 		55A0C09478B7DBC1FC75A8DC /* Pods-WhatsOpenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.debug.xcconfig"; sourceTree = "<group>"; };
+		5D0BB7B79A0B6EFAC6C6A64C /* Pods_AlertNotificationExtention.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertNotificationExtention.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743181E11C7D100E6E3D1 /* WhatsOpenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsOpenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4743261E11D1BC00E6E3D1 /* MainTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerTests.swift; sourceTree = "<group>"; };
-		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_WhatsOpen___AppStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		857A9086C28DB736094E251F /* Pods_WhatsOpen___AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsOpen___AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		869F4DC6A4433FB76695E722 /* Pods-ShortcutsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9203CBAE2023D51A006ACC3B /* WhatsOpen - AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsOpen - AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92108A321ED755F100675E16 /* CheckingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,9 +288,11 @@
 		D0DDF00600DA24AA2749FA0B /* Pods-WhatsOpen - AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpen - AppStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpen - AppStore/Pods-WhatsOpen - AppStore.release.xcconfig"; sourceTree = "<group>"; };
 		D5FEAC66EA2C153F53FD764C /* Pods-ShortcutsExtensionUI.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtensionUI.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtensionUI/Pods-ShortcutsExtensionUI.app store.xcconfig"; sourceTree = "<group>"; };
 		D63A18437F44F3D06B8F94D4 /* Pods-ShortcutsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortcutsExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortcutsExtension/Pods-ShortcutsExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		D74CE61F75BC318EB18AB33A /* Pods-AlertNotificationExtention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertNotificationExtention.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlertNotificationExtention/Pods-AlertNotificationExtention.debug.xcconfig"; sourceTree = "<group>"; };
 		D83C5750929E8AD66295CF5C /* Pods-TodayWidget.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.app store.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.app store.xcconfig"; sourceTree = "<group>"; };
 		D9A85F15BFE8CA836B232CCB /* Pods-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		DB22D6AE95603F809C4B3FFC /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBFFD1FF5484DB7FFB5A18DE /* Pods-AlertNotificationExtention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertNotificationExtention.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlertNotificationExtention/Pods-AlertNotificationExtention.release.xcconfig"; sourceTree = "<group>"; };
 		E07255E2520C5F76ABB7A176 /* Pods-WhatsOpenKit.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsOpenKit.app store.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsOpenKit/Pods-WhatsOpenKit.app store.xcconfig"; sourceTree = "<group>"; };
 		E85DD13283597C10EE2509E9 /* Pods-Watch.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.app store.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.app store.xcconfig"; sourceTree = "<group>"; };
 		EC7371204777AB993F9F8AB7 /* Pods-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -356,6 +361,7 @@
 			files = (
 				929680AE21FBBE2F00A87E86 /* UserNotificationsUI.framework in Frameworks */,
 				929680AC21FBBE2F00A87E86 /* UserNotifications.framework in Frameworks */,
+				6DC43AA0115064AF0F1F6A46 /* Pods_AlertNotificationExtention.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +408,9 @@
 				C24927C6145B885F338AB092 /* Pods-WhatsOpenKitWatch.debug.xcconfig */,
 				47BB6AEACA56FBC52D8EC078 /* Pods-WhatsOpenKitWatch.release.xcconfig */,
 				1E9590D5B3D5422DF9E67201 /* Pods-WhatsOpenKitWatch.app store.xcconfig */,
+				D74CE61F75BC318EB18AB33A /* Pods-AlertNotificationExtention.debug.xcconfig */,
+				DBFFD1FF5484DB7FFB5A18DE /* Pods-AlertNotificationExtention.release.xcconfig */,
+				4FC90EBBB13D923843EA205C /* Pods-AlertNotificationExtention.app store.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 				D024256135674B9023108E02 /* Pods_WhatsOpenKitWatch.framework */,
 				929680AB21FBBE2F00A87E86 /* UserNotifications.framework */,
 				929680AD21FBBE2F00A87E86 /* UserNotificationsUI.framework */,
+				5D0BB7B79A0B6EFAC6C6A64C /* Pods_AlertNotificationExtention.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -739,6 +749,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 929680BC21FBBE2F00A87E86 /* Build configuration list for PBXNativeTarget "AlertNotificationExtention" */;
 			buildPhases = (
+				FC70405D656B67B183D0CBAC /* [CP] Check Pods Manifest.lock */,
 				929680A621FBBE2F00A87E86 /* Sources */,
 				929680A721FBBE2F00A87E86 /* Frameworks */,
 				929680A821FBBE2F00A87E86 /* Resources */,
@@ -1220,6 +1231,28 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ShortcutsExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC70405D656B67B183D0CBAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlertNotificationExtention-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2037,6 +2070,7 @@
 		};
 		929680B921FBBE2F00A87E86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74CE61F75BC318EB18AB33A /* Pods-AlertNotificationExtention.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2064,6 +2098,7 @@
 		};
 		929680BA21FBBE2F00A87E86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBFFD1FF5484DB7FFB5A18DE /* Pods-AlertNotificationExtention.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2090,6 +2125,7 @@
 		};
 		929680BB21FBBE2F00A87E86 /* App Store */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FC90EBBB13D923843EA205C /* Pods-AlertNotificationExtention.app store.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

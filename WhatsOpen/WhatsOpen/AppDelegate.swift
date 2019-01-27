@@ -44,7 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		application.setMinimumBackgroundFetchInterval(3600)
-		UNUserNotificationCenter.current().delegate = self
+		
+		let alertNotificationCategory = UNNotificationCategory(identifier: "alertNotify", actions: [], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "Alert", options: .hiddenPreviewsShowTitle)
+		let nc = UNUserNotificationCenter.current()
+		nc.delegate = self
+		nc.setNotificationCategories([alertNotificationCategory])
+		nc.getNotificationSettings { (settings) in
+			if settings.authorizationStatus == .notDetermined {
+				nc.requestAuthorization(options: [.badge, .sound, .alert, .providesAppNotificationSettings, .provisional], completionHandler: { (authorized, error) in
+					return // it's a provisonal request nbd
+				})
+			}
+		}
 		
         return true
     }
@@ -114,15 +125,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if notifications == nil {
 			var setAlerts = [String: Bool]()
 			setAlerts.updateValue(false, forKey: "informational")
-			setAlerts.updateValue(false, forKey: "minor alerts")
-			setAlerts.updateValue(false, forKey: "major alerts")
-			setAlerts.updateValue(false, forKey: "emergency")
+			setAlerts.updateValue(true, forKey: "minor alerts")
+			setAlerts.updateValue(true, forKey: "major alerts")
+			setAlerts.updateValue(true, forKey: "emergency")
 			defaults.set(setAlerts, forKey: "notificationDefaults")
 		}
 		
 		let alertIDs = defaults.dictionary(forKey: "alertIDNotified")
-		if notifications == nil {
-			var setAlerts = [String: Bool]()
+		if alertIDs == nil {
+			let setAlerts = [String: Bool]()
 			defaults.set(setAlerts, forKey: "alertIDNotified")
 		}
 		
@@ -199,7 +210,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let notificationCenter = UNUserNotificationCenter.current()
 		notificationCenter.getNotificationSettings { (settings) in
 			// Do not schedule notifications if not authorized.
-			guard settings.authorizationStatus == .authorized else {return}
+			guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {return}
 			
 			let defaults = WOPDatabaseController.getDefaults()
 			let inAppSettings = defaults.dictionary(forKey: "notificationDefaults") as! [String: Bool]
@@ -240,6 +251,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func singleNotification(_ alert: WOPAlert, nc: UNUserNotificationCenter, ids: [String: Bool], defaults: UserDefaults) {
 		if ids["\(alert.id)"] == nil {
 			let content = UNMutableNotificationContent()
+			content.categoryIdentifier = "alertNotify"
 			switch alert.urgency {
 			case "info":
 				content.title = "Information"
@@ -252,7 +264,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			default:
 				content.title = "Alert"
 			}
-			content.body = alert.message
+			if alert.message != "" {
+				content.body = alert.message
+			} else {
+				content.subtitle = alert.subject
+				content.body = alert.body
+			}
+			
 			content.badge = 1 as NSNumber
 			let sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "patriots.caf"))
 			content.sound = sound
@@ -285,5 +303,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 	func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
 		NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "launchToNotificationSettings"), object: notification, userInfo: nil))
 	}
+	
 }
 

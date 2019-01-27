@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import MessageUI
 import StoreKit
+import UserNotifications
 import WhatsOpenKit
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
@@ -207,7 +208,27 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 					present(mailvc, animated: true)
 				}
 			} else if settingcell.textLabel?.text == "Alert Notifications" {
-				toNotifications(nil)
+				let nc = UNUserNotificationCenter.current()
+				nc.requestAuthorization(options: [.badge, .sound, .alert, .providesAppNotificationSettings]) { (authorized, error) in
+					if authorized {
+						DispatchQueue.main.async {
+							self.toNotifications(nil)
+						}
+					} else {
+						let alert = UIAlertController(title: "Notifications Are Disabled", message: "You can manage your preferred notification options inside Settings", preferredStyle: .alert)
+						alert.addAction(UIAlertAction(title: "Configure in Settings", style: .default, handler: { (action) in
+							UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+							alert.dismiss(animated: true, completion: nil)
+						}))
+						alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+							alert.dismiss(animated: true, completion: nil)
+						}))
+						DispatchQueue.main.async {
+							self.present(alert, animated: true, completion: nil)
+						}
+					}
+				}
+				
 			}
 			else if settingcell.textLabel?.text == "Select App Icon" {
 				let vc = self.storyboard?.instantiateViewController(withIdentifier: "setAppIcon")
