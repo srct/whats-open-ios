@@ -34,9 +34,9 @@ Requirements:
 To get started, you'll need the following installed:
 * [Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
-* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
+* The latest **public** build of [Xcode](https://developer.apple.com/xcode/) (and a compatible Mac). *Currently Xcode 10* (You can get this from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) if you want easy updates)
 
-* The latest **public** release of Swift. *Currently Swift 4.0* (bundled with Xcode)
+* The latest **public** release of Swift. *Currently Swift 4.2* (bundled with Xcode)
 
 * Cocoapods, for dependency management. You can install this by running `sudo gem install cocoapods` in your terminal. (Dependency management may change in the future)
 
@@ -61,6 +61,7 @@ What Won't Work During Development
 ---
 - Crashlytics won't load in under the "WhatsOpen" Scheme. Use Xcode's debugger.
 - Alternate app icons won't work (and will probably crash if you try to use them) due to the build method of adding them to the info.plist file. If you're an artist and have some cool alternate app icons to add, you can still do so in the `AlternateAppIcons.xcassets` file in the main project folder, and adding a cell for them in the SetIconTableViewController.
+- Any App Extensions will likely be unable to connect to your database, as App Groups used for this require a special entitlement.
 
 Troubleshooting
 ---

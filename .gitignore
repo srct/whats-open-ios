@@ -74,5 +74,5 @@ WhatsOpen/WhatsOpen/crashlyticsbuild.sh
 # and has a Slack webhook token in it
 WhatsOpen/fastlane/
 
-#Crashbuild or something?
+#crashlytics file
 crashlyticsbuild.sh

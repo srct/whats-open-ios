@@ -46,10 +46,10 @@ class OnlyOneChecked {
 	func setCheckToCellWithID(_ id: Int) {
 		for cell in view.sortOptions {
 			if(id == cell.cellIndex) {
-				cell.accessoryType = UITableViewCellAccessoryType.checkmark
+				cell.accessoryType = UITableViewCell.AccessoryType.checkmark
 			}
 			else {
-				cell.accessoryType = UITableViewCellAccessoryType.none
+				cell.accessoryType = UITableViewCell.AccessoryType.none
 			}
 		}
 		

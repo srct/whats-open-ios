@@ -70,12 +70,23 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9203CB822023D51A006ACC3B"
+            BuildableName = "WhatsOpen - AppStore.app"
+            BlueprintName = "WhatsOpen - AppStore"
+            ReferencedContainer = "container:WhatsOpen.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "App Store">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "App Store"
+      customArchiveName = "What&apos;s Open"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
