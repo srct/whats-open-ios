@@ -14,8 +14,9 @@ import ObjectMapper
 public class WOPDownloadController: NSObject {
     //https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json
     public static func performDownload(completion: @escaping (_ result: List<WOPFacility>?) -> Void) {
-
-    	let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/facilities/?format=json")!
+		let apiURL = WOPDatabaseController.getDefaults().string(forKey: "apiURL") ?? "https://api.srct.gmu.edu/whatsopen/v2/"
+		
+    	let requestURL: NSURL = NSURL(string: "\(apiURL)facilities/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
 
@@ -23,6 +24,7 @@ public class WOPDownloadController: NSObject {
             (data, response, error) -> Void in
 			
 			if(error != nil) {
+				dump(error)
 				completion(nil)
 				return
 			}
@@ -56,8 +58,9 @@ public class WOPDownloadController: NSObject {
     }
 	
 	public static func performAlertsDownload(completion: @escaping (_ result: List<WOPAlert>?) -> Void) {
+		let apiURL = WOPDatabaseController.getDefaults().string(forKey: "apiURL") ?? "https://api.srct.gmu.edu/whatsopen/v2/"
 		
-		let requestURL: NSURL = NSURL(string: "https://api.srct.gmu.edu/whatsopen/v2/alerts/?format=json")!
+		let requestURL: NSURL = NSURL(string: "\(apiURL)alerts/?format=json")!
 		let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
 		let session = URLSession.shared
 		

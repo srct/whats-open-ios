@@ -11,9 +11,11 @@ import MapKit
 import WhatsOpenKit
 import Intents
 import IntentsUI
+import DeckTransition
 
-class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutViewControllerDelegate {
+class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutViewControllerDelegate, DeckTransitionViewControllerProtocol {
 	
+	var childViewControllerForDeck: UIViewController?
 
 	@IBOutlet var facilityDetailView: UIView!
 	var detailViewController: WOPFacilityDetailViewController?
@@ -106,6 +108,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		self.detailViewController!.view.translatesAutoresizingMaskIntoConstraints = false
 		self.addChild(self.detailViewController!)
 		self.addSubview(self.detailViewController!.view, toView: self.facilityDetailView)
+		childViewControllerForDeck = self.detailViewController
         super.viewDidLoad()
 
 		setFavoriteButtonText()

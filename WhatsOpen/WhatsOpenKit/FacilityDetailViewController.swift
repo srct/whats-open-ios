@@ -71,7 +71,7 @@ public class WOPFacilityDetailViewController: UIViewController, UITableViewDeleg
 			OpenLabel.backgroundColor = UIColor(red:0.17, green:0.17, blue: 0.17, alpha: 1.0)
 		}
 		
-		OpenTimesList.bounces = false
+		OpenTimesList.bounces = true
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.largeTitleDisplayMode = .never

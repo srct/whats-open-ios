@@ -137,7 +137,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN8-f7-qjd">
-                                <rect key="frame" x="16" y="94" width="343" height="553"/>
+                                <rect key="frame" x="16" y="94" width="343" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -161,7 +161,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KTh-gG-Ygq" firstAttribute="bottom" secondItem="RN8-f7-qjd" secondAttribute="bottom" constant="20" id="9Q1-0E-LoL"/>
+                            <constraint firstItem="KTh-gG-Ygq" firstAttribute="bottom" secondItem="RN8-f7-qjd" secondAttribute="bottom" id="9Q1-0E-LoL"/>
                             <constraint firstItem="RN8-f7-qjd" firstAttribute="leading" secondItem="KTh-gG-Ygq" secondAttribute="leading" constant="16" id="BTq-qf-AKg"/>
                             <constraint firstItem="7p3-a2-wz4" firstAttribute="leading" secondItem="KTh-gG-Ygq" secondAttribute="leading" constant="16" id="BXV-c8-S4r"/>
                             <constraint firstItem="lSK-qc-Uis" firstAttribute="centerY" secondItem="7p3-a2-wz4" secondAttribute="centerY" id="Dyn-aP-deC"/>

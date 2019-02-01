@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import DeckTransition
 
-class PullingViewController: UIViewController {
+class PullingViewController: UIViewController, DeckTransitionViewControllerProtocol {
 
+	var childViewControllerForDeck: UIViewController?
+	
 	@IBOutlet var containerView: UIView!
 	weak var currentViewController: UIViewController?
 	
@@ -45,6 +48,7 @@ class PullingViewController: UIViewController {
 		self.accessibilityCustomActions = [
 			UIAccessibilityCustomAction(name: "Dismiss Detail View", target: self, selector: #selector(PullingViewController.willDismiss))
 		]
+		childViewControllerForDeck = self.currentViewController
 		super.viewDidLoad()
 		
         // Do any additional setup after loading the view.
