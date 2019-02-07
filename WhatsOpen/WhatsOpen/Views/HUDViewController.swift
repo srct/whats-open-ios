@@ -12,9 +12,16 @@ class HUDViewController: UIViewController {
 
 	@IBOutlet var image: UIImageView!
 	@IBOutlet var label: UILabel!
+	@IBOutlet var hudBox: UIVisualEffectView!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		image.tintColor = .red
+		label.textColor = .black
+		
+		hudBox.clipsToBounds = true
+		hudBox.layer.cornerRadius = 10
 
         // Do any additional setup after loading the view.
         

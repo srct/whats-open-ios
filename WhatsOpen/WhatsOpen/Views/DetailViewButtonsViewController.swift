@@ -39,31 +39,51 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 
 		if(WOPUtilities.isFavoriteFacility(facility)) { // if the facility is a favorite
 			_ = WOPUtilities.removeFavoriteFacility(facility) // remove it from favorites
+			
+			loadChild("Removed from Favorites", image: UIImage(named: "empty_heart_big"))
+			
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+				self?.unloadChild()
+			}
 		}
 		else { // else add it to favorites
 			_ = WOPUtilities.addFavoriteFacility(facility)
-            loadChild()
+			
+			loadChild("Added to Favorites", image: UIImage(named: "filled_heart_big"))
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.unloadChild()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                self?.unloadChild()
             }
             
 		}
 		setFavoriteButtonText()		
 	}
     
-    func loadChild() {
-        self.addSubview(infoBubbleView.view, toView: (detailViewController?.view)!)
-        self.addChild(infoBubbleView)
-        infoBubbleView.didMove(toParent: detailViewController)
-        
+	func loadChild(_ title: String, image: UIImage?) {
+		DispatchQueue.main.async {
+			self.addSubview(self.infoBubbleView.view, toView: (self.detailViewController?.view)!)
+			self.infoBubbleView.view.alpha = 0
+			self.detailViewController!.addChild(self.infoBubbleView)
+			self.infoBubbleView.didMove(toParent: self.detailViewController)
+			UIView.animate(withDuration: 0.35, animations: {
+				self.infoBubbleView.view.alpha = 1
+			})
+			
+			self.infoBubbleView.label.text = title
+			self.infoBubbleView.image.image = image
+		}
     }
     
     func unloadChild() {
-        infoBubbleView.willMove(toParent: nil)
-        infoBubbleView.removeFromParent()
-        infoBubbleView.view.removeFromSuperview()
-        
+		DispatchQueue.main.async {
+			UIView.animate(withDuration: 0.35, animations: {
+				self.infoBubbleView.view.alpha = 0
+			}, completion: { (completed) in
+				self.infoBubbleView.willMove(toParent: nil)
+				self.infoBubbleView.removeFromParent()
+				self.infoBubbleView.view.removeFromSuperview()
+			})
+		}
     }
     
 	func getDirections(_ sender: Any) {
@@ -151,6 +171,8 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		
 		let interaction = INInteraction(intent: facility.createIntent(), response: WOPViewFacilityIntentUtils.getIntentResponse(facility, userActivity: activity))
 		interaction.donate(completion: nil)
+		
+		infoBubbleView = storyboard?.instantiateViewController(withIdentifier: "HUD") as! HUDViewController
         // Do any additional setup after loading the view.
     }
 	
