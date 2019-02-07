@@ -42,7 +42,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 			
 			loadChild("Removed from Favorites", image: UIImage(named: "empty_heart_big"))
 			
-			DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [weak self] in
 				self?.unloadChild()
 			}
 		}
@@ -174,6 +174,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		
 		infoBubbleView = storyboard?.instantiateViewController(withIdentifier: "HUD") as! HUDViewController
         // Do any additional setup after loading the view.
+        // yah yah, yah yAH
     }
 	
 	func setActivityUp() {
