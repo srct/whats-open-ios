@@ -37,6 +37,8 @@
 		924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */; };
 		924E0E312085851400C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
 		924E0E322085851500C1F2AF /* DetailViewButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */; };
+		92544659220BB8E0002B6872 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92544658220BB8E0002B6872 /* HUDViewController.swift */; };
+		9254465A220BB8E7002B6872 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92544658220BB8E0002B6872 /* HUDViewController.swift */; };
 		92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259134420784D66002E50B1 /* SelectOneDefaultTableViewController.swift */; };
 		92589A6221612D0D0002814F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92589A6121612D0D0002814F /* NotificationCenter.framework */; };
 		92589A6521612D0E0002814F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92589A6421612D0E0002814F /* TodayViewController.swift */; };
@@ -201,6 +203,7 @@
 		92182EC31E95C38400192ABA /* FacilityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewController.swift; sourceTree = "<group>"; };
 		924840F71EA915F200DBFF4E /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
 		924E0E302085851400C1F2AF /* DetailViewButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButtonsViewController.swift; sourceTree = "<group>"; };
+		92544658220BB8E0002B6872 /* HUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
 		9255C5AA21556E410094C947 /* WhatsOpenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatsOpenKit.h; sourceTree = "<group>"; };
 		9255C5AB21556E410094C947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92589A6021612D0D0002814F /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,6 +403,7 @@
 		920D17961F6C5CD200D63295 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92544658220BB8E0002B6872 /* HUDViewController.swift */,
 				92A2757220C8993200E1A102 /* Filters Views */,
 				9255418520857CF40058E420 /* CollectionViewCells */,
 				9255418420857CE40058E420 /* TableViewCells */,
@@ -1283,6 +1287,7 @@
 				9203CB922023D51A006ACC3B /* FacilityCollectionViewCell.swift in Sources */,
 				9203CB932023D51A006ACC3B /* SettingTableViewCell.swift in Sources */,
 				9203CB952023D51A006ACC3B /* FiltersTableViewController.swift in Sources */,
+				9254465A220BB8E7002B6872 /* HUDViewController.swift in Sources */,
 				9203CB962023D51A006ACC3B /* PullingViewController.swift in Sources */,
 				9273EEF62165B2D000CE63DC /* Intents.intentdefinition in Sources */,
 				92554183207ECEC30058E420 /* SelectOneDefaultTableViewController.swift in Sources */,
@@ -1359,6 +1364,7 @@
 				924840F81EA915F200DBFF4E /* FacilityCollectionViewCell.swift in Sources */,
 				9265F3A11F2969E500A54A21 /* SettingTableViewCell.swift in Sources */,
 				927C80DC1EB18B89009079AD /* FiltersTableViewController.swift in Sources */,
+				92544659220BB8E0002B6872 /* HUDViewController.swift in Sources */,
 				92B89E302009444E00928284 /* PullingViewController.swift in Sources */,
 				9273EEF52165B2CF00CE63DC /* Intents.intentdefinition in Sources */,
 				9259134520784D66002E50B1 /* SelectOneDefaultTableViewController.swift in Sources */,
