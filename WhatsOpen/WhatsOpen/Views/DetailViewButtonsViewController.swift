@@ -47,20 +47,6 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		setFavoriteButtonText()		
 	}
     
-    private func loadInfoBubbleView () {
-        let infoBubbleFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 200)
-        infoBubbleView = UIView(frame: infoBubbleFrame)
-        
-        view.addSubview(infoBubbleView)
-        
-        infoBubbleView.isHidden = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.infoBubbleView.isHidden = true
-        }
-        
-    }
-    
 	func getDirections(_ sender: Any) {
 		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 		
@@ -209,6 +195,21 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    private func loadInfoBubbleView () {
+        let infoBubbleFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 200)
+        infoBubbleView = UIView(frame: infoBubbleFrame)
+        
+        view.addSubview(infoBubbleView)
+        
+        infoBubbleView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.infoBubbleView.isHidden = true
+        }
+        
+    }
 
 }
 
