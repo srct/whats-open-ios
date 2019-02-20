@@ -501,6 +501,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="aboutLogo" destination="tzw-Ro-L8p" id="0FY-37-64r"/>
                         <outlet property="versionLabel" destination="WT6-Th-cbL" id="AAg-iN-BqQ"/>
                     </connections>
                 </viewController>

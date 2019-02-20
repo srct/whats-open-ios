@@ -58,6 +58,11 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>WOPViewFacilityIntent</string>

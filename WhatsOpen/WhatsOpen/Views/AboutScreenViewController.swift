@@ -8,13 +8,35 @@
 
 import UIKit
 import SafariServices
+import WhatsOpenKit
 
 class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	@IBOutlet var versionLabel: UILabel!
+	@IBOutlet var aboutLogo: UIImageView!
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
+	}
+	
+	@objc func pickAPIURL(_ sender: Any?) {
+		let alert = UIAlertController(title: "Set API Endpoint URL?", message: "", preferredStyle: .alert)
+		alert.addTextField { textField in
+			textField.text = WOPDatabaseController.getDefaults().string(forKey: "apiURL") ?? ""
+		}
+		alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: { (action) in
+			WOPDatabaseController.getDefaults().set("https://api.srct.gmu.edu/whatsopen/v2/", forKey: "apiURL")
+			
+			alert.dismiss(animated: true, completion: nil)
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+			alert.dismiss(animated: true, completion: nil)
+		}))
+		alert.addAction(UIAlertAction(title: "Set", style: .default, handler: { (action) in
+			WOPDatabaseController.getDefaults().set(alert.textFields![0].text, forKey: "apiURL")
+		}))
+		
+		present(alert, animated: true, completion: nil)
 	}
 	
     override func viewDidLoad() {
@@ -27,7 +49,9 @@ class AboutScreenViewController: UIViewController, UITableViewDelegate, UITableV
 		
 		versionLabel.text = versionstring
 		
-		
+		let longPress = UILongPressGestureRecognizer(target: self, action: #selector(pickAPIURL(_:)))
+		aboutLogo.isUserInteractionEnabled = true
+		aboutLogo.addGestureRecognizer(longPress)
 		
         // Do any additional setup after loading the view.
     }

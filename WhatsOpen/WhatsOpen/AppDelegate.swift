@@ -42,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if defaults.value(forKey: "mapsApp") == nil {
 			defaults.set("Apple Maps", forKey: "mapsApp")
 		}
+		if defaults.value(forKey: "apiURL") == nil {
+			defaults.set("https://api.srct.gmu.edu/whatsopen/v2/", forKey: "apiURL")
+		}
 		
 		application.setMinimumBackgroundFetchInterval(3600)
 		

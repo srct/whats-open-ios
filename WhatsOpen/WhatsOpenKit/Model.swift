@@ -273,7 +273,7 @@ public class WOPAlert: Object, MapContext, Mappable {
 		urgency <- map["urgency_tag"]
 		subject <- map["subject"]
 		body <- map["body"]
-		message <- map["url"]
+		url <- map["url"]
 		message <- map["message"]
 		startDate <- map["start_datetime"]
 		endDate <- map["end_datetime"]
