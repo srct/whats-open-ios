@@ -573,9 +573,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgh-hp-DYn">
-                                <rect key="frame" x="67" y="213" width="240" height="240"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="4AQ-Us-J9W">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lgh-hp-DYn">
+                                <rect key="frame" x="67.5" y="173.5" width="240" height="240"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4AQ-Us-J9W">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -586,16 +586,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4E3-3w-Ok6">
-                                                        <rect key="frame" x="60" y="39" width="120" height="120"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4E3-3w-Ok6">
+                                                        <rect key="frame" x="54" y="39" width="120" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="4E3-3w-Ok6" secondAttribute="height" multiplier="1:1" id="0VL-p9-vbu"/>
                                                             <constraint firstAttribute="height" constant="120" id="Pvz-Zl-HEY"/>
                                                             <constraint firstAttribute="width" constant="120" id="q8e-Vl-Hvr"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Added to Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K0-OX-ykH">
-                                                        <rect key="frame" x="48" y="180" width="144" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Added to Favorites" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K0-OX-ykH">
+                                                        <rect key="frame" x="28" y="181" width="184" height="51"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <nil key="textColor"/>
@@ -604,10 +604,11 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="4E3-3w-Ok6" firstAttribute="top" secondItem="Dus-NM-gD9" secondAttribute="top" constant="39" id="4RV-pU-Zqd"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7K0-OX-ykH" secondAttribute="bottom" constant="39" id="8lB-wn-qAk"/>
                                                     <constraint firstItem="4E3-3w-Ok6" firstAttribute="centerX" secondItem="Dus-NM-gD9" secondAttribute="centerX" id="Ai8-Wj-cd8"/>
                                                     <constraint firstItem="7K0-OX-ykH" firstAttribute="top" secondItem="4E3-3w-Ok6" secondAttribute="bottom" constant="21" id="BzJ-ey-c6S"/>
+                                                    <constraint firstItem="7K0-OX-ykH" firstAttribute="leading" secondItem="Dus-NM-gD9" secondAttribute="leading" constant="28" id="D4g-Gx-XEX"/>
                                                     <constraint firstItem="7K0-OX-ykH" firstAttribute="centerX" secondItem="Dus-NM-gD9" secondAttribute="centerX" id="MFb-bJ-x3a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7K0-OX-ykH" secondAttribute="trailing" constant="28" id="PuM-Xj-zAJ"/>
                                                 </constraints>
                                             </view>
                                             <vibrancyEffect>
@@ -618,6 +619,7 @@
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lgh-hp-DYn" secondAttribute="height" multiplier="1:1" id="SNx-c5-tvi"/>
+                                    <constraint firstAttribute="width" constant="240" id="dxp-B5-4SX"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
