@@ -59,7 +59,7 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 				isInfoHUDDisplayed = true
 				loadChild("Added to Favorites", image: UIImage(named: "filled_heart_big"))
 				
-				DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [weak self] in
 					self?.unloadChild()
 					self?.isInfoHUDDisplayed = false
 				}
