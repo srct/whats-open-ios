@@ -16,6 +16,9 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 	
 
 	@IBOutlet var facilityDetailView: UIView!
+    private var infoHUD: HUDViewController!
+	private var isInfoHUDDisplayed = false
+    
 	var detailViewController: WOPFacilityDetailViewController?
 	var facility: WOPFacility!
 	
@@ -37,13 +40,63 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 
 		if(WOPUtilities.isFavoriteFacility(facility)) { // if the facility is a favorite
 			_ = WOPUtilities.removeFavoriteFacility(facility) // remove it from favorites
+			
+			if !isInfoHUDDisplayed {
+				isInfoHUDDisplayed = true
+				loadChild("Removed from Favorites", image: UIImage(named: "empty_heart_big"))
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [weak self] in
+					self?.unloadChild()
+					self?.isInfoHUDDisplayed = false
+				}
+			}
+			
 		}
 		else { // else add it to favorites
 			_ = WOPUtilities.addFavoriteFacility(facility)
+			
+			if !isInfoHUDDisplayed {
+				isInfoHUDDisplayed = true
+				loadChild("Added to Favorites", image: UIImage(named: "filled_heart_big"))
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [weak self] in
+					self?.unloadChild()
+					self?.isInfoHUDDisplayed = false
+				}
+			}
+			
+            
 		}
 		setFavoriteButtonText()		
 	}
-	
+    
+	func loadChild(_ title: String, image: UIImage?) {
+		DispatchQueue.main.async {
+			self.addSubview(self.infoHUD.view, toView: (self.detailViewController?.view)!)
+			self.infoHUD.view.alpha = 0
+			self.detailViewController!.addChild(self.infoHUD)
+			self.infoHUD.didMove(toParent: self.detailViewController)
+			UIView.animate(withDuration: 0.35, animations: {
+				self.infoHUD.view.alpha = 1
+			})
+			
+			self.infoHUD.label.text = title
+			self.infoHUD.image.image = image
+		}
+    }
+    
+    func unloadChild() {
+		DispatchQueue.main.async {
+			UIView.animate(withDuration: 0.35, animations: {
+				self.infoHUD.view.alpha = 0
+			}, completion: { (completed) in
+				self.infoHUD.willMove(toParent: nil)
+				self.infoHUD.removeFromParent()
+				self.infoHUD.view.removeFromSuperview()
+			})
+		}
+    }
+    
 	func getDirections(_ sender: Any) {
 		let appToUse = WOPDatabaseController.getDefaults().value(forKey: "mapsApp") as? String
 		
@@ -129,7 +182,10 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
 		
 		let interaction = INInteraction(intent: facility.createIntent(), response: WOPViewFacilityIntentUtils.getIntentResponse(facility, userActivity: activity))
 		interaction.donate(completion: nil)
+		
+		infoHUD = storyboard?.instantiateViewController(withIdentifier: "HUD") as! HUDViewController
         // Do any additional setup after loading the view.
+        // yah yah, yah yAH
     }
 	
 	func setActivityUp() {
@@ -191,6 +247,8 @@ class DetailViewButtonsViewController: UIViewController, INUIAddVoiceShortcutVie
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
 
